@@ -1,9 +1,10 @@
 {
   "meta": {
     "owner": "LUCIFER / INVICTA",
-    "edition": "live · Wed July 8 · growth cut",
+    "edition": "live · Wed July 8 · with real posts",
     "count": 13,
-    "note": "growthLane = reply | post | skip | silent. Replies first for cold-start. Never invent post URLs — hunt.query opens live X search; paste a real status URL into rooms[] when you have one."
+    "note": "rooms[] only holds verified live posts. Ask Grok: 'update dossier' or 'reply targets today' to refresh.",
+    "updated": "2026-07-08T22:10:00Z"
   },
   "signals": [
     {
@@ -20,9 +21,32 @@
       "openXQuery": "Grok 4.5",
       "hunt": {
         "query": "(\"Grok 4.5\" OR grok-4.5) (Cursor OR coding OR agent) min_faves:15 -filter:replies lang:en",
-        "why": "skip Musk quote-piles. hunt mid-size builders already testing it — reply under their post, not the announcement.",
-        "handlesHint": ["realGeorgeHotz", "emollick", "DaveShapi", "eshear"]
-      }
+        "why": "skip Musk quote-piles. hunt mid-size builders already testing it — reply under their post, not the announcement. · live posts attached below — open the status, not a search.",
+        "handlesHint": [
+          "realGeorgeHotz",
+          "emollick",
+          "DaveShapi",
+          "eshear"
+        ]
+      },
+      "rooms": [
+        {
+          "handle": "@haider1",
+          "url": "https://x.com/haider1/status/2074969272078491820",
+          "text": "first impression of Grok 4.5: the Grok build harness is very good and responsive; extremely fast, maybe twice as fast as gpt-5.5",
+          "likes": 10,
+          "replies": 5,
+          "why": "mid-size first-use report, room still open — better than Elon pile"
+        },
+        {
+          "handle": "@TheAhmadOsman",
+          "url": "https://x.com/TheAhmadOsman/status/2074970504268558797",
+          "text": "Grok 4.5 in Grok Build is unexpectedly GOOD",
+          "likes": 42,
+          "replies": 12,
+          "why": "builder take with active replies; not celebrity scale"
+        }
+      ]
     },
     {
       "trend": "free AI running on a gaming graphics card",
@@ -38,9 +62,30 @@
       "openXQuery": "local AI Pinokio",
       "hunt": {
         "query": "(Pinokio OR \"local LLM\" OR \"runs locally\") (AI OR model) min_faves:10 -filter:replies lang:en",
-        "why": "practical builder rooms — people posting setup screenshots and workflow tips. reply under a mid-size post, not a mega thread.",
-        "handlesHint": ["realGeorgeHotz", "eshear"]
-      }
+        "why": "practical builder rooms — people posting setup screenshots and workflow tips. reply under a mid-size post, not a mega thread. · live posts attached below — open the status, not a search.",
+        "handlesHint": [
+          "realGeorgeHotz",
+          "eshear"
+        ]
+      },
+      "rooms": [
+        {
+          "handle": "@emollick",
+          "url": "https://x.com/emollick/status/2074930119173460007",
+          "text": "I often use Pinokio to download and work with local open source AI tools/models… GPT found my local models and used them as cheap alternative to paid APIs",
+          "likes": 152,
+          "replies": 18,
+          "why": "big but still replyable; local-AI angle already in play — add one sharp line"
+        },
+        {
+          "handle": "@mikenevermiss",
+          "url": "https://x.com/mikenevermiss/status/2074871003159654465",
+          "text": "how to build a 1-person AI company that runs locally, open source, agents only, email between agents",
+          "likes": 43,
+          "replies": 14,
+          "why": "mid-size agent-local build thread; room wants operational takes not hype"
+        }
+      ]
     },
     {
       "trend": "we built money for the robots before the robots",
@@ -56,9 +101,31 @@
       "openXQuery": "bitcoin AI agents",
       "hunt": {
         "query": "(bitcoin OR btc) (\"AI agent\" OR agents OR autonomous) min_faves:15 -filter:replies lang:en",
-        "why": "agent + rails conversations. look for thoughtful posts, not price-spam.",
-        "handlesHint": ["BasedBeffJezos", "leopoldasch", "eshear"]
-      }
+        "why": "agent + rails conversations. look for thoughtful posts, not price-spam. · live posts attached below — open the status, not a search.",
+        "handlesHint": [
+          "BasedBeffJezos",
+          "leopoldasch",
+          "eshear"
+        ]
+      },
+      "rooms": [
+        {
+          "handle": "@synedclover",
+          "url": "https://x.com/synedclover/status/2074962801848721881",
+          "text": "the next crypto flex won't be owning assets it'll be owning agents… if agents depend on closed APIs you're renting intelligence",
+          "likes": 14,
+          "replies": 8,
+          "why": "small room, live conversation; ownership vs rental angle is open"
+        },
+        {
+          "handle": "@PresidioPod",
+          "url": "https://x.com/PresidioPod/status/2074928074836386044",
+          "text": "Goose was early to agents, becoming open-source infrastructure for flexible user-controlled AI",
+          "likes": 12,
+          "replies": 0,
+          "why": "bitcoin×agents scene; quieter — only if you have a concrete line on open agents"
+        }
+      ]
     },
     {
       "trend": "the only people winning at growth hacks are the ones selling them",
@@ -75,7 +142,11 @@
       "hunt": {
         "query": "(\"growth hack\" OR \"growth hacks\" OR \"how I grew\") min_faves:20 -filter:replies lang:en",
         "why": "if you reply, pick someone mid-size roasting the industry — not the course-sellers themselves.",
-        "handlesHint": ["visakanv", "sashachapin", "Meaningness"]
+        "handlesHint": [
+          "visakanv",
+          "sashachapin",
+          "Meaningness"
+        ]
       }
     },
     {
@@ -93,7 +164,11 @@
       "hunt": {
         "query": "(\"fake email job\" OR \"email job\") min_faves:20 -filter:replies lang:en",
         "why": "broad meaning-crisis room. prefer personal posts over dunk accounts.",
-        "handlesHint": ["VividVoid_", "Malcolm_Ocean", "Meaningness"]
+        "handlesHint": [
+          "VividVoid_",
+          "Malcolm_Ocean",
+          "Meaningness"
+        ]
       }
     },
     {

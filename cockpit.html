@@ -157,17 +157,23 @@ function candidateText(c){
     if (replies.length){
       $("dossier-step").style.display = "block";
       $("dossier-targets").innerHTML = replies.map((s,i)=>{
+        const rooms = (s.rooms||[]).filter(r=>r && r.url);
         const q = (s.hunt && s.hunt.query) || s.openXQuery || s.trend || "";
-        const url = (s.rooms && s.rooms[0] && s.rooms[0].url)
-          ? s.rooms[0].url
-          : ("https://x.com/search?q="+encodeURIComponent(q)+"&f=live");
-        const why = (s.hunt && s.hunt.why) || "";
+        const fallback = "https://x.com/search?q="+encodeURIComponent(q)+"&f=live";
+        const roomHtml = rooms.length
+          ? rooms.map(r=>{
+              const h = String(r.handle||"").replace(/^@/,"");
+              const meta = [r.likes!=null?r.likes+" likes":"", r.replies!=null?r.replies+" replies":""].filter(Boolean).join(" · ");
+              return '<div class="t-why" style="margin-top:8px"><b style="color:var(--green);font-weight:500">@'+esc(h)+'</b>'+
+                (meta?' · '+esc(meta):'')+' — '+esc(r.text||r.why||"")+'</div>'+
+                '<a class="btn big" target="_blank" rel="noopener" href="'+esc(r.url)+'">open @'+esc(h)+' →</a>';
+            }).join("")
+          : '<a class="btn big" target="_blank" rel="noopener" href="'+esc(fallback)+'">open hunt →</a>';
         return '<div class="target">'+
           '<div class="t-title">'+esc(s.trend)+'</div>'+
           '<div class="t-take">'+esc(s.replyTake)+'</div>'+
-          (why ? '<div class="t-why">'+esc(why)+'</div>' : '')+
           '<button class="btn" data-dcopy="'+i+'">copy reply</button>'+
-          '<a class="btn big" target="_blank" rel="noopener" href="'+esc(url)+'">open room →</a>'+
+          roomHtml+
         '</div>';
       }).join("");
       $("dossier-targets").querySelectorAll("[data-dcopy]").forEach(btn=>{
