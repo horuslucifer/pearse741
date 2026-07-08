@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>TODAY — LUCIFER · INVICTA</title>
+<style>
+  :root{
+    --bg:#0b0b0d; --panel:#141417; --line:#26262b; --txt:#e8e6e1;
+    --dim:#8a8894; --red:#b3202a; --gold:#c9a86a; --green:#3f9d6b;
+  }
+  *{box-sizing:border-box; margin:0; padding:0;}
+  body{background:var(--bg); color:var(--txt);
+       font-family:"SF Mono",ui-monospace,Menlo,monospace;
+       max-width:680px; margin:0 auto; padding:28px 18px 60px;}
+  h1{font-size:15px; letter-spacing:.35em; font-weight:700;}
+  h1 span{color:var(--red);}
+  .sub{color:var(--dim); font-size:11px; margin-top:6px; line-height:1.6;}
+  .step{background:var(--panel); border:1px solid var(--line); border-radius:10px;
+        padding:18px; margin-top:18px;}
+  .step h2{font-size:12px; letter-spacing:.12em; margin-bottom:6px;}
+  .step h2 b{color:var(--gold); margin-right:8px;}
+  .step p{color:var(--dim); font-size:11.5px; line-height:1.7; margin-bottom:12px;}
+  .btn{display:inline-block; background:#1d1d22; border:1px solid #34343b;
+       color:var(--txt); text-decoration:none; font-size:12px; padding:10px 14px;
+       border-radius:8px; margin:0 8px 8px 0; cursor:pointer; font-family:inherit;}
+  .btn:hover{border-color:var(--gold); color:var(--gold);}
+  .btn.big{font-size:13px; padding:12px 18px; border-color:var(--red);}
+  .btn.big:hover{color:#fff; background:var(--red);}
+  .note-box{background:#101013; border:1px dashed #34343b; border-radius:8px;
+            padding:14px; font-size:12.5px; line-height:1.7; margin-bottom:12px;
+            white-space:pre-wrap;}
+  .say{color:var(--gold);}
+  .score{display:flex; gap:10px; flex-wrap:wrap; margin-top:10px;}
+  .pill{border:1px solid var(--line); border-radius:999px; padding:6px 12px;
+        font-size:11px; color:var(--dim);}
+  .pill b{color:var(--txt);}
+  .pill.done{border-color:var(--green); color:var(--green);}
+  .pill.done b{color:var(--green);}
+  .foot{margin-top:26px; color:var(--dim); font-size:10.5px; line-height:1.8;}
+  .foot a{color:var(--dim);}
+  #toast{position:fixed; bottom:18px; left:50%; transform:translateX(-50%);
+         background:var(--gold); color:#111; padding:8px 16px; border-radius:8px;
+         font-size:12px; display:none;}
+</style>
+</head>
+<body>
+  <h1>TODAY <span>·</span> LUCIFER / INVICTA</h1>
+  <div class="sub" id="date-line">the whole day is three steps. twenty minutes.</div>
+
+  <div class="step">
+    <h2><b>1</b> GO LOOK — click one, scroll until a post makes you think</h2>
+    <p>These open X in your own logged-in session. You are hunting for ONE or TWO
+       posts where you have something real to say. That's the entire job.</p>
+    <a class="btn big" id="bigrooms-link" target="_blank" rel="noopener">big rooms right now →</a>
+    <a class="btn" id="watchlist-link" target="_blank" rel="noopener">your people, latest posts →</a>
+    <a class="btn" id="topic-link" target="_blank" rel="noopener">today's topic sweep →</a>
+    <p style="margin-top:10px;font-size:11px">big rooms = the amplifier accounts (50k–1M).
+       Reply EARLY (first ~30 min) and sharp, or skip. Your people = mid-size, where
+       replies build relationships. Aim ~2 big, ~3 mid per week.</p>
+  </div>
+
+  <div class="step">
+    <h2><b>2</b> FOUND ONE? — hand it to Claude</h2>
+    <p>Copy the post's link (share icon → copy link), paste it into Claude Code and say
+       <span class="say">"draft replies to this."</span> You'll get three options in your
+       voice. Post your favorite by hand, then tell Claude
+       <span class="say">"shipped"</span> so it gets logged.</p>
+  </div>
+
+  <div class="step" id="drafts-step" style="display:none">
+    <h2><b>★</b> DRAFTS WAITING — Claude wrote these; pick one, copy, post</h2>
+    <p id="drafts-target"></p>
+    <div id="drafts-list"></div>
+  </div>
+
+  <div class="step">
+    <h2><b>3</b> POST TODAY'S NOTE — copy, paste into Substack, done</h2>
+    <p id="note-status">next note from your queue:</p>
+    <div class="note-box" id="note-body">loading…</div>
+    <button class="btn" id="copy-note">copy the note</button>
+    <a class="btn" href="https://substack.com/notes" target="_blank" rel="noopener">open Substack Notes →</a>
+  </div>
+
+  <div class="step">
+    <h2>THIS WEEK</h2>
+    <div class="score" id="score">loading…</div>
+    <p style="margin-top:10px">Goal: 5 real replies + 3 notes a week gets you to 100
+       followers around late September. That's the whole plan.</p>
+  </div>
+
+  <div class="foot">
+    stuck? just tell Claude <span class="say">"daily"</span> and it hands you everything
+    from this page in chat. · engine room:
+    <a href="dashboard.html">dashboard.html</a>
+  </div>
+
+  <div id="toast">copied</div>
+
+<script>
+const $ = id => document.getElementById(id);
+function toast(msg){ const t=$("toast"); t.textContent=msg; t.style.display="block";
+  setTimeout(()=>t.style.display="none", 1600); }
+
+/* Monday of the current week, local time */
+function weekStart(){
+  const d = new Date(); const day = (d.getDay()+6)%7;
+  d.setDate(d.getDate()-day); d.setHours(0,0,0,0); return d;
+}
+function inThisWeek(iso){
+  if(!iso) return false;
+  const d = new Date(String(iso).includes("T") ? iso : iso + "T12:00:00");
+  return d >= weekStart();
+}
+function esc(s){
+  return String(s || "").replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;").replace(/"/g,"&quot;");
+}
+function candidateText(c){
+  return typeof c === "string" ? c : (c && c.text) || "";
+}
+
+(async function init(){
+  const now = new Date();
+  $("date-line").textContent = now.toLocaleDateString("en-US",
+    {weekday:"long", month:"long", day:"numeric"}).toLowerCase()
+    + " · the whole day is three steps. twenty minutes.";
+
+  let cal=null, rep=null, pat=null, scn=null;
+  try{ cal = await (await fetch("calendar.json", {cache:"no-store"})).json(); }catch(e){}
+  try{ rep = await (await fetch("replies.json",  {cache:"no-store"})).json(); }catch(e){}
+  try{ pat = await (await fetch("patrol.json",   {cache:"no-store"})).json(); }catch(e){}
+  try{ scn = await (await fetch("scene.json",    {cache:"no-store"})).json(); }catch(e){}
+
+  const dayIdx = now.getDay();
+  const fromSearch = hs => "https://x.com/search?q=" +
+    encodeURIComponent("(" + hs.map(h=>"from:"+h.replace(/^@/,"")).join(" OR ") + ")") + "&f=live";
+
+  /* BIG ROOMS: amplifier-tier accounts (tier:"amplifier" in scene.json), freshest first.
+     Rotate a ~12-handle slice by day so the link stays short and varies. */
+  let amps = scn ? (scn.accounts||[]).filter(a => a.tier==="amplifier").map(a => a.handle) : [];
+  if (amps.length){
+    const start = (dayIdx * 6) % amps.length;
+    const slice = []; for (let i=0;i<12 && i<amps.length;i++) slice.push(amps[(start+i)%amps.length]);
+    $("bigrooms-link").href = fromSearch(slice);
+  } else {
+    $("bigrooms-link").href = fromSearch(["tszzl","Plinz","BasedBeffJezos","RobertGreene","Grimezsz","PageauJonathan"]);
+  }
+
+  /* YOUR PEOPLE: mid-size watchHandles spread across scenes, freshest first */
+  let handles = [];
+  if (pat) for (const s of (pat.scenes||[]))
+    for (const h of (s.watchHandles||[]))
+      if (handles.length < 12 && !handles.includes(h) && !amps.map(a=>a.toLowerCase().replace(/^@/,"")).includes(h.toLowerCase()))
+        handles.push(h);
+  if (!handles.length) handles = ["repligate","deepfates","mythsbaby","weirdstudies","VividVoid_"];
+  $("watchlist-link").href = fromSearch(handles);
+
+  const lanes = (pat && pat.scenes && pat.scenes.length) ? pat.scenes : null;
+  if (lanes){
+    const lane = lanes[ now.getDay() % lanes.length ];
+    const terms = (lane.keywords||[]).concat((lane.phrases||[]).map(p=>'"'+p+'"')).slice(0,4);
+    const q = "(" + terms.join(" OR ") + ") min_faves:" + (lane.favFloor||20) + " lang:en";
+    $("topic-link").href = "https://x.com/search?q=" + encodeURIComponent(q) + "&f=live";
+    $("topic-link").textContent = "today's sweep: " + lane.scene + " →";
+  } else {
+    $("topic-link").style.display = "none";
+  }
+
+  /* step 3: next queued substack note */
+  let note = null;
+  if (cal) note = (cal.queue||[])
+    .filter(i => i.platform==="substack" && i.type==="note" &&
+                 (i.status==="draft" || i.status==="approved"))
+    .sort((a,b) => (a.scheduledFor||"").localeCompare(b.scheduledFor||""))[0] || null;
+  if (note){
+    $("note-body").textContent = note.body;
+    $("copy-note").onclick = async () => {
+      try{ await navigator.clipboard.writeText(note.body); toast("copied — paste it into Substack Notes"); }
+      catch(e){ toast("select the text and copy it by hand"); }
+    };
+  } else {
+    $("note-body").textContent = "queue is empty — tell Claude \"gimme a note\" and it drafts one.";
+    $("copy-note").style.display = "none";
+  }
+
+  /* drafts waiting to ship (latest target with candidates needing approval) */
+  const drafted = rep ? (rep.replies||[]).filter(r => r.status==="needs-approval" || r.status==="drafted") : [];
+  if (drafted.length){
+    const t = drafted[drafted.length-1];
+    const handle = t.targetHandle || t.handle || "";
+    const url = t.targetUrl || t.url || "";
+    $("drafts-step").style.display = "block";
+    $("drafts-target").innerHTML = 'replying to <b>' + esc(handle) + '</b> — ' +
+      '<a href="' + esc(url) + '" target="_blank" rel="noopener" style="color:var(--gold)">open the post →</a>' +
+      ' then copy a candidate, paste it in the reply box, post, and tell Claude "shipped."';
+    $("drafts-list").innerHTML = (t.candidates||[]).map((c,i) =>
+      '<div class="note-box">' + esc(candidateText(c)) + '</div>' +
+      '<button class="btn" data-copy="' + i + '">copy option ' + (i+1) + '</button>'
+    ).join("");
+    $("drafts-list").querySelectorAll("[data-copy]").forEach(btn => {
+      btn.onclick = async () => {
+        const c = candidateText((t.candidates||[])[+btn.dataset.copy]);
+        try{ await navigator.clipboard.writeText(c); toast("copied — paste it into the reply box"); }
+        catch(e){ toast("select the text and copy by hand"); }
+      };
+    });
+  }
+
+  /* week scorecard */
+  const replies = rep ? (rep.replies||[]).filter(r => r.status==="posted" &&
+    inThisWeek(r.postedAt || r.targetCapturedAt || r.capturedAt)).length : 0;
+  const notes = cal ? (cal.queue||[]).filter(i => i.platform==="substack" &&
+    i.type==="note" && i.status==="posted" && inThisWeek(i.postedAt)).length : 0;
+  const threads = cal ? (cal.queue||[]).filter(i => i.type==="thread" &&
+    i.status==="posted" && inThisWeek(i.postedAt)).length : 0;
+  const pills = [
+    ["replies", replies, 5],
+    ["notes", notes, 3],
+    ["threads", threads, 1],
+  ].map(([name,have,want]) =>
+    `<span class="pill ${have>=want?"done":""}"><b>${have}</b>/${want} ${name}</span>`);
+  $("score").innerHTML = pills.join("");
+})();
+</script>
+</body>
+</html>
