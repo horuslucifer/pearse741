@@ -161,25 +161,39 @@ function candidateText(c){
         const q = (s.hunt && s.hunt.query) || s.openXQuery || s.trend || "";
         const fallback = "https://x.com/search?q="+encodeURIComponent(q)+"&f=live";
         const roomHtml = rooms.length
-          ? rooms.map(r=>{
+          ? rooms.map((r,ri)=>{
               const h = String(r.handle||"").replace(/^@/,"");
               const meta = [r.likes!=null?r.likes+" likes":"", r.replies!=null?r.replies+" replies":""].filter(Boolean).join(" · ");
-              return '<div class="t-why" style="margin-top:8px"><b style="color:var(--green);font-weight:500">@'+esc(h)+'</b>'+
-                (meta?' · '+esc(meta):'')+' — '+esc(r.text||r.why||"")+'</div>'+
+              const line = r.replyTake || s.replyTake || "";
+              return '<div class="t-why" style="margin-top:10px"><b style="color:var(--green);font-weight:500">@'+esc(h)+'</b>'+
+                (meta?' · '+esc(meta):'')+'</div>'+
+                (r.text ? '<div class="t-why">'+esc(r.text)+'</div>' : '')+
+                (line ? '<div class="t-take" style="margin-top:6px">'+esc(line)+'</div>' : '')+
+                (line ? '<button class="btn" data-rcopy="'+i+'-'+ri+'">copy grok take</button>' : '')+
                 '<a class="btn big" target="_blank" rel="noopener" href="'+esc(r.url)+'">open @'+esc(h)+' →</a>';
             }).join("")
-          : '<a class="btn big" target="_blank" rel="noopener" href="'+esc(fallback)+'">open hunt →</a>';
+          : '<div class="t-take">'+esc(s.replyTake||"")+'</div>'+
+            '<button class="btn" data-dcopy="'+i+'">copy grok take</button>'+
+            '<a class="btn big" target="_blank" rel="noopener" href="'+esc(fallback)+'">open hunt →</a>';
         return '<div class="target">'+
           '<div class="t-title">'+esc(s.trend)+'</div>'+
-          '<div class="t-take">'+esc(s.replyTake)+'</div>'+
-          '<button class="btn" data-dcopy="'+i+'">copy reply</button>'+
           roomHtml+
         '</div>';
       }).join("");
       $("dossier-targets").querySelectorAll("[data-dcopy]").forEach(btn=>{
         btn.onclick = async () => {
           const s = replies[+btn.dataset.dcopy];
-          try{ await navigator.clipboard.writeText(s.replyTake); toast("reply copied — paste under a mid-size post"); }
+          try{ await navigator.clipboard.writeText(s.replyTake||""); toast("grok take copied — paste under a mid-size post"); }
+          catch(e){ toast("select the text and copy by hand"); }
+        };
+      });
+      $("dossier-targets").querySelectorAll("[data-rcopy]").forEach(btn=>{
+        btn.onclick = async () => {
+          const [si, ri] = btn.dataset.rcopy.split("-").map(Number);
+          const s = replies[si];
+          const r = (s.rooms||[])[ri] || {};
+          const line = r.replyTake || s.replyTake || "";
+          try{ await navigator.clipboard.writeText(line); toast("grok take copied — open the post and paste"); }
           catch(e){ toast("select the text and copy by hand"); }
         };
       });
