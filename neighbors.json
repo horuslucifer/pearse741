@@ -1,0 +1,287 @@
+{
+  "meta": {
+    "owner": "LUCIFER / INVICTA",
+    "updated": "2026-07-03",
+    "note": "Substack neighbor-watch. watch.py polls each publication's FREE public RSS /feed (and an optional Open RSS notes feed) and appends 'just published / restacked' opportunities here — so you know the minute a neighbor posts and can restack/comment/reply while it's hot. $0, no API, public RSS only. Curate watch[] with real publications and VERIFY each feed URL (most are https://<name>.substack.com/feed, but custom-domain pubs differ). seen[] is the de-dupe cache; opportunities[] is what the dashboard SCENE tab shows. All feeds below curl-verified live 2026-07-03. Entries marked HUB are big accounts: pitch/restack targets, not recommendation-swap peers."
+  },
+  "watch": [
+    {
+      "name": "Cyber Hermetica",
+      "feed": "https://thecyberhermetica.substack.com/feed",
+      "scene": "practitioner-occult",
+      "notes": ""
+    },
+    {
+      "name": "The Vault — 2nd Cycle (Mat Hadfield)",
+      "feed": "https://thevaultsecondcycle.substack.com/feed",
+      "scene": "practitioner-occult",
+      "notes": ""
+    },
+    {
+      "name": "Frater Acher",
+      "feed": "https://frateracher.substack.com/feed",
+      "scene": "practitioner-occult",
+      "notes": ""
+    },
+    {
+      "name": "Adventures In Woo Woo (Tommie Kelly)",
+      "feed": "https://tommiekelly.substack.com/feed",
+      "scene": "practitioner-occult",
+      "notes": ""
+    },
+    {
+      "name": "Da'at Darling",
+      "feed": "https://daatdarling.substack.com/feed",
+      "scene": "practitioner-occult",
+      "notes": ""
+    },
+    {
+      "name": "Magick Without Tears (Marco Visconti)",
+      "feed": "https://marcovisconti.substack.com/feed",
+      "scene": "practitioner-occult",
+      "notes": ""
+    },
+    {
+      "name": "Magical Experiments (Taylor Ellwood)",
+      "feed": "https://magicalexperiments.substack.com/feed",
+      "scene": "practitioner-occult",
+      "notes": ""
+    },
+    {
+      "name": "School of Mystery & Magick (Alan Jones)",
+      "feed": "https://tsmm.substack.com/feed",
+      "scene": "practitioner-occult",
+      "notes": ""
+    },
+    {
+      "name": "Integral Thelema / Mere Thelema",
+      "feed": "https://integralthelema.substack.com/feed",
+      "scene": "practitioner-occult",
+      "notes": ""
+    },
+    {
+      "name": "Pseudo Agrippa",
+      "feed": "https://pseudoagrippa.substack.com/feed",
+      "scene": "practitioner-occult",
+      "notes": ""
+    },
+    {
+      "name": "salus Of The wake (Matt Vaughn)",
+      "feed": "https://salusofthewake.substack.com/feed",
+      "scene": "practitioner-occult",
+      "notes": ""
+    },
+    {
+      "name": "The Hermetic Correspondent (Gary P Caton)",
+      "feed": "https://hermeticastrology.substack.com/feed",
+      "scene": "practitioner-occult",
+      "notes": ""
+    },
+    {
+      "name": "The Adder in the Churchyard Wall (Peter Grey)",
+      "feed": "https://petergreywrites.substack.com/feed",
+      "scene": "practitioner-occult",
+      "notes": ""
+    },
+    {
+      "name": "Architechtonics (Vincent Lê)",
+      "feed": "https://vincentl3.substack.com/feed",
+      "scene": "ccru-theory-fiction",
+      "notes": ""
+    },
+    {
+      "name": "International Theory-Fiction Consortium (Ansgar Allen)",
+      "feed": "https://theoryfictionconsortium.substack.com/feed",
+      "scene": "ccru-theory-fiction",
+      "notes": ""
+    },
+    {
+      "name": "Beyond the Rabbit Hole",
+      "feed": "https://beyondtherabbithole.substack.com/feed",
+      "scene": "ccru-theory-fiction",
+      "notes": ""
+    },
+    {
+      "name": "Outer Heaven (SEELE)",
+      "feed": "https://cityofplay.substack.com/feed",
+      "scene": "ccru-theory-fiction",
+      "notes": ""
+    },
+    {
+      "name": "Phoebus_Glykon",
+      "feed": "https://phoebusglykon.substack.com/feed",
+      "scene": "ccru-theory-fiction",
+      "notes": ""
+    },
+    {
+      "name": "Corpstext (M Kitchell)",
+      "feed": "https://corpstext.substack.com/feed",
+      "scene": "ccru-theory-fiction",
+      "notes": ""
+    },
+    {
+      "name": "Hey, Slick! (Léon de Sailly)",
+      "feed": "https://heyslick.substack.com/feed",
+      "scene": "ccru-theory-fiction",
+      "notes": ""
+    },
+    {
+      "name": "The Neo-Feudal Review",
+      "feed": "https://neofeudalreview.substack.com/feed",
+      "scene": "ccru-theory-fiction",
+      "notes": ""
+    },
+    {
+      "name": "Mastery of Mystery (Ioannis Goldmouth)",
+      "feed": "https://ioannisgoldmouth.substack.com/feed",
+      "scene": "network-spirituality",
+      "notes": ""
+    },
+    {
+      "name": "APOKALYPSIUM (Gryphon)",
+      "feed": "https://galahaderidanus.substack.com/feed",
+      "scene": "network-spirituality",
+      "notes": ""
+    },
+    {
+      "name": "Internet Anthropology",
+      "feed": "https://internetanthropology.substack.com/feed",
+      "scene": "network-spirituality",
+      "notes": ""
+    },
+    {
+      "name": "BLOG by LAN Party",
+      "feed": "https://lanpartycuratorial.substack.com/feed",
+      "scene": "network-spirituality",
+      "notes": ""
+    },
+    {
+      "name": "Do Not Research",
+      "feed": "https://donotresearch.substack.com/feed",
+      "scene": "network-spirituality",
+      "notes": ""
+    },
+    {
+      "name": "Secretorum (Roger's Bacon)",
+      "feed": "https://www.secretorum.life/feed",
+      "scene": "tpot-postrat",
+      "notes": ""
+    },
+    {
+      "name": "Meaningness (David Chapman)",
+      "feed": "https://meaningness.substack.com/feed",
+      "scene": "tpot-postrat",
+      "notes": ""
+    },
+    {
+      "name": "Joe Carlsmith's Substack (Joe Carlsmith)",
+      "feed": "https://joecarlsmith.substack.com/feed",
+      "scene": "ai-eschatology",
+      "notes": ""
+    },
+    {
+      "name": "Kainos (Alexander Beiner)",
+      "feed": "https://beiner.substack.com/feed",
+      "scene": "ai-eschatology",
+      "notes": ""
+    },
+    {
+      "name": "The Convivial Society (L. M. Sacasas)",
+      "feed": "https://theconvivialsociety.substack.com/feed",
+      "scene": "ai-eschatology",
+      "notes": ""
+    },
+    {
+      "name": "Brendan Graham Dempsey",
+      "feed": "https://brendangrahamdempsey.substack.com/feed",
+      "scene": "meaning-bigideas",
+      "notes": ""
+    },
+    {
+      "name": "The Intrinsic Perspective (Erik Hoel)",
+      "feed": "https://www.theintrinsicperspective.com/feed",
+      "scene": "meaning-bigideas",
+      "notes": ""
+    },
+    {
+      "name": "Burning Shore (Erik Davis)",
+      "feed": "https://www.burningshore.com/feed",
+      "scene": "myth-religion",
+      "notes": ""
+    },
+    {
+      "name": "Vectors of Mind (Andrew Cutler)",
+      "feed": "https://www.vectorsofmind.com/feed",
+      "scene": "myth-religion",
+      "notes": ""
+    },
+    {
+      "name": "The Abbey of Misrule (Paul Kingsnorth)",
+      "feed": "https://paulkingsnorth.substack.com/feed",
+      "scene": "myth-religion",
+      "notes": ""
+    },
+    {
+      "name": "The Hinternet (Justin E. H. Smith)",
+      "feed": "https://www.the-hinternet.com/feed",
+      "scene": "culture-art",
+      "notes": ""
+    },
+    {
+      "name": "Cosmographia (M. E. Rothwell)",
+      "feed": "https://cosmographia.substack.com/feed",
+      "scene": "myth-religion",
+      "notes": ""
+    },
+    {
+      "name": "The Lost Word (Tara Isabella Burton)",
+      "feed": "https://thelostword.substack.com/feed",
+      "scene": "myth-religion",
+      "notes": ""
+    },
+    {
+      "name": "Numb at the Lodge (Sam Kriss)",
+      "feed": "https://samkriss.substack.com/feed",
+      "scene": "culture-art",
+      "notes": ""
+    },
+    {
+      "name": "The Honest Broker (Ted Gioia)",
+      "feed": "https://www.honest-broker.com/feed",
+      "scene": "culture-art",
+      "notes": ""
+    },
+    {
+      "name": "Mythology: Gods and Monsters",
+      "feed": "https://godsandmonstersinfo.substack.com/feed",
+      "scene": "myth-religion",
+      "notes": ""
+    },
+    {
+      "name": "From The Forests of Arduinna (Rhyd Wildermuth)",
+      "feed": "https://rhyd.substack.com/feed",
+      "scene": "myth-religion",
+      "notes": ""
+    },
+    {
+      "name": "Discovering Early Christianity (Rob Norton)",
+      "feed": "https://robnorton.substack.com/feed",
+      "scene": "myth-religion",
+      "notes": ""
+    },
+    {
+      "name": "Incidental Mythology (Vivian Asimos)",
+      "feed": "https://incidentalmythology.substack.com/feed",
+      "scene": "culture-art",
+      "notes": ""
+    },
+    {
+      "name": "Thyrathen: The Lost Bibliotheke (Dr. Sasha Chaitow)",
+      "feed": "https://thyrathen.substack.com/feed",
+      "scene": "myth-religion",
+      "notes": ""
+    }
+  ],
+  "seen": [],
+  "opportunities": []
+}

@@ -1,0 +1,1333 @@
+{
+  "meta": {
+    "owner": "LUCIFER / INVICTA",
+    "updated": "2026-07-06",
+    "note": "Public tool copy. Strategy notes kept private."
+  },
+  "scenes": [
+    "ccru-theory-fiction",
+    "tpot-postrat",
+    "network-spirituality",
+    "practitioner-occult",
+    "ai-eschatology",
+    "myth-religion",
+    "meaning-bigideas",
+    "culture-art"
+  ],
+  "accounts": [
+    {
+      "id": "tpot-vividvoid",
+      "handle": "@VividVoid_",
+      "scene": "tpot-postrat",
+      "size": "mid",
+      "tier": null,
+      "anglesThatWork": [
+        "tools-as-proof",
+        "practice-talk"
+      ],
+      "priority": 1
+    },
+    {
+      "id": "tpot-deepfates",
+      "handle": "@deepfates",
+      "scene": "tpot-postrat",
+      "size": "mid",
+      "tier": null,
+      "anglesThatWork": [
+        "tools-as-proof",
+        "theory-fiction"
+      ],
+      "priority": 1
+    },
+    {
+      "id": "tpot-wilderless",
+      "handle": "@the_wilderless",
+      "scene": "tpot-postrat",
+      "size": "mid",
+      "tier": null,
+      "anglesThatWork": [
+        "practice-talk",
+        "tools-as-proof"
+      ],
+      "priority": 1
+    },
+    {
+      "id": "tpot-goblinodds",
+      "handle": "@goblinodds",
+      "scene": "tpot-postrat",
+      "size": "mid",
+      "tier": null,
+      "anglesThatWork": [
+        "practice-talk",
+        "citation"
+      ],
+      "priority": 1
+    },
+    {
+      "id": "tpot-exgenesis",
+      "handle": "@exgenesis",
+      "scene": "tpot-postrat",
+      "size": "mid",
+      "tier": null,
+      "anglesThatWork": [
+        "citation",
+        "scene-meta"
+      ],
+      "priority": 2
+    },
+    {
+      "id": "tpot-malcolmocean",
+      "handle": "@Malcolm_Ocean",
+      "scene": "tpot-postrat",
+      "size": "mid",
+      "tier": null,
+      "anglesThatWork": [
+        "tools-as-proof"
+      ],
+      "priority": 2
+    },
+    {
+      "id": "tpot-tasshin",
+      "handle": "@tasshinfogleman",
+      "scene": "tpot-postrat",
+      "size": "mid",
+      "tier": null,
+      "anglesThatWork": [
+        "practice-talk"
+      ],
+      "priority": 2
+    },
+    {
+      "id": "tpot-crystalduan",
+      "handle": "@crystalxduan",
+      "scene": "tpot-postrat",
+      "size": "mid",
+      "tier": null,
+      "anglesThatWork": [
+        "citation",
+        "explainer-talk"
+      ],
+      "priority": 2
+    },
+    {
+      "id": "tpot-sashachapin",
+      "handle": "@sashachapin",
+      "scene": "tpot-postrat",
+      "size": "mid",
+      "tier": null,
+      "anglesThatWork": [
+        "practice-talk"
+      ],
+      "priority": 3
+    },
+    {
+      "id": "tpot-meaningness",
+      "handle": "@Meaningness",
+      "scene": "tpot-postrat",
+      "size": "large",
+      "tier": null,
+      "anglesThatWork": [
+        "citation"
+      ],
+      "priority": 3
+    },
+    {
+      "id": "tpot-visakanv",
+      "handle": "@visakanv",
+      "scene": "tpot-postrat",
+      "size": "large",
+      "tier": null,
+      "anglesThatWork": [
+        "tools-as-proof"
+      ],
+      "priority": 3
+    },
+    {
+      "id": "tpot-eigenrobot",
+      "handle": "@eigenrobot",
+      "scene": "tpot-postrat",
+      "size": "large",
+      "tier": null,
+      "anglesThatWork": [
+        "citation"
+      ],
+      "priority": 3
+    },
+    {
+      "id": "example-cyber-hermetica",
+      "handle": "@thecyberhermetica",
+      "scene": "practitioner-occult",
+      "size": "mid",
+      "tier": null,
+      "anglesThatWork": [
+        "citation",
+        "tools-as-proof"
+      ],
+      "priority": 1
+    },
+    {
+      "id": "ccru-matt_mjlc",
+      "handle": "@matt_mjlc",
+      "scene": "ccru-theory-fiction",
+      "size": "mid",
+      "tier": null,
+      "anglesThatWork": [
+        "citation",
+        "theory-fiction"
+      ],
+      "priority": 1
+    },
+    {
+      "id": "ccru-qdnoktsqfr",
+      "handle": "@qdnoktsqfr",
+      "scene": "ccru-theory-fiction",
+      "size": "mid",
+      "tier": null,
+      "anglesThatWork": [
+        "citation",
+        "theory-fiction"
+      ],
+      "priority": 2
+    },
+    {
+      "id": "ccru-hermitixpodcast",
+      "handle": "@Hermitixpodcast",
+      "scene": "ccru-theory-fiction",
+      "size": "mid",
+      "tier": null,
+      "anglesThatWork": [
+        "citation",
+        "theory-fiction"
+      ],
+      "priority": 2
+    },
+    {
+      "id": "ccru-meta_nomad",
+      "handle": "@meta_nomad",
+      "scene": "ccru-theory-fiction",
+      "size": "mid",
+      "tier": null,
+      "anglesThatWork": [
+        "citation",
+        "theory-fiction"
+      ],
+      "priority": 2
+    },
+    {
+      "id": "ccru-0x49fa98",
+      "handle": "@0x49fa98",
+      "scene": "ccru-theory-fiction",
+      "size": "mid",
+      "tier": null,
+      "anglesThatWork": [
+        "citation",
+        "theory-fiction"
+      ],
+      "priority": 2
+    },
+    {
+      "id": "ccru-jmrphy",
+      "handle": "@jmrphy",
+      "scene": "ccru-theory-fiction",
+      "size": "mid",
+      "tier": null,
+      "anglesThatWork": [
+        "citation",
+        "theory-fiction"
+      ],
+      "priority": 2
+    },
+    {
+      "id": "ccru-lapsuslima",
+      "handle": "@lapsuslima",
+      "scene": "ccru-theory-fiction",
+      "size": "mid",
+      "tier": null,
+      "anglesThatWork": [
+        "citation",
+        "theory-fiction"
+      ],
+      "priority": 2
+    },
+    {
+      "id": "ccru-nemocentric",
+      "handle": "@nemocentric",
+      "scene": "ccru-theory-fiction",
+      "size": "mid",
+      "tier": null,
+      "anglesThatWork": [
+        "citation",
+        "theory-fiction"
+      ],
+      "priority": 2
+    },
+    {
+      "id": "ccru-urbanomicdotcom",
+      "handle": "@urbanomicdotcom",
+      "scene": "ccru-theory-fiction",
+      "size": "large",
+      "tier": null,
+      "anglesThatWork": [
+        "citation",
+        "theory-fiction"
+      ],
+      "priority": 3
+    },
+    {
+      "id": "ccru-repeaterbooks",
+      "handle": "@RepeaterBooks",
+      "scene": "ccru-theory-fiction",
+      "size": "large",
+      "tier": null,
+      "anglesThatWork": [
+        "citation",
+        "theory-fiction"
+      ],
+      "priority": 3
+    },
+    {
+      "id": "ccru-acidhorizonpod",
+      "handle": "@acidhorizonpod",
+      "scene": "ccru-theory-fiction",
+      "size": "mid",
+      "tier": null,
+      "anglesThatWork": [
+        "citation",
+        "theory-fiction"
+      ],
+      "priority": 2
+    },
+    {
+      "id": "tpot-suspendedreason",
+      "handle": "@suspendedreason",
+      "scene": "tpot-postrat",
+      "size": "mid",
+      "tier": null,
+      "anglesThatWork": [
+        "practice-talk",
+        "tools-as-proof"
+      ],
+      "priority": 2
+    },
+    {
+      "id": "tpot-defenderofbasic",
+      "handle": "@DefenderOfBasic",
+      "scene": "tpot-postrat",
+      "size": "mid",
+      "tier": null,
+      "anglesThatWork": [
+        "practice-talk",
+        "tools-as-proof"
+      ],
+      "priority": 2
+    },
+    {
+      "id": "tpot-kasratweets",
+      "handle": "@kasratweets",
+      "scene": "tpot-postrat",
+      "size": "mid",
+      "tier": null,
+      "anglesThatWork": [
+        "practice-talk",
+        "tools-as-proof"
+      ],
+      "priority": 2
+    },
+    {
+      "id": "tpot-nosilverv",
+      "handle": "@nosilverv",
+      "scene": "tpot-postrat",
+      "size": "mid",
+      "tier": null,
+      "anglesThatWork": [
+        "practice-talk",
+        "tools-as-proof"
+      ],
+      "priority": 2
+    },
+    {
+      "id": "tpot-romeostevens76",
+      "handle": "@RomeoStevens76",
+      "scene": "tpot-postrat",
+      "size": "mid",
+      "tier": null,
+      "anglesThatWork": [
+        "practice-talk",
+        "tools-as-proof"
+      ],
+      "priority": 2
+    },
+    {
+      "id": "netspir-default_friend",
+      "handle": "@default_friend",
+      "scene": "network-spirituality",
+      "size": "mid",
+      "tier": null,
+      "anglesThatWork": [
+        "citation",
+        "scene-meta"
+      ],
+      "priority": 1
+    },
+    {
+      "id": "netspir-erik_davis",
+      "handle": "@erik_davis",
+      "scene": "network-spirituality",
+      "size": "large",
+      "tier": "amplifier",
+      "anglesThatWork": [
+        "citation",
+        "scene-meta"
+      ],
+      "priority": 3
+    },
+    {
+      "id": "netspir-newmodels_io",
+      "handle": "@newmodels_io",
+      "scene": "network-spirituality",
+      "size": "mid",
+      "tier": null,
+      "anglesThatWork": [
+        "citation",
+        "scene-meta"
+      ],
+      "priority": 2
+    },
+    {
+      "id": "netspir-lilinternet",
+      "handle": "@lilinternet",
+      "scene": "network-spirituality",
+      "size": "mid",
+      "tier": null,
+      "anglesThatWork": [
+        "citation",
+        "scene-meta"
+      ],
+      "priority": 2
+    },
+    {
+      "id": "netspir-cbcb2000",
+      "handle": "@cbcb2000",
+      "scene": "network-spirituality",
+      "size": "mid",
+      "tier": null,
+      "anglesThatWork": [
+        "citation",
+        "scene-meta"
+      ],
+      "priority": 2
+    },
+    {
+      "id": "netspir-aaronzlewis",
+      "handle": "@aaronzlewis",
+      "scene": "network-spirituality",
+      "size": "mid",
+      "tier": null,
+      "anglesThatWork": [
+        "citation",
+        "scene-meta"
+      ],
+      "priority": 2
+    },
+    {
+      "id": "netspir-tobyshorin",
+      "handle": "@tobyshorin",
+      "scene": "network-spirituality",
+      "size": "mid",
+      "tier": null,
+      "anglesThatWork": [
+        "citation",
+        "scene-meta"
+      ],
+      "priority": 2
+    },
+    {
+      "id": "netspir-bognamk",
+      "handle": "@bognamk",
+      "scene": "network-spirituality",
+      "size": "mid",
+      "tier": null,
+      "anglesThatWork": [
+        "citation",
+        "scene-meta"
+      ],
+      "priority": 1
+    },
+    {
+      "id": "netspir-being_on_line",
+      "handle": "@being_on_line",
+      "scene": "network-spirituality",
+      "size": "mid",
+      "tier": null,
+      "anglesThatWork": [
+        "citation",
+        "scene-meta"
+      ],
+      "priority": 1
+    },
+    {
+      "id": "netspir-gunseli_yal",
+      "handle": "@gunseli_yal",
+      "scene": "network-spirituality",
+      "size": "mid",
+      "tier": null,
+      "anglesThatWork": [
+        "citation",
+        "scene-meta"
+      ],
+      "priority": 2
+    },
+    {
+      "id": "occ-austinrcoppock",
+      "handle": "@AustinRCoppock",
+      "scene": "practitioner-occult",
+      "size": "mid",
+      "tier": null,
+      "anglesThatWork": [
+        "tools-as-proof",
+        "practice-talk"
+      ],
+      "priority": 1
+    },
+    {
+      "id": "occ-starandsystem",
+      "handle": "@StarandSystem",
+      "scene": "practitioner-occult",
+      "size": "mid",
+      "tier": null,
+      "anglesThatWork": [
+        "tools-as-proof",
+        "practice-talk"
+      ],
+      "priority": 1
+    },
+    {
+      "id": "occ-thelovelycrab",
+      "handle": "@thelovelycrab",
+      "scene": "practitioner-occult",
+      "size": "mid",
+      "tier": null,
+      "anglesThatWork": [
+        "tools-as-proof",
+        "practice-talk"
+      ],
+      "priority": 1
+    },
+    {
+      "id": "occ-glitchbottle",
+      "handle": "@glitchbottle",
+      "scene": "practitioner-occult",
+      "size": "mid",
+      "tier": null,
+      "anglesThatWork": [
+        "tools-as-proof",
+        "practice-talk"
+      ],
+      "priority": 1
+    },
+    {
+      "id": "occ-douglaswmit",
+      "handle": "@DouglasWMiT",
+      "scene": "practitioner-occult",
+      "size": "mid",
+      "tier": null,
+      "anglesThatWork": [
+        "tools-as-proof",
+        "practice-talk"
+      ],
+      "priority": 2
+    },
+    {
+      "id": "occ-scarletimprint",
+      "handle": "@scarletimprint",
+      "scene": "practitioner-occult",
+      "size": "mid",
+      "tier": null,
+      "anglesThatWork": [
+        "tools-as-proof",
+        "practice-talk"
+      ],
+      "priority": 2
+    },
+    {
+      "id": "occ-angelapuca11",
+      "handle": "@angelapuca11",
+      "scene": "practitioner-occult",
+      "size": "mid",
+      "tier": null,
+      "anglesThatWork": [
+        "tools-as-proof",
+        "practice-talk"
+      ],
+      "priority": 2
+    },
+    {
+      "id": "occ-mitchhorowitz",
+      "handle": "@MitchHorowitz",
+      "scene": "practitioner-occult",
+      "size": "large",
+      "tier": null,
+      "anglesThatWork": [
+        "tools-as-proof",
+        "practice-talk"
+      ],
+      "priority": 3
+    },
+    {
+      "id": "occ-thelemicunion",
+      "handle": "@thelemicunion",
+      "scene": "practitioner-occult",
+      "size": "mid",
+      "tier": null,
+      "anglesThatWork": [
+        "tools-as-proof",
+        "practice-talk"
+      ],
+      "priority": 2
+    },
+    {
+      "id": "occ-jasonlouv",
+      "handle": "@jasonlouv",
+      "scene": "practitioner-occult",
+      "size": "mid",
+      "tier": null,
+      "anglesThatWork": [
+        "tools-as-proof",
+        "practice-talk"
+      ],
+      "priority": 2
+    },
+    {
+      "id": "ai-danfaggella",
+      "handle": "@danfaggella",
+      "scene": "ai-eschatology",
+      "size": "mid",
+      "tier": null,
+      "anglesThatWork": [
+        "citation",
+        "theory-fiction"
+      ],
+      "priority": 1
+    },
+    {
+      "id": "ai-repligate",
+      "handle": "@repligate",
+      "scene": "ai-eschatology",
+      "size": "mid",
+      "tier": null,
+      "anglesThatWork": [
+        "citation",
+        "theory-fiction"
+      ],
+      "priority": 1
+    },
+    {
+      "id": "ai-xriskology",
+      "handle": "@xriskology",
+      "scene": "ai-eschatology",
+      "size": "mid",
+      "tier": null,
+      "anglesThatWork": [
+        "citation",
+        "theory-fiction"
+      ],
+      "priority": 2
+    },
+    {
+      "id": "ai-drjohnvervaeke",
+      "handle": "@DrJohnVervaeke",
+      "scene": "ai-eschatology",
+      "size": "large",
+      "tier": null,
+      "anglesThatWork": [
+        "citation",
+        "theory-fiction"
+      ],
+      "priority": 3
+    },
+    {
+      "id": "ai-liron",
+      "handle": "@liron",
+      "scene": "ai-eschatology",
+      "size": "large",
+      "tier": null,
+      "anglesThatWork": [
+        "citation",
+        "theory-fiction"
+      ],
+      "priority": 3
+    },
+    {
+      "id": "ai-erikphoel",
+      "handle": "@erikphoel",
+      "scene": "ai-eschatology",
+      "size": "large",
+      "tier": null,
+      "anglesThatWork": [
+        "citation",
+        "theory-fiction"
+      ],
+      "priority": 3
+    },
+    {
+      "id": "ai-alexanderbeiner",
+      "handle": "@AlexanderBeiner",
+      "scene": "ai-eschatology",
+      "size": "mid",
+      "tier": null,
+      "anglesThatWork": [
+        "citation",
+        "theory-fiction"
+      ],
+      "priority": 2
+    },
+    {
+      "id": "ai-micahtredding",
+      "handle": "@micahtredding",
+      "scene": "ai-eschatology",
+      "size": "mid",
+      "tier": null,
+      "anglesThatWork": [
+        "citation",
+        "theory-fiction"
+      ],
+      "priority": 2
+    },
+    {
+      "id": "ai-notorioustib",
+      "handle": "@NotoriousTIB",
+      "scene": "ai-eschatology",
+      "size": "mid",
+      "tier": null,
+      "anglesThatWork": [
+        "citation",
+        "theory-fiction"
+      ],
+      "priority": 1
+    },
+    {
+      "id": "ai-plinz",
+      "handle": "@Plinz",
+      "scene": "ai-eschatology",
+      "size": "mid",
+      "tier": "amplifier",
+      "anglesThatWork": [
+        "citation",
+        "theory-fiction"
+      ],
+      "priority": 2
+    },
+    {
+      "id": "ai-tszzl",
+      "handle": "@tszzl",
+      "scene": "ai-eschatology",
+      "size": "large",
+      "tier": "amplifier",
+      "anglesThatWork": [
+        "citation",
+        "theory-fiction"
+      ],
+      "priority": 3
+    },
+    {
+      "id": "myth-mythsbaby",
+      "handle": "@mythsbaby",
+      "scene": "myth-religion",
+      "size": "mid",
+      "tier": null,
+      "anglesThatWork": [
+        "citation",
+        "explainer-talk"
+      ],
+      "priority": 1
+    },
+    {
+      "id": "myth-platospodcasts",
+      "handle": "@platospodcasts",
+      "scene": "myth-religion",
+      "size": "mid",
+      "tier": null,
+      "anglesThatWork": [
+        "citation",
+        "explainer-talk"
+      ],
+      "priority": 2
+    },
+    {
+      "id": "myth-dwpasulka",
+      "handle": "@dwpasulka",
+      "scene": "myth-religion",
+      "size": "mid",
+      "tier": null,
+      "anglesThatWork": [
+        "citation",
+        "explainer-talk"
+      ],
+      "priority": 1
+    },
+    {
+      "id": "myth-goingmedieval",
+      "handle": "@GoingMedieval",
+      "scene": "myth-religion",
+      "size": "mid",
+      "tier": null,
+      "anglesThatWork": [
+        "citation",
+        "explainer-talk"
+      ],
+      "priority": 2
+    },
+    {
+      "id": "myth-jf_martel",
+      "handle": "@JF_Martel",
+      "scene": "myth-religion",
+      "size": "mid",
+      "tier": null,
+      "anglesThatWork": [
+        "citation",
+        "explainer-talk"
+      ],
+      "priority": 2
+    },
+    {
+      "id": "myth-pageaujonathan",
+      "handle": "@PageauJonathan",
+      "scene": "myth-religion",
+      "size": "large",
+      "tier": "amplifier",
+      "anglesThatWork": [
+        "citation",
+        "explainer-talk"
+      ],
+      "priority": 3
+    },
+    {
+      "id": "meaning-hfreinacht",
+      "handle": "@HFreinacht",
+      "scene": "meaning-bigideas",
+      "size": "mid",
+      "tier": null,
+      "anglesThatWork": [
+        "citation",
+        "practice-talk"
+      ],
+      "priority": 1
+    },
+    {
+      "id": "meaning-slowwco",
+      "handle": "@SlowwCo",
+      "scene": "meaning-bigideas",
+      "size": "mid",
+      "tier": null,
+      "anglesThatWork": [
+        "citation",
+        "practice-talk"
+      ],
+      "priority": 2
+    },
+    {
+      "id": "meaning-oshanjarow",
+      "handle": "@OshanJarow",
+      "scene": "meaning-bigideas",
+      "size": "mid",
+      "tier": null,
+      "anglesThatWork": [
+        "citation",
+        "practice-talk"
+      ],
+      "priority": 2
+    },
+    {
+      "id": "meaning-paulvanderklay",
+      "handle": "@paulvanderklay",
+      "scene": "meaning-bigideas",
+      "size": "mid",
+      "tier": null,
+      "anglesThatWork": [
+        "citation",
+        "practice-talk"
+      ],
+      "priority": 2
+    },
+    {
+      "id": "meaning-thouartthat",
+      "handle": "@ThouArtThat",
+      "scene": "meaning-bigideas",
+      "size": "mid",
+      "tier": null,
+      "anglesThatWork": [
+        "citation",
+        "practice-talk"
+      ],
+      "priority": 2
+    },
+    {
+      "id": "meaning-tomowenmorgan",
+      "handle": "@tomowenmorgan",
+      "scene": "meaning-bigideas",
+      "size": "mid",
+      "tier": null,
+      "anglesThatWork": [
+        "citation",
+        "practice-talk"
+      ],
+      "priority": 2
+    },
+    {
+      "id": "art-weirdstudies",
+      "handle": "@weirdstudies",
+      "scene": "culture-art",
+      "size": "mid",
+      "tier": null,
+      "anglesThatWork": [
+        "tools-as-proof",
+        "citation"
+      ],
+      "priority": 1
+    },
+    {
+      "id": "art-strangepress",
+      "handle": "@strangepress",
+      "scene": "culture-art",
+      "size": "mid",
+      "tier": null,
+      "anglesThatWork": [
+        "tools-as-proof",
+        "citation"
+      ],
+      "priority": 2
+    },
+    {
+      "id": "art-tedgioia",
+      "handle": "@tedgioia",
+      "scene": "culture-art",
+      "size": "large",
+      "tier": "amplifier",
+      "anglesThatWork": [
+        "tools-as-proof",
+        "citation"
+      ],
+      "priority": 3
+    },
+    {
+      "id": "art-aquadrunkard",
+      "handle": "@aquadrunkard",
+      "scene": "culture-art",
+      "size": "mid",
+      "tier": null,
+      "anglesThatWork": [
+        "tools-as-proof",
+        "citation"
+      ],
+      "priority": 2
+    },
+    {
+      "id": "art-publicdomainrev",
+      "handle": "@PublicDomainRev",
+      "scene": "culture-art",
+      "size": "large",
+      "tier": null,
+      "anglesThatWork": [
+        "tools-as-proof",
+        "citation"
+      ],
+      "priority": 3
+    },
+    {
+      "id": "art-mlleghoul",
+      "handle": "@mlleghoul",
+      "scene": "culture-art",
+      "size": "mid",
+      "tier": null,
+      "anglesThatWork": [
+        "tools-as-proof",
+        "citation"
+      ],
+      "priority": 2
+    },
+    {
+      "id": "netspir-proofofmaro",
+      "handle": "@ProofofMaro",
+      "scene": "network-spirituality",
+      "size": "mid",
+      "tier": null,
+      "anglesThatWork": [
+        "tools-as-proof",
+        "citation"
+      ],
+      "priority": 1
+    },
+    {
+      "id": "myth-jasonjorjani",
+      "handle": "@Jason_Jorjani",
+      "scene": "myth-religion",
+      "size": "mid",
+      "tier": null,
+      "anglesThatWork": [
+        "citation",
+        "sharp-question"
+      ],
+      "priority": 1
+    },
+    {
+      "id": "amp-ai-esyudkowsky",
+      "handle": "@ESYudkowsky",
+      "scene": "ai-eschatology",
+      "size": "large",
+      "tier": "amplifier",
+      "anglesThatWork": [
+        "citation",
+        "sharp-question"
+      ],
+      "priority": 2
+    },
+    {
+      "id": "amp-ai-basedbeffjezos",
+      "handle": "@BasedBeffJezos",
+      "scene": "ai-eschatology",
+      "size": "large",
+      "tier": "amplifier",
+      "anglesThatWork": [
+        "citation",
+        "sharp-question"
+      ],
+      "priority": 1
+    },
+    {
+      "id": "amp-ai-leopoldasch",
+      "handle": "@leopoldasch",
+      "scene": "ai-eschatology",
+      "size": "large",
+      "tier": "amplifier",
+      "anglesThatWork": [
+        "citation",
+        "sharp-question"
+      ],
+      "priority": 2
+    },
+    {
+      "id": "amp-ai-dwarkesh_sp",
+      "handle": "@dwarkesh_sp",
+      "scene": "ai-eschatology",
+      "size": "large",
+      "tier": "amplifier",
+      "anglesThatWork": [
+        "citation",
+        "sharp-question"
+      ],
+      "priority": 2
+    },
+    {
+      "id": "amp-ai-eshear",
+      "handle": "@eshear",
+      "scene": "ai-eschatology",
+      "size": "large",
+      "tier": "amplifier",
+      "anglesThatWork": [
+        "citation",
+        "sharp-question"
+      ],
+      "priority": 1
+    },
+    {
+      "id": "amp-ai-toewithcurt",
+      "handle": "@TOEwithCurt",
+      "scene": "ai-eschatology",
+      "size": "large",
+      "tier": "amplifier",
+      "anglesThatWork": [
+        "citation",
+        "sharp-question"
+      ],
+      "priority": 2
+    },
+    {
+      "id": "amp-ai-realgeorgehotz",
+      "handle": "@realGeorgeHotz",
+      "scene": "ai-eschatology",
+      "size": "large",
+      "tier": "amplifier",
+      "anglesThatWork": [
+        "citation",
+        "sharp-question"
+      ],
+      "priority": 2
+    },
+    {
+      "id": "amp-ai-daveshapi",
+      "handle": "@DaveShapi",
+      "scene": "ai-eschatology",
+      "size": "large",
+      "tier": "amplifier",
+      "anglesThatWork": [
+        "citation",
+        "sharp-question"
+      ],
+      "priority": 2
+    },
+    {
+      "id": "amp-ai-tylercowen",
+      "handle": "@tylercowen",
+      "scene": "ai-eschatology",
+      "size": "large",
+      "tier": "amplifier",
+      "anglesThatWork": [
+        "citation",
+        "sharp-question"
+      ],
+      "priority": 2
+    },
+    {
+      "id": "amp-ai-emollick",
+      "handle": "@emollick",
+      "scene": "ai-eschatology",
+      "size": "large",
+      "tier": "amplifier",
+      "anglesThatWork": [
+        "citation",
+        "sharp-question"
+      ],
+      "priority": 2
+    },
+    {
+      "id": "amp-myth-andrewklavan",
+      "handle": "@andrewklavan",
+      "scene": "myth-religion",
+      "size": "large",
+      "tier": "amplifier",
+      "anglesThatWork": [
+        "citation",
+        "sharp-question"
+      ],
+      "priority": 2
+    },
+    {
+      "id": "amp-myth-holland_tom",
+      "handle": "@holland_tom",
+      "scene": "myth-religion",
+      "size": "large",
+      "tier": "amplifier",
+      "anglesThatWork": [
+        "citation",
+        "sharp-question"
+      ],
+      "priority": 2
+    },
+    {
+      "id": "amp-myth-bishopbarron",
+      "handle": "@BishopBarron",
+      "scene": "myth-religion",
+      "size": "large",
+      "tier": "amplifier",
+      "anglesThatWork": [
+        "citation",
+        "sharp-question"
+      ],
+      "priority": 2
+    },
+    {
+      "id": "amp-myth-cosmicskeptic",
+      "handle": "@CosmicSkeptic",
+      "scene": "myth-religion",
+      "size": "large",
+      "tier": "amplifier",
+      "anglesThatWork": [
+        "citation",
+        "sharp-question"
+      ],
+      "priority": 2
+    },
+    {
+      "id": "amp-myth-douthatnyt",
+      "handle": "@DouthatNYT",
+      "scene": "myth-religion",
+      "size": "large",
+      "tier": "amplifier",
+      "anglesThatWork": [
+        "citation",
+        "sharp-question"
+      ],
+      "priority": 2
+    },
+    {
+      "id": "amp-myth-spencerklavan",
+      "handle": "@SpencerKlavan",
+      "scene": "myth-religion",
+      "size": "large",
+      "tier": "amplifier",
+      "anglesThatWork": [
+        "citation",
+        "sharp-question"
+      ],
+      "priority": 2
+    },
+    {
+      "id": "amp-meaning-bardissimo",
+      "handle": "@Bardissimo",
+      "scene": "meaning-bigideas",
+      "size": "large",
+      "tier": "amplifier",
+      "anglesThatWork": [
+        "citation",
+        "tools-as-proof"
+      ],
+      "priority": 1
+    },
+    {
+      "id": "amp-meaning-waitbutwhy",
+      "handle": "@waitbutwhy",
+      "scene": "meaning-bigideas",
+      "size": "large",
+      "tier": "amplifier",
+      "anglesThatWork": [
+        "citation",
+        "tools-as-proof"
+      ],
+      "priority": 2
+    },
+    {
+      "id": "amp-meaning-david_perell",
+      "handle": "@david_perell",
+      "scene": "meaning-bigideas",
+      "size": "large",
+      "tier": "amplifier",
+      "anglesThatWork": [
+        "citation",
+        "tools-as-proof"
+      ],
+      "priority": 2
+    },
+    {
+      "id": "amp-meaning-culturaltutor",
+      "handle": "@culturaltutor",
+      "scene": "meaning-bigideas",
+      "size": "large",
+      "tier": "amplifier",
+      "anglesThatWork": [
+        "citation",
+        "tools-as-proof"
+      ],
+      "priority": 2
+    },
+    {
+      "id": "amp-meaning-meghan_daum",
+      "handle": "@meghan_daum",
+      "scene": "meaning-bigideas",
+      "size": "large",
+      "tier": "amplifier",
+      "anglesThatWork": [
+        "citation",
+        "tools-as-proof"
+      ],
+      "priority": 2
+    },
+    {
+      "id": "amp-art-robertgreene",
+      "handle": "@RobertGreene",
+      "scene": "culture-art",
+      "size": "large",
+      "tier": "amplifier",
+      "anglesThatWork": [
+        "tools-as-proof",
+        "citation"
+      ],
+      "priority": 1
+    },
+    {
+      "id": "amp-art-jerrysaltz",
+      "handle": "@jerrysaltz",
+      "scene": "culture-art",
+      "size": "large",
+      "tier": "amplifier",
+      "anglesThatWork": [
+        "tools-as-proof",
+        "citation"
+      ],
+      "priority": 2
+    },
+    {
+      "id": "amp-art-grimezsz",
+      "handle": "@Grimezsz",
+      "scene": "culture-art",
+      "size": "large",
+      "tier": "amplifier",
+      "anglesThatWork": [
+        "tools-as-proof",
+        "citation"
+      ],
+      "priority": 1
+    },
+    {
+      "id": "amp-art-duncantrussell",
+      "handle": "@duncantrussell",
+      "scene": "culture-art",
+      "size": "large",
+      "tier": "amplifier",
+      "anglesThatWork": [
+        "tools-as-proof",
+        "citation"
+      ],
+      "priority": 1
+    },
+    {
+      "id": "amp-art-alexgreycosm",
+      "handle": "@alexgreycosm",
+      "scene": "culture-art",
+      "size": "large",
+      "tier": "amplifier",
+      "anglesThatWork": [
+        "tools-as-proof",
+        "citation"
+      ],
+      "priority": 1
+    },
+    {
+      "id": "amp-ai-balajis",
+      "handle": "@balajis",
+      "scene": "ai-eschatology",
+      "size": "large",
+      "tier": "amplifier",
+      "anglesThatWork": [
+        "citation",
+        "sharp-question"
+      ],
+      "priority": 2
+    },
+    {
+      "id": "amp-meaning-aella_girl",
+      "handle": "@Aella_Girl",
+      "scene": "meaning-bigideas",
+      "size": "large",
+      "tier": "amplifier",
+      "anglesThatWork": [
+        "citation",
+        "tools-as-proof"
+      ],
+      "priority": 2
+    },
+    {
+      "id": "amp-art-akirathedon",
+      "handle": "@akirathedon",
+      "scene": "culture-art",
+      "size": "large",
+      "tier": "amplifier",
+      "anglesThatWork": [
+        "tools-as-proof",
+        "citation"
+      ],
+      "priority": 1
+    },
+    {
+      "id": "ai-victortaelin",
+      "handle": "@VictorTaelin",
+      "scene": "ai-eschatology",
+      "size": "large",
+      "tier": "amplifier",
+      "anglesThatWork": [
+        "citation",
+        "sharp-question"
+      ],
+      "priority": 2
+    }
+  ]
+}

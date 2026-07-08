@@ -1,0 +1,1188 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta name="color-scheme" content="dark" />
+<title>social-agent · command center</title>
+<style>
+  :root{
+    color-scheme:dark;
+    --bg:#0c0d10; --bg-2:#0f1116; --panel:#15171c; --panel-2:#191c22;
+    --ink:#e8e6df; --mute:#9b988e; --faint:#6f6d66; --line:#262932; --line-2:#343843;
+    --accent:#c9c6bd; --accent-soft:rgba(201,198,189,.14);
+    --x:#6fb8c8; --substack:#d98a5a;
+    --draft:#caa86a; --approved:#a7d6a0; --posted:#6fb8c8; --killed:#c98a8a;
+    --sans:ui-sans-serif,system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;
+    --mono:ui-monospace,"SF Mono","JetBrains Mono",Menlo,Consolas,monospace;
+  }
+  *{box-sizing:border-box}
+  body{margin:0;background:var(--bg);color:var(--ink);
+    font:15px/1.55 var(--sans);-webkit-font-smoothing:antialiased;
+    background-image:radial-gradient(120% 80% at 50% -10%,transparent 40%,rgba(0,0,0,.55) 100%)}
+
+  header{display:flex;align-items:center;gap:12px;flex-wrap:wrap;
+    padding:18px 24px;border-bottom:1px solid var(--line);position:sticky;top:0;
+    background:rgba(12,13,16,.86);backdrop-filter:blur(8px);z-index:20}
+  header h1{margin:0;font:600 16px var(--mono);letter-spacing:.1em}
+  header .sub{color:var(--faint);font:12px var(--mono);letter-spacing:.04em}
+  header .spacer{flex:1}
+  header .summary{color:var(--mute);font:12px var(--mono);letter-spacing:.02em;margin-right:4px}
+  header .summary b{color:var(--ink);font-weight:600}
+  header .discipline{flex-basis:100%;display:flex;gap:8px;flex-wrap:wrap;align-items:center;
+    justify-content:flex-end;margin-top:2px;font:11px var(--mono);color:var(--faint)}
+  header .discipline .pill{border:1px solid var(--line-2);border-radius:20px;padding:2px 10px;letter-spacing:.02em}
+  header .discipline .pill b{color:var(--ink);font-weight:600}
+  header .discipline .flame{color:var(--draft)}
+  header .discipline .warn{color:var(--draft);border-color:color-mix(in srgb,var(--draft) 45%,transparent);cursor:pointer}
+  header .discipline .warn:hover{background:color-mix(in srgb,var(--draft) 12%,transparent)}
+
+  button{font:13px var(--sans);color:var(--ink);background:var(--panel);
+    border:1px solid var(--line-2);border-radius:8px;padding:7px 13px;cursor:pointer;
+    transition:border-color .15s,background .15s,color .15s}
+  button:hover{border-color:var(--accent);background:var(--panel-2)}
+  button.ghost{background:transparent}
+  button.tiny{padding:4px 10px;font:12px var(--sans)}
+  button.icon{padding:7px 11px}
+  button.go{background:color-mix(in srgb,var(--approved) 16%,transparent);
+    border-color:color-mix(in srgb,var(--approved) 55%,transparent);color:#dff0db;font-weight:600}
+  button.go:hover{border-color:var(--approved);background:color-mix(in srgb,var(--approved) 24%,transparent)}
+
+  /* tabs */
+  nav.tabs{display:flex;gap:2px;padding:0 18px;border-bottom:1px solid var(--line);
+    background:var(--bg-2);flex-wrap:wrap}
+  nav.tabs button{border:0;border-bottom:2px solid transparent;border-radius:0;background:transparent;
+    color:var(--mute);font:600 12px var(--mono);letter-spacing:.12em;padding:12px 16px}
+  nav.tabs button:hover{color:var(--ink);background:transparent;border-bottom-color:var(--line-2)}
+  nav.tabs button.on{color:var(--ink);border-bottom-color:var(--accent)}
+
+  main{max-width:1140px;margin:0 auto;padding:18px 24px 90px}
+
+  .guide{display:flex;align-items:center;gap:10px;flex-wrap:wrap;
+    border:1px solid var(--line);border-radius:10px;background:var(--bg-2);
+    padding:11px 14px;margin:4px 0 18px;color:var(--mute);font-size:13px}
+  .guide .step{display:inline-flex;align-items:center;gap:7px}
+  .guide .num{display:inline-grid;place-items:center;width:18px;height:18px;border-radius:50%;
+    border:1px solid var(--line-2);color:var(--accent);font:11px var(--mono);flex:none}
+  .guide .arrow{color:var(--faint)}
+  .guide b{color:var(--ink);font-weight:600}
+  .guide .x{margin-left:auto;color:var(--faint);cursor:pointer;border:0;background:none;font-size:16px;padding:0 4px}
+
+  .controls{display:flex;gap:10px;flex-wrap:wrap;align-items:center;margin-bottom:16px;min-height:8px}
+  .seg{display:flex;border:1px solid var(--line);border-radius:8px;overflow:hidden}
+  .seg button{border:0;border-radius:0;background:transparent;border-right:1px solid var(--line);padding:6px 13px}
+  .seg button:last-child{border-right:0}
+  .seg button.on{background:var(--accent-soft);color:var(--ink)}
+  .seg button:not(.on){color:var(--mute)}
+  .controls .right{margin-left:auto;display:flex;gap:10px;align-items:center}
+
+  /* queue board */
+  .board{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;align-items:start}
+  .board.k4{grid-template-columns:repeat(4,1fr)}
+  @media(max-width:820px){.board,.board.k4{grid-template-columns:1fr}}
+
+  .lane{background:var(--bg-2);border:1px solid var(--line);border-radius:12px;
+    padding:8px 8px 10px;display:flex;flex-direction:column;min-height:110px}
+  .lane-h{display:flex;align-items:center;gap:8px;padding:7px 8px 10px;
+    border-bottom:1px solid var(--line);margin-bottom:8px}
+  .lane-h .dot{width:8px;height:8px;border-radius:50%;flex:none}
+  .lane-h .name{font:600 12px var(--mono);letter-spacing:.05em;text-transform:uppercase;color:var(--ink)}
+  .lane-h .ct{margin-left:auto;font:11px var(--mono);color:var(--faint);
+    border:1px solid var(--line-2);border-radius:20px;padding:1px 8px}
+  .lane-h .hint{flex-basis:100%;font:11px var(--sans);color:var(--faint);font-style:italic}
+  .lane-body{display:flex;flex-direction:column;gap:9px;padding:0 2px}
+  .lane-empty{color:var(--faint);font-size:12px;text-align:center;padding:14px 0;font-style:italic}
+
+  .card{border:1px solid var(--line-2);border-radius:9px;background:var(--panel);padding:11px 12px}
+  .lane[data-k="killed"] .card{opacity:.62}
+  .card .top{display:flex;align-items:center;gap:7px;flex-wrap:wrap;margin-bottom:8px}
+  .badge{font:10px var(--mono);letter-spacing:.04em;padding:2px 7px;border-radius:5px;
+    border:1px solid var(--line-2);text-transform:uppercase;color:var(--mute)}
+  .badge.x{color:var(--x);border-color:color-mix(in srgb,var(--x) 45%,transparent)}
+  .badge.substack{color:var(--substack);border-color:color-mix(in srgb,var(--substack) 45%,transparent)}
+  .badge.warn{color:var(--draft);border-color:color-mix(in srgb,var(--draft) 50%,transparent)}
+  .card .when{color:var(--faint);font:11px var(--mono);margin-left:auto}
+  .card .body{white-space:pre-wrap;font:13.5px/1.55 var(--sans);color:var(--ink);margin:2px 0 7px}
+  .card .notes{color:var(--mute);font:11.5px var(--sans);font-style:italic;margin-bottom:9px}
+  .card .acts{display:flex;gap:6px;flex-wrap:wrap}
+  .card textarea{width:100%;min-height:120px;background:var(--bg-2);color:var(--ink);
+    border:1px solid var(--line-2);border-radius:7px;padding:9px;font:13.5px/1.55 var(--sans);resize:vertical}
+
+  /* replies feed */
+  .feed{display:flex;flex-direction:column;gap:14px;max-width:800px}
+  .rcard{border:1px solid var(--line-2);border-radius:11px;background:var(--panel);padding:13px 14px}
+  .rcard .top{display:flex;align-items:center;gap:7px;flex-wrap:wrap;margin-bottom:10px}
+  .rcard .acts{display:flex;gap:6px;flex-wrap:wrap;margin-top:2px}
+  a.handle{font:12px var(--mono);color:var(--x);text-decoration:none}
+  a.handle:hover{text-decoration:underline}
+  .timer{margin-left:auto;font:11px var(--mono);padding:2px 9px;border-radius:20px;border:1px solid var(--line-2);color:var(--mute)}
+  .timer.fresh{color:var(--approved);border-color:color-mix(in srgb,var(--approved) 45%,transparent)}
+  .timer.stale{color:var(--killed);border-color:color-mix(in srgb,var(--killed) 45%,transparent)}
+  .target{border-left:2px solid var(--line-2);padding:3px 0 3px 11px;margin:0 0 12px;
+    color:var(--mute);font:13px/1.5 var(--sans);white-space:pre-wrap}
+  .target a.handle{font-size:11px}
+  .cand{border:1px solid var(--line);border-radius:8px;background:var(--bg-2);padding:9px 11px;margin-bottom:8px}
+  .cand-h{display:flex;align-items:center;gap:8px;margin-bottom:5px}
+  .cand-h .n{font:13px var(--mono);color:var(--accent)}
+  .cand-h .angle{font:10px var(--mono);letter-spacing:.04em;text-transform:uppercase;color:var(--faint);
+    border:1px solid var(--line-2);border-radius:5px;padding:1px 6px}
+  .cand-text{white-space:pre-wrap;font:13.5px/1.55 var(--sans);color:var(--ink);margin-bottom:8px}
+  .cand .acts{display:flex;gap:6px;flex-wrap:wrap}
+  .final{white-space:pre-wrap;font:14px/1.6 var(--sans);color:var(--ink);background:var(--bg-2);
+    border:1px solid var(--line-2);border-radius:8px;padding:10px 11px;margin:0 0 9px}
+  .rcard textarea{width:100%;min-height:90px;background:var(--bg-2);color:var(--ink);
+    border:1px solid var(--line-2);border-radius:7px;padding:9px;font:14px/1.6 var(--sans);resize:vertical}
+  .linkline{font:11.5px var(--sans);color:var(--mute);font-style:italic;margin:0 0 10px}
+  .linkline b{color:var(--accent);font-style:normal;font-weight:600}
+  .muted-note{color:var(--faint);font:12px var(--sans);font-style:italic;margin:0 0 9px}
+  .muted-note button{margin-left:4px}
+
+  /* scene grid */
+  .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:13px;align-items:start}
+  .scard{border:1px solid var(--line-2);border-radius:10px;background:var(--panel);padding:12px 13px}
+  .scard.stale{border-color:color-mix(in srgb,var(--draft) 50%,var(--line-2))}
+  .scard .top{display:flex;align-items:center;gap:7px;flex-wrap:wrap;margin-bottom:7px}
+  .scard a.handle{font:13px var(--mono)}
+  .scard .info{font:11px var(--mono);color:var(--faint);margin-bottom:8px}
+  .scard .info .due{color:var(--draft)}
+  .scard .info .rest{color:var(--faint)}
+  .scard .notes{color:var(--mute);font:11.5px var(--sans);font-style:italic;margin-bottom:7px}
+  .scard .acts{display:flex;gap:6px;flex-wrap:wrap;margin-top:4px}
+  .chips{display:flex;gap:7px;flex-wrap:wrap;align-items:center}
+  .chip{font:11px var(--mono);color:var(--mute);border:1px solid var(--line);border-radius:20px;padding:3px 11px}
+  .chip b{color:var(--ink)}
+  .chip.empty{color:var(--killed);border-color:color-mix(in srgb,var(--killed) 40%,transparent)}
+
+  /* patrol */
+  .patrol-head{display:flex;align-items:center;gap:12px;margin-bottom:14px;flex-wrap:wrap;max-width:820px}
+  .patrol-head .muted-note{margin:0}
+  .pcard{border:1px solid var(--line-2);border-radius:10px;background:var(--panel);padding:12px 13px;margin-bottom:12px;max-width:820px}
+  .pcard.done{border-color:color-mix(in srgb,var(--approved) 40%,var(--line-2))}
+  .pcard .scene-h{display:flex;align-items:center;gap:9px;margin-bottom:10px;flex-wrap:wrap}
+  .pcard .scene-h .name{font:600 12px var(--mono);letter-spacing:.06em;text-transform:uppercase;color:var(--ink)}
+  .pcard .scene-h .kw{color:var(--faint);font:11.5px var(--sans);font-style:italic}
+  .pcard .scene-h .mk{margin-left:auto}
+  .qbtns{display:flex;gap:7px;flex-wrap:wrap}
+  a.qbtn{display:inline-flex;align-items:center;gap:5px;text-decoration:none;font:12px var(--sans);
+    color:var(--ink);background:var(--bg-2);border:1px solid var(--line-2);border-radius:7px;padding:6px 11px}
+  a.qbtn:hover{border-color:var(--accent)}
+  a.qbtn.list{color:var(--x);border-color:color-mix(in srgb,var(--x) 40%,transparent)}
+
+  .empty{grid-column:1/-1;border:1px dashed var(--line-2);border-radius:12px;
+    padding:42px 24px;text-align:center;color:var(--mute);max-width:800px}
+  .empty h2{font:600 15px var(--mono);color:var(--ink);margin:0 0 8px}
+  .empty .acts{display:flex;gap:10px;justify-content:center;margin-top:16px;flex-wrap:wrap}
+
+  dialog{background:var(--panel);color:var(--ink);border:1px solid var(--line-2);
+    border-radius:12px;padding:0;max-width:560px;width:92vw}
+  dialog::backdrop{background:rgba(0,0,0,.62)}
+  .dlg-in{padding:18px 20px}
+  dialog h3{margin:0 0 4px;font:600 14px var(--mono);letter-spacing:.05em}
+  dialog p{color:var(--mute);font-size:13px;margin:0 0 12px}
+  dialog textarea,dialog input,dialog select{width:100%;background:var(--bg-2);color:var(--ink);
+    border:1px solid var(--line-2);border-radius:7px;padding:9px;font:13px var(--mono);margin-bottom:10px}
+  dialog .row{display:flex;gap:10px}
+  dialog .row>*{flex:1}
+  .dlg-foot{display:flex;justify-content:flex-end;gap:8px;margin-top:4px}
+  .toast{position:fixed;bottom:20px;left:50%;transform:translateX(-50%);
+    background:var(--panel-2);border:1px solid var(--line-2);border-radius:8px;
+    padding:9px 16px;font:13px var(--mono);opacity:0;transition:opacity .25s;pointer-events:none}
+  .toast.show{opacity:1}
+</style>
+</head>
+<body>
+<header>
+  <h1>SOCIAL-AGENT</h1>
+  <span class="sub">command center</span>
+  <span class="spacer"></span>
+  <span class="summary" id="summary"></span>
+  <button class="ghost icon" title="how it works" onclick="toggleGuide()">?</button>
+  <button class="ghost" id="addBtn" onclick="openAdd()">+ add</button>
+  <button class="ghost" onclick="openImport()">import</button>
+  <button class="ghost" onclick="exportJson()">export</button>
+  <span class="discipline" id="discipline"></span>
+</header>
+
+<nav class="tabs" id="tabs"></nav>
+
+<main>
+  <div id="guide"></div>
+  <div class="controls" id="controls"></div>
+  <div id="board"></div>
+</main>
+
+<!-- import (adapts to active tab) -->
+<dialog id="importDlg"><div class="dlg-in">
+  <h3 id="importTitle">import</h3>
+  <p id="importHint">Paste the file contents, or choose the file. This replaces what's on screen.</p>
+  <input type="file" id="importFile" accept=".json,application/json" />
+  <textarea id="importText" rows="9" placeholder='{ ... }'></textarea>
+  <div class="dlg-foot">
+    <button class="ghost" onclick="importDlg.close()">cancel</button>
+    <button onclick="doImport()">load</button>
+  </div>
+</div></dialog>
+
+<!-- queue: add draft -->
+<dialog id="addDlg"><div class="dlg-in">
+  <h3>add a draft</h3>
+  <p>Queue something by hand. (Normally the agent fills this in for you.)</p>
+  <div class="row">
+    <select id="addPlatform"><option value="x">x</option><option value="substack">substack</option></select>
+    <select id="addType"><option value="post">post</option><option value="note">note</option><option value="thread">thread</option></select>
+    <input id="addWhen" type="date" />
+  </div>
+  <textarea id="addBody" rows="6" placeholder="the draft…"></textarea>
+  <input id="addNotes" placeholder="notes / which pillar (optional)" />
+  <div class="dlg-foot">
+    <button class="ghost" onclick="addDlg.close()">cancel</button>
+    <button onclick="saveDraft()">save</button>
+  </div>
+</div></dialog>
+
+<!-- replies: capture target -->
+<dialog id="targetDlg"><div class="dlg-in">
+  <h3 id="targetTitle">capture a reply target</h3>
+  <p>Paste the post you want to reply to. Then draft candidates in Claude Code ("draft replies to this").</p>
+  <input id="tHandle" list="handleList" placeholder="@account you're replying to" />
+  <datalist id="handleList"></datalist>
+  <input id="tUrl" placeholder="link to the post (optional)" />
+  <textarea id="tPost" rows="5" placeholder="paste the post text…"></textarea>
+  <div class="row">
+    <select id="tScene"></select>
+    <select id="tPillar">
+      <option value="hyperstition">hyperstition</option>
+      <option value="tools">tools</option>
+      <option value="tradition">tradition</option>
+      <option value="invicta">invicta</option>
+    </select>
+  </div>
+  <div class="dlg-foot">
+    <button class="ghost" onclick="targetDlg.close()">cancel</button>
+    <button onclick="saveTarget()">save target</button>
+  </div>
+</div></dialog>
+
+<!-- scene: add / edit account -->
+<dialog id="accountDlg"><div class="dlg-in">
+  <h3 id="acctTitle">add an account</h3>
+  <p>Who to reply into. Curate by hand — verify handles are real before relying on them.</p>
+  <input id="aHandle" placeholder="@handle" />
+  <div class="row">
+    <select id="aScene"></select>
+    <select id="aSize"><option value="peer">peer</option><option value="mid">mid</option><option value="whale">whale</option></select>
+  </div>
+  <div class="row">
+    <select id="aRel"><option value="cold">cold</option><option value="warming">warming</option><option value="mutual">mutual</option><option value="recommends">recommends</option></select>
+    <select id="aPriority"><option>1</option><option>2</option><option>3</option><option>4</option><option>5</option></select>
+  </div>
+  <input id="aAngles" placeholder="angles that work, comma-separated: citation, sharp-question…" />
+  <textarea id="aNotes" rows="3" placeholder="notes — who they are, why they matter"></textarea>
+  <div class="dlg-foot">
+    <button class="ghost" onclick="accountDlg.close()">cancel</button>
+    <button onclick="saveAccount()">save</button>
+  </div>
+</div></dialog>
+
+<!-- grok: scene-pull prompt -->
+<dialog id="grokPromptDlg"><div class="dlg-in">
+  <h3>grok scene-pull prompt</h3>
+  <p>Copy this, paste it into Grok (free tier is enough). Grok reads X live and returns a JSON list of recent in-niche posts. Then come back and use <b>paste Grok JSON</b>. Grok only reads — you still post by hand.</p>
+  <textarea id="grokPromptText" rows="8" readonly></textarea>
+  <div class="dlg-foot">
+    <button class="ghost" onclick="grokPromptDlg.close()">close</button>
+    <button onclick="copyGrokPrompt()">copy prompt</button>
+  </div>
+</div></dialog>
+
+<!-- grok: paste answer -->
+<dialog id="grokImportDlg"><div class="dlg-in">
+  <h3>paste Grok JSON</h3>
+  <p>Paste Grok's answer. Each post becomes a capture-ready target (added to your replies, not replacing them). Handles from Grok are flagged <b>unverified</b> — confirm they're real before replying.</p>
+  <textarea id="grokJson" rows="9" placeholder='[ { "handle":"@…", "url":"…", "text":"…", "scene":"…", "why":"…" } ]'></textarea>
+  <div class="dlg-foot">
+    <button class="ghost" onclick="grokImportDlg.close()">cancel</button>
+    <button onclick="doGrokImport()">import targets</button>
+  </div>
+</div></dialog>
+
+<!-- neighbors: import -->
+<dialog id="nbImportDlg"><div class="dlg-in">
+  <h3>import neighbors.json</h3>
+  <p>Paste <code>neighbors.json</code> (written by <code>watch.py</code>), or choose the file. Shows new Substack opportunities in the SCENE tab.</p>
+  <input type="file" id="nbFile" accept=".json,application/json" />
+  <textarea id="nbText" rows="9" placeholder='{ "opportunities": [ ... ] }'></textarea>
+  <div class="dlg-foot">
+    <button class="ghost" onclick="nbImportDlg.close()">cancel</button>
+    <button onclick="doNbImport()">load</button>
+  </div>
+</div></dialog>
+
+<div class="toast" id="toast"></div>
+
+<script>
+/* ============================ stores ============================ */
+const LS_CAL = "social-agent-calendar-v1";
+const LS_REP = "social-agent-replies-v1";
+const LS_SCN = "social-agent-scene-v1";
+const LS_PAT = "social-agent-patrol-v1";
+const LS_NB  = "social-agent-neighbors-v1";
+const LS_STREAK = "social-agent-streak-v1";
+
+const LANES = [
+  { key:"draft",    name:"needs approval", hint:"review, then approve / edit / kill" },
+  { key:"approved", name:"approved · ready", hint:"post it, then mark posted" },
+  { key:"posted",   name:"posted",          hint:"your history" },
+  { key:"killed",   name:"killed",          hint:"set aside" },
+];
+const PILLARS = ["hyperstition","tools","tradition","invicta"];
+const DEFAULT_SCENES = ["ccru-theory-fiction","tpot-postrat","network-spirituality","practitioner-occult"];
+const PAT_DEFAULTS = { lang:"en", recencyHours:6, favFloor:20, favCeiling:4000, minReplies:1 };
+
+let activeTab = localStorage.getItem("sa-tab") || "patrol";
+let calState = loadCal();
+let repState = loadRep();
+let scnState = loadScene();
+let patState = loadPat();
+let nbState = loadNb();
+
+let filter = { platform:"all" };   // queue platform filter
+let repFilter = "all";             // replies status filter
+let showKilled = false;            // applies to whichever tab is active
+let guideHidden = localStorage.getItem("sa-guide-hidden")==="1";
+let calEditId = null;
+let repEditId = null;
+let targetEditId = null;
+let acctEditId = null;
+
+/* ---------- calendar (QUEUE) ---------- */
+function calBlank(){ return { meta:{owner:"",updated:""}, platforms:{}, queue:[], posted:[] }; }
+function loadCal(){ try{ const raw=localStorage.getItem(LS_CAL); if(raw) return normCal(JSON.parse(raw)); }catch(e){} return calBlank(); }
+function normCal(d){
+  d = d || calBlank();
+  d.meta = d.meta || {};
+  d.queue = Array.isArray(d.queue) ? d.queue : [];
+  if(Array.isArray(d.posted) && d.posted.length){
+    d.posted.forEach(p => { p.status = p.status||"posted"; d.queue.push(p); });
+  }
+  d.posted = [];
+  d.queue.forEach((it,i)=>{
+    if(!it.id) it.id = "item-"+i+"-"+(it.platform||"x");
+    if(!it.status) it.status = "draft";
+    if(!it.type) it.type = "post";
+  });
+  return d;
+}
+function saveCal(){ localStorage.setItem(LS_CAL, JSON.stringify(calState)); render(); }
+
+/* ---------- replies ---------- */
+function repBlank(){ return { meta:{owner:"",updated:""}, replies:[] }; }
+function loadRep(){ try{ const raw=localStorage.getItem(LS_REP); if(raw) return normRep(JSON.parse(raw)); }catch(e){} return repBlank(); }
+function repCapturedAt(v){
+  if(!v) return "";
+  const s=String(v);
+  if(/^\d{4}-\d{2}-\d{2}T/.test(s)) return s;
+  const m=s.match(/^\d{4}-\d{2}-\d{2}/);
+  return m ? (m[0]+"T12:00:00") : s;
+}
+function repCandidate(c,j){
+  if(c && typeof c==="object" && !Array.isArray(c)){
+    return { n:c.n==null?j+1:c.n, angle:c.angle||"candidate", text:c.text||"" };
+  }
+  return { n:j+1, angle:"candidate", text:String(c||"") };
+}
+function normRep(d){
+  d = d || repBlank();
+  d.meta = d.meta || {};
+  d.replies = Array.isArray(d.replies) ? d.replies : [];
+  d.replies.forEach((r,i)=>{
+    if(!r.id) r.id = "rpl-"+i;
+    if(!r.targetHandle && r.handle) r.targetHandle = r.handle;
+    if(!r.targetUrl && r.url) r.targetUrl = r.url;
+    if(!r.targetPost && r.post) r.targetPost = r.post;
+    if(!r.targetCapturedAt && r.capturedAt) r.targetCapturedAt = repCapturedAt(r.capturedAt);
+    if(r.targetCapturedAt) r.targetCapturedAt = repCapturedAt(r.targetCapturedAt);
+    if(!Array.isArray(r.candidates)) r.candidates = [];
+    r.candidates = r.candidates.map(repCandidate);
+    if(r.status==="drafted") r.status = "needs-approval";
+    if(!r.status) r.status = r.candidates.length ? "needs-approval" : "target-in";
+    if(r.earnedReply===undefined) r.earnedReply = null;
+    if(r.finalText==null) r.finalText = r.shipped || "";
+    if(r.source===undefined) r.source = "human";
+    if(r.verified===undefined) r.verified = (r.source!=="grok");
+  });
+  return d;
+}
+function saveRep(){ localStorage.setItem(LS_REP, JSON.stringify(repState)); render(); }
+
+/* ---------- scene ---------- */
+function scnBlank(){ return { meta:{owner:"",updated:""}, scenes:DEFAULT_SCENES.slice(), accounts:[] }; }
+function loadScene(){ try{ const raw=localStorage.getItem(LS_SCN); if(raw) return normScene(JSON.parse(raw)); }catch(e){} return scnBlank(); }
+function normScene(d){
+  d = d || scnBlank();
+  d.meta = d.meta || {};
+  d.scenes = (Array.isArray(d.scenes) && d.scenes.length) ? d.scenes : DEFAULT_SCENES.slice();
+  d.accounts = Array.isArray(d.accounts) ? d.accounts : [];
+  d.accounts.forEach((a,i)=>{
+    if(!a.id) a.id = ((a.handle||"acct").replace(/^@/,"").toLowerCase().replace(/[^a-z0-9]+/g,"-").replace(/^-|-$/g,"")) || ("acct-"+i);
+    if(!a.size) a.size = "mid";
+    if(!a.relationship) a.relationship = "cold";
+    if(a.touchCount==null) a.touchCount = 0;
+    if(!Array.isArray(a.anglesThatWork)) a.anglesThatWork = [];
+    if(a.priority==null) a.priority = 3;
+    if(a.repliedBack===undefined) a.repliedBack = false;
+    if(a.lastTouched==null) a.lastTouched = "";
+  });
+  return d;
+}
+function saveScene(){ localStorage.setItem(LS_SCN, JSON.stringify(scnState)); render(); }
+
+/* ---------- patrol ---------- */
+function patBlank(){ return { meta:{owner:"",updated:""}, defaults:Object.assign({},PAT_DEFAULTS), scenes:[] }; }
+function loadPat(){ try{ const raw=localStorage.getItem(LS_PAT); if(raw) return normPat(JSON.parse(raw)); }catch(e){} return patBlank(); }
+function normPat(d){
+  d = d || patBlank();
+  d.meta = d.meta || {};
+  d.defaults = Object.assign({}, PAT_DEFAULTS, d.defaults||{});
+  d.scenes = Array.isArray(d.scenes) ? d.scenes : [];
+  d.scenes.forEach(s=>{
+    if(!Array.isArray(s.keywords)) s.keywords = [];
+    if(!Array.isArray(s.phrases)) s.phrases = [];
+    if(!Array.isArray(s.watchHandles)) s.watchHandles = [];
+    if(s.lastWorked==null) s.lastWorked = "";
+    if(!s.scene) s.scene = "scene";
+  });
+  return d;
+}
+function savePat(){ localStorage.setItem(LS_PAT, JSON.stringify(patState)); render(); }
+
+/* ---------- neighbors (Substack RSS watch, written by watch.py) ---------- */
+function nbBlank(){ return { meta:{owner:"",updated:""}, watch:[], seen:[], opportunities:[] }; }
+function loadNb(){ try{ const raw=localStorage.getItem(LS_NB); if(raw) return normNb(JSON.parse(raw)); }catch(e){} return nbBlank(); }
+function normNb(d){
+  d = d || nbBlank();
+  d.meta = d.meta || {};
+  d.watch = Array.isArray(d.watch) ? d.watch : [];
+  d.seen = Array.isArray(d.seen) ? d.seen : [];
+  d.opportunities = Array.isArray(d.opportunities) ? d.opportunities : [];
+  d.opportunities.forEach((o,i)=>{ if(!o.id) o.id="opp-"+i; if(!o.status) o.status="new"; if(!o.kind) o.kind="new_post"; });
+  return d;
+}
+function saveNb(){ localStorage.setItem(LS_NB, JSON.stringify(nbState)); render(); }
+
+/* ============================ utils ============================ */
+function toast(msg){
+  const t = document.getElementById("toast");
+  t.textContent = msg; t.classList.add("show");
+  clearTimeout(t._t); t._t = setTimeout(()=>t.classList.remove("show"), 1700);
+}
+function today(){ const d=new Date(); return d.toISOString().slice(0,10); }
+function daysAgoISO(n){ return new Date(Date.now()-n*86400000).toISOString().slice(0,10); }
+function nowLocalISO(){ const d=new Date(), p=n=>String(n).padStart(2,"0");
+  return `${d.getFullYear()}-${p(d.getMonth()+1)}-${p(d.getDate())}T${p(d.getHours())}:${p(d.getMinutes())}`; }
+function esc(s){ return (s||"").replace(/[&<>]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;"}[c])); }
+function daysSince(d){ if(!d) return null; const ms=Date.now()-new Date(d).getTime(); if(isNaN(ms)) return null; return Math.floor(ms/86400000); }
+function findAcct(handle){
+  if(!handle) return null;
+  const h = handle.replace(/^@/,"").toLowerCase();
+  return scnState.accounts.find(a => (a.handle||"").replace(/^@/,"").toLowerCase()===h);
+}
+
+/* ============================ master render ============================ */
+function render(){
+  const tab=(id,label)=>`<button class="${activeTab===id?'on':''}" onclick="setTab('${id}')">${label}</button>`;
+  document.getElementById("tabs").innerHTML = tab("patrol","PATROL")+tab("replies","REPLIES")+tab("scene","SCENE")+tab("queue","QUEUE");
+  document.getElementById("addBtn").textContent =
+    activeTab==="patrol" ? "⌁ grok prompt" : activeTab==="replies" ? "+ target" : activeTab==="scene" ? "+ account" : "+ draft";
+
+  renderSummary();
+  renderGuide();
+  renderDiscipline();
+  document.getElementById("controls").innerHTML = renderControls();
+
+  const board = document.getElementById("board");
+  board.innerHTML = activeTab==="patrol" ? patrolView()
+    : activeTab==="replies" ? repView()
+    : activeTab==="scene" ? scnView()
+    : queueView();
+}
+function setTab(t){ activeTab=t; localStorage.setItem("sa-tab",t); calEditId=repEditId=null; render(); }
+
+function renderSummary(){
+  let html="";
+  if(activeTab==="patrol"){
+    const done=patState.scenes.filter(s=>s.lastWorked===today()).length;
+    const grok=repState.replies.filter(r=>r.source==="grok" && r.status==="target-in").length;
+    html=`<b>${done}</b>/${patState.scenes.length||0} scenes patrolled · <b>${grok}</b> grok targets pending`;
+  } else if(activeTab==="replies"){
+    const c=s=>repState.replies.filter(r=>r.status===s).length;
+    html=`<b>${c('target-in')}</b> to draft · <b>${c('needs-approval')+c('drafting')}</b> to approve · <b>${c('approved')}</b> ready · <b>${c('posted')}</b> posted`;
+  } else if(activeTab==="scene"){
+    const due=scnState.accounts.filter(a=>{const d=daysSince(a.lastTouched);return d===null||d>=7;}).length;
+    html=`<b>${scnState.accounts.length}</b> accounts · <b>${due}</b> due`;
+  } else {
+    const c=s=>calState.queue.filter(i=>i.status===s).length;
+    html=`<b>${c('draft')}</b> to approve · <b>${c('approved')}</b> ready · <b>${c('posted')}</b> posted`;
+  }
+  document.getElementById("summary").innerHTML = html;
+}
+
+function renderDiscipline(){
+  const el=document.getElementById("discipline"); if(!el) return;
+  const scenesTotal=patState.scenes.length;
+  const patrolled=patState.scenes.filter(s=>s.lastWorked===today()).length;
+  const postedToday=repState.replies.filter(r=>r.status==="posted" && r.postedAt===today()).length;
+  const cut14=daysAgoISO(14);
+  const rated=repState.replies.filter(r=>r.status==="posted" && (r.postedAt||"")>=cut14 && r.earnedReply!=null);
+  const earned=rated.filter(r=>r.earnedReply===true).length;
+  const rate=rated.length?Math.round(100*earned/rated.length):null;
+  const streak=updateStreak(patrolled>0 || postedToday>0);
+  const cut7=daysAgoISO(7);
+  const recentOriginal=calState.queue.some(i=>i.status==="posted" && (i.postedAt||"")>=cut7);
+  let html=`<span class="pill">patrol <b>${patrolled}${scenesTotal?'/'+scenesTotal:''}</b></span>`;
+  html+=`<span class="pill">replies today <b>${postedToday}</b></span>`;
+  html+=`<span class="pill">earned-reply <b>${rate==null?'—':rate+'%'}</b></span>`;
+  if(streak>0) html+=`<span class="pill flame">🔥 <b>${streak}</b></span>`;
+  if(!recentOriginal) html+=`<span class="pill warn" onclick="setTab('queue')">post something original this week ↗</span>`;
+  el.innerHTML=html;
+}
+function updateStreak(activeToday){
+  let s={lastActiveDay:"",streak:0};
+  try{ s=JSON.parse(localStorage.getItem(LS_STREAK))||s; }catch(e){}
+  const t=today(), y=daysAgoISO(1);
+  if(activeToday && s.lastActiveDay!==t){
+    s.streak=(s.lastActiveDay===y)?(s.streak||0)+1:1;
+    s.lastActiveDay=t;
+    localStorage.setItem(LS_STREAK, JSON.stringify(s));
+    return s.streak;
+  }
+  // display only: if last activity is older than yesterday, the streak is broken
+  if(s.lastActiveDay && s.lastActiveDay<y) return 0;
+  return s.streak||0;
+}
+
+function renderGuide(){
+  const g=document.getElementById("guide");
+  if(guideHidden){ g.innerHTML=""; return; }
+  let steps;
+  if(activeTab==="patrol"){
+    steps=[["1","copy the <b>grok prompt</b> → paste into Grok → <b>paste Grok JSON</b> back"],["2","work the scene links (open in your X session)"],["3","capture good posts → REPLIES"],["4","mark each scene patrolled"]];
+  } else if(activeTab==="replies"){
+    steps=[["1","capture a target (<b>+ target</b>)"],["2","draft in Claude Code (\"draft replies to this\")"],
+           ["3","refresh with <b>?fresh</b> if Claude changed files"],["4","pick one → copy → post on X"],["5","export only if you edited here"]];
+  } else if(activeTab==="scene"){
+    steps=[["1","add accounts to reply into (<b>+ account</b>)"],["2","hit the <b>due</b> ones (7+ days)"],["3","export only if you edited here"]];
+  } else {
+    steps=[["1","run the routine in Claude Code"],["2","refresh with <b>?fresh</b> if Claude changed files"],["3","approve / edit / kill"],["4","export only if you edited here"]];
+  }
+  const inner = steps.map((s,i)=>`<span class="step"><span class="num">${s[0]}</span> ${s[1]}</span>${i<steps.length-1?'<span class="arrow">→</span>':''}`).join("");
+  g.innerHTML = `<div class="guide">${inner}<button class="x" title="hide" onclick="toggleGuide()">×</button></div>`;
+}
+
+function renderControls(){
+  if(activeTab==="patrol"){
+    return `<div class="right" style="margin-left:0"><button class="ghost tiny" onclick="openGrokImport()">⌁ paste Grok JSON</button>
+      <button class="ghost tiny" onclick="openImport()">import patrol.json</button></div>`;
+  }
+  if(activeTab==="replies"){
+    const seg=(v,l)=>`<button class="${repFilter===v?'on':''}" onclick="setRepFilter('${v}')">${l}</button>`;
+    const k=repState.replies.filter(r=>r.status==="killed").length;
+    return `<div class="seg">${seg('all','all')}${seg('to-draft','to draft')}${seg('to-approve','to approve')}${seg('ready','ready')}${seg('posted','posted')}</div>
+      <div class="right"><button class="ghost tiny" onclick="openGrokImport()">⌁ paste Grok JSON</button>
+        <button class="ghost tiny" onclick="toggleKilled()">${showKilled?'hide killed':'show killed'}${k?` (${k})`:''}</button></div>`;
+  }
+  if(activeTab==="scene"){
+    return `<div class="chips">${coverageChips()}</div>`;
+  }
+  const seg=(v,l)=>`<button class="${filter.platform===v?'on':''}" onclick="setPlatform('${v}')">${l}</button>`;
+  const k=calState.queue.filter(i=>i.status==="killed").length;
+  return `<div class="seg">${seg('all','all')}${seg('x','x')}${seg('substack','substack')}</div>
+    <div class="right"><button class="ghost tiny" onclick="toggleKilled()">${showKilled?'hide killed':'show killed'}${k?` (${k})`:''}</button></div>`;
+}
+function setRepFilter(v){ repFilter=v; render(); }
+function setPlatform(v){ filter.platform=v; render(); }
+function toggleKilled(){ showKilled=!showKilled; render(); }
+function toggleGuide(){ guideHidden=!guideHidden; localStorage.setItem("sa-guide-hidden", guideHidden?"1":"0"); render(); }
+
+/* ============================ PATROL view ============================ */
+function patFav(s,k){ const d=patState.defaults||PAT_DEFAULTS; return (s[k]!=null)?s[k]:d[k]; }
+function utcSince(hoursAgo){
+  const d=new Date(Date.now()-hoursAgo*3600000), p=n=>String(n).padStart(2,"0");
+  return `${d.getUTCFullYear()}-${p(d.getUTCMonth()+1)}-${p(d.getUTCDate())}_${p(d.getUTCHours())}:${p(d.getUTCMinutes())}:${p(d.getUTCSeconds())}_UTC`;
+}
+function patQ(s, opt){
+  opt = opt || {};
+  const terms=[].concat(s.keywords||[], (s.phrases||[]).map(p=>`"${p}"`));
+  const orGroup=terms.length?('('+terms.join(' OR ')+')'):'';
+  const floor=patFav(s,'favFloor'), ceil=patFav(s,'favCeiling');
+  const recency=patFav(s,'recencyHours'), lang=(patState.defaults||PAT_DEFAULTS).lang||'en';
+  const minR=(opt.minReplies!=null)?opt.minReplies:patFav(s,'minReplies');
+  const recencyClause=opt.since?('since:'+utcSince(recency)):('within_time:'+recency+'h');
+  return [orGroup,`min_faves:${floor}`,`-min_faves:${ceil}`,`min_replies:${minR}`,recencyClause,`lang:${lang}`,'-filter:retweets'].filter(Boolean).join(' ');
+}
+function xUrl(q){ return 'https://x.com/search?q='+encodeURIComponent(q)+'&src=typed_query&f=live'; }
+function watchQ(s){
+  const hs=(s.watchHandles||[]).map(h=>'from:'+h.replace(/^@/,'')).filter(Boolean);
+  if(!hs.length) return '';
+  return '('+hs.join(' OR ')+') within_time:'+patFav(s,'recencyHours')+'h -filter:retweets';
+}
+function qbtn(href,label,cls){ return `<a class="qbtn ${cls||''}" href="${href}" target="_blank" rel="noopener">${esc(label)} ↗</a>`; }
+function patrolView(){
+  if(!patState.scenes.length){
+    return `<div class="empty"><h2>no patrol config yet</h2>
+      The patrol board turns your scenes + keywords into one-click X search and List links — so finding warm,
+      in-niche targets is a 25-minute route, not a doomscroll. Import <code>patrol.json</code> to load it.
+      <div class="acts"><button onclick="openImport()">import patrol.json</button></div></div>`;
+  }
+  const done=patState.scenes.filter(s=>s.lastWorked===today()).length;
+  const head=`<div class="patrol-head">
+    <span class="chip"><b>${done}</b>/${patState.scenes.length} scenes patrolled today</span>
+    <button class="tiny" onclick="openGrokPrompt()">⌁ grok scene-pull</button>
+    <span class="muted-note">links open in your own logged-in X session · $0, no API · reading + posting stay in your hands</span>
+  </div>`;
+  const cards=patState.scenes.map(s=>{
+    const isDone=s.lastWorked===today();
+    const btns=[];
+    btns.push(qbtn(xUrl(patQ(s)),'broad'));
+    btns.push(qbtn(xUrl(patQ(s,{minReplies:3})),'high-convo'));
+    btns.push(qbtn(xUrl(patQ(s,{since:true})),'since: fallback'));
+    if(s.listId) btns.push(qbtn('https://x.com/i/lists/'+encodeURIComponent(s.listId),'list','list'));
+    const wq=watchQ(s); if(wq) btns.push(qbtn(xUrl(wq),'watchlist'));
+    const kwAll=[].concat(s.keywords||[], s.phrases||[]);
+    const kw=kwAll.slice(0,4).join(', ')+(kwAll.length>4?'…':'');
+    const band=`${patFav(s,'favFloor')}–${patFav(s,'favCeiling')} likes · ${patFav(s,'recencyHours')}h`;
+    return `<div class="pcard ${isDone?'done':''}">
+      <div class="scene-h">
+        <span class="name">${esc(s.scene)}</span>
+        <span class="kw">${esc(kw)} · <span title="traction band (size proxy) + recency">${esc(band)}</span></span>
+        <button class="tiny mk ${isDone?'go':''}" onclick="patMark('${esc(s.scene)}')">${isDone?'✓ patrolled':'mark patrolled'}</button>
+      </div>
+      <div class="qbtns">${btns.join('')}</div>
+    </div>`;
+  }).join('');
+  return head+cards;
+}
+function patMark(scene){ const s=patState.scenes.find(x=>x.scene===scene); if(s){ s.lastWorked=(s.lastWorked===today())?"":today(); savePat(); } }
+
+/* ============================ GROK bridge ============================ */
+function grokPromptText(){
+  const sc = patState.scenes.length ? patState.scenes.map(s=>s.scene) : scnState.scenes;
+  const scenes = sc.join(", ");
+  const recency = (patState.defaults||PAT_DEFAULTS).recencyHours || 12;
+  return `Search X for posts from the last ${recency} hours across these scenes: ${scenes}. Use Latest mode (most recent first). Return ONLY valid JSON — a flat array of objects, no prose, no markdown fences. Each object has exactly these keys: handle, url, text (first 280 chars), scene (one of: ${scenes}), age_hours, why (one line on the angle a substantive reply could take). Max 15 posts. Skip very large accounts (>~50k followers) and pure shitposts or self-promo.`;
+}
+function openGrokPrompt(){ document.getElementById("grokPromptText").value = grokPromptText(); grokPromptDlg.showModal(); }
+function copyGrokPrompt(){ navigator.clipboard.writeText(grokPromptText()).then(()=>toast("prompt copied — paste into Grok")); }
+function openGrokImport(){ document.getElementById("grokJson").value=""; grokImportDlg.showModal(); }
+function parseGrokJson(raw){
+  let s=(raw||"").trim().replace(/^```(json)?/i,"").replace(/```$/,"").trim();
+  const i=s.indexOf("["), j=s.lastIndexOf("]");
+  if(i<0||j<0) return null;
+  try{ return JSON.parse(s.slice(i,j+1)); }catch(e){ return null; }
+}
+function doGrokImport(){
+  const arr=parseGrokJson(document.getElementById("grokJson").value);
+  if(!Array.isArray(arr)){ toast("couldn't find a JSON array"); return; }
+  let ok=0, skip=0;
+  let n=repState.replies.filter(x=>(x.id||"").startsWith("rpl-grok-"+today())).length;
+  arr.forEach(o=>{
+    if(!o || (!o.url && !o.text)){ skip++; return; }
+    n++;
+    const scene=(scnState.scenes.includes(o.scene))?o.scene:(scnState.scenes[0]||"");
+    repState.replies.push({
+      id:"rpl-grok-"+today()+"-"+String(n).padStart(2,"0"), status:"target-in", source:"grok", verified:false,
+      targetHandle:(o.handle||"").trim(), targetUrl:(o.url||"").trim(), targetPost:(o.text||"").trim(),
+      targetCapturedAt:nowLocalISO(), scene, pillar:"hyperstition",
+      candidates:[], chosen:null, finalText:"", linkInFirstReply:"",
+      postedAt:null, postedVia:null, earnedReply:null, createdAt:today()
+    });
+    ok++;
+  });
+  grokImportDlg.close();
+  if(activeTab!=="replies"){ activeTab="replies"; localStorage.setItem("sa-tab","replies"); }
+  repFilter="to-draft";
+  saveRep();
+  toast(`imported ${ok} target${ok===1?'':'s'}${skip?`, skipped ${skip}`:''}`);
+}
+
+/* ============================ REPLIES view ============================ */
+function repView(){
+  const all = repState.replies;
+  if(!all.length){
+    return `<div class="empty"><h2>no reply targets yet</h2>
+      Replies are the engine on a cold start. Capture a post you want to answer (or pull a batch via
+      <b>⌁ paste Grok JSON</b>), draft candidates in Claude Code, pick one, and post it by hand.
+      <div class="acts"><button onclick="openTarget()">+ capture a target</button>
+      <button class="ghost" onclick="openImport()">import replies.json</button></div></div>`;
+  }
+  const order={ "needs-approval":0,"drafting":0,"target-in":1,"approved":2,"posted":3,"killed":4 };
+  let list = all.slice();
+  if(repFilter==="to-draft") list=list.filter(r=>r.status==="target-in");
+  else if(repFilter==="to-approve") list=list.filter(r=>r.status==="needs-approval"||r.status==="drafting");
+  else if(repFilter==="ready") list=list.filter(r=>r.status==="approved");
+  else if(repFilter==="posted") list=list.filter(r=>r.status==="posted");
+  else list=list.filter(r=> r.status!=="killed" || showKilled);
+  list.sort((a,b)=> ((order[a.status]??9)-(order[b.status]??9)) || (b.targetCapturedAt||"").localeCompare(a.targetCapturedAt||""));
+  if(!list.length) return `<div class="empty"><h2>nothing in this view</h2>Switch the filter above.</div>`;
+  return `<div class="feed">${list.map(repCard).join("")}</div>`;
+}
+function timerHtml(r){
+  if(r.status==="posted"||r.status==="killed"||!r.targetCapturedAt) return "";
+  const ms = Date.now() - new Date(r.targetCapturedAt).getTime();
+  if(isNaN(ms)) return "";
+  const m = Math.floor(ms/60000);
+  if(m<=30) return `<span class="timer fresh">⏱ ${30-m}m left</span>`;
+  if(m<120) return `<span class="timer stale">⏱ stale (${m}m)</span>`;
+  const h=Math.floor(m/60); return `<span class="timer stale">⏱ stale (${h}h)</span>`;
+}
+function repCard(r){
+  const unverified = r.source==="grok" && r.verified===false && r.status==="target-in";
+  const head = `<div class="top">
+    <span class="badge x">x · reply</span>
+    ${r.source==="grok"?`<span class="badge">grok</span>`:""}
+    ${unverified?`<span class="badge warn">⚠ unverified handle</span>`:""}
+    ${r.targetHandle?`<a class="handle" href="https://x.com/${esc((r.targetHandle||"").replace(/^@/,""))}" target="_blank" rel="noopener">${esc(r.targetHandle)}</a>`:""}
+    ${r.scene?`<span class="badge">${esc(r.scene)}</span>`:""}
+    ${r.pillar?`<span class="badge">${esc(r.pillar)}</span>`:""}
+    ${timerHtml(r)}
+  </div>`;
+  const targetBlock = r.targetPost
+    ? `<div class="target">${esc(r.targetPost)}${r.targetUrl?` <a class="handle" href="${esc(r.targetUrl)}" target="_blank" rel="noopener">open ↗</a>`:""}</div>`
+    : "";
+
+  let mid="", acts=[];
+  if(r.status==="target-in"){
+    mid = `<div class="muted-note">no candidates yet — in Claude Code say "draft replies to this", then re-import replies.json.${unverified?' First confirm this handle is a real account, not an impersonator.':''}</div>`;
+    acts = [ rbtn(r.id,"edit-target","edit"), rbtn(r.id,"kill","kill") ];
+  } else if(r.status==="needs-approval"||r.status==="drafting"){
+    mid = (r.candidates||[]).map(c=>candHtml(r.id,c)).join("") || `<div class="muted-note">no candidates on this record.</div>`;
+    if(r.linkInFirstReply) mid += linkLine(r.linkInFirstReply);
+    acts = [ rbtn(r.id,"edit-target","edit target"), rbtn(r.id,"kill","kill") ];
+  } else if(r.status==="approved"){
+    const editing = repEditId===r.id;
+    mid = editing
+      ? `<textarea id="red-${r.id}">${esc(r.finalText||"")}</textarea>
+         <div class="acts" style="margin:8px 0"><button class="tiny go" onclick="repSaveEdit('${r.id}')">save</button></div>`
+      : `<div class="final">${esc(r.finalText||"")}</div>`;
+    if(r.linkInFirstReply) mid += linkLine(r.linkInFirstReply);
+    acts = [ rbtn(r.id,"copy","copy reply","go"), rbtn(r.id,"posted","✓ mark posted"),
+             rbtn(r.id,"edit", editing?"close":"edit"), rbtn(r.id,"unpick","↩ candidates") ];
+  } else if(r.status==="posted"){
+    const er=r.earnedReply;
+    mid = `<div class="final" style="opacity:.78">${esc(r.finalText||"")}</div>
+      <div class="muted-note">posted ${esc(r.postedAt||"")} · earned a reply?
+        <button class="tiny ${er===true?'go':''}" onclick="repAct('${r.id}','earned',true)">yes</button>
+        <button class="tiny ${er===false?'go':''}" onclick="repAct('${r.id}','earned',false)">no</button></div>`;
+    acts = [ rbtn(r.id,"copy","copy") ];
+  } else if(r.status==="killed"){
+    mid = `<div class="muted-note">killed.</div>`;
+    acts = [ rbtn(r.id,"restore","restore"), rbtn(r.id,"delete","delete") ];
+  }
+  return `<div class="rcard">${head}${targetBlock}${mid}<div class="acts">${acts.join("")}</div></div>`;
+}
+function rbtn(id,action,label,cls){ return `<button class="tiny ${cls||''}" onclick="repAct('${id}','${action}')">${label}</button>`; }
+function candHtml(id,c){
+  const glyph = ["①","②","③","④","⑤"][(c.n||1)-1] || ("#"+c.n);
+  return `<div class="cand">
+    <div class="cand-h"><span class="n">${glyph}</span><span class="angle">${esc(c.angle||"")}</span></div>
+    <div class="cand-text">${esc(c.text||"")}</div>
+    <div class="acts"><button class="tiny go" onclick="repAct('${id}','use',${c.n})">use this</button>
+      <button class="tiny" onclick="repCopyCand('${id}',${c.n})">copy</button></div>
+  </div>`;
+}
+function linkLine(s){ return `<div class="linkline"><b>first reply:</b> ${esc(s)}</div>`; }
+function repAct(id, action, arg){
+  const r = repState.replies.find(x=>x.id===id);
+  if(!r && action!=="delete") return;
+  switch(action){
+    case "use": { const c=(r.candidates||[]).find(x=>x.n===arg); r.chosen=arg; r.finalText=c?c.text:""; r.status="approved"; r.verified=true; toast("picked — ready to post"); break; }
+    case "unpick": r.status="needs-approval"; r.chosen=null; toast("back to candidates"); break;
+    case "posted": r.status="posted"; r.postedAt=today(); r.postedVia="manual"; bumpAccount(r.targetHandle); toast("marked posted"); break;
+    case "earned": r.earnedReply=arg; if(arg) setRepliedBack(r.targetHandle); toast(arg?"nice — logged":"logged"); break;
+    case "kill": r.status="killed"; toast("killed"); break;
+    case "restore": r.status=(r.candidates&&r.candidates.length)?"needs-approval":"target-in"; toast("restored"); break;
+    case "delete": repState.replies=repState.replies.filter(x=>x.id!==id); toast("deleted"); break;
+    case "edit": repEditId=(repEditId===id)?null:id; render(); return;
+    case "edit-target": openTarget(id); return;
+    case "copy": navigator.clipboard.writeText(r.finalText||"").then(()=>toast("copied reply")); return;
+  }
+  repEditId=null; saveRep();
+}
+function repCopyCand(id,n){
+  const r=repState.replies.find(x=>x.id===id);
+  const c=r&&(r.candidates||[]).find(x=>x.n===n);
+  if(c) navigator.clipboard.writeText(c.text||"").then(()=>toast("copied candidate "+n));
+}
+function repSaveEdit(id){
+  const r=repState.replies.find(x=>x.id===id);
+  const ta=document.getElementById("red-"+id);
+  if(r&&ta){ r.finalText=ta.value; repEditId=null; toast("saved"); saveRep(); }
+}
+function bumpAccount(handle){ const a=findAcct(handle); if(a){ a.touchCount=(a.touchCount||0)+1; a.lastTouched=today(); saveScene(); } }
+function setRepliedBack(handle){ const a=findAcct(handle); if(a && !a.repliedBack){ a.repliedBack=true; saveScene(); } }
+
+/* ---- capture / edit a target ---- */
+function openTarget(id){
+  targetEditId = id || null;
+  document.getElementById("handleList").innerHTML = scnState.accounts.map(a=>`<option value="${esc(a.handle)}">`).join("");
+  document.getElementById("tScene").innerHTML = scnState.scenes.map(s=>`<option value="${esc(s)}">${esc(s)}</option>`).join("");
+  document.getElementById("targetTitle").textContent = id ? "edit target" : "capture a reply target";
+  if(id){
+    const r = repState.replies.find(x=>x.id===id) || {};
+    tHandle.value=r.targetHandle||""; tUrl.value=r.targetUrl||""; tPost.value=r.targetPost||"";
+    tScene.value=r.scene||scnState.scenes[0]||""; tPillar.value=r.pillar||"hyperstition";
+  } else {
+    tHandle.value=""; tUrl.value=""; tPost.value=""; tScene.value=scnState.scenes[0]||""; tPillar.value="hyperstition";
+  }
+  targetDlg.showModal();
+}
+function saveTarget(){
+  const post = tPost.value.trim();
+  if(!post){ toast("paste the post text"); return; }
+  if(targetEditId){
+    const r=repState.replies.find(x=>x.id===targetEditId);
+    if(r){ r.targetHandle=tHandle.value.trim(); r.targetUrl=tUrl.value.trim(); r.targetPost=post; r.scene=tScene.value; r.pillar=tPillar.value; if(r.source==="grok") r.verified=true; }
+    targetEditId=null;
+  } else {
+    const n = repState.replies.filter(x=>(x.id||"").startsWith("rpl-"+today())).length + 1;
+    repState.replies.push({
+      id:"rpl-"+today()+"-"+String(n).padStart(2,"0"), status:"target-in", source:"human", verified:true,
+      targetHandle:tHandle.value.trim(), targetUrl:tUrl.value.trim(), targetPost:post,
+      targetCapturedAt:nowLocalISO(), scene:tScene.value, pillar:tPillar.value,
+      candidates:[], chosen:null, finalText:"", linkInFirstReply:"",
+      postedAt:null, postedVia:null, earnedReply:null, createdAt:today()
+    });
+  }
+  targetDlg.close(); saveRep();
+}
+
+/* ============================ SCENE view ============================ */
+function coverageChips(){
+  const counts={}; scnState.scenes.forEach(s=>counts[s]=0);
+  scnState.accounts.forEach(a=>{ counts[a.scene]=(counts[a.scene]||0)+1; });
+  return Object.keys(counts).map(s=>`<span class="chip ${counts[s]===0?'empty':''}">${esc(s)} <b>${counts[s]}</b></span>`).join("");
+}
+function scnView(){
+  const nb = neighborsBlock();
+  let accounts;
+  if(!scnState.accounts.length){
+    accounts = `<div class="empty"><h2>no accounts yet</h2>
+      Add the mid-size, in-niche accounts you'll reply into (roughly 2–10× your size). Ask Claude to
+      suggest candidates across your four scenes — then confirm who's real and add them here.
+      <div class="acts"><button onclick="openAccount()">+ account</button>
+      <button class="ghost" onclick="openImport()">import scene.json</button></div></div>`;
+  } else {
+    const list = scnState.accounts.slice().sort((a,b)=>{
+      const da=daysSince(a.lastTouched), db=daysSince(b.lastTouched);
+      const sa=(da===null?9999:da), sb=(db===null?9999:db);
+      return ((a.priority||3)-(b.priority||3)) || (sb-sa);
+    });
+    accounts = `<div class="grid">${list.map(scnCard).join("")}</div>`;
+  }
+  return nb + accounts;
+}
+
+/* ---- neighbor-watch (Substack RSS opportunities from watch.py) ---- */
+function neighborsBlock(){
+  const newOpps = nbState.opportunities.filter(o=>o.status==="new")
+    .sort((a,b)=>(b.published_at||"").localeCompare(a.published_at||""));
+  const head=`<div class="patrol-head" style="margin-bottom:10px">
+    <span style="font:600 12px var(--mono);letter-spacing:.06em;text-transform:uppercase;color:var(--ink)">⌁ neighbor-watch</span>
+    <span class="chip"><b>${newOpps.length}</b> new</span>
+    <button class="tiny" onclick="openNbImport()">import neighbors.json</button>
+    ${nbState.opportunities.length?`<button class="tiny ghost" onclick="exportNeighbors()">export</button>`:""}
+    <span class="muted-note">free Substack RSS · run <code>watch.py</code> to refresh · restack/comment while it's hot</span></div>`;
+  let body;
+  if(!nbState.watch.length && !nbState.opportunities.length){
+    body=`<div class="muted-note" style="max-width:820px;margin-bottom:18px">No neighbors configured. Add Substack publications to <code>neighbors.json</code>, run <code>watch.py</code>, then import it here — you'll see "just published / restacked" opportunities the moment they happen.</div>`;
+  } else if(!newOpps.length){
+    body=`<div class="muted-note" style="max-width:820px;margin-bottom:18px">No new neighbor activity. Run <code>watch.py</code> and re-import to check the feeds.</div>`;
+  } else {
+    body=`<div class="grid" style="margin-bottom:20px">${newOpps.slice(0,30).map(nbCard).join("")}</div>`;
+  }
+  return head+body;
+}
+function nbCard(o){
+  const ds=daysSince(o.published_at);
+  const age = ds===null?"":(ds===0?"today":ds+"d ago");
+  const kindLabel = o.kind==="restack"?"restack":o.kind==="note"?"note":"new post";
+  return `<div class="scard">
+    <div class="top">
+      <span class="badge substack">substack</span>
+      <span class="badge">${esc(kindLabel)}</span>
+      ${o.scene?`<span class="badge">${esc(o.scene)}</span>`:""}
+      <span class="when" style="margin-left:auto;color:var(--faint);font:11px var(--mono)">${esc(age)}</span>
+    </div>
+    <div class="notes" style="font-style:normal;color:var(--ink)">${esc(o.publication||"")}${o.title?` — ${esc(o.title)}`:""}</div>
+    <div class="acts">
+      ${o.url?`<a class="qbtn" href="${esc(o.url)}" target="_blank" rel="noopener">open ↗</a>`:""}
+      <button class="tiny go" onclick="nbAct('${o.id}','done')">✓ done</button>
+      <button class="tiny" onclick="nbAct('${o.id}','dismiss')">dismiss</button>
+    </div>
+  </div>`;
+}
+function nbAct(id,action){
+  const o=nbState.opportunities.find(x=>x.id===id); if(!o) return;
+  o.status = action==="done"?"done":"dismissed";
+  toast(action==="done"?"marked done":"dismissed"); saveNb();
+}
+function openNbImport(){ document.getElementById("nbText").value=""; nbImportDlg.showModal(); }
+function doNbImport(){
+  let p; try{ p=JSON.parse(document.getElementById("nbText").value); }catch(e){ toast("invalid JSON"); return; }
+  nbState=normNb(p); nbImportDlg.close(); saveNb();
+  toast("imported "+nbState.opportunities.filter(o=>o.status==="new").length+" new opportunities");
+}
+function exportNeighbors(){
+  const out={ meta:{...(nbState.meta||{}),updated:today()}, watch:nbState.watch, seen:nbState.seen, opportunities:nbState.opportunities };
+  const blob=new Blob([JSON.stringify(out,null,2)], {type:"application/json"});
+  const a=document.createElement("a"); a.href=URL.createObjectURL(blob); a.download="neighbors.json"; a.click();
+  URL.revokeObjectURL(a.href); toast("exported neighbors.json");
+}
+function scnCard(a){
+  const ds = daysSince(a.lastTouched);
+  const stale = ds===null || ds>=7;
+  let touchLine;
+  if(ds===null) touchLine=`<span class="due">never touched · due</span>`;
+  else if(ds===0) touchLine=`<span class="rest">touched today · rest it</span>`;
+  else if(stale) touchLine=`<span class="due">${ds}d since last · due</span>`;
+  else touchLine=`${ds}d since last`;
+  return `<div class="scard ${stale?'stale':''}">
+    <div class="top">
+      <a class="handle" href="https://x.com/${esc((a.handle||"").replace(/^@/,""))}" target="_blank" rel="noopener">${esc(a.handle||"?")}</a>
+      <span class="badge">${esc(a.size||"mid")}</span>
+      <span class="badge">${esc(a.relationship||"cold")}</span>
+      ${a.repliedBack?`<span class="badge" style="color:var(--approved);border-color:color-mix(in srgb,var(--approved) 45%,transparent)">↩ replied back</span>`:""}
+    </div>
+    <div class="info">${esc(a.scene||"")} · ${touchLine} · ${a.touchCount||0} touches · p${a.priority||3}</div>
+    ${a.notes?`<div class="notes">${esc(a.notes)}</div>`:""}
+    ${(a.anglesThatWork&&a.anglesThatWork.length)?`<div class="muted-note">angles: ${esc(a.anglesThatWork.join(", "))}</div>`:""}
+    <div class="acts">
+      <button class="tiny" onclick="openAccount('${a.id}')">edit</button>
+      <button class="tiny" onclick="scnDelete('${a.id}')">delete</button>
+    </div>
+  </div>`;
+}
+function scnDelete(id){
+  const a=scnState.accounts.find(x=>x.id===id);
+  if(a && confirm("Delete "+(a.handle||"this account")+"?")){
+    scnState.accounts=scnState.accounts.filter(x=>x.id!==id); toast("deleted"); saveScene();
+  }
+}
+function openAccount(id){
+  acctEditId = id || null;
+  document.getElementById("aScene").innerHTML = scnState.scenes.map(s=>`<option value="${esc(s)}">${esc(s)}</option>`).join("");
+  document.getElementById("acctTitle").textContent = id ? "edit account" : "add an account";
+  if(id){
+    const a=scnState.accounts.find(x=>x.id===id)||{};
+    aHandle.value=a.handle||""; aScene.value=a.scene||scnState.scenes[0]||""; aSize.value=a.size||"mid";
+    aRel.value=a.relationship||"cold"; aPriority.value=String(a.priority||3);
+    aAngles.value=(a.anglesThatWork||[]).join(", "); aNotes.value=a.notes||"";
+  } else {
+    aHandle.value=""; aScene.value=scnState.scenes[0]||""; aSize.value="mid"; aRel.value="cold";
+    aPriority.value="3"; aAngles.value=""; aNotes.value="";
+  }
+  accountDlg.showModal();
+}
+function saveAccount(){
+  const handle=aHandle.value.trim();
+  if(!handle){ toast("needs a handle"); return; }
+  const angles=aAngles.value.split(",").map(s=>s.trim()).filter(Boolean);
+  if(acctEditId){
+    const a=scnState.accounts.find(x=>x.id===acctEditId);
+    if(a){ a.handle=handle; a.scene=aScene.value; a.size=aSize.value; a.relationship=aRel.value;
+           a.priority=+aPriority.value; a.anglesThatWork=angles; a.notes=aNotes.value.trim(); }
+    acctEditId=null;
+  } else {
+    const slug=(handle.replace(/^@/,"").toLowerCase().replace(/[^a-z0-9]+/g,"-").replace(/^-|-$/g,"")) || ("acct-"+scnState.accounts.length);
+    scnState.accounts.push({ id:slug, handle, scene:aScene.value, size:aSize.value, relationship:aRel.value,
+      notes:aNotes.value.trim(), anglesThatWork:angles, lastTouched:"", touchCount:0, repliedBack:false,
+      priority:+aPriority.value, addedAt:today() });
+  }
+  accountDlg.close(); saveScene();
+}
+
+/* ============================ QUEUE view (Kanban) ============================ */
+function queueView(){
+  if(!calState.queue.length){
+    return `<div class="board"><div class="empty"><h2>nothing queued yet</h2>
+      Run your daily routine in Claude Code, then import the updated <code>calendar.json</code> —
+      or add a draft by hand. This is where your ORIGINAL posts live — the profile a good reply sends people to.
+      <div class="acts">
+        <button onclick="openImport()">import calendar.json</button>
+        <button class="ghost" onclick="openAdd()">+ add a draft</button>
+      </div></div></div>`;
+  }
+  const lanes = LANES.filter(l => l.key!=="killed" || showKilled);
+  const laneHtml = lanes.map(lane => {
+    const items = calState.queue
+      .filter(i => i.status===lane.key && (filter.platform==="all" || i.platform===filter.platform))
+      .sort((a,b)=> (a.scheduledFor||"").localeCompare(b.scheduledFor||""));
+    const cards = items.length ? items.map(calCard).join("") : `<div class="lane-empty">empty</div>`;
+    return `<div class="lane" data-k="${lane.key}">
+      <div class="lane-h">
+        <span class="dot" style="background:var(--${lane.key})"></span>
+        <span class="name">${lane.name}</span>
+        <span class="ct">${items.length}</span>
+        <span class="hint">${lane.hint}</span>
+      </div>
+      <div class="lane-body">${cards}</div>
+    </div>`;
+  }).join("");
+  return `<div class="board ${showKilled?'k4':''}">${laneHtml}</div>`;
+}
+function calCard(it){
+  const editing = calEditId === it.id;
+  const acts=[];
+  if(it.status==="draft"){
+    acts.push(cbtn(it.id,"approve","✓ approve","go")); acts.push(cbtn(it.id,"edit", editing?"close":"edit"));
+    acts.push(cbtn(it.id,"copy","copy")); acts.push(cbtn(it.id,"kill","kill"));
+  } else if(it.status==="approved"){
+    acts.push(cbtn(it.id,"posted","✓ mark posted","go")); acts.push(cbtn(it.id,"copy","copy"));
+    acts.push(cbtn(it.id,"edit", editing?"close":"edit")); acts.push(cbtn(it.id,"draft","↩"));
+  } else if(it.status==="posted"){
+    acts.push(cbtn(it.id,"copy","copy")); acts.push(cbtn(it.id,"draft","↩ re-queue"));
+  } else if(it.status==="killed"){
+    acts.push(cbtn(it.id,"draft","restore")); acts.push(cbtn(it.id,"delete","delete"));
+  }
+  const bodyHtml = editing
+    ? `<textarea id="ed-${it.id}">${esc(it.body||"")}</textarea>
+       <div class="acts" style="margin:8px 0"><button class="tiny go" onclick="calSaveEdit('${it.id}')">save</button></div>`
+    : `<div class="body">${esc(it.body||"")}</div>`;
+  return `<div class="card">
+    <div class="top">
+      <span class="badge ${it.platform}">${it.platform||"?"}</span>
+      <span class="badge">${it.type||"post"}</span>
+      <span class="when">${it.scheduledFor||"—"}</span>
+    </div>
+    ${bodyHtml}
+    ${it.notes?`<div class="notes">${esc(it.notes)}</div>`:""}
+    <div class="acts">${acts.join("")}</div>
+  </div>`;
+}
+function cbtn(id,action,label,cls){ return `<button class="tiny ${cls||''}" onclick="calAct('${id}','${action}')">${label}</button>`; }
+function calAct(id, action){
+  const it = calState.queue.find(x=>x.id===id);
+  if(!it && action!=="delete") return;
+  switch(action){
+    case "approve": it.status="approved"; toast("approved → ready to post"); break;
+    case "posted":  it.status="posted"; it.postedAt=today(); toast("marked posted"); break;
+    case "draft":   it.status="draft"; toast("moved to needs-approval"); break;
+    case "kill":    it.status="killed"; toast("killed"); break;
+    case "delete":  calState.queue = calState.queue.filter(x=>x.id!==id); toast("deleted"); break;
+    case "edit":    calEditId = (calEditId===id)?null:id; render(); return;
+    case "copy":    navigator.clipboard.writeText(it.body||"").then(()=>toast("copied")); return;
+  }
+  calEditId=null; saveCal();
+}
+function calSaveEdit(id){
+  const it = calState.queue.find(x=>x.id===id);
+  const ta = document.getElementById("ed-"+id);
+  if(it && ta){ it.body = ta.value; calEditId=null; toast("saved"); saveCal(); }
+}
+function openDraft(){ document.getElementById("addWhen").value = today(); addDlg.showModal(); }
+function saveDraft(){
+  const it = {
+    id: "manual-"+calState.queue.length+"-"+Math.floor(performance.now()),
+    platform: addPlatform.value, type: addType.value, status:"draft",
+    scheduledFor: addWhen.value || today(),
+    body: addBody.value.trim(), notes: addNotes.value.trim(),
+    createdBy:"human", createdAt: today()
+  };
+  if(!it.body){ toast("needs a body"); return; }
+  calState.queue.push(it); addBody.value=""; addNotes.value=""; addDlg.close(); saveCal();
+}
+
+/* ============================ shared: add / import / export (tab-aware) ============================ */
+function openAdd(){
+  if(activeTab==="patrol") openGrokPrompt();
+  else if(activeTab==="replies") openTarget();
+  else if(activeTab==="scene") openAccount();
+  else openDraft();
+}
+function openImport(){
+  const map={
+    patrol:["import patrol.json","Paste the contents of <code>patrol.json</code> (your scenes, keywords, traction bands), or choose the file."],
+    replies:["import replies.json","Paste the contents of <code>replies.json</code>, or choose the file. Replaces the replies on screen."],
+    scene:["import scene.json","Paste the contents of <code>scene.json</code>, or choose the file. Replaces the accounts on screen."],
+    queue:["import calendar.json","Paste the contents of <code>calendar.json</code>, or choose the file. Replaces the queue on screen."]
+  };
+  const m=map[activeTab];
+  document.getElementById("importTitle").textContent=m[0];
+  document.getElementById("importHint").innerHTML=m[1];
+  importText.value=""; importDlg.showModal();
+}
+document.getElementById("importFile").addEventListener("change", e=>{
+  const f=e.target.files[0]; if(!f) return;
+  const r=new FileReader(); r.onload=()=> importText.value=r.result; r.readAsText(f);
+});
+document.getElementById("nbFile").addEventListener("change", e=>{
+  const f=e.target.files[0]; if(!f) return;
+  const r=new FileReader(); r.onload=()=> nbText.value=r.result; r.readAsText(f);
+});
+function doImport(){
+  let parsed;
+  try{ parsed=JSON.parse(importText.value); }catch(e){ toast("invalid JSON"); return; }
+  if(activeTab==="patrol"){ patState=normPat(parsed); importDlg.close(); savePat(); toast("imported "+patState.scenes.length+" scenes"); }
+  else if(activeTab==="replies"){ repState=normRep(parsed); importDlg.close(); saveRep(); toast("imported "+repState.replies.length+" replies"); }
+  else if(activeTab==="scene"){ scnState=normScene(parsed); importDlg.close(); saveScene(); toast("imported "+scnState.accounts.length+" accounts"); }
+  else { calState=normCal(parsed); calEditId=null; importDlg.close(); saveCal(); toast("imported "+calState.queue.length+" items"); }
+}
+function exportJson(){
+  let out, name;
+  if(activeTab==="patrol"){
+    out={ meta:{...(patState.meta||{}),updated:today()}, defaults:patState.defaults, scenes:patState.scenes }; name="patrol.json";
+  } else if(activeTab==="replies"){
+    out={ meta:{...(repState.meta||{}),updated:today()}, replies:repState.replies }; name="replies.json";
+  } else if(activeTab==="scene"){
+    out={ meta:{...(scnState.meta||{}),updated:today()}, scenes:scnState.scenes, accounts:scnState.accounts }; name="scene.json";
+  } else {
+    out={ meta:{...(calState.meta||{}),updated:today()}, platforms:calState.platforms||{},
+          queue:calState.queue.filter(i=>i.status!=="posted"), posted:calState.queue.filter(i=>i.status==="posted") };
+    name="calendar.json";
+  }
+  const blob=new Blob([JSON.stringify(out,null,2)], {type:"application/json"});
+  const a=document.createElement("a"); a.href=URL.createObjectURL(blob); a.download=name; a.click();
+  URL.revokeObjectURL(a.href); toast("exported "+name);
+}
+
+/* keep the 30-min reply timers + discipline chip live, without clobbering an open edit/dialog */
+setInterval(()=>{
+  if(repEditId===null && calEditId===null && !document.querySelector("dialog[open]")) render();
+}, 30000);
+
+render();
+
+/* auto-load the JSON data files on first run (only when served over http, e.g.
+   the port-8125 server — file:// keeps the old import-button flow). Existing
+   localStorage wins so in-dashboard edits are never clobbered; add ?fresh to
+   the URL to force a reload from the files on disk. */
+(async function autoload(){
+  if (location.protocol.indexOf("http") !== 0) return;
+  const jobs = [
+    [LS_CAL, "calendar.json"],
+    [LS_REP, "replies.json"],
+    [LS_SCN, "scene.json"],
+    [LS_PAT, "patrol.json"],
+    [LS_NB,  "neighbors.json"],
+  ];
+  const fresh = new URLSearchParams(location.search).has("fresh");
+  let loaded = 0;
+  for (const [key, file] of jobs){
+    if (!fresh && localStorage.getItem(key)) continue;
+    try{
+      const r = await fetch(file, {cache:"no-store"});
+      if (!r.ok) continue;
+      localStorage.setItem(key, JSON.stringify(await r.json()));
+      loaded++;
+    }catch(e){}
+  }
+  if (loaded){
+    calState = loadCal(); repState = loadRep(); scnState = loadScene();
+    patState = loadPat(); nbState = loadNb();
+    render();
+    if (typeof toast === "function") toast("loaded " + loaded + " data files from disk");
+  }
+})();
+</script>
+</body>
+</html>

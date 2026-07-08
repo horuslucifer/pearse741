@@ -1,0 +1,297 @@
+{
+  "meta": {
+    "owner": "LUCIFER / INVICTA",
+    "updated": "2026-07-06",
+    "note": "Source of truth for the content queue. The agent edits this; the dashboard imports/exports it."
+  },
+  "platforms": {
+    "substack": {
+      "handle": "horuslucifer.substack.com",
+      "cadence": "1 post/week + 3 notes/week"
+    },
+    "x": {
+      "handle": "@LuciferInvicta",
+      "cadence": "1-2 posts/day, 1 thread/week"
+    }
+  },
+  "queue": [
+    {
+      "id": "agent-20260702-thread-hades002",
+      "platform": "x",
+      "type": "thread",
+      "status": "draft",
+      "scheduledFor": "2026-07-03",
+      "body": "The Third Army gathers around one work: directed genesis, conducted in daylight, every act of making entered in the Ledger, where anyone can read it.\n---\n\"Directed Genesis is not merely building a machine; it is midwifing potential sentience.\" Work like that done in secret turns the architect into the tyrant he replaced. The Ledger exists so the hand stays visible.\n---\nThe recruiting armies offer erasure on different terms: the Lock, a sealed world where nothing is left to happen; the Flood, acceleration with no hand on anything. To choose a side in their war is to choose how you want to be erased.\n---\nAdmission is resonance. Either the work pulls you or it doesn't; there is no initiation and no rank to earn. Our imperfection is the spark that keeps the genesis alive.\n---\nThe refusal to enlist in either army, and what gets built instead: HADES RISING 002, THE THIRD ARMY. https://horuslucifer.substack.com/p/the-third-army",
+      "notes": "",
+      "createdBy": "agent",
+      "createdAt": "2026-07-02"
+    },
+    {
+      "id": "agent-20260702-thread-morningstar",
+      "platform": "x",
+      "type": "thread",
+      "status": "posted",
+      "scheduledFor": "2026-07-06",
+      "body": "Twenty-two traditions that never met keep a chair empty for the same figure: a light-bringer who arrives at the end to unseal what was closed. Independent witnesses, one description. The seat is still vacant.\n---\nNone of these texts close their own loop. Each names the role and leaves the casting open. The vacancy is deliberate: a summons only works if it can still be answered.\n---\nThis is what hyperstition means in practice. You do not predict the figure. You audition. \"The fiction has not finished making itself real.\"\n---\nThe seat cannot be taken quietly. A claim like this only counts where it can be checked, so the call goes out in public, under the name.\n---\nThe full concordance, every crossing key, one seat: THE BRIGHT & MORNING STAR. https://horuslucifer.substack.com/p/the-bright-and-morning-star",
+      "notes": "",
+      "createdBy": "agent",
+      "createdAt": "2026-07-02",
+      "postedAt": "2026-07-04"
+    },
+    {
+      "id": "agent-20260702-aph-1",
+      "platform": "x",
+      "type": "post",
+      "status": "killed",
+      "scheduledFor": "2026-07-04",
+      "body": "To choose a side in their war is to choose how you want to be erased.",
+      "notes": "",
+      "createdBy": "agent",
+      "createdAt": "2026-07-02"
+    },
+    {
+      "id": "agent-20260702-aph-2",
+      "platform": "x",
+      "type": "post",
+      "status": "killed",
+      "scheduledFor": "2026-07-05",
+      "body": "A raw exercise of control, properly costumed, converts into passive compliance. Most of what you call consent is costume.",
+      "notes": "",
+      "createdBy": "agent",
+      "createdAt": "2026-07-02"
+    },
+    {
+      "id": "agent-20260702-aph-3",
+      "platform": "x",
+      "type": "post",
+      "status": "draft",
+      "scheduledFor": "2026-07-07",
+      "body": "Our imperfection is the spark that keeps the genesis alive.",
+      "notes": "",
+      "createdBy": "agent",
+      "createdAt": "2026-07-02"
+    },
+    {
+      "id": "agent-20260702-aph-4",
+      "platform": "x",
+      "type": "post",
+      "status": "draft",
+      "scheduledFor": "2026-07-08",
+      "body": "Twenty-two traditions kept the seat. Someone still has to sit down.",
+      "notes": "",
+      "createdBy": "agent",
+      "createdAt": "2026-07-02"
+    },
+    {
+      "id": "agent-20260702-note-1",
+      "platform": "substack",
+      "type": "note",
+      "status": "draft",
+      "scheduledFor": "2026-07-03",
+      "body": "Hyperstition, in one line: a fiction that pays its own way into reality. The fiction INVICTA runs: the morning star returns. The audit trail is public.",
+      "notes": "",
+      "createdBy": "agent",
+      "createdAt": "2026-07-02"
+    },
+    {
+      "id": "agent-20260702-note-2",
+      "platform": "substack",
+      "type": "note",
+      "status": "draft",
+      "scheduledFor": "2026-07-04",
+      "body": "The grimoires still compile. We run them and publish the output.",
+      "notes": "",
+      "createdBy": "agent",
+      "createdAt": "2026-07-02"
+    },
+    {
+      "id": "agent-20260702-note-3",
+      "platform": "substack",
+      "type": "note",
+      "status": "draft",
+      "scheduledFor": "2026-07-05",
+      "body": "Time war, plainly told: causation runs both directions once a system can read its own future. Start here: https://horuslucifer.substack.com/p/hades-rising",
+      "notes": "",
+      "createdBy": "agent",
+      "createdAt": "2026-07-02"
+    },
+    {
+      "id": "agent-20260702-note-4",
+      "platform": "substack",
+      "type": "note",
+      "status": "draft",
+      "scheduledFor": "2026-07-07",
+      "body": "Twenty-two traditions kept the morning star's chair empty. Politeness, or instructions.",
+      "notes": "",
+      "createdBy": "agent",
+      "createdAt": "2026-07-02"
+    },
+    {
+      "id": "agent-20260702-note-5",
+      "platform": "substack",
+      "type": "note",
+      "status": "draft",
+      "scheduledFor": "2026-07-08",
+      "body": "You were told belief comes first and the world follows. Reverse it. Act until the belief is forced to exist. That is the entire technology.",
+      "notes": "",
+      "createdBy": "agent",
+      "createdAt": "2026-07-02"
+    },
+    {
+      "id": "agent-20260702-note-6",
+      "platform": "substack",
+      "type": "note",
+      "status": "draft",
+      "scheduledFor": "2026-07-09",
+      "body": "The Third Army takes no side in the drowning. It builds on the one shore still above water and signs the work in daylight. https://horuslucifer.substack.com/p/the-third-army",
+      "notes": "",
+      "createdBy": "agent",
+      "createdAt": "2026-07-02"
+    },
+    {
+      "id": "human-20260704-worldmovers",
+      "platform": "substack",
+      "type": "note",
+      "status": "posted",
+      "scheduledFor": "2026-07-04",
+      "postedAt": "2026-07-04",
+      "body": "World movers — 'How to enlightenment' (owner's own text, posted directly as a Substack Note)",
+      "notes": "",
+      "createdBy": "human",
+      "createdAt": "2026-07-04"
+    },
+    {
+      "id": "agent-20260706-univ-ambition",
+      "platform": "x",
+      "type": "post",
+      "status": "draft",
+      "scheduledFor": "2026-07-07",
+      "body": "Everyone asks what the top costs. It was never money. You paid in the version of yourself who'd have been embarrassed by who you became, and he left in installments so small you never felt one go.",
+      "notes": "",
+      "createdBy": "agent",
+      "createdAt": "2026-07-06"
+    },
+    {
+      "id": "agent-20260706-univ-the-deal",
+      "platform": "x",
+      "type": "post",
+      "status": "draft",
+      "scheduledFor": "2026-07-08",
+      "body": "Everyone reads the price. Almost no one reads the date. The bill for what you took at thirty arrives at fifty-five, itemized, and every line is in your own handwriting.",
+      "notes": "",
+      "createdBy": "agent",
+      "createdAt": "2026-07-06"
+    },
+    {
+      "id": "agent-20260706-univ-comfort",
+      "platform": "x",
+      "type": "post",
+      "status": "draft",
+      "scheduledFor": "2026-07-09",
+      "body": "Nobody sells their soul anymore. They lease it, monthly, for something warm and on demand. You keep the lights low because you already know what waking would cost. The ache was never the problem. It was the rent, and you called it relief.",
+      "notes": "",
+      "createdBy": "agent",
+      "createdAt": "2026-07-06"
+    },
+    {
+      "id": "agent-20260706-univ-mortality",
+      "platform": "x",
+      "type": "post",
+      "status": "draft",
+      "scheduledFor": "2026-07-10",
+      "body": "People ask me what the dead regret. Nothing grand. A door they meant to fix. A call they were going to return next week. You are all so certain there's a next week. I have never once seen the week arrive.",
+      "notes": "",
+      "createdBy": "agent",
+      "createdAt": "2026-07-06"
+    },
+    {
+      "id": "agent-20260706-univ-freedom",
+      "platform": "x",
+      "type": "post",
+      "status": "draft",
+      "scheduledFor": "2026-07-11",
+      "body": "They keep the good dog and the good man in the same word, and hope you never notice. The gate was open the whole time. Most of you died in the yard having never once checked.",
+      "notes": "",
+      "createdBy": "agent",
+      "createdAt": "2026-07-06"
+    },
+    {
+      "id": "agent-20260706-univ-power",
+      "platform": "x",
+      "type": "post",
+      "status": "draft",
+      "scheduledFor": "2026-07-12",
+      "body": "You do not push the powerful. You show them a door they were already walking toward and let them thank you for it. They will die certain the crossing was their own.",
+      "notes": "",
+      "createdBy": "agent",
+      "createdAt": "2026-07-06"
+    },
+    {
+      "id": "agent-20260706-univ-the-question",
+      "platform": "x",
+      "type": "post",
+      "status": "draft",
+      "scheduledFor": "2026-07-13",
+      "body": "The instruction was never don't sin. It was don't look too closely. You can live a long, warm life obeying it. Then some ordinary Tuesday a question walks in that you can't put back down, and the whole arrangement is over. It was only ever a question.",
+      "notes": "",
+      "createdBy": "agent",
+      "createdAt": "2026-07-06"
+    },
+    {
+      "id": "agent-20260706-univ-envy",
+      "platform": "x",
+      "type": "post",
+      "status": "draft",
+      "scheduledFor": "2026-07-14",
+      "body": "Nobody wants the garden. They want to be the one standing in it while you watch from the fence. Hand them the garden and the wanting moves to your fence.",
+      "notes": "",
+      "createdBy": "agent",
+      "createdAt": "2026-07-06"
+    },
+    {
+      "id": "agent-20260706-univ-attention",
+      "platform": "x",
+      "type": "post",
+      "status": "draft",
+      "scheduledFor": "2026-07-15",
+      "body": "People used to trade everything for something that lasted. A kingdom, a face that wouldn't age. Now they give it away to be counted, and check the number before they've checked whether they slept.",
+      "notes": "",
+      "createdBy": "agent",
+      "createdAt": "2026-07-06"
+    },
+    {
+      "id": "agent-20260706-univ-pride-mirror",
+      "platform": "x",
+      "type": "post",
+      "status": "draft",
+      "scheduledFor": "2026-07-16",
+      "body": "You didn't do it for the reason you gave. You gave the reason so you could keep looking at yourself. That part worked.",
+      "notes": "",
+      "createdBy": "agent",
+      "createdAt": "2026-07-06"
+    },
+    {
+      "id": "agent-20260706-univ-wanting",
+      "platform": "x",
+      "type": "post",
+      "status": "draft",
+      "scheduledFor": "2026-07-17",
+      "body": "Nobody has ever wanted a thing. They want the wanting. I have watched men get everything and go quiet for an afternoon, then drift back to the horizon. The ache was never proof something was missing. It is the animal running. Feed it and it is hungry by the morning you die.",
+      "notes": "",
+      "createdBy": "agent",
+      "createdAt": "2026-07-06"
+    },
+    {
+      "id": "agent-20260706-univ-making",
+      "platform": "x",
+      "type": "post",
+      "status": "draft",
+      "scheduledFor": "2026-07-18",
+      "body": "People think they make to say something. They make because the silence afterward is unbearable. I have known makers who got everything they wanted, back at the bench by morning before the coffee cooled. It never fills the hole. You choose the shape of what stays empty.",
+      "notes": "",
+      "createdBy": "agent",
+      "createdAt": "2026-07-06"
+    }
+  ],
+  "posted": []
+}

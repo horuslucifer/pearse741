@@ -1,0 +1,235 @@
+{
+  "meta": {
+    "owner": "LUCIFER / INVICTA",
+    "updated": "2026-07-06",
+    "note": "Patrol board config: WHERE to look each day. The dashboard turns these into one-click X search + List deep-links you open in your OWN logged-in browser — no API, $0, zero ban risk. Tune keywords + traction bands per scene as you learn what fires (occult posts run quieter than tpot bangers, so the bands differ). favFloor/favCeiling are a proxy for 'accounts ~2-10x my size' because X has no follower-count search operator. listId = the numeric id from an X List you build by hand (leave \"\" until set). watchHandles = a few known accounts -> a 'from:a OR from:b' patrol link. 2026-07-03: four UNIVERSAL RINGS added (ai-eschatology, myth-religion, meaning-bigideas, culture-art) — the voice is universal; the original four scenes are the reply-back beachhead, the rings are where it travels."
+  },
+  "defaults": {
+    "lang": "en",
+    "recencyHours": 6,
+    "favFloor": 20,
+    "favCeiling": 4000,
+    "minReplies": 1
+  },
+  "scenes": [
+    {
+      "scene": "ccru-theory-fiction",
+      "keywords": [
+        "hyperstition",
+        "accelerationism",
+        "CCRU"
+      ],
+      "phrases": [
+        "theory fiction"
+      ],
+      "favFloor": 25,
+      "favCeiling": 4000,
+      "recencyHours": 6,
+      "minReplies": 1,
+      "listId": "",
+      "watchHandles": [
+        "matt_mjlc",
+        "0x49fa98",
+        "jmrphy",
+        "lapsuslima",
+        "nemocentric"
+      ],
+      "lastWorked": ""
+    },
+    {
+      "scene": "tpot-postrat",
+      "keywords": [
+        "postrat",
+        "tpot"
+      ],
+      "phrases": [
+        "post-rationalist",
+        "vibe shift"
+      ],
+      "favFloor": 40,
+      "favCeiling": 5000,
+      "recencyHours": 6,
+      "minReplies": 1,
+      "listId": "",
+      "watchHandles": [
+        "deepfates",
+        "the_wilderless",
+        "goblinodds",
+        "exgenesis",
+        "VividVoid_"
+      ],
+      "lastWorked": ""
+    },
+    {
+      "scene": "network-spirituality",
+      "keywords": [
+        "egregore"
+      ],
+      "phrases": [
+        "digital occult",
+        "network spirituality"
+      ],
+      "favFloor": 20,
+      "favCeiling": 3000,
+      "recencyHours": 12,
+      "minReplies": 1,
+      "listId": "",
+      "watchHandles": [
+        "default_friend",
+        "bognamk",
+        "tobyshorin",
+        "being_on_line",
+        "aaronzlewis"
+      ],
+      "lastWorked": ""
+    },
+    {
+      "scene": "practitioner-occult",
+      "keywords": [
+        "goetia",
+        "sigil",
+        "thelema"
+      ],
+      "phrases": [
+        "planetary hours",
+        "chaos magick"
+      ],
+      "favFloor": 15,
+      "favCeiling": 2500,
+      "recencyHours": 12,
+      "minReplies": 1,
+      "listId": "",
+      "watchHandles": [
+        "AustinRCoppock",
+        "StarandSystem",
+        "glitchbottle",
+        "DouglasWMiT",
+        "thelovelycrab"
+      ],
+      "lastWorked": ""
+    },
+    {
+      "scene": "ai-eschatology",
+      "keywords": [
+        "AI god",
+        "machine consciousness",
+        "AGI"
+      ],
+      "phrases": [
+        "AI eschatology",
+        "digital theology",
+        "summoning the demon"
+      ],
+      "favFloor": 50,
+      "favCeiling": 10000,
+      "recencyHours": 6,
+      "minReplies": 1,
+      "listId": "",
+      "watchHandles": [
+        "danfaggella",
+        "xriskology",
+        "micahtredding",
+        "AlexanderBeiner",
+        "repligate",
+        "tszzl",
+        "Plinz",
+        "eshear",
+        "BasedBeffJezos",
+        "dwarkesh_sp"
+      ],
+      "lastWorked": ""
+    },
+    {
+      "scene": "myth-religion",
+      "keywords": [
+        "gnosticism",
+        "mythology",
+        "apocalypse",
+        "Lucifer"
+      ],
+      "phrases": [
+        "comparative mythology",
+        "morning star",
+        "fallen angel"
+      ],
+      "favFloor": 30,
+      "favCeiling": 8000,
+      "recencyHours": 12,
+      "minReplies": 1,
+      "listId": "",
+      "watchHandles": [
+        "mythsbaby",
+        "dwpasulka",
+        "GoingMedieval",
+        "JF_Martel",
+        "platospodcasts",
+        "PageauJonathan",
+        "holland_tom",
+        "BishopBarron",
+        "CosmicSkeptic"
+      ],
+      "lastWorked": ""
+    },
+    {
+      "scene": "meaning-bigideas",
+      "keywords": [
+        "re-enchantment",
+        "metamodern",
+        "nihilism"
+      ],
+      "phrases": [
+        "meaning crisis",
+        "secular religion",
+        "disenchantment"
+      ],
+      "favFloor": 40,
+      "favCeiling": 10000,
+      "recencyHours": 12,
+      "minReplies": 1,
+      "listId": "",
+      "watchHandles": [
+        "HFreinacht",
+        "OshanJarow",
+        "ThouArtThat",
+        "tomowenmorgan",
+        "paulvanderklay",
+        "Bardissimo",
+        "david_perell",
+        "culturaltutor",
+        "Aella_Girl"
+      ],
+      "lastWorked": ""
+    },
+    {
+      "scene": "culture-art",
+      "keywords": [
+        "worldbuilding",
+        "occult art",
+        "concept album"
+      ],
+      "phrases": [
+        "dark art",
+        "gesamtkunstwerk",
+        "art as ritual"
+      ],
+      "favFloor": 25,
+      "favCeiling": 8000,
+      "recencyHours": 12,
+      "minReplies": 1,
+      "listId": "",
+      "watchHandles": [
+        "weirdstudies",
+        "strangepress",
+        "aquadrunkard",
+        "mlleghoul",
+        "erik_davis",
+        "RobertGreene",
+        "duncantrussell",
+        "alexgreycosm",
+        "Grimezsz",
+        "akirathedon"
+      ],
+      "lastWorked": ""
+    }
+  ]
+}
