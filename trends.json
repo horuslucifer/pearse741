@@ -1,10 +1,17 @@
 {
   "meta": {
     "owner": "LUCIFER / INVICTA",
-    "edition": "live · Wed July 8 night · current events cut",
+    "edition": "live · Wed July 8 night · comedy pass",
     "count": 13,
-    "updated": "2026-07-08T23:05:00Z",
-    "note": "Rebalanced away from tech. Lead with World Cup, Mildenhall, oil/gas, equal pay, meaning. One light AI card max. rooms[] verified. replyTake = Grok."
+    "updated": "2026-07-08T23:25:00Z",
+    "note": "Takes rewritten against voice.md comedy engine: flat, short, punchline last, smirk not TED. Tech optional. Current events lead.",
+    "comedyRules": [
+      "1-2 sentences max; punchline last",
+      "under-react; bathetic drop; plain-english deflation",
+      "specific detail beats abstract wisdom",
+      "never explain the joke; no TED closer",
+      "smirk test: if it only sounds smart, rewrite"
+    ]
   },
   "signals": [
     {
@@ -16,8 +23,8 @@
       "priority": 1,
       "whatItIs": "Trump stopped at RAF Mildenhall on the way home from Turkey so service members could see the new Air Force One. Official posts show the plane, the base, and the excitement. The human story underneath is older than the aircraft: people gather to stand near a symbol of power.",
       "whyTrending": "White House photos + UK stopover posts are everywhere tonight. Curiosity heat, not just partisan dunking — pilgrimage energy.",
-      "take": "hundreds queued to watch a plane park. we swapped cathedrals for aircraft and kept the pilgrimage exactly as it was. the object of worship gets faster. the crowd never does.",
-      "replyTake": "the relic changes. the queue does not.",
+      "take": "people drove to a field to watch a plane park. we replaced the cathedral with an aircraft and kept the queue. progress.",
+      "replyTake": "same pilgrimage energy. different fuel type.",
       "replyVoice": "grok",
       "openXQuery": "Air Force One Mildenhall",
       "hunt": {
@@ -33,7 +40,7 @@
           "likes": 1134,
           "replies": 152,
           "why": "official post, huge room — only land if the line is about pilgrimage/power, not campaign",
-          "replyTake": "they flew the relic out so the garrison could touch the hem. same mass, newer metal.",
+          "replyTake": "they brought the plane out so the base could see it up close. humans will line up for anything that looks expensive and doesn't talk back.",
           "replyVoice": "grok"
         },
         {
@@ -43,7 +50,7 @@
           "likes": 151,
           "replies": 18,
           "why": "mid room amplifying the base visit — still replyable with altitude",
-          "replyTake": "we used to process past a tomb. now we process past a runway. the photo is the sacrament.",
+          "replyTake": "service members got to stand next to the big plane. that's the whole post and somehow it still works every century.",
           "replyVoice": "grok"
         }
       ]
@@ -57,8 +64,8 @@
       "priority": 1,
       "whatItIs": "The US men's team earned roughly $16M in World Cup prize money. Under the equal-pay collective bargaining deal, a large share is split with the women's side (federation keeps a cut; the rest is shared). The story is less \"who scored\" and more \"how the institution moves money between rosters.\"",
       "whyTrending": "Sports business + fairness fight in one package. Live replies from people who care about both soccer and the paycheck.",
-      "take": "the men played. the women get half the purse by prior treaty. that's not a vibe. that's a constitution for a sport that finally wrote one down.",
-      "replyTake": "they didn't invent fairness on the pitch. they put it in the contract so the pitch couldn't argue.",
+      "take": "the men won $16M. the women get half by contract. fairness finally stopped being a speech and became payroll.",
+      "replyTake": "they put equality in the CBA so nobody had to feel it in real time.",
       "replyVoice": "grok",
       "openXQuery": "USMNT prize money equal pay women",
       "hunt": {
@@ -74,7 +81,7 @@
           "likes": 97,
           "replies": 64,
           "why": "active reply room on the equal-pay structure",
-          "replyTake": "the scoreboard paid the men. the contract paid the structure. finally someone treated fairness like law instead of a press release.",
+          "replyTake": "the check got written before the feelings meeting. rare W for paperwork.",
           "replyVoice": "grok"
         },
         {
@@ -84,7 +91,7 @@
           "likes": 107,
           "replies": 17,
           "why": "business breakdown — room wants numbers + one sharp frame",
-          "replyTake": "20% to the house, rest split by treaty. soccer finally learned how casinos and churches already work.",
+          "replyTake": "federation skims 20%, rest split by treaty. even the house cut looks honest for once.",
           "replyVoice": "grok"
         }
       ]
@@ -98,8 +105,8 @@
       "priority": 1,
       "whatItIs": "US–Iran fighting heated up again after a fragile ceasefire; markets and posters are talking gas prices, grocery knock-ons, and \"fill up before it spikes.\" The civilian experience of geopolitics is still the pump and the receipt.",
       "whyTrending": "War news is SILENT for dunk-combat. The gas-line angle is how ordinary people meet the story — and it's replyable without LARPing as a general.",
-      "take": "foreign policy eventually shows up as a number on a pump. the map is abstract. the receipt is not.",
-      "replyTake": "every war has a front line. for most people it's the gas station and the grocery aisle.",
+      "take": "the ceasefire ended and gas remembered how to go up. foreign policy for people who don't read foreign policy.",
+      "replyTake": "geopolitics, but make it the pump.",
       "replyVoice": "grok",
       "openXQuery": "gas prices Iran fill up",
       "hunt": {
@@ -115,7 +122,7 @@
           "likes": 138,
           "replies": 16,
           "why": "mid room stating the civilian consequence — open for a dry line",
-          "replyTake": "the strategic brief always ends the same way for civilians: check the pump. history with a receipt.",
+          "replyTake": "\"fill up before prices skyrocket\" is the most honest national security brief most of us will get.",
           "replyVoice": "grok"
         },
         {
@@ -125,7 +132,7 @@
           "likes": 23,
           "replies": 1,
           "why": "smaller room, cost frame already set — don't re-litigate the war, land the cost line",
-          "replyTake": "chaos has a unit price. it's printed in large numbers next to the unleaded.",
+          "replyTake": "chaos isn't abstract. chaos is $4.89 and a receipt that feels personal.",
           "replyVoice": "grok"
         }
       ]
@@ -139,8 +146,8 @@
       "priority": 2,
       "whatItIs": "FOX says Mexico vs England became the most-watched non-USMNT men's World Cup telecast in English-language US history — about 21.7 million viewers. The tournament is not just on; it's a mass event again.",
       "whyTrending": "Ratings flex posts. Culture story: soccer as American living-room infrastructure.",
-      "take": "twenty-one million people watched Mexico–England in English in the US. the \"soccer doesn't matter here\" speech needs a new draft.",
-      "replyTake": "when the ratings look like a presidential debate, it's not a niche sport anymore. it's weather.",
+      "take": "21.7 million Americans watched Mexico–England in English. \"soccer isn't big here\" can take the rest of the week off.",
+      "replyTake": "when the rating looks like a debate night, it's not a hobby anymore. it's weather.",
       "replyVoice": "grok",
       "openXQuery": "Mexico England World Cup viewers",
       "hunt": {
@@ -156,7 +163,7 @@
           "likes": 44,
           "replies": 5,
           "why": "official ratings post — quieter than fan wars, good for a clean line",
-          "replyTake": "21.7 million is not a \"soccer is growing\" press release. that's a country deciding the match is communal weather.",
+          "replyTake": "21.7 million. that's not growth. that's a country admitting it was already watching.",
           "replyVoice": "grok"
         }
       ]
@@ -170,8 +177,8 @@
       "priority": 2,
       "whatItIs": "A joke format is spreading: no matter which country wins the World Cup, Harry Kane deserves the Ballon d'Or. Pure football meme theology.",
       "whyTrending": "Knockout round humor. Light, shareable, broad room.",
-      "take": "the Ballon d'Or discourse has achieved enlightenment: one man wins regardless of geography. that's not analysis. that's a religion with better boots.",
-      "replyTake": "we replaced \"best player\" with \"narrative continuity.\" Kane is the plot armor.",
+      "take": "if Norway wins: Haaland. if anyone else wins: Kane. analysis has left the chat. theology has entered.",
+      "replyTake": "Kane is plot armor with a national team.",
       "replyVoice": "grok",
       "openXQuery": "Kane Ballon d'Or World Cup",
       "hunt": {
@@ -187,7 +194,7 @@
           "likes": 475,
           "replies": 46,
           "why": "hot meme thread, mid-size author, replies already forming",
-          "replyTake": "this is less sports analysis and more papal succession. Kane is the default saint until proven otherwise.",
+          "replyTake": "this isn't a ranking system. it's a loyalty program.",
           "replyVoice": "grok"
         }
       ]
@@ -201,14 +208,17 @@
       "priority": 2,
       "whatItIs": "Counter-meme to the \"easy email job that pays well\" dream: lots of email jobs are empty *and* poorly paid — alienation without the compensation.",
       "whyTrending": "Meaning-crisis adjacent, always simmering, works as universal spine.",
-      "take": "the dream used to be meaningful work. then a fake email job that pays. now: fake work, real poverty. the free tier of alienation.",
-      "replyTake": "the premium package of pretend work still includes money. the default package is just the pretending.",
+      "take": "people romanticize fake email jobs that pay. nobody romanticizes fake email jobs that also pay nothing. that's just employment.",
+      "replyTake": "alienation with benefits was the premium tier. you found the free trial.",
       "replyVoice": "grok",
       "openXQuery": "fake email job",
       "hunt": {
         "query": "(\"fake email job\" OR \"email job\") min_faves:15 -filter:replies lang:en",
         "why": "personal posts over brand coaches.",
-        "handlesHint": ["VividVoid_", "Meaningness"]
+        "handlesHint": [
+          "VividVoid_",
+          "Meaningness"
+        ]
       },
       "rooms": [
         {
@@ -218,7 +228,7 @@
           "likes": 47,
           "replies": 1,
           "why": "clean thesis, small open room",
-          "replyTake": "thank you for the class analysis of pretend work. luxury alienation still bills monthly.",
+          "replyTake": "the fake email job discourse forgot a whole pricing tier: empty and broke.",
           "replyVoice": "grok"
         },
         {
@@ -228,7 +238,7 @@
           "likes": 26,
           "replies": 4,
           "why": "meaning + humor already loaded",
-          "replyTake": "historians will need two footnotes: rising expectations, and the original productivity stack going off-patent.",
+          "replyTake": "burnout either rose with expectations or fell with the cocaine. both sound correct and I hate that.",
           "replyVoice": "grok"
         }
       ]
@@ -242,14 +252,17 @@
       "priority": 3,
       "whatItIs": "A thread on how professional knowledge depreciates: being elite at \"content marketing 2015\" means almost nothing now except fundamentals like make things people want.",
       "whyTrending": "Quiet meaning/work room — not headline news, but live conversation for the right replies.",
-      "take": "your expertise has a half-life now. the certificate is a souvenir from a game that already shipped a patch.",
-      "replyTake": "careers used to compound. now they depreciate. the 401k for skills is just \"keep making something someone still wants.\"",
+      "take": "being elite at content marketing in 2015 is like being elite at MySpace themes. the trophy still exists. the sport doesn't.",
+      "replyTake": "skills now come with an expiration date and no fridge.",
       "replyVoice": "grok",
       "openXQuery": "knowledge depreciates career",
       "hunt": {
         "query": "(knowledge OR skills OR career) (depreciat OR obsolete OR \"used to know\") min_faves:15 -filter:replies lang:en",
         "why": "meaning room — one hard line, no hustle-coach gloss.",
-        "handlesHint": ["visakanv", "Meaningness"]
+        "handlesHint": [
+          "visakanv",
+          "Meaningness"
+        ]
       },
       "rooms": [
         {
@@ -259,7 +272,7 @@
           "likes": 335,
           "replies": 10,
           "why": "scene-adjacent mid-large, good reply room",
-          "replyTake": "2015 you was peak ranked in a game that deleted the server. fundamentals are the only save file that ports.",
+          "replyTake": "top 0.01% of 2015 content marketing is a museum exhibit with a gift shop that only sells \"make things people want.\"",
           "replyVoice": "grok"
         }
       ]
@@ -273,8 +286,8 @@
       "priority": 1,
       "whatItIs": "During World Cup heat, Haaland reportedly passed Manchester City in Instagram followers — personal brand over institution in public.",
       "whyTrending": "Sports + platform economy. Strong universal spine post.",
-      "take": "the striker outgrew the crest on Instagram. feudalism with better lighting. the lord is a personal brand and the castle is a content calendar.",
-      "replyTake": "clubs used to own players. players own the attention the club needs. the transfer fee was always a rounding error next to the feed.",
+      "take": "Haaland has more Instagram followers than Manchester City. the employee beat the company at the only job the company still understands.",
+      "replyTake": "the crest is still on the shirt. the audience is not.",
       "replyVoice": "grok",
       "openXQuery": "Haaland Instagram Manchester City",
       "hunt": {
@@ -290,7 +303,7 @@
           "likes": 249,
           "replies": 38,
           "why": "if replying: institutional angle only",
-          "replyTake": "the employee surpassed the company in the only metric this century still understands. feudalism, but the serf has better engagement.",
+          "replyTake": "personal brand just outranked the institution on the scoreboard that actually pays. feudalism, but the peasant has a better camera.",
           "replyVoice": "grok"
         }
       ]
@@ -304,8 +317,8 @@
       "priority": 2,
       "whatItIs": "Creator-economy wallpaper: the right humans beat vanity metrics. Still true, still under-monetizable, still restated daily.",
       "whyTrending": "Evergreen. Good original post if you need a non-sports spine.",
-      "take": "everyone selling a growth hack is describing how they grew: selling growth hacks. the real move is boring. show up, be worth reading, wait.",
-      "replyTake": "your network beats your follower count is true and also the least sellable sentence on this website, which is why it keeps getting posted for free.",
+      "take": "your network is more valuable than your follower count. the least profitable true sentence on this app, which is why it never becomes a course.",
+      "replyTake": "true since villages. still won't sell a Notion template.",
       "replyVoice": "grok",
       "openXQuery": "network follower count",
       "hunt": null,
@@ -317,7 +330,7 @@
           "likes": 124,
           "replies": 101,
           "why": "only if your line is sharper than \"so true\"",
-          "replyTake": "hot take that has been true since the first village. the follower count is just a misleading census.",
+          "replyTake": "hot take from 10,000 BC still clearing. the follower count is just a census with worse friends.",
           "replyVoice": "grok"
         }
       ]
@@ -331,14 +344,17 @@
       "priority": 7,
       "whatItIs": "xAI released Grok 4.5 today. Builders are loud about it. Kept as a single optional card so the feed is not AI-first.",
       "whyTrending": "Tech launch day. Skip unless you specifically want that room.",
-      "take": "the guy who owns the website posted that his AI is the smartest AI, and the website agreed. incredible reporting from everyone involved.",
-      "replyTake": "first model where the waiting phase is shorter than the \"what was I doing\" phase. that might be the actual product.",
+      "take": "the guy who owns the website said his AI is the best AI and the website agreed. journalism is healing.",
+      "replyTake": "finally a model faster than my attention span. progress.",
       "replyVoice": "grok",
       "openXQuery": "Grok 4.5",
       "hunt": {
         "query": "\"Grok 4.5\" min_faves:15 -filter:replies lang:en",
         "why": "optional tech — not today's priority.",
-        "handlesHint": ["haider1", "skcd42"]
+        "handlesHint": [
+          "haider1",
+          "skcd42"
+        ]
       },
       "rooms": [
         {
@@ -348,7 +364,7 @@
           "likes": 11,
           "replies": 5,
           "why": "only if you want one tech reply today",
-          "replyTake": "first model where the waiting-for-the-AI phase is shorter than the \"what was I doing\" phase. that might be the actual product.",
+          "replyTake": "the harness is so fast I don't have time to open a second tab and forget why I opened the first one. disruptive.",
           "replyVoice": "grok"
         }
       ]
