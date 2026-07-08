@@ -37,6 +37,10 @@
   .pill b{color:var(--txt);}
   .pill.done{border-color:var(--green); color:var(--green);}
   .pill.done b{color:var(--green);}
+  .target{border:1px solid #2a4a38; border-radius:8px; padding:12px 14px; margin-bottom:10px; background:#101013;}
+  .target .t-title{font-size:12px; color:var(--txt); line-height:1.5; margin-bottom:6px;}
+  .target .t-take{font-size:12.5px; line-height:1.65; color:#dcd8d0; font-style:italic; margin-bottom:10px;}
+  .target .t-why{font-size:11px; color:var(--dim); line-height:1.55; margin-bottom:10px;}
   .foot{margin-top:26px; color:var(--dim); font-size:10.5px; line-height:1.8;}
   .foot a{color:var(--dim);}
   #toast{position:fixed; bottom:18px; left:50%; transform:translateX(-50%);
@@ -47,6 +51,14 @@
 <body>
   <h1>TODAY <span>·</span> LUCIFER / INVICTA</h1>
   <div class="sub" id="date-line">the whole day is three steps. twenty minutes.</div>
+
+  <div class="step" id="dossier-step" style="display:none">
+    <h2><b>0</b> FROM THE DOSSIER — reply targets, already ranked</h2>
+    <p>Copy the reply line, open the room, paste under a <b style="color:var(--txt);font-weight:500">mid-size</b> post
+       that already has conversation. Skip the mega-accounts.</p>
+    <div id="dossier-targets"></div>
+    <a class="btn" href="index.html" id="dossier-link">full morning dossier →</a>
+  </div>
 
   <div class="step">
     <h2><b>1</b> GO LOOK — click one, scroll until a post makes you think</h2>
@@ -125,11 +137,48 @@ function candidateText(c){
     {weekday:"long", month:"long", day:"numeric"}).toLowerCase()
     + " · the whole day is three steps. twenty minutes.";
 
-  let cal=null, rep=null, pat=null, scn=null;
+  let cal=null, rep=null, pat=null, scn=null, tr=null;
   try{ cal = await (await fetch("calendar.json", {cache:"no-store"})).json(); }catch(e){}
   try{ rep = await (await fetch("replies.json",  {cache:"no-store"})).json(); }catch(e){}
   try{ pat = await (await fetch("patrol.json",   {cache:"no-store"})).json(); }catch(e){}
   try{ scn = await (await fetch("scene.json",    {cache:"no-store"})).json(); }catch(e){}
+  try{ tr  = await (await fetch("trends.json",   {cache:"no-store"})).json(); }catch(e){}
+
+  /* path-aware dossier link (local: trends-mockup / public: index or dossier) */
+  const onPublic = /cockpit\.html$/i.test(location.pathname);
+  $("dossier-link").href = onPublic ? "index.html" : "trends-mockup.html";
+
+  /* STEP 0: top reply targets from the morning dossier */
+  if (tr && Array.isArray(tr.signals)){
+    const replies = tr.signals
+      .filter(s => (s.growthLane||"").toLowerCase()==="reply" && s.replyTake)
+      .sort((a,b)=>(a.priority||50)-(b.priority||50))
+      .slice(0,3);
+    if (replies.length){
+      $("dossier-step").style.display = "block";
+      $("dossier-targets").innerHTML = replies.map((s,i)=>{
+        const q = (s.hunt && s.hunt.query) || s.openXQuery || s.trend || "";
+        const url = (s.rooms && s.rooms[0] && s.rooms[0].url)
+          ? s.rooms[0].url
+          : ("https://x.com/search?q="+encodeURIComponent(q)+"&f=live");
+        const why = (s.hunt && s.hunt.why) || "";
+        return '<div class="target">'+
+          '<div class="t-title">'+esc(s.trend)+'</div>'+
+          '<div class="t-take">'+esc(s.replyTake)+'</div>'+
+          (why ? '<div class="t-why">'+esc(why)+'</div>' : '')+
+          '<button class="btn" data-dcopy="'+i+'">copy reply</button>'+
+          '<a class="btn big" target="_blank" rel="noopener" href="'+esc(url)+'">open room →</a>'+
+        '</div>';
+      }).join("");
+      $("dossier-targets").querySelectorAll("[data-dcopy]").forEach(btn=>{
+        btn.onclick = async () => {
+          const s = replies[+btn.dataset.dcopy];
+          try{ await navigator.clipboard.writeText(s.replyTake); toast("reply copied — paste under a mid-size post"); }
+          catch(e){ toast("select the text and copy by hand"); }
+        };
+      });
+    }
+  }
 
   const dayIdx = now.getDay();
   const fromSearch = hs => "https://x.com/search?q=" +

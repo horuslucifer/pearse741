@@ -20,8 +20,23 @@
   .meta{display:flex; gap:16px; font-size:10.5px; letter-spacing:.16em; color:var(--dim); flex-wrap:wrap;}
   .meta .live::before{content:"●"; color:var(--green); margin-right:5px;}
 
+  .plan{display:flex; gap:8px; flex-wrap:wrap; margin-top:14px;}
+  .plan span{font-size:10px; letter-spacing:.12em; padding:6px 10px; border-radius:999px;
+             border:1px solid var(--line); color:var(--dim);}
+  .plan span b{color:var(--txt);}
+  .plan .go{border-color:#2a4a38; color:var(--green);}
+  .plan .go b{color:var(--green);}
+  .hint{margin-top:12px; font-size:11px; line-height:1.7; color:var(--dim);}
+  .hint b{color:var(--gold); font-weight:500;}
+
+  .sec{margin-top:22px; font-size:10px; letter-spacing:.22em; color:var(--dim);
+       border-bottom:1px solid var(--line); padding-bottom:8px;}
+  .sec b{color:var(--gold);}
+
   .card{border:1px solid var(--line); border-radius:12px; margin-top:12px; overflow:hidden; background:var(--panel);}
-  .card.silent{opacity:.66;}
+  .card.silent,.card.skip{opacity:.62;}
+  .card.reply{border-color:#2a4a38;}
+  .card.post{border-color:#40381f;}
   .head{display:flex; align-items:flex-start; gap:13px; padding:15px 17px; cursor:pointer;}
   .idx{font-size:11px; color:var(--dim); letter-spacing:.1em; padding-top:3px; min-width:20px;}
   .hm{flex:1; min-width:0;}
@@ -31,10 +46,14 @@
   .tag.interesting{color:var(--blue); border-color:#2a3a44;}
   .tag.dumb{color:var(--gold); border-color:#40381f;}
   .tag.grave{color:var(--dim);}
-  .stamp{font-size:9px; letter-spacing:.2em; padding:3px 8px; border:1px solid; border-radius:3px;}
-  .stamp.comment,.stamp.above{color:var(--gold); border-color:#40381f;}
+  .stamp{font-size:9px; letter-spacing:.16em; padding:3px 8px; border:1px solid; border-radius:3px;}
+  .stamp.reply{color:var(--green); border-color:#2a4a38;}
+  .stamp.post{color:var(--gold); border-color:#40381f;}
+  .stamp.skip{color:var(--dim); border-color:var(--line);}
   .stamp.silent{color:var(--dim); border-color:var(--line);}
+  .stamp.above{color:var(--blue); border-color:#2a3a44;}
   .title{font-family:var(--serif); font-size:18px; font-weight:600; line-height:1.3; color:#efece5;}
+  .one-line{margin-top:6px; font-size:11px; line-height:1.55; color:var(--dim);}
   .chev{color:var(--dim); font-size:11px; padding-top:4px; transition:transform .2s;}
   .card.open .chev{transform:rotate(180deg);}
 
@@ -43,20 +62,32 @@
   .lbl{font-size:9px; letter-spacing:.24em; color:var(--red); margin:15px 0 7px;}
   .read{font-family:var(--serif); font-size:14.5px; line-height:1.72; color:#dcd8d0;}
   .read p{margin-bottom:9px;}
-  .take{margin-top:18px; border-left:2px solid var(--gold); background:var(--panel2); border-radius:0 8px 8px 0; padding:14px 15px 13px;}
+  .take{margin-top:14px; border-left:2px solid var(--gold); background:var(--panel2);
+        border-radius:0 8px 8px 0; padding:14px 15px 13px;}
+  .take.reply-box{border-left-color:var(--green);}
   .take .lbl{margin-top:0; color:var(--gold);}
-  .take q{font-family:var(--serif); font-style:italic; font-size:15.5px; line-height:1.7; color:#efe9dc; quotes:none;}
-  .row{display:flex; align-items:center; gap:9px; margin-top:11px;}
+  .take.reply-box .lbl{color:var(--green);}
+  .take q{font-family:var(--serif); font-style:italic; font-size:15.5px; line-height:1.7; color:#efe9dc; quotes:none; display:block;}
+  .huntbox{margin-top:14px; padding:12px 14px; background:var(--panel2); border-radius:8px; border:1px dashed #34343b;}
+  .huntbox .lbl{margin-top:0; color:var(--blue);}
+  .huntbox p{font-size:12px; line-height:1.65; color:var(--dim); margin-top:4px;}
+  .handles{margin-top:8px; display:flex; flex-wrap:wrap; gap:6px;}
+  .handles span{font-size:10px; letter-spacing:.06em; color:var(--blue); border:1px solid #2a3a44;
+                border-radius:999px; padding:3px 8px;}
+  .row{display:flex; align-items:center; gap:8px; margin-top:11px; flex-wrap:wrap;}
   .charc{font-size:10px; color:var(--dim); letter-spacing:.08em; margin-right:auto;}
   .btn{font-family:var(--mono); font-size:10.5px; letter-spacing:.1em; color:var(--txt);
-       background:#1d1d22; border:1px solid #34343b; border-radius:7px; padding:7px 12px; cursor:pointer; text-decoration:none;}
+       background:#1d1d22; border:1px solid #34343b; border-radius:7px; padding:7px 12px; cursor:pointer; text-decoration:none; display:inline-block;}
   .btn:hover{border-color:var(--gold); color:var(--gold);}
+  .btn.primary{border-color:#2a4a38; color:var(--green);}
+  .btn.primary:hover{background:#1a2e24; color:#fff; border-color:var(--green);}
   .btn.x{border-color:#4a1a1e; color:#d98a86;}
   .btn.x:hover{border-color:var(--red); color:#fff; background:var(--red);}
-  .foot{margin-top:26px; font-size:10px; letter-spacing:.1em; color:var(--dim); text-align:center;}
+  .foot{margin-top:26px; font-size:10px; letter-spacing:.1em; color:var(--dim); text-align:center; line-height:1.8;}
   .foot a{color:var(--gold);}
   #toast{position:fixed; bottom:20px; left:50%; transform:translateX(-50%);
-         background:var(--gold); color:#111; padding:8px 16px; border-radius:8px; font-size:12px; display:none;}
+         background:var(--gold); color:#111; padding:8px 16px; border-radius:8px; font-size:12px; display:none; z-index:9;}
+  .empty{margin-top:24px; color:var(--dim); font-size:13px; line-height:1.7;}
 </style>
 </head>
 <body>
@@ -64,64 +95,168 @@
     <div class="kick">E Y E S   O N L Y</div>
     <h1>The Morning Dossier</h1>
     <div class="meta" id="meta">loading…</div>
+    <div class="plan" id="plan"></div>
+    <div class="hint" id="hint">growth order: <b>reply under someone else's post</b> first · one original take max · skip the rest</div>
   </div>
   <div id="list"></div>
-  <div class="foot">tap a signal to open the brief · <a href="cockpit.html">the cockpit →</a></div>
+  <div class="foot">
+    cold-start math: replies into mid-size rooms beat broadcasting into the void ·
+    <a href="cockpit.html">the cockpit →</a>
+  </div>
   <div id="toast">copied</div>
 <script>
-const esc = s => String(s||"").replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;");
+const esc = s => String(s||"").replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;").replace(/"/g,"&quot;");
 const paras = s => String(s||"").split(/\n\n+|\n/).filter(Boolean).map(p=>"<p>"+esc(p)+"</p>").join("");
-function toast(m){const t=document.getElementById("toast");t.textContent=m;t.style.display="block";setTimeout(()=>t.style.display="none",1500);}
+function toast(m){
+  const t=document.getElementById("toast");
+  t.textContent=m; t.style.display="block";
+  setTimeout(()=>t.style.display="none",1600);
+}
+function laneOf(s){
+  const g = (s.growthLane||"").toLowerCase();
+  if (g) return g;
+  const v = (s.verdict||"").toLowerCase().replace(/\s+/g,"");
+  if (v==="silent") return "silent";
+  return "post";
+}
+function laneRank(l){
+  return ({reply:0, post:1, skip:2, silent:3})[l] ?? 9;
+}
+function huntUrl(s){
+  const q = (s.hunt && s.hunt.query) || s.openXQuery || s.trend || "";
+  return "https://x.com/search?q="+encodeURIComponent(q)+"&f=live";
+}
+function roomUrl(s){
+  if (s.rooms && s.rooms[0] && s.rooms[0].url) return s.rooms[0].url;
+  return huntUrl(s);
+}
 
 (async function(){
   let d=null;
   try{ d = await (await fetch("trends.json",{cache:"no-store"})).json(); }catch(e){}
-  const sig = (d && d.signals) || [];
-  const worth = sig.filter(s=>s.verdict!=="SILENT").length;
+  const raw = (d && d.signals) || [];
+  const sig = raw
+    .map((s,i)=>({...s, _i:i, _lane:laneOf(s), _pri: Number(s.priority||50)}))
+    .sort((a,b)=> laneRank(a._lane)-laneRank(b._lane) || a._pri-b._pri || a._i-b._i);
+
+  const nReply = sig.filter(s=>s._lane==="reply").length;
+  const nPost  = sig.filter(s=>s._lane==="post").length;
+  const nSkip  = sig.filter(s=>s._lane==="skip").length;
+  const nSilent= sig.filter(s=>s._lane==="silent").length;
   const now = new Date();
+
   document.getElementById("meta").innerHTML =
     '<span class="live">LIVE · '+now.toLocaleDateString("en-US",{weekday:"short",month:"short",day:"numeric"}).toUpperCase()+'</span>'+
     '<span>COMPILED FOR LUCIFER</span>'+
-    '<span>'+sig.length+' SIGNALS · '+worth+' WORTH A WORD</span>'+
     (d&&d.meta&&d.meta.edition ? '<span>'+esc(d.meta.edition).toUpperCase()+'</span>' : '');
 
+  document.getElementById("plan").innerHTML =
+    '<span class="go"><b>'+nReply+'</b> REPLY NOW</span>'+
+    '<span><b>'+nPost+'</b> POST</span>'+
+    '<span><b>'+nSkip+'</b> SKIP</span>'+
+    '<span><b>'+nSilent+'</b> SILENT</span>';
+
   const list = document.getElementById("list");
-  list.innerHTML = sig.map((s,i)=>{
-    const v = (s.verdict||"").toLowerCase().replace(/\s+/g,"");        // comment | fromabove | silent
-    const vClass = v==="silent" ? "silent" : (v==="fromabove" ? "above" : "comment");
-    const vLabel = (s.verdict||"COMMENT").toUpperCase();
+  if (!sig.length){
+    list.innerHTML = '<div class="empty">no signals loaded. open this page over the local server so trends.json can fetch, or run the publish script after updating trends.</div>';
+    return;
+  }
+
+  let html = "";
+  let lastSec = "";
+  const secLabel = {
+    reply: 'REPLY NOW · <b>do these first</b> — copy reply, open room, post under someone mid-size',
+    post:  'ORIGINAL POST · <b>one max today</b> — the universal spine, not a dump',
+    skip:  'SKIP · funny or hot, low growth leverage for a cold account',
+    silent:'SILENT · do not touch'
+  };
+
+  sig.forEach((s,i)=>{
+    const lane = s._lane;
+    if (lane !== lastSec){
+      html += '<div class="sec">'+secLabel[lane]+'</div>';
+      lastSec = lane;
+    }
     const ang = (s.angle||"interesting").toLowerCase();
-    const silent = v==="silent";
-    const takeBlock = silent
-      ? '<div class="lbl">WHY SILENT</div><div class="read">'+paras(s.whyTrending)+'</div>'
-      : ('<div class="lbl">WHAT IT IS</div><div class="read">'+paras(s.whatItIs)+'</div>'+
-         '<div class="lbl">WHY IT\'S TRENDING</div><div class="read">'+paras(s.whyTrending)+'</div>'+
-         (s.take ? ('<div class="take"><div class="lbl">THE TAKE</div><q>'+esc(s.take)+'</q>'+
-            '<div class="row"><span class="charc">'+s.take.length+' / 280</span>'+
-            '<button class="btn" data-copy="'+i+'">COPY</button>'+
-            '<a class="btn x" target="_blank" rel="noopener" href="https://x.com/search?q='+encodeURIComponent(s.openXQuery||s.trend||"")+'&f=live">OPEN ON X →</a></div></div>') : ''));
-    const bodyForComment = silent
-      ? '<div class="lbl">WHAT IT IS</div><div class="read">'+paras(s.whatItIs)+'</div>'+takeBlock
-      : takeBlock;
-    return '<div class="card '+(silent?"silent":"")+'">'+
-      '<div class="head">'+
-        '<div class="idx">'+String(i+1).padStart(2,"0")+'</div>'+
-        '<div class="hm"><div class="tags"><span class="tag '+ang+'">'+ang.toUpperCase()+'</span>'+
-          '<span class="stamp '+vClass+'">'+vLabel+'</span></div>'+
-          '<div class="title">'+esc(s.trend)+'</div></div>'+
-        '<div class="chev">▾</div>'+
-      '</div>'+
-      '<div class="body">'+bodyForComment+'</div>'+
-    '</div>';
-  }).join("");
+    const silent = lane==="silent";
+    const stampLabel = lane==="reply" ? "REPLY" : lane==="post" ? "POST" : lane==="skip" ? "SKIP" : "SILENT";
+    const openTop = lane==="reply" || (lane==="post" && s._pri<=2);
+
+    let body = "";
+    if (silent){
+      body =
+        '<div class="lbl">WHAT IT IS</div><div class="read">'+paras(s.whatItIs)+'</div>'+
+        '<div class="lbl">WHY SILENT</div><div class="read">'+paras(s.whyTrending)+'</div>';
+    } else {
+      body =
+        '<div class="lbl">WHAT IT IS</div><div class="read">'+paras(s.whatItIs)+'</div>'+
+        '<div class="lbl">WHY IT\'S TRENDING</div><div class="read">'+paras(s.whyTrending)+'</div>';
+
+      if (s.hunt && (s.hunt.why || (s.hunt.handlesHint||[]).length)){
+        body +=
+          '<div class="huntbox"><div class="lbl">WHERE TO HUNT</div>'+
+          (s.hunt.why ? '<p>'+esc(s.hunt.why)+'</p>' : '')+
+          ((s.hunt.handlesHint||[]).length
+            ? '<div class="handles">'+(s.hunt.handlesHint.map(h=>'<span>@'+esc(String(h).replace(/^@/,""))+'</span>').join(""))+'</div>'
+            : '')+
+          '</div>';
+      }
+
+      if (s.replyTake){
+        body +=
+          '<div class="take reply-box"><div class="lbl">REPLY TAKE</div><q>'+esc(s.replyTake)+'</q>'+
+          '<div class="row"><span class="charc">'+s.replyTake.length+' / 280</span>'+
+          '<button class="btn primary" data-copy-reply="'+i+'">COPY REPLY</button>'+
+          '<a class="btn x" target="_blank" rel="noopener" href="'+esc(roomUrl(s))+'">OPEN ROOM →</a></div></div>';
+      }
+      if (s.take){
+        body +=
+          '<div class="take"><div class="lbl">ORIGINAL POST</div><q>'+esc(s.take)+'</q>'+
+          '<div class="row"><span class="charc">'+s.take.length+' / 280</span>'+
+          '<button class="btn" data-copy-post="'+i+'">COPY POST</button>'+
+          '<a class="btn x" target="_blank" rel="noopener" href="'+esc(huntUrl(s))+'">SEARCH LIVE →</a></div></div>';
+      }
+    }
+
+    const preview = lane==="reply" && s.replyTake
+      ? s.replyTake
+      : (s.take || s.whyTrending || "").slice(0,140);
+
+    html +=
+      '<div class="card '+lane+(openTop?" open":"")+'">'+
+        '<div class="head">'+
+          '<div class="idx">'+String(i+1).padStart(2,"0")+'</div>'+
+          '<div class="hm"><div class="tags">'+
+            '<span class="stamp '+lane+'">'+stampLabel+'</span>'+
+            '<span class="tag '+ang+'">'+ang.toUpperCase()+'</span>'+
+            (s.verdict && s.verdict.toUpperCase()==="FROM ABOVE" ? '<span class="stamp above">FROM ABOVE</span>' : '')+
+          '</div>'+
+          '<div class="title">'+esc(s.trend)+'</div>'+
+          (preview && !openTop ? '<div class="one-line">'+esc(preview)+(preview.length>=140?"…":"")+'</div>' : '')+
+          '</div>'+
+          '<div class="chev">▾</div>'+
+        '</div>'+
+        '<div class="body">'+body+'</div>'+
+      '</div>';
+  });
+
+  list.innerHTML = html;
 
   list.querySelectorAll(".card").forEach(c=>{
     c.querySelector(".head").addEventListener("click",()=>c.classList.toggle("open"));
   });
-  list.querySelectorAll("[data-copy]").forEach(b=>{
+  list.querySelectorAll("[data-copy-reply]").forEach(b=>{
     b.addEventListener("click",e=>{
       e.stopPropagation();
-      navigator.clipboard.writeText(sig[+b.dataset.copy].take).then(()=>toast("copied — paste it into X"));
+      const s = sig[+b.dataset.copyReply];
+      navigator.clipboard.writeText(s.replyTake||"").then(()=>toast("reply copied — paste under a mid-size post"));
+    });
+  });
+  list.querySelectorAll("[data-copy-post]").forEach(b=>{
+    b.addEventListener("click",e=>{
+      e.stopPropagation();
+      const s = sig[+b.dataset.copyPost];
+      navigator.clipboard.writeText(s.take||"").then(()=>toast("post copied — one original max today"));
     });
   });
   list.querySelectorAll("a.btn.x").forEach(a=>a.addEventListener("click",e=>e.stopPropagation()));

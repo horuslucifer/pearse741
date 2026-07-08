@@ -1,8 +1,9 @@
 {
   "meta": {
     "owner": "LUCIFER / INVICTA",
-    "edition": "live · Wed July 8",
-    "count": 13
+    "edition": "live · Wed July 8 · growth cut",
+    "count": 13,
+    "note": "growthLane = reply | post | skip | silent. Replies first for cold-start. Never invent post URLs — hunt.query opens live X search; paste a real status URL into rooms[] when you have one."
   },
   "signals": [
     {
@@ -10,130 +11,222 @@
       "category": "AI",
       "angle": "funny",
       "verdict": "COMMENT",
+      "growthLane": "reply",
+      "priority": 1,
       "whatItIs": "Grok is an AI chatbot built by xAI, the artificial-intelligence company owned by Elon Musk. Version 4.5 is its newest release, and Musk has been promoting it heavily on his own platform.\n\nThe update is now wired into tools that programmers use every day, like Vercel and Cursor, so developers can build with it directly. xAI also announced a deal to train the model using data and compute tied to SpaceX, another Musk company.",
       "whyTrending": "It is in the air because Musk personally amplified the launch to his massive following, which pulled in a wave of replies from developers testing it. Heat is high but concentrated among builders and Musk watchers rather than the general public.",
       "take": "the guy who owns the website posted that his AI is the smartest AI, and the website agreed. incredible reporting from everyone involved.",
-      "openXQuery": "Grok 4.5"
-    },
-    {
-      "trend": "a farmer flies a drone to his banana field",
-      "category": "culture",
-      "angle": "funny",
-      "verdict": "COMMENT",
-      "whatItIs": "A short video went viral showing a man in Indonesia riding or steering a large drone out to his banana plantation instead of walking or driving. The clip is a pure visual gag: farm work meeting flying-machine technology.\n\nThere is no company or product behind it. It is just an everyday farmer using a drone in an unexpected way, and the image of it caught people's attention.",
-      "whyTrending": "It is spreading because it is a funny, easy-to-share clip that racked up thousands of likes within hours. The heat is broad and light, the kind of feel-good viral moment that crosses many audiences.",
-      "take": "a farmer is commuting to his banana field by drone while the richest men alive burn billions building a chatbot. the future arrived. it went somewhere useful first.",
-      "openXQuery": "farmer drone banana"
-    },
-    {
-      "trend": "we built money for the robots before the robots",
-      "category": "AI",
-      "angle": "interesting",
-      "verdict": "COMMENT",
-      "whatItIs": "This is about a podcast discussion connecting Bitcoin to the future of AI. The idea is that Bitcoin created a way for software to hold and move money on its own, without a bank or a person in the loop.\n\nThe conversation argues that same system could become the payment method for autonomous AI agents, meaning programs that act on their own and might one day need to pay for services. It ties together economics, game theory, and open-source software coordination.",
-      "whyTrending": "It is circulating because it links two hot topics, crypto and AI agents, into one narrative that appeals to technical builders. The heat is moderate and mostly inside developer and crypto-curious circles rather than mainstream.",
-      "take": "we built the payment rails for autonomous agents years before the agents. humanity always lays the table first and finds the guest later.",
-      "openXQuery": "bitcoin AI agents"
+      "replyTake": "benchmarks will argue forever. the only score that matters is whether you stayed in the work or got bored waiting for the model to finish monologuing.",
+      "openXQuery": "Grok 4.5",
+      "hunt": {
+        "query": "(\"Grok 4.5\" OR grok-4.5) (Cursor OR coding OR agent) min_faves:15 -filter:replies lang:en",
+        "why": "skip Musk quote-piles. hunt mid-size builders already testing it — reply under their post, not the announcement.",
+        "handlesHint": ["realGeorgeHotz", "emollick", "DaveShapi", "eshear"]
+      }
     },
     {
       "trend": "free AI running on a gaming graphics card",
       "category": "AI",
       "angle": "funny",
       "verdict": "COMMENT",
+      "growthLane": "reply",
+      "priority": 1,
       "whatItIs": "Big AI companies usually charge money each time you use their models through the internet. This trend is about a cheaper alternative: running open-source AI models directly on your own computer, using the graphics card most people buy for gaming.\n\nA tool called Pinokio 8 makes this easier to set up. People are sharing how they use these free, local models for everyday tasks instead of paying for the commercial services.",
       "whyTrending": "It is gaining traction because it offers a free workaround to paid AI subscriptions, which resonates with hobbyists and cost-conscious developers. The heat is steady and practical, driven by builders swapping real workflow tips.",
       "take": "billion-dollar labs are selling intelligence by the token, and someone just got it running free on the graphics card they bought to play video games. the priesthood hates this one trick.",
-      "openXQuery": "local AI Pinokio"
+      "replyTake": "the cloud bill was always a tithe. local models are just people remembering they own a machine.",
+      "openXQuery": "local AI Pinokio",
+      "hunt": {
+        "query": "(Pinokio OR \"local LLM\" OR \"runs locally\") (AI OR model) min_faves:10 -filter:replies lang:en",
+        "why": "practical builder rooms — people posting setup screenshots and workflow tips. reply under a mid-size post, not a mega thread.",
+        "handlesHint": ["realGeorgeHotz", "eshear"]
+      }
     },
     {
-      "trend": "the new dream is a fake email job",
-      "category": "meaning",
-      "angle": "funny",
+      "trend": "we built money for the robots before the robots",
+      "category": "AI",
+      "angle": "interesting",
       "verdict": "COMMENT",
-      "whatItIs": "A \"fake email job\" is internet slang for a low-stress office job that pays decently but demands very little real work, mostly sending emails and attending meetings. The phrase is half-joking but increasingly said with genuine longing.\n\nPeople are talking about it in personal threads about burnout, bad bosses, and wanting a calm paycheck instead of a demanding career. It reflects a shift away from the old advice to chase passion and meaning through work.",
-      "whyTrending": "It is in the air because many workers, worn down by burnout, are openly rejecting hustle culture and admitting they just want an easy, reliable job. The heat is quiet but steady, spreading through relatable personal posts rather than a single viral moment.",
-      "take": "the dream used to be meaningful work. now it's a fake email job that pays and asks nothing, and honestly, respect. you looked at 'follow your passion' and correctly filed it under scam.",
-      "openXQuery": "fake email job"
+      "growthLane": "reply",
+      "priority": 2,
+      "whatItIs": "This is about a podcast discussion connecting Bitcoin to the future of AI. The idea is that Bitcoin created a way for software to hold and move money on its own, without a bank or a person in the loop.\n\nThe conversation argues that same system could become the payment method for autonomous AI agents, meaning programs that act on their own and might one day need to pay for services. It ties together economics, game theory, and open-source software coordination.",
+      "whyTrending": "It is circulating because it links two hot topics, crypto and AI agents, into one narrative that appeals to technical builders. The heat is moderate and mostly inside developer and crypto-curious circles rather than mainstream.",
+      "take": "we built the payment rails for autonomous agents years before the agents. humanity always lays the table first and finds the guest later.",
+      "replyTake": "the rails arrived first. the passengers are still arguing about whether they exist.",
+      "openXQuery": "bitcoin AI agents",
+      "hunt": {
+        "query": "(bitcoin OR btc) (\"AI agent\" OR agents OR autonomous) min_faves:15 -filter:replies lang:en",
+        "why": "agent + rails conversations. look for thoughtful posts, not price-spam.",
+        "handlesHint": ["BasedBeffJezos", "leopoldasch", "eshear"]
+      }
     },
     {
       "trend": "the only people winning at growth hacks are the ones selling them",
       "category": "meaning",
       "angle": "funny",
       "verdict": "COMMENT",
+      "growthLane": "post",
+      "priority": 1,
       "whatItIs": "A \"growth hack\" is a quick trick meant to make an account, newsletter, or business get big fast. Post at this exact time, use this hook, follow this five-step formula, and the followers supposedly pour in. Whole courses and paid guides are built around selling these shortcuts.\n\nThe thing people keep noticing is that the person who got rich almost always got rich from selling the hack itself, not from using it on anything else. Their proof of success is that you bought the guide. The unglamorous truth underneath is that lasting audiences come from showing up regularly and being genuinely worth reading, which nobody can package and upsell.",
       "whyTrending": "A steady stream of creators are posting about sticking to consistent, sustainable work instead of chasing viral tricks, and pushing back on the endless hack-sellers. It is a small but engaged conversation, more a simmering annoyance than a full blowup.",
       "take": "everyone selling a growth hack is describing how they grew: selling growth hacks. the real move is boring. show up, be worth reading, wait. nobody built a course on 'wait' because you can't upsell patience.",
-      "openXQuery": "growth hacks scam"
+      "replyTake": "the product is usually the course. the proof is that you bought it.",
+      "openXQuery": "growth hacks scam",
+      "hunt": {
+        "query": "(\"growth hack\" OR \"growth hacks\" OR \"how I grew\") min_faves:20 -filter:replies lang:en",
+        "why": "if you reply, pick someone mid-size roasting the industry — not the course-sellers themselves.",
+        "handlesHint": ["visakanv", "sashachapin", "Meaningness"]
+      }
     },
     {
-      "trend": "'expected goals' says who deserved to win",
-      "category": "culture",
+      "trend": "the new dream is a fake email job",
+      "category": "meaning",
       "angle": "funny",
       "verdict": "COMMENT",
-      "whatItIs": "\"Expected goals,\" written as xG, is a soccer stat that estimates how many goals a team should have scored based on the quality of the chances it created. Each shot gets a score for how likely it was to go in, and those add up. A team can pile up great chances, post a high xG, and still lose if the ball just refuses to cross the line.\n\nSo xG is basically a measure of who played the better game rather than who actually won it. Fans and analysts use it to argue that a losing team \"deserved\" more, or that a winner got lucky. It is a useful lens, but the scoreboard is still the only thing that counts.",
-      "whyTrending": "At the World Cup, stats circulated showing Spain, Argentina, Canada, and Colombia won all their matches by the xG numbers too, which set off the sports-analytics crowd. It is a lively niche debate rather than a mainstream flashpoint.",
-      "take": "'expected goals' is a stat for who deserved to win, which is a lovely way of saying the scoreboard hurt your feelings. the ball doesn't care what it was expected to do.",
-      "openXQuery": "expected goals xG"
-    },
-    {
-      "trend": "nobody can tell if Bieber at the World Cup is real or AI",
-      "category": "culture",
-      "angle": "funny",
-      "verdict": "COMMENT",
-      "whatItIs": "At the World Cup final, footage and posts spread claiming Justin Bieber was there. The catch is that nobody could confirm whether it was really him, a joke someone was running, or an AI-generated clip made to look real. All three explanations seemed equally possible.\n\nWhat is notable is that most people did not seem to mind not knowing. Instead of demanding proof, they just enjoyed the uncertainty and moved on. It is a small example of how blurry the line between real footage and fake footage has gotten, and how relaxed audiences have become about it.",
-      "whyTrending": "A Portuguese-language account posted \"VEIO AI\" (roughly \"he came / it's AI\") tied to Bieber at the final, and it racked up big likes and quote-replies with nobody sure if it was serious or generated. The mood is playful and viral rather than heated.",
-      "take": "nobody can tell if bieber at the world cup final is real, a bit, or AI-generated, and everyone's just vibing with not knowing. reality's optional now and no one filed a complaint.",
-      "openXQuery": "Bieber World Cup AI"
-    },
-    {
-      "trend": "a country goes from the terror list to 'economic opportunity'",
-      "category": "politics",
-      "angle": "dumb",
-      "verdict": "FROM ABOVE",
-      "whatItIs": "For decades the United States kept Syria on its official list of state sponsors of terrorism, a designation that blocks most trade, investment, and normal business dealings with a country. Being on the list is a formal legal status, not just a label, and it cuts a country off economically.\n\nThe US administration has now rescinded that designation for Syria, which opens the door to trade and investment that was previously off-limits. The card's angle is about a broader pattern: how a country can shift from \"terror threat\" to \"economic opportunity,\" and how these designations often seem to move in step with commerce.",
-      "whyTrending": "The removal is fresh news and drew immediate, sharply divided reactions across the political spectrum. It is a genuinely hot, contested story, with people arguing over what the change means.",
-      "take": "a country spent decades on the terror list and today became an 'economic opportunity.' the label was never about the country, it was about whether you were buying yet. the list is a mood ring for trade.",
-      "openXQuery": "Syria terrorism designation"
+      "growthLane": "post",
+      "priority": 2,
+      "whatItIs": "A \"fake email job\" is internet slang for a low-stress office job that pays decently but demands very little real work, mostly sending emails and attending meetings. The phrase is half-joking but increasingly said with genuine longing.\n\nPeople are talking about it in personal threads about burnout, bad bosses, and wanting a calm paycheck instead of a demanding career. It reflects a shift away from the old advice to chase passion and meaning through work.",
+      "whyTrending": "It is in the air because many workers, worn down by burnout, are openly rejecting hustle culture and admitting they just want an easy, reliable job. The heat is quiet but steady, spreading through relatable personal posts rather than a single viral moment.",
+      "take": "the dream used to be meaningful work. now it's a fake email job that pays and asks nothing, and honestly, respect. you looked at 'follow your passion' and correctly filed it under scam.",
+      "replyTake": "passion was a recruitment slogan. the email job is just people negotiating their own terms after the slogan failed.",
+      "openXQuery": "fake email job",
+      "hunt": {
+        "query": "(\"fake email job\" OR \"email job\") min_faves:20 -filter:replies lang:en",
+        "why": "broad meaning-crisis room. prefer personal posts over dunk accounts.",
+        "handlesHint": ["VividVoid_", "Malcolm_Ocean", "Meaningness"]
+      }
     },
     {
       "trend": "crowds line a field to watch a plane park",
       "category": "politics",
       "angle": "funny",
       "verdict": "FROM ABOVE",
+      "growthLane": "post",
+      "priority": 3,
       "whatItIs": "RAF Mildenhall is a US air base in England. Ahead of a Trump visit to the UK, the new Air Force One (the president's plane) was due to arrive there, and hundreds of people traveled out and lined up along the field just to watch it land and park.\n\nThe card's angle is not about any particular leader. It is about the human impulse to gather and make a pilgrimage toward symbols of power, whatever form they take. People will queue for hours to stand near the object, and that instinct looks much the same across the centuries even as the object changes.",
       "whyTrending": "Photos and reports of the crowds at Mildenhall spread as the UK visit approached, catching attention for the sheer number of people showing up to see a plane. Interest is high and curiosity-driven rather than angry.",
       "take": "hundreds queued in a field to watch a plane park. we swapped cathedrals for aircraft and kept the pilgrimage exactly as it was. the object of worship gets faster. the crowd never does.",
-      "openXQuery": "Air Force One Mildenhall"
+      "replyTake": "the relic changes. the queue does not.",
+      "openXQuery": "Air Force One Mildenhall",
+      "hunt": {
+        "query": "(\"Air Force One\" OR Mildenhall) (crowd OR lined OR queue) min_faves:20 -filter:replies lang:en",
+        "why": "optional altitude post — one a day max. skip if the room is pure partisanship.",
+        "handlesHint": []
+      }
+    },
+    {
+      "trend": "a farmer flies a drone to his banana field",
+      "category": "culture",
+      "angle": "funny",
+      "verdict": "COMMENT",
+      "growthLane": "skip",
+      "priority": 9,
+      "whatItIs": "A short video went viral showing a man in Indonesia riding or steering a large drone out to his banana plantation instead of walking or driving. The clip is a pure visual gag: farm work meeting flying-machine technology.\n\nThere is no company or product behind it. It is just an everyday farmer using a drone in an unexpected way, and the image of it caught people's attention.",
+      "whyTrending": "It is spreading because it is a funny, easy-to-share clip that racked up thousands of likes within hours. The heat is broad and light, the kind of feel-good viral moment that crosses many audiences.",
+      "take": "a farmer is commuting to his banana field by drone while the richest men alive burn billions building a chatbot. the future arrived. it went somewhere useful first.",
+      "replyTake": "the future shipped to a banana field first. the labs are still writing press releases.",
+      "openXQuery": "farmer drone banana",
+      "hunt": {
+        "query": "(farmer OR plantation) drone banana min_faves:50 -filter:replies lang:en",
+        "why": "viral comedy — low profile-visit conversion for a cold account. only touch if the line is irresistible.",
+        "handlesHint": []
+      }
+    },
+    {
+      "trend": "'expected goals' says who deserved to win",
+      "category": "culture",
+      "angle": "funny",
+      "verdict": "COMMENT",
+      "growthLane": "skip",
+      "priority": 9,
+      "whatItIs": "\"Expected goals,\" written as xG, is a soccer stat that estimates how many goals a team should have scored based on the quality of the chances it created. Each shot gets a score for how likely it was to go in, and those add up. A team can pile up great chances, post a high xG, and still lose if the ball just refuses to cross the line.\n\nSo xG is basically a measure of who played the better game rather than who actually won it. Fans and analysts use it to argue that a losing team \"deserved\" more, or that a winner got lucky. It is a useful lens, but the scoreboard is still the only thing that counts.",
+      "whyTrending": "At the World Cup, stats circulated showing Spain, Argentina, Canada, and Colombia won all their matches by the xG numbers too, which set off the sports-analytics crowd. It is a lively niche debate rather than a mainstream flashpoint.",
+      "take": "'expected goals' is a stat for who deserved to win, which is a lovely way of saying the scoreboard hurt your feelings. the ball doesn't care what it was expected to do.",
+      "replyTake": "xG is theology for people who lost. the ball remains pagan.",
+      "openXQuery": "expected goals xG",
+      "hunt": {
+        "query": "(\"expected goals\" OR xG) min_faves:30 -filter:replies lang:en",
+        "why": "sports room — only if you want that audience on purpose.",
+        "handlesHint": []
+      }
+    },
+    {
+      "trend": "nobody can tell if Bieber at the World Cup is real or AI",
+      "category": "culture",
+      "angle": "funny",
+      "verdict": "COMMENT",
+      "growthLane": "skip",
+      "priority": 9,
+      "whatItIs": "At the World Cup final, footage and posts spread claiming Justin Bieber was there. The catch is that nobody could confirm whether it was really him, a joke someone was running, or an AI-generated clip made to look real. All three explanations seemed equally possible.\n\nWhat is notable is that most people did not seem to mind not knowing. Instead of demanding proof, they just enjoyed the uncertainty and moved on. It is a small example of how blurry the line between real footage and fake footage has gotten, and how relaxed audiences have become about it.",
+      "whyTrending": "A Portuguese-language account posted \"VEIO AI\" (roughly \"he came / it's AI\") tied to Bieber at the final, and it racked up big likes and quote-replies with nobody sure if it was serious or generated. The mood is playful and viral rather than heated.",
+      "take": "nobody can tell if bieber at the world cup final is real, a bit, or AI-generated, and everyone's just vibing with not knowing. reality's optional now and no one filed a complaint.",
+      "replyTake": "reality filed for optional status. nobody appealed.",
+      "openXQuery": "Bieber World Cup AI",
+      "hunt": {
+        "query": "Bieber (\"World Cup\" OR final) (AI OR real) min_faves:30 -filter:replies lang:en",
+        "why": "celebrity viral — skip unless you want chaos reach for its own sake.",
+        "handlesHint": []
+      }
+    },
+    {
+      "trend": "a country goes from the terror list to 'economic opportunity'",
+      "category": "politics",
+      "angle": "dumb",
+      "verdict": "FROM ABOVE",
+      "growthLane": "skip",
+      "priority": 8,
+      "whatItIs": "For decades the United States kept Syria on its official list of state sponsors of terrorism, a designation that blocks most trade, investment, and normal business dealings with a country. Being on the list is a formal legal status, not just a label, and it cuts a country off economically.\n\nThe US administration has now rescinded that designation for Syria, which opens the door to trade and investment that was previously off-limits. The card's angle is about a broader pattern: how a country can shift from \"terror threat\" to \"economic opportunity,\" and how these designations often seem to move in step with commerce.",
+      "whyTrending": "The removal is fresh news and drew immediate, sharply divided reactions across the political spectrum. It is a genuinely hot, contested story, with people arguing over what the change means.",
+      "take": "a country spent decades on the terror list and today became an 'economic opportunity.' the label was never about the country, it was about whether you were buying yet. the list is a mood ring for trade.",
+      "replyTake": "the list always knew when the deal was ready. morality just filed the paperwork late.",
+      "openXQuery": "Syria terrorism designation",
+      "hunt": {
+        "query": "Syria (terrorism OR \"state sponsor\" OR designation) min_faves:30 -filter:replies lang:en",
+        "why": "contested political heat — high risk of dunk-pile. altitude only if the line is clean and non-partisan.",
+        "handlesHint": []
+      }
     },
     {
       "trend": "a Navy commander killed in a helicopter crash",
       "category": "tragedy",
       "angle": "grave",
       "verdict": "SILENT",
+      "growthLane": "silent",
+      "priority": 99,
       "whatItIs": "A U.S. Navy commander named Gabe Edwards was killed on July 1 in a helicopter crash over the Arabian Sea, the body of water between the Arabian Peninsula and India where Navy ships often operate. A commander is a senior officer, and details about exactly what happened have not been fully released.\n\nMilitary channels and news outlets have confirmed his death and are sharing the basic report. Investigations into military aircraft crashes usually take time, so early on there is little public information beyond the fact of the loss and the name of the person who died.",
       "whyTrending": "It is circulating because a service member died in the line of duty and the military and press are sharing the news. Coverage is steady and somber rather than heated, focused on honoring the person lost while investigators work to establish the cause.",
       "take": "",
-      "openXQuery": "Navy commander helicopter crash"
+      "replyTake": "",
+      "openXQuery": "Navy commander helicopter crash",
+      "hunt": null
     },
     {
       "trend": "a construction worker killed during a Houston traffic stop",
       "category": "tragedy",
       "angle": "grave",
       "verdict": "SILENT",
+      "growthLane": "silent",
+      "priority": 99,
       "whatItIs": "A 52-year-old construction worker was shot and killed during a traffic stop conducted by ICE, U.S. Immigration and Customs Enforcement, in Houston, Texas. A traffic stop is when officers pull over a vehicle; in this case it ended with the man being fatally shot.\n\nHis family is now speaking publicly about his death, and video connected to the incident is being shared online. As with many such cases, the full sequence of events is still being examined, and official accounts and family accounts may differ.",
       "whyTrending": "It is spreading because a man died during an encounter with federal officers, his family is speaking out, and video is circulating widely. Attention is high and emotions are strong, with people sharing the footage and the family's statements.",
       "take": "",
-      "openXQuery": "Houston ICE traffic stop"
+      "replyTake": "",
+      "openXQuery": "Houston ICE traffic stop",
+      "hunt": null
     },
     {
       "trend": "a 6-year-old killed in a North Carolina crash",
       "category": "tragedy",
       "angle": "grave",
       "verdict": "SILENT",
+      "growthLane": "silent",
+      "priority": 99,
       "whatItIs": "A 6-year-old child named Calli Toller was killed in North Carolina in a car crash. According to reports, another driver ran a stop sign, causing the collision that took her life.\n\nAn ICE detainer, which is a request from immigration authorities to hold a person in custody, is now active on the driver involved. The core of the story is the death of a young child in a preventable crash.",
       "whyTrending": "It is being shared because a young child died and the case has drawn wide attention. Coverage is emotional and, because of the detainer on the driver, the story is being pulled into broader debates, which has intensified how much it is spreading.",
       "take": "",
-      "openXQuery": "Calli Toller North Carolina crash"
+      "replyTake": "",
+      "openXQuery": "Calli Toller North Carolina crash",
+      "hunt": null
     }
   ]
 }
