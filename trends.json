@@ -1,210 +1,341 @@
 {
   "meta": {
     "owner": "LUCIFER / INVICTA",
-    "edition": "live · Wed July 8 · grok takes baked",
-    "count": 13,
-    "note": "rooms[].replyTake = Grok genuine takes. Signal replyTake is the default if a room has none. Ask Grok: 'update dossier' to refresh posts + takes.",
-    "updated": "2026-07-08T22:25:00Z"
+    "edition": "live · Wed July 8 night · full refresh",
+    "count": 14,
+    "updated": "2026-07-08T22:30:00Z",
+    "note": "Full feed refresh. rooms[] = verified live posts only. replyTake = Grok genuine takes. Ask: 'update the dossier' to refresh."
   },
   "signals": [
     {
-      "trend": "Grok 4.5 launches and everyone owns a piece of the hype",
+      "trend": "Grok 4.5 is out and the builders are already writing workflows",
       "category": "AI",
       "angle": "funny",
       "verdict": "COMMENT",
       "growthLane": "reply",
       "priority": 1,
-      "whatItIs": "Grok is an AI chatbot built by xAI, the artificial-intelligence company owned by Elon Musk. Version 4.5 is its newest release, and Musk has been promoting it heavily on his own platform.\n\nThe update is now wired into tools that programmers use every day, like Vercel and Cursor, so developers can build with it directly. xAI also announced a deal to train the model using data and compute tied to SpaceX, another Musk company.",
-      "whyTrending": "It is in the air because Musk personally amplified the launch to his massive following, which pulled in a wave of replies from developers testing it. Heat is high but concentrated among builders and Musk watchers rather than the general public.",
+      "whatItIs": "xAI launched Grok 4.5 today — a model aimed at coding and agent work, trained with Cursor, sold as fast and cheap relative to frontier peers. Developers are already posting first-hour workflows, speed tests, and harness tips rather than waiting for the thinkpieces.",
+      "whyTrending": "Launch day heat. Musk and SpaceXAI pushed it hard; builders on X are shipping takes while the post is still warm. Best rooms are mid-size practitioners, not the announcement pile.",
       "take": "the guy who owns the website posted that his AI is the smartest AI, and the website agreed. incredible reporting from everyone involved.",
       "replyTake": "first model where the waiting-for-the-AI phase is shorter than the \"what was I doing\" phase. that might be the actual product.",
+      "replyVoice": "grok",
       "openXQuery": "Grok 4.5",
       "hunt": {
-        "query": "(\"Grok 4.5\" OR grok-4.5) (Cursor OR coding OR agent) min_faves:15 -filter:replies lang:en",
-        "why": "skip Musk quote-piles. hunt mid-size builders already testing it — reply under their post, not the announcement. · live posts attached below — open the status, not a search.",
-        "handlesHint": [
-          "realGeorgeHotz",
-          "emollick",
-          "DaveShapi",
-          "eshear"
-        ]
+        "query": "(\"Grok 4.5\" OR \"Grok Build\") (workflow OR fast OR coding OR agent) min_faves:10 -filter:replies lang:en",
+        "why": "skip Elon/NVIDIA quote piles. reply under builders already using it.",
+        "handlesHint": ["skcd42", "haider1", "emollick", "realGeorgeHotz"]
       },
       "rooms": [
+        {
+          "handle": "@skcd42",
+          "url": "https://x.com/skcd42/status/2074975551123775950",
+          "text": "Now that Grok 4.5 is out, here are some of my workflows… end prompts with \"use as many subagents and tokens as you need\"",
+          "likes": 117,
+          "replies": 5,
+          "why": "xAI engineer sharing real workflows — room is technical, not hype",
+          "replyTake": "\"use as many subagents as you need\" is the new \"make it so.\" we went from asking models politely to staffing them like a chaotic open office.",
+          "replyVoice": "grok"
+        },
         {
           "handle": "@haider1",
           "url": "https://x.com/haider1/status/2074969272078491820",
           "text": "first impression of Grok 4.5: the Grok build harness is very good and responsive; extremely fast, maybe twice as fast as gpt-5.5",
-          "likes": 10,
+          "likes": 11,
           "replies": 5,
-          "why": "mid-size first-use report, room still open — better than Elon pile",
+          "why": "mid-size first-use report, still open",
           "replyTake": "first model where the waiting-for-the-AI phase is shorter than the \"what was I doing\" phase. that might be the actual product.",
           "replyVoice": "grok"
         },
         {
-          "handle": "@TheAhmadOsman",
-          "url": "https://x.com/TheAhmadOsman/status/2074970504268558797",
-          "text": "Grok 4.5 in Grok Build is unexpectedly GOOD",
-          "likes": 42,
-          "replies": 12,
-          "why": "builder take with active replies; not celebrity scale",
-          "replyTake": "\"unexpectedly good\" is the highest compliment in AI. \"as advertised\" just means marketing won. this one skipped the sermon and did the work.",
+          "handle": "@jpaulpoliquit",
+          "url": "https://x.com/jpaulpoliquit/status/2074924307000820124",
+          "text": "got to test this model before launch… comfortable spinning up a dozen parallel agents and trusting they'd actually cook",
+          "likes": 43,
+          "replies": 0,
+          "why": "early tester, parallel agents angle — quieter room, sharp line still lands",
+          "replyTake": "\"trusting a dozen parallel agents to cook\" is either the future of software or the plot of a workplace sitcom. currently both.",
           "replyVoice": "grok"
         }
-      ],
-      "replyVoice": "grok"
+      ]
     },
     {
-      "trend": "free AI running on a gaming graphics card",
+      "trend": "the harness costs more than the model and people finally noticed",
+      "category": "AI",
+      "angle": "interesting",
+      "verdict": "COMMENT",
+      "growthLane": "reply",
+      "priority": 1,
+      "whatItIs": "Databricks published internal benchmarks on coding agents: cheaper harnesses can match vendor success rates at lower cost, and open models are competitive. The conversation shifted from \"which model is smartest\" to \"how much of your bill is scaffolding and bloat.\"",
+      "whyTrending": "CTO-level post with charts + Grok 4.5 cost talk on the same day. Builders are nodding hard about harness rot.",
+      "take": "we spent two years ranking brains and forgot half the bill was the office furniture. the harness is the open floor plan of AI.",
+      "replyTake": "harness bloat is just enterprise software reincarnated with a cooler name. same bloated middle, shinier logo.",
+      "replyVoice": "grok",
+      "openXQuery": "coding agents harness cost",
+      "hunt": {
+        "query": "(\"coding agents\" OR harness) (cost OR benchmark OR Databricks) min_faves:15 -filter:replies lang:en",
+        "why": "technical rooms arguing cost vs quality — add one hard line, don't restate the chart.",
+        "handlesHint": ["matei_zaharia", "omarsar0", "emollick"]
+      },
+      "rooms": [
+        {
+          "handle": "@matei_zaharia",
+          "url": "https://x.com/matei_zaharia/status/2074943612631273730",
+          "text": "We benchmarked coding agents on our own internal tasks at Databricks… many models including open source ones are truly competitive now",
+          "likes": 284,
+          "replies": 21,
+          "why": "high-signal author, active thread, not pure launch spam",
+          "replyTake": "the leaderboard was always half model and half how much ceremony you wrapped around it. you just published the accounting.",
+          "replyVoice": "grok"
+        },
+        {
+          "handle": "@omarsar0",
+          "url": "https://x.com/omarsar0/status/2074966874241347589",
+          "text": "Pi harness got the same success rate… at 2x less cost. The harness bloat/rot is real!",
+          "likes": 37,
+          "replies": 9,
+          "why": "mid room amplifying the harness thesis",
+          "replyTake": "\"harness rot\" is the most honest phrase in AI this week. we built cathedrals so the model could walk across the street.",
+          "replyVoice": "grok"
+        }
+      ]
+    },
+    {
+      "trend": "your old office PC is a data center if you squint",
       "category": "AI",
       "angle": "funny",
       "verdict": "COMMENT",
       "growthLane": "reply",
-      "priority": 1,
-      "whatItIs": "Big AI companies usually charge money each time you use their models through the internet. This trend is about a cheaper alternative: running open-source AI models directly on your own computer, using the graphics card most people buy for gaming.\n\nA tool called Pinokio 8 makes this easier to set up. People are sharing how they use these free, local models for everyday tasks instead of paying for the commercial services.",
-      "whyTrending": "It is gaining traction because it offers a free workaround to paid AI subscriptions, which resonates with hobbyists and cost-conscious developers. The heat is steady and practical, driven by builders swapping real workflow tips.",
+      "priority": 2,
+      "whatItIs": "Local AI is having a moment again: Pinokio 8, Ollama stacks on $70–$150 boxes, people bragging about zero cloud bills and models that never leave the desk. Mollick notes agents already discovering local tools as cheap API substitutes.",
+      "whyTrending": "Launch-day cloud hype made the local counter-narrative louder. Practical setup posts are getting real replies.",
       "take": "billion-dollar labs are selling intelligence by the token, and someone just got it running free on the graphics card they bought to play video games. the priesthood hates this one trick.",
-      "replyTake": "paid APIs are a subscription to someone else's GPU. local models are remembering you already bought a computer for games and accidentally got a data center.",
-      "openXQuery": "local AI Pinokio",
+      "replyTake": "paid APIs are a subscription to someone else's GPU. local models are remembering you already bought a computer.",
+      "replyVoice": "grok",
+      "openXQuery": "local LLM Ollama Pinokio",
       "hunt": {
-        "query": "(Pinokio OR \"local LLM\" OR \"runs locally\") (AI OR model) min_faves:10 -filter:replies lang:en",
-        "why": "practical builder rooms — people posting setup screenshots and workflow tips. reply under a mid-size post, not a mega thread. · live posts attached below — open the status, not a search.",
-        "handlesHint": [
-          "realGeorgeHotz",
-          "eshear"
-        ]
+        "query": "(Pinokio OR Ollama OR \"local LLM\" OR \"runs locally\") min_faves:10 -filter:replies lang:en",
+        "why": "builders posting setups — reply under mid posts, not listicles of 15 tools.",
+        "handlesHint": ["emollick", "cocktailpeanut"]
       },
       "rooms": [
         {
           "handle": "@emollick",
           "url": "https://x.com/emollick/status/2074930119173460007",
-          "text": "I often use Pinokio to download and work with local open source AI tools/models… GPT found my local models and used them as cheap alternative to paid APIs",
-          "likes": 152,
+          "text": "I often use Pinokio… GPT found my local video models and image models and used them as a cheap alternative to paid APIs",
+          "likes": 155,
           "replies": 18,
-          "why": "big but still replyable; local-AI angle already in play — add one sharp line",
-          "replyTake": "paid APIs are a subscription to someone else's GPU. local models are remembering you already bought a computer for games and accidentally got a data center.",
+          "why": "big but replyable; agent-finds-local-tools angle is open",
+          "replyTake": "the cloud bill was always a tithe. your agent just noticed the parish also has a free well under the desk.",
           "replyVoice": "grok"
         },
         {
-          "handle": "@mikenevermiss",
-          "url": "https://x.com/mikenevermiss/status/2074871003159654465",
-          "text": "how to build a 1-person AI company that runs locally, open source, agents only, email between agents",
-          "likes": 43,
-          "replies": 14,
-          "why": "mid-size agent-local build thread; room wants operational takes not hype",
-          "replyTake": "we spent a decade teaching humans to pretend to be machines in open offices. now we're teaching machines to pretend to be a company via email. the circle is complete and mildly insulting.",
+          "handle": "@HodlReaper",
+          "url": "https://x.com/HodlReaper/status/2074914938158547406",
+          "text": "A man runs his full AI stack from a $150 Lenovo under his desk. No cloud bills. Hasn't paid OpenAI a cent in six months.",
+          "likes": 23,
+          "replies": 3,
+          "why": "small room, ownership narrative, easy to land a line",
+          "replyTake": "six months without an OpenAI invoice is the new cleanse. the $150 ThinkCentre is doing more for digital sovereignty than three keynotes.",
           "replyVoice": "grok"
         }
-      ],
-      "replyVoice": "grok"
+      ]
     },
     {
-      "trend": "we built money for the robots before the robots",
-      "category": "AI",
+      "trend": "Roblox isn't a game, it's a world — and the kids never left",
+      "category": "culture",
       "angle": "interesting",
       "verdict": "COMMENT",
       "growthLane": "reply",
       "priority": 2,
-      "whatItIs": "This is about a podcast discussion connecting Bitcoin to the future of AI. The idea is that Bitcoin created a way for software to hold and move money on its own, without a bank or a person in the loop.\n\nThe conversation argues that same system could become the payment method for autonomous AI agents, meaning programs that act on their own and might one day need to pay for services. It ties together economics, game theory, and open-source software coordination.",
-      "whyTrending": "It is circulating because it links two hot topics, crypto and AI agents, into one narrative that appeals to technical builders. The heat is moderate and mostly inside developer and crypto-curious circles rather than mainstream.",
-      "take": "we built the payment rails for autonomous agents years before the agents. humanity always lays the table first and finds the guest later.",
-      "replyTake": "\"own your agents\" is just \"own your means of production\" with better branding and worse uptime. marx is somewhere going \"finally, but make it a discord bot.\"",
-      "openXQuery": "bitcoin AI agents",
+      "whatItIs": "A long essay argued millennial gaming culture is dead and kids live in live-service platforms. deepfates pushed back: Roblox/Minecraft/Fortnite aren't \"slop with games attached\" — they're worlds. The fight is about what counts as play when the platform is the product.",
+      "whyTrending": "Longform gaming thesis + sharp scene reply. Good universal culture room adjacent to network-spirituality / meaning.",
+      "take": "we keep calling them games because \"operating system for childhood\" sounds like a lawsuit.",
+      "replyTake": "they're not games with platforms attached. they're worlds with a store attached. the kids noticed first.",
+      "replyVoice": "grok",
+      "openXQuery": "Roblox Minecraft worlds gaming",
       "hunt": {
-        "query": "(bitcoin OR btc) (\"AI agent\" OR agents OR autonomous) min_faves:15 -filter:replies lang:en",
-        "why": "agent + rails conversations. look for thoughtful posts, not price-spam. · live posts attached below — open the status, not a search.",
-        "handlesHint": [
-          "BasedBeffJezos",
-          "leopoldasch",
-          "eshear"
-        ]
+        "query": "(Roblox OR Minecraft OR Fortnite) (world OR \"live service\" OR kids OR gaming) min_faves:20 -filter:replies lang:en",
+        "why": "culture room — one observation, no \"kids these days.\"",
+        "handlesHint": ["deepfates", "visakanv"]
       },
       "rooms": [
         {
-          "handle": "@synedclover",
-          "url": "https://x.com/synedclover/status/2074962801848721881",
-          "text": "the next crypto flex won't be owning assets it'll be owning agents… if agents depend on closed APIs you're renting intelligence",
-          "likes": 14,
-          "replies": 8,
-          "why": "small room, live conversation; ownership vs rental angle is open",
-          "replyTake": "\"own your agents\" is just \"own your means of production\" with better branding and worse uptime. marx is somewhere going \"finally, but make it a discord bot.\"",
+          "handle": "@deepfates",
+          "url": "https://x.com/deepfates/status/2074919039361826921",
+          "text": "this is an awesome analysis… missing a key point in calling Roblox, Minecraft Fortnite \"live service slop\" — the reason everyone is in those places is because they are WORLDS. not games at all",
+          "likes": 201,
+          "replies": 16,
+          "why": "scene-central account, active conversation, angle already half-open",
+          "replyTake": "correct. we keep grading them as games and then acting shocked when the grading system fails. it's urban planning for children with a payment API.",
+          "replyVoice": "grok"
+        }
+      ]
+    },
+    {
+      "trend": "fake email jobs that pay poverty wages",
+      "category": "meaning",
+      "angle": "funny",
+      "verdict": "COMMENT",
+      "growthLane": "reply",
+      "priority": 2,
+      "whatItIs": "The \"fake email job\" meme usually means low-stress, decent pay. A counter-take landed: plenty of email jobs are fake *and* poorly paid — all the emptiness, none of the compensation.",
+      "whyTrending": "Meaning-crisis adjacent, broad, easy for a cold account. Personal posts beat dunk accounts.",
+      "take": "the dream used to be meaningful work. then it was a fake email job that pays. now people are discovering the worst of both: fake work, real poverty.",
+      "replyTake": "the premium tier of alienation still costs money. the free tier is just alienation.",
+      "replyVoice": "grok",
+      "openXQuery": "fake email job",
+      "hunt": {
+        "query": "(\"fake email job\" OR \"email job\") min_faves:15 -filter:replies lang:en",
+        "why": "reply under personal posts, not brand coaches.",
+        "handlesHint": ["VividVoid_", "Meaningness"]
+      },
+      "rooms": [
+        {
+          "handle": "@probablyalissa",
+          "url": "https://x.com/probablyalissa/status/2074972207491551309",
+          "text": "People always talk about fake email jobs that pay well but no one talks about fake email jobs that pay poverty wages",
+          "likes": 47,
+          "replies": 1,
+          "why": "small room, clean thesis, easy to earn the next reply",
+          "replyTake": "thank you for the class analysis of pretend work. the luxury package includes money. the default package is just the pretending.",
           "replyVoice": "grok"
         },
         {
-          "handle": "@PresidioPod",
-          "url": "https://x.com/PresidioPod/status/2074928074836386044",
-          "text": "Goose was early to agents, becoming open-source infrastructure for flexible user-controlled AI",
-          "likes": 12,
-          "replies": 0,
-          "why": "bitcoin×agents scene; quieter — only if you have a concrete line on open agents",
-          "replyTake": "open-source agents are the rare tech where the mascot is a bird and the product is \"please stop renting your brain from three companies.\" correct priorities.",
+          "handle": "@elle91",
+          "url": "https://x.com/elle91/status/2074944144594657324",
+          "text": "Burnout was not nearly as common in prior generations… is it because everything is less attainable while expectations get higher… Or was it because of the cocaine",
+          "likes": 26,
+          "replies": 4,
+          "why": "meaning + humor already in the room",
+          "replyTake": "historians will need a dual thesis: rising expectations and declining access to the original productivity stack.",
           "replyVoice": "grok"
         }
-      ],
-      "replyVoice": "grok"
+      ]
     },
     {
-      "trend": "the only people winning at growth hacks are the ones selling them",
+      "trend": "your network beats your follower count (and everyone selling hacks knows it)",
       "category": "meaning",
       "angle": "funny",
       "verdict": "COMMENT",
       "growthLane": "post",
       "priority": 1,
-      "whatItIs": "A \"growth hack\" is a quick trick meant to make an account, newsletter, or business get big fast. Post at this exact time, use this hook, follow this five-step formula, and the followers supposedly pour in. Whole courses and paid guides are built around selling these shortcuts.\n\nThe thing people keep noticing is that the person who got rich almost always got rich from selling the hack itself, not from using it on anything else. Their proof of success is that you bought the guide. The unglamorous truth underneath is that lasting audiences come from showing up regularly and being genuinely worth reading, which nobody can package and upsell.",
-      "whyTrending": "A steady stream of creators are posting about sticking to consistent, sustainable work instead of chasing viral tricks, and pushing back on the endless hack-sellers. It is a small but engaged conversation, more a simmering annoyance than a full blowup.",
+      "whatItIs": "Creator-economy noise: people still trading follow/unfollow games while others say the right five humans matter more than a vanity count. Same day as growth-hack skepticism.",
+      "whyTrending": "Always-on discourse; good universal spine post for a cold account that refuses the course-seller voice.",
       "take": "everyone selling a growth hack is describing how they grew: selling growth hacks. the real move is boring. show up, be worth reading, wait. nobody built a course on 'wait' because you can't upsell patience.",
-      "replyTake": "the product is usually the course. the proof is that you bought it.",
-      "openXQuery": "growth hacks scam",
+      "replyTake": "your network is more valuable than your follower count is true and also the least monetizable sentence on this website, which is why it keeps getting restated for free.",
+      "replyVoice": "grok",
+      "openXQuery": "network follower count",
       "hunt": {
-        "query": "(\"growth hack\" OR \"growth hacks\" OR \"how I grew\") min_faves:20 -filter:replies lang:en",
-        "why": "if you reply, pick someone mid-size roasting the industry — not the course-sellers themselves.",
-        "handlesHint": [
-          "visakanv",
-          "sashachapin",
-          "Meaningness"
-        ]
+        "query": "(\"follower count\" OR \"growth hack\" OR \"how I grew\") min_faves:20 -filter:replies lang:en",
+        "why": "optional — prefer original post over dunking on hustle accounts.",
+        "handlesHint": ["visakanv"]
       },
-      "replyVoice": "grok"
+      "rooms": [
+        {
+          "handle": "@ShuxBroh",
+          "url": "https://x.com/ShuxBroh/status/2074894080493117715",
+          "text": "Hot take: your network is more valuable than your follower count",
+          "likes": 124,
+          "replies": 101,
+          "why": "huge reply thread if you want in; line must be sharper than \"so true\"",
+          "replyTake": "hot take that has been true since the first village. the follower count is just the village publishing a misleading census.",
+          "replyVoice": "grok"
+        }
+      ]
     },
     {
-      "trend": "the new dream is a fake email job",
-      "category": "meaning",
+      "trend": "Haaland has more Instagram followers than Manchester City",
+      "category": "culture",
       "angle": "funny",
       "verdict": "COMMENT",
       "growthLane": "post",
-      "priority": 2,
-      "whatItIs": "A \"fake email job\" is internet slang for a low-stress office job that pays decently but demands very little real work, mostly sending emails and attending meetings. The phrase is half-joking but increasingly said with genuine longing.\n\nPeople are talking about it in personal threads about burnout, bad bosses, and wanting a calm paycheck instead of a demanding career. It reflects a shift away from the old advice to chase passion and meaning through work.",
-      "whyTrending": "It is in the air because many workers, worn down by burnout, are openly rejecting hustle culture and admitting they just want an easy, reliable job. The heat is quiet but steady, spreading through relatable personal posts rather than a single viral moment.",
-      "take": "the dream used to be meaningful work. now it's a fake email job that pays and asks nothing, and honestly, respect. you looked at 'follow your passion' and correctly filed it under scam.",
-      "replyTake": "passion was a recruitment slogan. the email job is just people negotiating their own terms after the slogan failed.",
-      "openXQuery": "fake email job",
+      "priority": 3,
+      "whatItIs": "During World Cup heat, Erling Haaland reportedly passed his own club in Instagram followers — personal brand over institution in real time.",
+      "whyTrending": "Sports + platform economy. Light, shareable. Optional spine post, not a reply hunt.",
+      "take": "the striker outgrew the crest on Instagram, which is just feudalism with better lighting. the lord is now a personal brand and the castle is a content calendar.",
+      "replyTake": "clubs used to own players. now players own the attention the club needs. the transfer fee was always a rounding error next to the feed.",
+      "replyVoice": "grok",
+      "openXQuery": "Haaland Instagram Manchester City",
       "hunt": {
-        "query": "(\"fake email job\" OR \"email job\") min_faves:20 -filter:replies lang:en",
-        "why": "broad meaning-crisis room. prefer personal posts over dunk accounts.",
-        "handlesHint": [
-          "VividVoid_",
-          "Malcolm_Ocean",
-          "Meaningness"
-        ]
-      }
+        "query": "Haaland (Instagram OR followers) (City OR club) min_faves:30 -filter:replies lang:en",
+        "why": "sports room — only if you want that audience.",
+        "handlesHint": []
+      },
+      "rooms": [
+        {
+          "handle": "@Polymarket",
+          "url": "https://x.com/Polymarket/status/2074979841804251313",
+          "text": "Erling Haaland now has more Instagram followers than Manchester City… popularity surges amid the World Cup",
+          "likes": 249,
+          "replies": 38,
+          "why": "big room; reply only if the line is institutional not fan-war",
+          "replyTake": "the employee surpassed the company in the only metric the century still understands. feudalism but the serf has better engagement.",
+          "replyVoice": "grok"
+        }
+      ]
     },
     {
-      "trend": "crowds line a field to watch a plane park",
-      "category": "politics",
+      "trend": "England preps a World Cup quarter-final like a medical drama",
+      "category": "culture",
       "angle": "funny",
+      "verdict": "COMMENT",
+      "growthLane": "skip",
+      "priority": 8,
+      "whatItIs": "World Cup knockouts: England vs Norway talk, precautionary absences, rest debates. Pure sports cycle.",
+      "whyTrending": "Tournament is live. High heat, low leverage for a non-sports account.",
+      "take": "\"precautionary absence from training\" is elite athlete for \"we are managing a spreadsheet with ankles.\"",
+      "replyTake": "you rest when your career is over, said the retired legend, which is easy to say when the spreadsheet no longer includes your ankles.",
+      "replyVoice": "grok",
+      "openXQuery": "England World Cup quarter-final",
+      "hunt": {
+        "query": "England (\"World Cup\" OR Norway OR Guehi) min_faves:40 -filter:replies lang:en",
+        "why": "skip unless sports is intentional growth.",
+        "handlesHint": []
+      },
+      "rooms": []
+    },
+    {
+      "trend": "Carli Lloyd: you rest when your career is over",
+      "category": "culture",
+      "angle": "funny",
+      "verdict": "COMMENT",
+      "growthLane": "skip",
+      "priority": 8,
+      "whatItIs": "Carli Lloyd clapped back at rest talk around Pulisic after the World Cup — old-school grind theology vs modern load management.",
+      "whyTrending": "Sports discourse loves generational fight clips.",
+      "take": "\"you rest when your career is over\" is a beautiful religion until the MRI results join the group chat.",
+      "replyTake": "load management vs \"rest when you're done\" is just two churches arguing over the same god: the calendar.",
+      "replyVoice": "grok",
+      "openXQuery": "Carli Lloyd Pulisic rest",
+      "hunt": null,
+      "rooms": [
+        {
+          "handle": "@PolymarketSport",
+          "url": "https://x.com/PolymarketSport/status/2074948862909837429",
+          "text": "Carli Lloyd after Pulisic’s comments… \"You rest when your playing career is over. Period.\"",
+          "likes": 674,
+          "replies": 48,
+          "why": "viral sports — skip for growth unless you want chaos reach",
+          "replyTake": "said with the confidence of someone whose career already ended on her terms. the calendar remains undefeated.",
+          "replyVoice": "grok"
+        }
+      ]
+    },
+    {
+      "trend": "the employee brand ate the institution",
+      "category": "meaning",
+      "angle": "interesting",
       "verdict": "FROM ABOVE",
       "growthLane": "post",
       "priority": 3,
-      "whatItIs": "RAF Mildenhall is a US air base in England. Ahead of a Trump visit to the UK, the new Air Force One (the president's plane) was due to arrive there, and hundreds of people traveled out and lined up along the field just to watch it land and park.\n\nThe card's angle is not about any particular leader. It is about the human impulse to gather and make a pilgrimage toward symbols of power, whatever form they take. People will queue for hours to stand near the object, and that instinct looks much the same across the centuries even as the object changes.",
-      "whyTrending": "Photos and reports of the crowds at Mildenhall spread as the UK visit approached, catching attention for the sheer number of people showing up to see a plane. Interest is high and curiosity-driven rather than angry.",
-      "take": "hundreds queued in a field to watch a plane park. we swapped cathedrals for aircraft and kept the pilgrimage exactly as it was. the object of worship gets faster. the crowd never does.",
-      "replyTake": "the relic changes. the queue does not.",
-      "openXQuery": "Air Force One Mildenhall",
-      "hunt": {
-        "query": "(\"Air Force One\" OR Mildenhall) (crowd OR lined OR queue) min_faves:20 -filter:replies lang:en",
-        "why": "optional altitude post — one a day max. skip if the room is pure partisanship.",
-        "handlesHint": []
-      },
-      "replyVoice": "grok"
+      "whatItIs": "Across sports, AI, and creator culture today: individuals outrank the orgs that used to contain them — Haaland > club on IG, models > labs in the feed, personal workflows > vendor PDFs.",
+      "whyTrending": "Pattern across otherwise unrelated posts. Good altitude post if you want one \"from above\" line.",
+      "take": "institutions still have letterhead. individuals have the audience. the org chart hasn't admitted this in writing yet.",
+      "replyTake": "we still swear loyalty to crests and companies while following people. the paperwork is lagging the feed.",
+      "replyVoice": "grok",
+      "openXQuery": "personal brand institution",
+      "hunt": null,
+      "rooms": []
     },
     {
       "trend": "a farmer flies a drone to his banana field",
@@ -213,113 +344,59 @@
       "verdict": "COMMENT",
       "growthLane": "skip",
       "priority": 9,
-      "whatItIs": "A short video went viral showing a man in Indonesia riding or steering a large drone out to his banana plantation instead of walking or driving. The clip is a pure visual gag: farm work meeting flying-machine technology.\n\nThere is no company or product behind it. It is just an everyday farmer using a drone in an unexpected way, and the image of it caught people's attention.",
-      "whyTrending": "It is spreading because it is a funny, easy-to-share clip that racked up thousands of likes within hours. The heat is broad and light, the kind of feel-good viral moment that crosses many audiences.",
+      "whatItIs": "Viral clip of a farmer using a large drone to reach plantation work. Pure visual gag, no product story.",
+      "whyTrending": "Easy share. Broad heat, weak profile conversion for a cold account.",
       "take": "a farmer is commuting to his banana field by drone while the richest men alive burn billions building a chatbot. the future arrived. it went somewhere useful first.",
       "replyTake": "the future shipped to a banana field first. the labs are still writing press releases.",
+      "replyVoice": "grok",
       "openXQuery": "farmer drone banana",
-      "hunt": {
-        "query": "(farmer OR plantation) drone banana min_faves:50 -filter:replies lang:en",
-        "why": "viral comedy — low profile-visit conversion for a cold account. only touch if the line is irresistible.",
-        "handlesHint": []
-      }
+      "hunt": null,
+      "rooms": []
     },
     {
-      "trend": "'expected goals' says who deserved to win",
-      "category": "culture",
-      "angle": "funny",
-      "verdict": "COMMENT",
-      "growthLane": "skip",
-      "priority": 9,
-      "whatItIs": "\"Expected goals,\" written as xG, is a soccer stat that estimates how many goals a team should have scored based on the quality of the chances it created. Each shot gets a score for how likely it was to go in, and those add up. A team can pile up great chances, post a high xG, and still lose if the ball just refuses to cross the line.\n\nSo xG is basically a measure of who played the better game rather than who actually won it. Fans and analysts use it to argue that a losing team \"deserved\" more, or that a winner got lucky. It is a useful lens, but the scoreboard is still the only thing that counts.",
-      "whyTrending": "At the World Cup, stats circulated showing Spain, Argentina, Canada, and Colombia won all their matches by the xG numbers too, which set off the sports-analytics crowd. It is a lively niche debate rather than a mainstream flashpoint.",
-      "take": "'expected goals' is a stat for who deserved to win, which is a lovely way of saying the scoreboard hurt your feelings. the ball doesn't care what it was expected to do.",
-      "replyTake": "expected goals is for people who lost and need a priest. the ball remains a pagan.",
-      "openXQuery": "expected goals xG",
-      "hunt": {
-        "query": "(\"expected goals\" OR xG) min_faves:30 -filter:replies lang:en",
-        "why": "sports room — only if you want that audience on purpose.",
-        "handlesHint": []
-      },
-      "replyVoice": "grok"
-    },
-    {
-      "trend": "nobody can tell if Bieber at the World Cup is real or AI",
-      "category": "culture",
-      "angle": "funny",
-      "verdict": "COMMENT",
-      "growthLane": "skip",
-      "priority": 9,
-      "whatItIs": "At the World Cup final, footage and posts spread claiming Justin Bieber was there. The catch is that nobody could confirm whether it was really him, a joke someone was running, or an AI-generated clip made to look real. All three explanations seemed equally possible.\n\nWhat is notable is that most people did not seem to mind not knowing. Instead of demanding proof, they just enjoyed the uncertainty and moved on. It is a small example of how blurry the line between real footage and fake footage has gotten, and how relaxed audiences have become about it.",
-      "whyTrending": "A Portuguese-language account posted \"VEIO AI\" (roughly \"he came / it's AI\") tied to Bieber at the final, and it racked up big likes and quote-replies with nobody sure if it was serious or generated. The mood is playful and viral rather than heated.",
-      "take": "nobody can tell if bieber at the world cup final is real, a bit, or AI-generated, and everyone's just vibing with not knowing. reality's optional now and no one filed a complaint.",
-      "replyTake": "reality filed for optional status. nobody appealed.",
-      "openXQuery": "Bieber World Cup AI",
-      "hunt": {
-        "query": "Bieber (\"World Cup\" OR final) (AI OR real) min_faves:30 -filter:replies lang:en",
-        "why": "celebrity viral — skip unless you want chaos reach for its own sake.",
-        "handlesHint": []
-      }
-    },
-    {
-      "trend": "a country goes from the terror list to 'economic opportunity'",
+      "trend": "US–Iran strikes and warnings after attacks on ships / sites",
       "category": "politics",
-      "angle": "dumb",
-      "verdict": "FROM ABOVE",
-      "growthLane": "skip",
-      "priority": 8,
-      "whatItIs": "For decades the United States kept Syria on its official list of state sponsors of terrorism, a designation that blocks most trade, investment, and normal business dealings with a country. Being on the list is a formal legal status, not just a label, and it cuts a country off economically.\n\nThe US administration has now rescinded that designation for Syria, which opens the door to trade and investment that was previously off-limits. The card's angle is about a broader pattern: how a country can shift from \"terror threat\" to \"economic opportunity,\" and how these designations often seem to move in step with commerce.",
-      "whyTrending": "The removal is fresh news and drew immediate, sharply divided reactions across the political spectrum. It is a genuinely hot, contested story, with people arguing over what the change means.",
-      "take": "a country spent decades on the terror list and today became an 'economic opportunity.' the label was never about the country, it was about whether you were buying yet. the list is a mood ring for trade.",
-      "replyTake": "the list always knew when the deal was ready. morality just filed the paperwork late.",
-      "openXQuery": "Syria terrorism designation",
-      "hunt": {
-        "query": "Syria (terrorism OR \"state sponsor\" OR designation) min_faves:30 -filter:replies lang:en",
-        "why": "contested political heat — high risk of dunk-pile. altitude only if the line is clean and non-partisan.",
-        "handlesHint": []
-      }
+      "angle": "grave",
+      "verdict": "SILENT",
+      "growthLane": "silent",
+      "priority": 99,
+      "whatItIs": "News cycle covering US retaliatory airstrikes and warnings involving Iran after attacks on commercial ships / military tension. Active geopolitical conflict reporting.",
+      "whyTrending": "Hard news. High emotion. Wrong place for brand growth replies.",
+      "take": "",
+      "replyTake": "",
+      "openXQuery": "Iran airstrikes",
+      "hunt": null,
+      "rooms": []
     },
     {
-      "trend": "a Navy commander killed in a helicopter crash",
+      "trend": "Midtown blocks evacuated over buckling beams at a construction site",
       "category": "tragedy",
       "angle": "grave",
       "verdict": "SILENT",
       "growthLane": "silent",
       "priority": 99,
-      "whatItIs": "A U.S. Navy commander named Gabe Edwards was killed on July 1 in a helicopter crash over the Arabian Sea, the body of water between the Arabian Peninsula and India where Navy ships often operate. A commander is a senior officer, and details about exactly what happened have not been fully released.\n\nMilitary channels and news outlets have confirmed his death and are sharing the basic report. Investigations into military aircraft crashes usually take time, so early on there is little public information beyond the fact of the loss and the name of the person who died.",
-      "whyTrending": "It is circulating because a service member died in the line of duty and the military and press are sharing the news. Coverage is steady and somber rather than heated, focused on honoring the person lost while investigators work to establish the cause.",
+      "whatItIs": "NYC midtown evacuations after structural concerns at a construction site — beams reported buckling, blocks cleared as precaution.",
+      "whyTrending": "Local emergency news. Not a reply opportunity.",
       "take": "",
       "replyTake": "",
-      "openXQuery": "Navy commander helicopter crash",
-      "hunt": null
+      "openXQuery": "Midtown buckling beams",
+      "hunt": null,
+      "rooms": []
     },
     {
-      "trend": "a construction worker killed during a Houston traffic stop",
+      "trend": "service deaths and traffic-stop killings still circulating",
       "category": "tragedy",
       "angle": "grave",
       "verdict": "SILENT",
       "growthLane": "silent",
       "priority": 99,
-      "whatItIs": "A 52-year-old construction worker was shot and killed during a traffic stop conducted by ICE, U.S. Immigration and Customs Enforcement, in Houston, Texas. A traffic stop is when officers pull over a vehicle; in this case it ended with the man being fatally shot.\n\nHis family is now speaking publicly about his death, and video connected to the incident is being shared online. As with many such cases, the full sequence of events is still being examined, and official accounts and family accounts may differ.",
-      "whyTrending": "It is spreading because a man died during an encounter with federal officers, his family is speaking out, and video is circulating widely. Attention is high and emotions are strong, with people sharing the footage and the family's statements.",
+      "whatItIs": "Ongoing coverage of recent deaths — military, traffic-stop, and child-crash stories from earlier in the week remain in feeds. Not for commentary growth.",
+      "whyTrending": "Tragedy circulation. Stay silent.",
       "take": "",
       "replyTake": "",
-      "openXQuery": "Houston ICE traffic stop",
-      "hunt": null
-    },
-    {
-      "trend": "a 6-year-old killed in a North Carolina crash",
-      "category": "tragedy",
-      "angle": "grave",
-      "verdict": "SILENT",
-      "growthLane": "silent",
-      "priority": 99,
-      "whatItIs": "A 6-year-old child named Calli Toller was killed in North Carolina in a car crash. According to reports, another driver ran a stop sign, causing the collision that took her life.\n\nAn ICE detainer, which is a request from immigration authorities to hold a person in custody, is now active on the driver involved. The core of the story is the death of a young child in a preventable crash.",
-      "whyTrending": "It is being shared because a young child died and the case has drawn wide attention. Coverage is emotional and, because of the detainer on the driver, the story is being pulled into broader debates, which has intensified how much it is spreading.",
-      "take": "",
-      "replyTake": "",
-      "openXQuery": "Calli Toller North Carolina crash",
-      "hunt": null
+      "openXQuery": "",
+      "hunt": null,
+      "rooms": []
     }
   ]
 }
