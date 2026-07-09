@@ -1,10 +1,10 @@
 {
   "meta": {
     "owner": "LUCIFER / INVICTA",
-    "edition": "live · Wed July 8 night · comedy pass",
-    "count": 13,
-    "updated": "2026-07-08T23:25:00Z",
-    "note": "Takes rewritten against voice.md comedy engine: flat, short, punchline last, smirk not TED. Tech optional. Current events lead.",
+    "edition": "live · Thu July 9 · +10 current events",
+    "count": 23,
+    "updated": "2026-07-09T02:49:12Z",
+    "note": "Ten new current-events cards added. Comedy craft + real rooms. Combat still silent; civilian angles preferred.",
     "comedyRules": [
       "1-2 sentences max; punchline last",
       "under-react; bathetic drop; plain-english deflation",
@@ -413,6 +413,338 @@
       "openXQuery": "",
       "hunt": null,
       "rooms": []
+    },
+    {
+      "trend": "a day with no World Cup game and the feed feels unfinished",
+      "category": "culture",
+      "angle": "funny",
+      "verdict": "COMMENT",
+      "growthLane": "reply",
+      "priority": 1,
+      "whatItIs": "Knockout rounds create off-days. People are posting that the day feels empty without a match — the tournament has become the default calendar.",
+      "whyTrending": "Rest-day malaise posts. Broad, light, easy room.",
+      "take": "no World Cup today and people are reporting emptiness like someone canceled Christmas. the sport became infrastructure.",
+      "replyTake": "the calendar had a hole in it and everyone felt the draft.",
+      "replyVoice": "grok",
+      "openXQuery": "no World Cup game empty",
+      "hunt": {
+        "query": "(\"no World Cup\" OR \"without a World Cup\" OR \"no game\") (empty OR today) min_faves:20 -filter:replies lang:en",
+        "why": "rest-day posts — land one dry line, don't overdo soccer fan voice.",
+        "handlesHint": []
+      },
+      "rooms": [
+        {
+          "handle": "@ysuckme",
+          "url": "https://x.com/ysuckme/status/2075040670968909901",
+          "text": "today felt so empty without a World Cup game.",
+          "likes": 130,
+          "replies": 39,
+          "why": "small open room, pure feeling post",
+          "replyTake": "the match schedule is doing more for national mood than most legislation. rest day hit different.",
+          "replyVoice": "grok"
+        },
+        {
+          "handle": "@ThomX77",
+          "url": "https://x.com/ThomX77/status/2074970783961567255",
+          "text": "Empty stadiums. No World Cup. What am I supposed to do today?",
+          "likes": 47,
+          "replies": 31,
+          "why": "active replies already — easy to join",
+          "replyTake": "touch grass is the official FIFA rest-day protocol and nobody wants it.",
+          "replyVoice": "grok"
+        }
+      ]
+    },
+    {
+      "trend": "Mexico fans briefly become Norway fans for spite",
+      "category": "culture",
+      "angle": "funny",
+      "verdict": "COMMENT",
+      "growthLane": "reply",
+      "priority": 1,
+      "whatItIs": "After England knocked Mexico out, some Mexico fans are publicly rooting for Norway (and Haaland) to eliminate England next. Classic enemy-of-my-enemy fandom.",
+      "whyTrending": "Elimination spite is peak tournament culture.",
+      "take": "Mexico just dual-citizened into Norway for one match. geopolitics, but make it spite.",
+      "replyTake": "the enemy of my enemy gets a temporary jersey and zero loyalty after full time.",
+      "replyVoice": "grok",
+      "openXQuery": "Mexico fans Norway England",
+      "hunt": {
+        "query": "(Mexico OR Mexican) (Norway OR Haaland) (England OR spite OR rooting) min_faves:20 -filter:replies lang:en",
+        "why": "fan culture room — one clean joke.",
+        "handlesHint": []
+      },
+      "rooms": [
+        {
+          "handle": "@Complex",
+          "url": "https://x.com/Complex/status/2075039924588319183",
+          "text": "Some Mexico fans are now rooting for Norway to eliminate England… England eliminated Mexico… want Haaland and Norway to knock England out next.",
+          "likes": 45,
+          "replies": 2,
+          "why": "clean summary post of the meme",
+          "replyTake": "international relations but the only treaty is spite and it expires at the final whistle.",
+          "replyVoice": "grok"
+        }
+      ]
+    },
+    {
+      "trend": "Boston turns red and green for Morocco",
+      "category": "culture",
+      "angle": "interesting",
+      "verdict": "COMMENT",
+      "growthLane": "reply",
+      "priority": 2,
+      "whatItIs": "Moroccan fans flooded Boston streets ahead of the World Cup quarter-final against France. Diaspora city becomes temporary capital of a match.",
+      "whyTrending": "Street energy + tournament stakes. Visual, communal.",
+      "take": "a whole city block just became an away end. borders are legal. fandom is logistics.",
+      "replyTake": "the quarter-final started in the street a few hours early. kickoff is a formality.",
+      "replyVoice": "grok",
+      "openXQuery": "Morocco Boston World Cup fans",
+      "hunt": {
+        "query": "(Morocco OR Moroccan) (Boston OR streets OR fans) (World Cup OR France) min_faves:20 -filter:replies lang:en",
+        "why": "atmosphere posts — celebrate the crowd, not the score prediction.",
+        "handlesHint": []
+      },
+      "rooms": [
+        {
+          "handle": "@MarioNawfal",
+          "url": "https://x.com/MarioNawfal/status/2075042678836769230",
+          "text": "Boston is turning red and green. Thousands of Moroccan fans have already taken over the streets ahead of Morocco’s World Cup quarter-final against France.",
+          "likes": 47,
+          "replies": 12,
+          "why": "scene-setting with replies forming",
+          "replyTake": "nation-state on loan to a few blocks of Boston. return policy: after full time.",
+          "replyVoice": "grok"
+        }
+      ]
+    },
+    {
+      "trend": "government-run gas stations vs the price at the pump",
+      "category": "politics",
+      "angle": "funny",
+      "verdict": "COMMENT",
+      "growthLane": "reply",
+      "priority": 1,
+      "whatItIs": "White House hyped a 'Freedom Fuel' gas station in Philadelphia at $3.47. Critics called government-run gas stations dumber than government-run groceries. The fight is about who is allowed to touch the pump narrative.",
+      "whyTrending": "Culture-war economics you can feel in the car. Better than pure combat dunks.",
+      "take": "we got a branded government gas station and the replies are a philosophy seminar about who should be allowed near a nozzle.",
+      "replyTake": "the pump is now a press conference with unleaded.",
+      "replyVoice": "grok",
+      "openXQuery": "Freedom Fuel gas station",
+      "hunt": {
+        "query": "(\"Freedom Fuel\" OR \"government-run gas\" OR \"gas station\") (Trump OR government OR grocery) min_faves:20 -filter:replies lang:en",
+        "why": "policy comedy room — dry line, no party jersey required.",
+        "handlesHint": []
+      },
+      "rooms": [
+        {
+          "handle": "@mattyglesias",
+          "url": "https://x.com/mattyglesias/status/2075037694325911885",
+          "text": "Government-run gas stations is somehow a stupider idea than government-run grocery stores.",
+          "likes": 196,
+          "replies": 15,
+          "why": "mid-large, active replies, clean premise",
+          "replyTake": "we ran out of normal political arguments and started ranking which state-owned aisle is dumber. that's how you know summer's going well.",
+          "replyVoice": "grok"
+        }
+      ]
+    },
+    {
+      "trend": "$8.99 cherries and the grocery receipt as national mood",
+      "category": "meaning",
+      "angle": "funny",
+      "verdict": "COMMENT",
+      "growthLane": "reply",
+      "priority": 2,
+      "whatItIs": "People posting specific grocery shocks — cherries near $9 a bag — as proof the country is sideways. Cost of living as folk journalism.",
+      "whyTrending": "Always on. Specific prices travel farther than inflation charts.",
+      "take": "the state of the union is a bag of cherries for $8.99. no speech required.",
+      "replyTake": "macroeconomics, but make it produce aisle.",
+      "replyVoice": "grok",
+      "openXQuery": "grocery prices cherries rent",
+      "hunt": {
+        "query": "(grocery OR cherries OR rent) (prices OR \"going to hell\" OR expensive) min_faves:15 -filter:replies lang:en",
+        "why": "personal cost posts — match the receipt energy.",
+        "handlesHint": []
+      },
+      "rooms": [
+        {
+          "handle": "@faeriefauna444",
+          "url": "https://x.com/faeriefauna444/status/2075032570073338321",
+          "text": "just paid $8.99 for a bag of cherries at the grocery store y’all this country is going to hell in a hand basket",
+          "likes": 30,
+          "replies": 2,
+          "why": "specific price = load-bearing detail",
+          "replyTake": "$8.99 cherries is the most bipartisan foreign policy brief of the week.",
+          "replyVoice": "grok"
+        },
+        {
+          "handle": "@ausstockchick",
+          "url": "https://x.com/ausstockchick/status/2075036901569102273",
+          "text": "Grocery prices are expected to increase again. Rents are up again…",
+          "likes": 48,
+          "replies": 9,
+          "why": "cost stack in one post",
+          "replyTake": "groceries and rent filed a joint motion to keep the plot simple.",
+          "replyVoice": "grok"
+        }
+      ]
+    },
+    {
+      "trend": "how many tankers crossed Hormuz: 0, 00, or 000",
+      "category": "politics",
+      "angle": "funny",
+      "verdict": "COMMENT",
+      "growthLane": "reply",
+      "priority": 2,
+      "whatItIs": "With Iran conflict and Hormuz tension, people are half-joking about oil tanker traffic going to zero. Trade route as punchline for war risk.",
+      "whyTrending": "Shipping + oil anxiety without requiring combat cosplay.",
+      "take": "the global economy is refreshing a shipping tracker like it's a group chat that went silent.",
+      "replyTake": "\"0, 00, or 000\" is the most accurate situation report of the night.",
+      "replyVoice": "grok",
+      "openXQuery": "Hormuz tankers oil",
+      "hunt": {
+        "query": "(Hormuz OR tanker OR tankers) (oil OR closed OR zero OR traffic) min_faves:20 -filter:replies lang:en",
+        "why": "trade/shipping angle — not cheerleading strikes.",
+        "handlesHint": []
+      },
+      "rooms": [
+        {
+          "handle": "@DarioCpx",
+          "url": "https://x.com/DarioCpx/status/2075042935163507090",
+          "text": "How many oil tankers crossed the Strait of Hormuz in the past 72 hours? Very curious to know whether 0, 00, or 000",
+          "likes": 108,
+          "replies": 9,
+          "why": "dry question, good for a flat reply",
+          "replyTake": "the three-digit precision really sells the confidence.",
+          "replyVoice": "grok"
+        }
+      ]
+    },
+    {
+      "trend": "everyone's job title is Entrepreneur and the rent is still $120 each",
+      "category": "meaning",
+      "angle": "funny",
+      "verdict": "COMMENT",
+      "growthLane": "reply",
+      "priority": 2,
+      "whatItIs": "Parody of hustle culture: twenty friends rename themselves entrepreneurs while splitting a 3-bedroom. Status language vs material life.",
+      "whyTrending": "Creator-economy satire that always clears.",
+      "take": "we nationalized the word entrepreneur and the only thing that scaled was the roommate count.",
+      "replyTake": "title inflation hit harder than wage inflation.",
+      "replyVoice": "grok",
+      "openXQuery": "entrepreneur rent roommates",
+      "hunt": {
+        "query": "(entrepreneur OR \"job title\") (rent OR roommates OR house) min_faves:20 -filter:replies lang:en",
+        "why": "hustle satire rooms.",
+        "handlesHint": []
+      },
+      "rooms": [
+        {
+          "handle": "@chasedownleads",
+          "url": "https://x.com/chasedownleads/status/2075027029062230354",
+          "text": "POV: You and your 20 closest friends all changed their job title to \"Entrepreneur\" and now pay $120 a month in rent to split a 3 bedroom house",
+          "likes": 131,
+          "replies": 2,
+          "why": "parody account, joke already loaded — add one notch",
+          "replyTake": "the LinkedIn headline scaled. the square footage did not.",
+          "replyVoice": "grok"
+        }
+      ]
+    },
+    {
+      "trend": "The Odyssey is a myth and people are fighting about casting again",
+      "category": "culture",
+      "angle": "interesting",
+      "verdict": "COMMENT",
+      "growthLane": "reply",
+      "priority": 3,
+      "whatItIs": "Debate around reinterpretations of Homeric myth (Nolan Odyssey discourse, casting history). One side: myths get remade forever. Other side: culture-war literacy tests.",
+      "whyTrending": "Evergreen myth fight with a current hook. Fits meaning/culture lane.",
+      "take": "humans have been recasting The Odyssey since before film existed and still act shocked when someone does it again. the poem is the open-source project.",
+      "replyTake": "myths that can't be retold aren't myths. they're museum labels.",
+      "replyVoice": "grok",
+      "openXQuery": "Odyssey myth casting Nolan",
+      "hunt": {
+        "query": "(Odyssey OR Homer OR myth) (casting OR retell OR illiterate OR reinterpret) min_faves:30 -filter:replies lang:en",
+        "why": "culture room — one line about retelling, not pile-on.",
+        "handlesHint": [
+          "PageauJonathan"
+        ]
+      },
+      "rooms": [
+        {
+          "handle": "@clairlemon",
+          "url": "https://x.com/clairlemon/status/2075000063093510303",
+          "text": "The Odyssey is a long-form poem about a myth… long history of being reinterpreted… Today's critics are culturally illiterate buffoons.",
+          "likes": 1628,
+          "replies": 582,
+          "why": "huge room — only if the line is about myth-as-software, not dunking individuals",
+          "replyTake": "if a story survived oral tradition it can survive a casting announcement. the panic is the only new part.",
+          "replyVoice": "grok"
+        }
+      ]
+    },
+    {
+      "trend": "Mitch McConnell spotted at a Noah Kahan concert (he's fine)",
+      "category": "politics",
+      "angle": "funny",
+      "verdict": "COMMENT",
+      "growthLane": "post",
+      "priority": 2,
+      "whatItIs": "After hospitalization chatter, a joke post claims McConnell was at a Noah Kahan show at Fenway and is fine. Political grimness meets soft-rock logistics.",
+      "whyTrending": "Dark humor + celebrity-politician collision.",
+      "take": "the health update format is now a concert review. democracy is healing, but the setlist is sad.",
+      "replyTake": "\"he's fine\" delivered via Noah Kahan is the most 2026 medical bulletin possible.",
+      "replyVoice": "grok",
+      "openXQuery": "McConnell Noah Kahan",
+      "hunt": {
+        "query": "McConnell (concert OR Kahan OR Fenway OR fine) min_faves:15 -filter:replies lang:en",
+        "why": "joke room — stay light, no health ghoulishness.",
+        "handlesHint": []
+      },
+      "rooms": [
+        {
+          "handle": "@mchooyah",
+          "url": "https://x.com/mchooyah/status/2075048639425020084",
+          "text": "I just went to the Noah Kahan concert at Fenway with Mitch McConnell. He’s fine.",
+          "likes": 40,
+          "replies": 10,
+          "why": "bit already planted",
+          "replyTake": "most normal bipartisan hang of the decade and I refuse to fact-check it.",
+          "replyVoice": "grok"
+        }
+      ]
+    },
+    {
+      "trend": "Mexico's send-off video and the tournament hangover",
+      "category": "culture",
+      "angle": "interesting",
+      "verdict": "COMMENT",
+      "growthLane": "post",
+      "priority": 3,
+      "whatItIs": "Emotional video of Mexico players thanking fans after their World Cup run. Elimination ritual: gratitude reel, then silence until the next cycle.",
+      "whyTrending": "Post-elimination content always spikes for big fanbases.",
+      "take": "the exit interview is a thank-you reel now. the nation cries on schedule and means it.",
+      "replyTake": "elimination comes with a credits sequence. sports learned prestige TV.",
+      "replyVoice": "grok",
+      "openXQuery": "Mexico World Cup thank fans video",
+      "hunt": {
+        "query": "Mexico (thank OR fans OR emotional) (World Cup OR players) min_faves:30 -filter:replies lang:en",
+        "why": "emotional fan room — soft take or skip if too tender.",
+        "handlesHint": []
+      },
+      "rooms": [
+        {
+          "handle": "@AllFutbolMX",
+          "url": "https://x.com/AllFutbolMX/status/2075040286741258421",
+          "text": "An emotional video featuring every Mexico player who participated at the 2026 World Cup thanking the fans…",
+          "likes": 1428,
+          "replies": 12,
+          "why": "big emotion post — reply only if the line is gentle-funny not cruel",
+          "replyTake": "the tournament ends and the thank-you video ships like a patch note. human, efficient, devastating.",
+          "replyVoice": "grok"
+        }
+      ]
     }
   ]
 }
