@@ -65,8 +65,10 @@
   .take{margin-top:14px; border-left:2px solid var(--gold); background:var(--panel2);
         border-radius:0 8px 8px 0; padding:14px 15px 13px;}
   .take.reply-box{border-left-color:var(--green);}
+  .take.codex-box{border-left-color:var(--blue);}
   .take .lbl{margin-top:0; color:var(--gold);}
   .take.reply-box .lbl{color:var(--green);}
+  .take.codex-box .lbl{color:var(--blue);}
   .take q{font-family:var(--serif); font-style:italic; font-size:15.5px; line-height:1.7; color:#efe9dc; quotes:none; display:block;}
   .huntbox{margin-top:14px; padding:12px 14px; background:var(--panel2); border-radius:8px; border:1px dashed #34343b;}
   .huntbox .lbl{margin-top:0; color:var(--blue);}
@@ -83,6 +85,8 @@
   .room .groke{margin:10px 0 8px; padding:10px 12px; border-left:2px solid var(--gold);
                background:#141417; border-radius:0 6px 6px 0;}
   .room .groke .gl{font-size:9px; letter-spacing:.2em; color:var(--gold); margin-bottom:6px;}
+  .room .groke.codex{border-left-color:var(--blue);}
+  .room .groke.codex .gl{color:var(--blue);}
   .room .groke q{font-family:var(--serif); font-style:italic; font-size:14.5px; line-height:1.6;
                  color:#efe9dc; quotes:none; display:block;}
   .row{display:flex; align-items:center; gap:8px; margin-top:11px; flex-wrap:wrap;}
@@ -210,17 +214,22 @@ function roomUrl(s){
           rooms.map((r,ri)=>{
             const h = String(r.handle||"").replace(/^@/,"");
             const meta = [r.likes!=null?r.likes+" likes":"", r.replies!=null?r.replies+" replies":""].filter(Boolean).join(" · ");
-            const line = r.replyTake || s.replyTake || "";
+            const grokLine = r.replyTake || s.replyTake || "";
+            const codexLine = r.codexTake || s.codexTake || "";
             return '<div class="room">'+
               '<div class="rh">@'+esc(h)+'</div>'+
               (r.text ? '<div class="rt">'+esc(r.text)+'</div>' : '')+
               (meta ? '<div class="meta-r">'+esc(meta)+'</div>' : '')+
               (r.why ? '<div class="rw">'+esc(r.why)+'</div>' : '')+
-              (line
-                ? '<div class="groke"><div class="gl">GROK TAKE · '+(line.length)+' / 280</div><q>'+esc(line)+'</q></div>'
+              (grokLine
+                ? '<div class="groke"><div class="gl">GROK TAKE · '+(grokLine.length)+' / 280</div><q>'+esc(grokLine)+'</q></div>'
+                : '')+
+              (codexLine
+                ? '<div class="groke codex"><div class="gl">CODEX TAKE · '+(codexLine.length)+' / 280</div><q>'+esc(codexLine)+'</q></div>'
                 : '')+
               '<div class="row">'+
-                (line ? '<button class="btn primary" data-copy-room="'+i+'-'+ri+'">COPY REPLY</button>' : '')+
+                (grokLine ? '<button class="btn primary" data-copy-room="'+i+'-'+ri+'">COPY GROK</button>' : '')+
+                (codexLine ? '<button class="btn" data-copy-room-codex="'+i+'-'+ri+'">COPY CODEX</button>' : '')+
                 '<a class="btn x" target="_blank" rel="noopener" href="'+esc(r.url)+'">OPEN POST →</a>'+
               '</div></div>';
           }).join("")+
@@ -242,6 +251,13 @@ function roomUrl(s){
           '<button class="btn primary" data-copy-reply="'+i+'">COPY REPLY</button>'+
           '<a class="btn x" target="_blank" rel="noopener" href="'+esc(roomUrl(s))+'">OPEN ROOM →</a></div></div>';
       }
+      if (s.codexTake && !rooms.length){
+        body +=
+          '<div class="take codex-box"><div class="lbl">CODEX TAKE</div><q>'+esc(s.codexTake)+'</q>'+
+          '<div class="row"><span class="charc">'+s.codexTake.length+' / 280</span>'+
+          '<button class="btn" data-copy-codex="'+i+'">COPY CODEX</button>'+
+          '<a class="btn x" target="_blank" rel="noopener" href="'+esc(roomUrl(s))+'">OPEN ROOM →</a></div></div>';
+      }
       if (s.take){
         body +=
           '<div class="take"><div class="lbl">ORIGINAL POST</div><q>'+esc(s.take)+'</q>'+
@@ -251,8 +267,8 @@ function roomUrl(s){
       }
     }
 
-    const preview = lane==="reply" && s.replyTake
-      ? s.replyTake
+    const preview = lane==="reply" && (s.codexTake || s.replyTake)
+      ? (s.codexTake || s.replyTake)
       : (s.take || s.whyTrending || "").slice(0,140);
 
     html +=
@@ -285,6 +301,13 @@ function roomUrl(s){
       navigator.clipboard.writeText(s.replyTake||"").then(()=>toast("grok take copied — paste under a mid-size post"));
     });
   });
+  list.querySelectorAll("[data-copy-codex]").forEach(b=>{
+    b.addEventListener("click",e=>{
+      e.stopPropagation();
+      const s = sig[+b.dataset.copyCodex];
+      navigator.clipboard.writeText(s.codexTake||"").then(()=>toast("codex take copied — paste under a mid-size post"));
+    });
+  });
   list.querySelectorAll("[data-copy-room]").forEach(b=>{
     b.addEventListener("click",e=>{
       e.stopPropagation();
@@ -293,6 +316,16 @@ function roomUrl(s){
       const r = (s.rooms||[])[ri] || {};
       const line = r.replyTake || s.replyTake || "";
       navigator.clipboard.writeText(line).then(()=>toast("grok take copied — open the post and paste"));
+    });
+  });
+  list.querySelectorAll("[data-copy-room-codex]").forEach(b=>{
+    b.addEventListener("click",e=>{
+      e.stopPropagation();
+      const [si, ri] = b.dataset.copyRoomCodex.split("-").map(Number);
+      const s = sig[si];
+      const r = (s.rooms||[])[ri] || {};
+      const line = r.codexTake || s.codexTake || "";
+      navigator.clipboard.writeText(line).then(()=>toast("codex take copied — open the post and paste"));
     });
   });
   list.querySelectorAll("[data-copy-post]").forEach(b=>{

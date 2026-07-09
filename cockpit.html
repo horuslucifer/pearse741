@@ -151,7 +151,7 @@ function candidateText(c){
   /* STEP 0: top reply targets from the morning dossier */
   if (tr && Array.isArray(tr.signals)){
     const replies = tr.signals
-      .filter(s => (s.growthLane||"").toLowerCase()==="reply" && s.replyTake)
+      .filter(s => (s.growthLane||"").toLowerCase()==="reply" && (s.replyTake || s.codexTake))
       .sort((a,b)=>(a.priority||50)-(b.priority||50))
       .slice(0,3);
     if (replies.length){
@@ -164,16 +164,21 @@ function candidateText(c){
           ? rooms.map((r,ri)=>{
               const h = String(r.handle||"").replace(/^@/,"");
               const meta = [r.likes!=null?r.likes+" likes":"", r.replies!=null?r.replies+" replies":""].filter(Boolean).join(" · ");
-              const line = r.replyTake || s.replyTake || "";
+              const grokLine = r.replyTake || s.replyTake || "";
+              const codexLine = r.codexTake || s.codexTake || "";
               return '<div class="t-why" style="margin-top:10px"><b style="color:var(--green);font-weight:500">@'+esc(h)+'</b>'+
                 (meta?' · '+esc(meta):'')+'</div>'+
                 (r.text ? '<div class="t-why">'+esc(r.text)+'</div>' : '')+
-                (line ? '<div class="t-take" style="margin-top:6px">'+esc(line)+'</div>' : '')+
-                (line ? '<button class="btn" data-rcopy="'+i+'-'+ri+'">copy grok take</button>' : '')+
+                (grokLine ? '<div class="t-take" style="margin-top:6px"><span class="say">grok:</span> '+esc(grokLine)+'</div>' : '')+
+                (grokLine ? '<button class="btn" data-rcopy="'+i+'-'+ri+'">copy grok take</button>' : '')+
+                (codexLine ? '<div class="t-take" style="margin-top:6px"><span class="say">codex:</span> '+esc(codexLine)+'</div>' : '')+
+                (codexLine ? '<button class="btn" data-rccopy="'+i+'-'+ri+'">copy codex take</button>' : '')+
                 '<a class="btn big" target="_blank" rel="noopener" href="'+esc(r.url)+'">open @'+esc(h)+' →</a>';
             }).join("")
-          : '<div class="t-take">'+esc(s.replyTake||"")+'</div>'+
-            '<button class="btn" data-dcopy="'+i+'">copy grok take</button>'+
+          : (s.replyTake ? '<div class="t-take"><span class="say">grok:</span> '+esc(s.replyTake)+'</div>' : '')+
+            (s.replyTake ? '<button class="btn" data-dcopy="'+i+'">copy grok take</button>' : '')+
+            (s.codexTake ? '<div class="t-take"><span class="say">codex:</span> '+esc(s.codexTake)+'</div>' : '')+
+            (s.codexTake ? '<button class="btn" data-dccopy="'+i+'">copy codex take</button>' : '')+
             '<a class="btn big" target="_blank" rel="noopener" href="'+esc(fallback)+'">open hunt →</a>';
         return '<div class="target">'+
           '<div class="t-title">'+esc(s.trend)+'</div>'+
@@ -187,6 +192,13 @@ function candidateText(c){
           catch(e){ toast("select the text and copy by hand"); }
         };
       });
+      $("dossier-targets").querySelectorAll("[data-dccopy]").forEach(btn=>{
+        btn.onclick = async () => {
+          const s = replies[+btn.dataset.dccopy];
+          try{ await navigator.clipboard.writeText(s.codexTake||""); toast("codex take copied — paste under a mid-size post"); }
+          catch(e){ toast("select the text and copy by hand"); }
+        };
+      });
       $("dossier-targets").querySelectorAll("[data-rcopy]").forEach(btn=>{
         btn.onclick = async () => {
           const [si, ri] = btn.dataset.rcopy.split("-").map(Number);
@@ -194,6 +206,16 @@ function candidateText(c){
           const r = (s.rooms||[])[ri] || {};
           const line = r.replyTake || s.replyTake || "";
           try{ await navigator.clipboard.writeText(line); toast("grok take copied — open the post and paste"); }
+          catch(e){ toast("select the text and copy by hand"); }
+        };
+      });
+      $("dossier-targets").querySelectorAll("[data-rccopy]").forEach(btn=>{
+        btn.onclick = async () => {
+          const [si, ri] = btn.dataset.rccopy.split("-").map(Number);
+          const s = replies[si];
+          const r = (s.rooms||[])[ri] || {};
+          const line = r.codexTake || s.codexTake || "";
+          try{ await navigator.clipboard.writeText(line); toast("codex take copied — open the post and paste"); }
           catch(e){ toast("select the text and copy by hand"); }
         };
       });

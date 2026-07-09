@@ -25,6 +25,7 @@
       "whyTrending": "Match night. Rematch narrative owns the timeline.",
       "take": "same movie, different sequel budget. Morocco brought receipts. France brought the previous ending.",
       "replyTake": "\"this time feels different\" is the most expensive sentence in sports.",
+      "codexTake": "sequels are dangerous. everybody remembers the ending, nobody remembers the writers changed.",
       "replyVoice": "grok",
       "openXQuery": "France Morocco World Cup",
       "hunt": {
@@ -41,6 +42,7 @@
           "replies": 58,
           "why": "clean rematch framing, active replies",
           "replyTake": "\"this time feels different\" is what every rematch says right before it feels exactly the same or violently not.",
+          "codexTake": "sports fans say \"this time feels different\" like the stadium installed new laws of physics.",
           "replyVoice": "grok"
         },
         {
@@ -51,6 +53,7 @@
           "replies": 45,
           "why": "revenge framing",
           "replyTake": "revenge is just a scouting report with feelings.",
+          "codexTake": "revenge is just nostalgia wearing shin guards.",
           "replyVoice": "grok"
         }
       ]
@@ -66,6 +69,7 @@
       "whyTrending": "Norway's run + meme that he is a video game character.",
       "take": "seven goals, every body part except the VAR monitor. the man is a downloadable content pack.",
       "replyTake": "they listed the ways he scores like a product feature matrix.",
+      "codexTake": "the stat sheet reads like someone selected every attack button and leaned on the controller.",
       "replyVoice": "grok",
       "openXQuery": "Haaland seven goals World Cup",
       "hunt": {
@@ -82,6 +86,7 @@
           "replies": 28,
           "why": "feature-list format ready for a joke",
           "replyTake": "that's not a scorers chart. that's a skill tree with microtransactions.",
+          "codexTake": "at this point the goalkeeper is just providing customer support.",
           "replyVoice": "grok"
         }
       ]
@@ -97,6 +102,7 @@
       "whyTrending": "England QF prep + suspension discourse.",
       "take": "suspended for the hard games, eligible for the parade. football discipline has a sense of humor.",
       "replyTake": "miss the quarters and semis, free for the trophy lift. productivity hack.",
+      "codexTake": "two-match ban, final eligibility. football invented missing the meetings and attending the bonus ceremony.",
       "replyVoice": "grok",
       "openXQuery": "Quansah banned FIFA England",
       "hunt": {
@@ -113,6 +119,7 @@
           "replies": 32,
           "why": "clear stakes, reply room open",
           "replyTake": "benched for the hard levels, unlocked for the credits. gaming logic.",
+          "codexTake": "locked out of the boss fights, eligible for the cutscene.",
           "replyVoice": "grok"
         },
         {
@@ -123,6 +130,7 @@
           "replies": 30,
           "why": "official-summary post",
           "replyTake": "calendar says unavailable. destiny says final only. ambitious scheduling.",
+          "codexTake": "that suspension has better tournament planning than most squads.",
           "replyVoice": "grok"
         }
       ]
@@ -138,6 +146,7 @@
       "whyTrending": "Referee assignment posts always start a conspiracy seminar.",
       "take": "a French referee for England–Norway is either neutral or a Netflix pitch. no in between.",
       "replyTake": "the appointment alone has more narrative than half the group stage.",
+      "codexTake": "nothing says neutral like giving the timeline a beret and a whistle.",
       "replyVoice": "grok",
       "openXQuery": "Turpin England Norway referee",
       "hunt": {
@@ -154,6 +163,7 @@
           "replies": 32,
           "why": "dry official line, replies already inventing plots",
           "replyTake": "the appointment dropped and the fanfiction started before kickoff.",
+          "codexTake": "ref assignments are horoscopes for people who own three scarves.",
           "replyVoice": "grok"
         }
       ]
@@ -169,6 +179,7 @@
       "whyTrending": "Tiny-sample superstition is peak World Cup content.",
       "take": "three games is a sample size and a religion.",
       "replyTake": "W1 D2 is not a record. it's a horoscope with a logo.",
+      "codexTake": "W1 D2 is less data than a fortune cookie and somehow twice as confident.",
       "replyVoice": "grok",
       "openXQuery": "Morocco Argentinian referee Opta",
       "hunt": {
@@ -185,6 +196,7 @@
           "replies": 20,
           "why": "Opta joke format",
           "replyTake": "confident is doing a lot of work for a sample that fits in a group chat.",
+          "codexTake": "Opta discovered astrology with possession stats.",
           "replyVoice": "grok"
         }
       ]
@@ -200,6 +212,7 @@
       "whyTrending": "Moral framing of sports rivalry always clears replies.",
       "take": "conscience is doing a lot of work for club allegiances and old grudges.",
       "replyTake": "interesting moral framework. does it cover set pieces.",
+      "codexTake": "morality entering sports discourse like it got lost on the way to church.",
       "replyVoice": "grok",
       "openXQuery": "conscience Argentina World Cup",
       "hunt": {
@@ -216,6 +229,7 @@
           "replies": 23,
           "why": "bait with room",
           "replyTake": "conscience is a strong word for vibes and a prior tournament.",
+          "codexTake": "good conscience is a heavy jersey for a rivalry post.",
           "replyVoice": "grok"
         }
       ]
@@ -231,6 +245,7 @@
       "whyTrending": "Affordability discourse with a clean number.",
       "take": "adulthood got delayed and the spare bedroom became infrastructure.",
       "replyTake": "the starter home is your childhood bedroom with better wifi.",
+      "codexTake": "the American dream moved back upstairs and pays rent in vibes.",
       "replyVoice": "grok",
       "openXQuery": "half under 30 live with parents",
       "hunt": {
@@ -247,6 +262,7 @@
           "replies": 617,
           "why": "mega room — only if the line is sharp and non-partisan",
           "replyTake": "we rebranded the spare bedroom as housing policy and pretended it was culture.",
+          "codexTake": "everyone wanted generational housing. surprise, it's bunk beds with LinkedIn.",
           "replyVoice": "grok"
         }
       ]
@@ -262,6 +278,7 @@
       "whyTrending": "Club flex during international tournament.",
       "take": "the club season never ended. it just changed jersey and timezone.",
       "replyTake": "international break is just the Premier League with worse commentary rights.",
+      "codexTake": "club fans can turn an international tournament into a quarterly earnings call.",
       "replyVoice": "grok",
       "openXQuery": "Arsenal World Cup goal involvements",
       "hunt": {
@@ -278,6 +295,7 @@
           "replies": 12,
           "why": "fan flex room",
           "replyTake": "the league table followed them through passport control.",
+          "codexTake": "Arsenal found a way to top a table that does not actually exist. elite heritage.",
           "replyVoice": "grok"
         }
       ]
@@ -293,6 +311,7 @@
       "whyTrending": "Visual political bit — stagecraft discourse.",
       "take": "when the renovation is slow, ship a texture pack. government as open world game.",
       "replyTake": "they patched the UI. the geometry is still compiling.",
+      "codexTake": "politics is now a home renovation show where the before picture gets a press secretary.",
       "replyVoice": "grok",
       "openXQuery": "White House scaffolding columns cover",
       "hunt": {
@@ -309,6 +328,7 @@
           "replies": 1,
           "why": "visual premise",
           "replyTake": "demo day energy. the columns are a loading screen.",
+          "codexTake": "load-bearing Photoshop, finally in federal architecture.",
           "replyVoice": "grok"
         }
       ]
@@ -324,6 +344,7 @@
       "whyTrending": "Still circulating on QF day.",
       "take": "they sold insurance on the plot twist and the plot twist is winning.",
       "replyTake": "losing $50M on purpose and announcing it is marketing or performance art. both.",
+      "codexTake": "gambling company discovers risk, issues press release with confetti.",
       "replyVoice": "grok",
       "openXQuery": "Stake score first $50M",
       "hunt": {
@@ -340,6 +361,7 @@
           "replies": 24,
           "why": "CEO loss flex",
           "replyTake": "announcing a $50M loss like a product launch. confidence.",
+          "codexTake": "nothing says trust us with money like announcing the money left.",
           "replyVoice": "grok"
         }
       ]
@@ -355,6 +377,7 @@
       "whyTrending": "Ongoing. Prefer trade/pump frame over combat.",
       "take": "foreign policy is a shipping tracker and a gas receipt.",
       "replyTake": "the front line most people can feel is still the pump.",
+      "codexTake": "global stability has become a tab you refresh while gasoline quietly judges you.",
       "replyVoice": "grok",
       "openXQuery": "Hormuz ships oil traffic",
       "hunt": {
@@ -371,6 +394,7 @@
           "replies": 21,
           "why": "numbers + civilian stakes",
           "replyTake": "14 ships is the global economy refreshing a status page.",
+          "codexTake": "fourteen ships is not a statistic. it's the economy breathing through a straw.",
           "replyVoice": "grok"
         }
       ]
@@ -386,6 +410,7 @@
       "whyTrending": "Always-on adulting humor.",
       "take": "the victory conditions of adulthood keep getting smaller and more true.",
       "replyTake": "before noon at the store is the only campaign win some of us will claim this quarter.",
+      "codexTake": "before-noon grocery shopping is adulthood's moon landing, except the flag is a spinach receipt.",
       "replyVoice": "grok",
       "openXQuery": "grocery store before noon",
       "hunt": null,
@@ -398,6 +423,7 @@
           "replies": 5,
           "why": "soft room, easy smile reply",
           "replyTake": "main quest complete. side quest: put the milk away before it dies in the car.",
+          "codexTake": "the milk making it home cold is basically NATO logistics.",
           "replyVoice": "grok"
         }
       ]
