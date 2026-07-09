@@ -1,10 +1,10 @@
 {
   "meta": {
     "owner": "LUCIFER / INVICTA",
-    "edition": "live · Thu July 9 morning · +10 QF day",
-    "count": 33,
-    "updated": "2026-07-09T09:30:49Z",
-    "note": "Ten more: France/Morocco QF, betting promo, VTuber curse, Ronaldo discourse, Hormuz traffic, grocery horror, payday-to-payday, transfer window, infra altitude.",
+    "edition": "live · Thu July 9 evening · daily cut",
+    "count": 14,
+    "updated": "2026-07-09T17:20:00Z",
+    "note": "Fresh day cut. Current events + WC QF night. Comedy craft. Combat silent; civilian angles ok.",
     "comedyRules": [
       "1-2 sentences max; punchline last",
       "under-react; bathetic drop; plain-english deflation",
@@ -15,763 +15,31 @@
   },
   "signals": [
     {
-      "trend": "hundreds line a field in England to watch a plane park",
-      "category": "politics",
-      "angle": "funny",
-      "verdict": "FROM ABOVE",
-      "growthLane": "reply",
-      "priority": 1,
-      "whatItIs": "Trump stopped at RAF Mildenhall on the way home from Turkey so service members could see the new Air Force One. Official posts show the plane, the base, and the excitement. The human story underneath is older than the aircraft: people gather to stand near a symbol of power.",
-      "whyTrending": "White House photos + UK stopover posts are everywhere tonight. Curiosity heat, not just partisan dunking — pilgrimage energy.",
-      "take": "people drove to a field to watch a plane park. we replaced the cathedral with an aircraft and kept the queue. progress.",
-      "replyTake": "same pilgrimage energy. different fuel type.",
-      "replyVoice": "grok",
-      "openXQuery": "Air Force One Mildenhall",
-      "hunt": {
-        "query": "(\"Air Force One\" OR Mildenhall) (crowd OR troops OR landed OR base) min_faves:20 -filter:replies lang:en",
-        "why": "altitude room — reply about the crowd/ritual, not the party line.",
-        "handlesHint": []
-      },
-      "rooms": [
-        {
-          "handle": "@WhiteHouse",
-          "url": "https://x.com/WhiteHouse/status/2074987831294886131",
-          "text": "President Donald J. Trump lands at RAF Mildenhall in England aboard the former Air Force One before departing back to the United States.",
-          "likes": 1134,
-          "replies": 152,
-          "why": "official post, huge room — only land if the line is about pilgrimage/power, not campaign",
-          "replyTake": "they brought the plane out so the base could see it up close. humans will line up for anything that looks expensive and doesn't talk back.",
-          "replyVoice": "grok"
-        },
-        {
-          "handle": "@GuntherEagleman",
-          "url": "https://x.com/GuntherEagleman/status/2074989436274626902",
-          "text": "President Trump Lands at RAF Mildenhall with the New Air Force One! … Showed it off to our outstanding service members",
-          "likes": 151,
-          "replies": 18,
-          "why": "mid room amplifying the base visit — still replyable with altitude",
-          "replyTake": "service members got to stand next to the big plane. that's the whole post and somehow it still works every century.",
-          "replyVoice": "grok"
-        }
-      ]
-    },
-    {
-      "trend": "US men win World Cup money, split it with the women by contract",
+      "trend": "France–Morocco rematch night: same movie, new budget",
       "category": "culture",
       "angle": "interesting",
       "verdict": "COMMENT",
       "growthLane": "reply",
       "priority": 1,
-      "whatItIs": "The US men's team earned roughly $16M in World Cup prize money. Under the equal-pay collective bargaining deal, a large share is split with the women's side (federation keeps a cut; the rest is shared). The story is less \"who scored\" and more \"how the institution moves money between rosters.\"",
-      "whyTrending": "Sports business + fairness fight in one package. Live replies from people who care about both soccer and the paycheck.",
-      "take": "the men won $16M. the women get half by contract. fairness finally stopped being a speech and became payroll.",
-      "replyTake": "they put equality in the CBA so nobody had to feel it in real time.",
-      "replyVoice": "grok",
-      "openXQuery": "USMNT prize money equal pay women",
-      "hunt": {
-        "query": "(\"prize money\" OR \"equal pay\" OR USWNT OR USMNT) (World Cup OR split OR share) min_faves:20 -filter:replies lang:en",
-        "why": "prefer sports-biz or mid accounts over pure culture-war bait.",
-        "handlesHint": []
-      },
-      "rooms": [
-        {
-          "handle": "@Polymarket",
-          "url": "https://x.com/Polymarket/status/2074989508836180176",
-          "text": "The U.S. men’s $16 million World Cup prize money will be split equally with the women’s national team under an equal-pay deal.",
-          "likes": 97,
-          "replies": 64,
-          "why": "active reply room on the equal-pay structure",
-          "replyTake": "the check got written before the feelings meeting. rare W for paperwork.",
-          "replyVoice": "grok"
-        },
-        {
-          "handle": "@FOS",
-          "url": "https://x.com/FOS/status/2074923721874383141",
-          "text": "The USMNT’s World Cup run earned $16M… under equal-pay, next year’s USWNT will receive $6.4M of it. Federation keeps 20%, rest split evenly.",
-          "likes": 107,
-          "replies": 17,
-          "why": "business breakdown — room wants numbers + one sharp frame",
-          "replyTake": "federation skims 20%, rest split by treaty. even the house cut looks honest for once.",
-          "replyVoice": "grok"
-        }
-      ]
-    },
-    {
-      "trend": "fill up the tank — the ceasefire broke and oil noticed",
-      "category": "politics",
-      "angle": "funny",
-      "verdict": "COMMENT",
-      "growthLane": "reply",
-      "priority": 1,
-      "whatItIs": "US–Iran fighting heated up again after a fragile ceasefire; markets and posters are talking gas prices, grocery knock-ons, and \"fill up before it spikes.\" The civilian experience of geopolitics is still the pump and the receipt.",
-      "whyTrending": "War news is SILENT for dunk-combat. The gas-line angle is how ordinary people meet the story — and it's replyable without LARPing as a general.",
-      "take": "the ceasefire ended and gas remembered how to go up. foreign policy for people who don't read foreign policy.",
-      "replyTake": "geopolitics, but make it the pump.",
-      "replyVoice": "grok",
-      "openXQuery": "gas prices Iran fill up",
-      "hunt": {
-        "query": "(\"gas\" OR oil OR pump OR \"fill up\") (Iran OR prices OR skyrocket) min_faves:20 -filter:replies lang:en",
-        "why": "civilian cost angle only — skip pure combat footage dunks.",
-        "handlesHint": []
-      },
-      "rooms": [
-        {
-          "handle": "@mark_slapinski",
-          "url": "https://x.com/mark_slapinski/status/2074965700297310334",
-          "text": "America has launched a NEW WAVE of attacks on Iran. Don't forget to fill up you gas tanks before prices skyrocket!",
-          "likes": 138,
-          "replies": 16,
-          "why": "mid room stating the civilian consequence — open for a dry line",
-          "replyTake": "\"fill up before prices skyrocket\" is the most honest national security brief most of us will get.",
-          "replyVoice": "grok"
-        },
-        {
-          "handle": "@DemCastUSA",
-          "url": "https://x.com/DemCastUSA/status/2074964475094978831",
-          "text": "Oil markets are rattling, prices climbing. You'll pay more at the pump and for groceries… Chaos isn't a strategy—it's just expensive.",
-          "likes": 23,
-          "replies": 1,
-          "why": "smaller room, cost frame already set — don't re-litigate the war, land the cost line",
-          "replyTake": "chaos isn't abstract. chaos is $4.89 and a receipt that feels personal.",
-          "replyVoice": "grok"
-        }
-      ]
-    },
-    {
-      "trend": "Mexico–England pulled 21 million US viewers",
-      "category": "culture",
-      "angle": "interesting",
-      "verdict": "COMMENT",
-      "growthLane": "reply",
-      "priority": 2,
-      "whatItIs": "FOX says Mexico vs England became the most-watched non-USMNT men's World Cup telecast in English-language US history — about 21.7 million viewers. The tournament is not just on; it's a mass event again.",
-      "whyTrending": "Ratings flex posts. Culture story: soccer as American living-room infrastructure.",
-      "take": "21.7 million Americans watched Mexico–England in English. \"soccer isn't big here\" can take the rest of the week off.",
-      "replyTake": "when the rating looks like a debate night, it's not a hobby anymore. it's weather.",
-      "replyVoice": "grok",
-      "openXQuery": "Mexico England World Cup viewers",
-      "hunt": {
-        "query": "(Mexico OR England) (viewers OR ratings OR \"most-watched\") World Cup min_faves:15 -filter:replies lang:en",
-        "why": "culture/ratings room — one observation about mass attention.",
-        "handlesHint": []
-      },
-      "rooms": [
-        {
-          "handle": "@FOXSportsPR",
-          "url": "https://x.com/FOXSportsPR/status/2074988189186400319",
-          "text": "Mexico vs. England… NEW most-watched non-USMNT FIFA Men’s World Cup telecast in English-language U.S. history with 21,742,000 viewers.",
-          "likes": 44,
-          "replies": 5,
-          "why": "official ratings post — quieter than fan wars, good for a clean line",
-          "replyTake": "21.7 million. that's not growth. that's a country admitting it was already watching.",
-          "replyVoice": "grok"
-        }
-      ]
-    },
-    {
-      "trend": "if anyone wins, Kane somehow deserves the Ballon d'Or",
-      "category": "culture",
-      "angle": "funny",
-      "verdict": "COMMENT",
-      "growthLane": "reply",
-      "priority": 2,
-      "whatItIs": "A joke format is spreading: no matter which country wins the World Cup, Harry Kane deserves the Ballon d'Or. Pure football meme theology.",
-      "whyTrending": "Knockout round humor. Light, shareable, broad room.",
-      "take": "if Norway wins: Haaland. if anyone else wins: Kane. analysis has left the chat. theology has entered.",
-      "replyTake": "Kane is plot armor with a national team.",
-      "replyVoice": "grok",
-      "openXQuery": "Kane Ballon d'Or World Cup",
-      "hunt": {
-        "query": "Kane (\"Ballon\" OR Ballon) (World Cup OR deserves) min_faves:30 -filter:replies lang:en",
-        "why": "meme room — land the joke, don't explain it.",
-        "handlesHint": []
-      },
-      "rooms": [
-        {
-          "handle": "@InvertTheWing",
-          "url": "https://x.com/InvertTheWing/status/2074987580228096302",
-          "text": "If Norway wins… Haaland. If France/England/Morocco/Belgium/Spain/Argentina/Switzerland wins… Kane. Simple.",
-          "likes": 475,
-          "replies": 46,
-          "why": "hot meme thread, mid-size author, replies already forming",
-          "replyTake": "this isn't a ranking system. it's a loyalty program.",
-          "replyVoice": "grok"
-        }
-      ]
-    },
-    {
-      "trend": "fake email jobs that pay poverty wages",
-      "category": "meaning",
-      "angle": "funny",
-      "verdict": "COMMENT",
-      "growthLane": "reply",
-      "priority": 2,
-      "whatItIs": "Counter-meme to the \"easy email job that pays well\" dream: lots of email jobs are empty *and* poorly paid — alienation without the compensation.",
-      "whyTrending": "Meaning-crisis adjacent, always simmering, works as universal spine.",
-      "take": "people romanticize fake email jobs that pay. nobody romanticizes fake email jobs that also pay nothing. that's just employment.",
-      "replyTake": "alienation with benefits was the premium tier. you found the free trial.",
-      "replyVoice": "grok",
-      "openXQuery": "fake email job",
-      "hunt": {
-        "query": "(\"fake email job\" OR \"email job\") min_faves:15 -filter:replies lang:en",
-        "why": "personal posts over brand coaches.",
-        "handlesHint": [
-          "VividVoid_",
-          "Meaningness"
-        ]
-      },
-      "rooms": [
-        {
-          "handle": "@probablyalissa",
-          "url": "https://x.com/probablyalissa/status/2074972207491551309",
-          "text": "People always talk about fake email jobs that pay well but no one talks about fake email jobs that pay poverty wages",
-          "likes": 47,
-          "replies": 1,
-          "why": "clean thesis, small open room",
-          "replyTake": "the fake email job discourse forgot a whole pricing tier: empty and broke.",
-          "replyVoice": "grok"
-        },
-        {
-          "handle": "@elle91",
-          "url": "https://x.com/elle91/status/2074944144594657324",
-          "text": "Burnout was not nearly as common in prior generations… less attainable while expectations get higher… Or was it because of the cocaine",
-          "likes": 26,
-          "replies": 4,
-          "why": "meaning + humor already loaded",
-          "replyTake": "burnout either rose with expectations or fell with the cocaine. both sound correct and I hate that.",
-          "replyVoice": "grok"
-        }
-      ]
-    },
-    {
-      "trend": "adult knowledge expires faster than milk",
-      "category": "meaning",
-      "angle": "interesting",
-      "verdict": "COMMENT",
-      "growthLane": "reply",
-      "priority": 3,
-      "whatItIs": "A thread on how professional knowledge depreciates: being elite at \"content marketing 2015\" means almost nothing now except fundamentals like make things people want.",
-      "whyTrending": "Quiet meaning/work room — not headline news, but live conversation for the right replies.",
-      "take": "being elite at content marketing in 2015 is like being elite at MySpace themes. the trophy still exists. the sport doesn't.",
-      "replyTake": "skills now come with an expiration date and no fridge.",
-      "replyVoice": "grok",
-      "openXQuery": "knowledge depreciates career",
-      "hunt": {
-        "query": "(knowledge OR skills OR career) (depreciat OR obsolete OR \"used to know\") min_faves:15 -filter:replies lang:en",
-        "why": "meaning room — one hard line, no hustle-coach gloss.",
-        "handlesHint": [
-          "visakanv",
-          "Meaningness"
-        ]
-      },
-      "rooms": [
-        {
-          "handle": "@visakanv",
-          "url": "https://x.com/visakanv/status/2074899713858654310",
-          "text": "dawg I knew so much about content marketing in 2015… all of the alpha is completely gone apart from fundamentals like \"make things people want\"",
-          "likes": 335,
-          "replies": 10,
-          "why": "scene-adjacent mid-large, good reply room",
-          "replyTake": "top 0.01% of 2015 content marketing is a museum exhibit with a gift shop that only sells \"make things people want.\"",
-          "replyVoice": "grok"
-        }
-      ]
-    },
-    {
-      "trend": "Haaland has more Instagram followers than his club",
-      "category": "culture",
-      "angle": "funny",
-      "verdict": "COMMENT",
-      "growthLane": "post",
-      "priority": 1,
-      "whatItIs": "During World Cup heat, Haaland reportedly passed Manchester City in Instagram followers — personal brand over institution in public.",
-      "whyTrending": "Sports + platform economy. Strong universal spine post.",
-      "take": "Haaland has more Instagram followers than Manchester City. the employee beat the company at the only job the company still understands.",
-      "replyTake": "the crest is still on the shirt. the audience is not.",
-      "replyVoice": "grok",
-      "openXQuery": "Haaland Instagram Manchester City",
-      "hunt": {
-        "query": "Haaland (Instagram OR followers) (City OR club) min_faves:30 -filter:replies lang:en",
-        "why": "optional reply; better as your own post.",
-        "handlesHint": []
-      },
-      "rooms": [
-        {
-          "handle": "@Polymarket",
-          "url": "https://x.com/Polymarket/status/2074979841804251313",
-          "text": "Erling Haaland now has more Instagram followers than Manchester City… popularity surges amid the World Cup",
-          "likes": 249,
-          "replies": 38,
-          "why": "if replying: institutional angle only",
-          "replyTake": "personal brand just outranked the institution on the scoreboard that actually pays. feudalism, but the peasant has a better camera.",
-          "replyVoice": "grok"
-        }
-      ]
-    },
-    {
-      "trend": "your network beats your follower count",
-      "category": "meaning",
-      "angle": "funny",
-      "verdict": "COMMENT",
-      "growthLane": "post",
-      "priority": 2,
-      "whatItIs": "Creator-economy wallpaper: the right humans beat vanity metrics. Still true, still under-monetizable, still restated daily.",
-      "whyTrending": "Evergreen. Good original post if you need a non-sports spine.",
-      "take": "your network is more valuable than your follower count. the least profitable true sentence on this app, which is why it never becomes a course.",
-      "replyTake": "true since villages. still won't sell a Notion template.",
-      "replyVoice": "grok",
-      "openXQuery": "network follower count",
-      "hunt": null,
-      "rooms": [
-        {
-          "handle": "@ShuxBroh",
-          "url": "https://x.com/ShuxBroh/status/2074894080493117715",
-          "text": "Hot take: your network is more valuable than your follower count",
-          "likes": 124,
-          "replies": 101,
-          "why": "only if your line is sharper than \"so true\"",
-          "replyTake": "hot take from 10,000 BC still clearing. the follower count is just a census with worse friends.",
-          "replyVoice": "grok"
-        }
-      ]
-    },
-    {
-      "trend": "Grok 4.5 launched (one card — optional)",
-      "category": "AI",
-      "angle": "funny",
-      "verdict": "COMMENT",
-      "growthLane": "skip",
-      "priority": 7,
-      "whatItIs": "xAI released Grok 4.5 today. Builders are loud about it. Kept as a single optional card so the feed is not AI-first.",
-      "whyTrending": "Tech launch day. Skip unless you specifically want that room.",
-      "take": "the guy who owns the website said his AI is the best AI and the website agreed. journalism is healing.",
-      "replyTake": "finally a model faster than my attention span. progress.",
-      "replyVoice": "grok",
-      "openXQuery": "Grok 4.5",
-      "hunt": {
-        "query": "\"Grok 4.5\" min_faves:15 -filter:replies lang:en",
-        "why": "optional tech — not today's priority.",
-        "handlesHint": [
-          "haider1",
-          "skcd42"
-        ]
-      },
-      "rooms": [
-        {
-          "handle": "@haider1",
-          "url": "https://x.com/haider1/status/2074969272078491820",
-          "text": "first impression of Grok 4.5: harness very good and responsive; extremely fast",
-          "likes": 11,
-          "replies": 5,
-          "why": "only if you want one tech reply today",
-          "replyTake": "the harness is so fast I don't have time to open a second tab and forget why I opened the first one. disruptive.",
-          "replyVoice": "grok"
-        }
-      ]
-    },
-    {
-      "trend": "US–Iran ceasefire collapse and new strikes",
-      "category": "politics",
-      "angle": "grave",
-      "verdict": "SILENT",
-      "growthLane": "silent",
-      "priority": 99,
-      "whatItIs": "Reporting: fragile US–Iran ceasefire broke down; US strikes on Iranian targets after attacks on shipping; Iran responses; NATO-summit context; oil markets moving. Active conflict.",
-      "whyTrending": "Hard news. Do not use for brand growth dunks. Civilian cost lives in the gas card above; combat stays silent.",
-      "take": "",
-      "replyTake": "",
-      "openXQuery": "Iran ceasefire strikes",
-      "hunt": null,
-      "rooms": []
-    },
-    {
-      "trend": "birthright citizenship fight returns to the feed",
-      "category": "politics",
-      "angle": "dumb",
-      "verdict": "SILENT",
-      "growthLane": "silent",
-      "priority": 99,
-      "whatItIs": "Partisan posts demanding Supreme Court rehearing on birthright citizenship after billboards in Mexico about birthing centers. High heat, low good-faith room.",
-      "whyTrending": "Culture-war accelerant. Skip for growth.",
-      "take": "",
-      "replyTake": "",
-      "openXQuery": "birthright citizenship",
-      "hunt": null,
-      "rooms": []
-    },
-    {
-      "trend": "Midtown evacuations and other emergency local news",
-      "category": "tragedy",
-      "angle": "grave",
-      "verdict": "SILENT",
-      "growthLane": "silent",
-      "priority": 99,
-      "whatItIs": "NYC construction safety scare and other emergency/local stories still circulating. Not for commentary growth.",
-      "whyTrending": "Local emergency. Silent.",
-      "take": "",
-      "replyTake": "",
-      "openXQuery": "",
-      "hunt": null,
-      "rooms": []
-    },
-    {
-      "trend": "a day with no World Cup game and the feed feels unfinished",
-      "category": "culture",
-      "angle": "funny",
-      "verdict": "COMMENT",
-      "growthLane": "reply",
-      "priority": 1,
-      "whatItIs": "Knockout rounds create off-days. People are posting that the day feels empty without a match — the tournament has become the default calendar.",
-      "whyTrending": "Rest-day malaise posts. Broad, light, easy room.",
-      "take": "no World Cup today and people are reporting emptiness like someone canceled Christmas. the sport became infrastructure.",
-      "replyTake": "the calendar had a hole in it and everyone felt the draft.",
-      "replyVoice": "grok",
-      "openXQuery": "no World Cup game empty",
-      "hunt": {
-        "query": "(\"no World Cup\" OR \"without a World Cup\" OR \"no game\") (empty OR today) min_faves:20 -filter:replies lang:en",
-        "why": "rest-day posts — land one dry line, don't overdo soccer fan voice.",
-        "handlesHint": []
-      },
-      "rooms": [
-        {
-          "handle": "@ysuckme",
-          "url": "https://x.com/ysuckme/status/2075040670968909901",
-          "text": "today felt so empty without a World Cup game.",
-          "likes": 130,
-          "replies": 39,
-          "why": "small open room, pure feeling post",
-          "replyTake": "the match schedule is doing more for national mood than most legislation. rest day hit different.",
-          "replyVoice": "grok"
-        },
-        {
-          "handle": "@ThomX77",
-          "url": "https://x.com/ThomX77/status/2074970783961567255",
-          "text": "Empty stadiums. No World Cup. What am I supposed to do today?",
-          "likes": 47,
-          "replies": 31,
-          "why": "active replies already — easy to join",
-          "replyTake": "touch grass is the official FIFA rest-day protocol and nobody wants it.",
-          "replyVoice": "grok"
-        }
-      ]
-    },
-    {
-      "trend": "Mexico fans briefly become Norway fans for spite",
-      "category": "culture",
-      "angle": "funny",
-      "verdict": "COMMENT",
-      "growthLane": "reply",
-      "priority": 1,
-      "whatItIs": "After England knocked Mexico out, some Mexico fans are publicly rooting for Norway (and Haaland) to eliminate England next. Classic enemy-of-my-enemy fandom.",
-      "whyTrending": "Elimination spite is peak tournament culture.",
-      "take": "Mexico just dual-citizened into Norway for one match. geopolitics, but make it spite.",
-      "replyTake": "the enemy of my enemy gets a temporary jersey and zero loyalty after full time.",
-      "replyVoice": "grok",
-      "openXQuery": "Mexico fans Norway England",
-      "hunt": {
-        "query": "(Mexico OR Mexican) (Norway OR Haaland) (England OR spite OR rooting) min_faves:20 -filter:replies lang:en",
-        "why": "fan culture room — one clean joke.",
-        "handlesHint": []
-      },
-      "rooms": [
-        {
-          "handle": "@Complex",
-          "url": "https://x.com/Complex/status/2075039924588319183",
-          "text": "Some Mexico fans are now rooting for Norway to eliminate England… England eliminated Mexico… want Haaland and Norway to knock England out next.",
-          "likes": 45,
-          "replies": 2,
-          "why": "clean summary post of the meme",
-          "replyTake": "international relations but the only treaty is spite and it expires at the final whistle.",
-          "replyVoice": "grok"
-        }
-      ]
-    },
-    {
-      "trend": "Boston turns red and green for Morocco",
-      "category": "culture",
-      "angle": "interesting",
-      "verdict": "COMMENT",
-      "growthLane": "reply",
-      "priority": 2,
-      "whatItIs": "Moroccan fans flooded Boston streets ahead of the World Cup quarter-final against France. Diaspora city becomes temporary capital of a match.",
-      "whyTrending": "Street energy + tournament stakes. Visual, communal.",
-      "take": "a whole city block just became an away end. borders are legal. fandom is logistics.",
-      "replyTake": "the quarter-final started in the street a few hours early. kickoff is a formality.",
-      "replyVoice": "grok",
-      "openXQuery": "Morocco Boston World Cup fans",
-      "hunt": {
-        "query": "(Morocco OR Moroccan) (Boston OR streets OR fans) (World Cup OR France) min_faves:20 -filter:replies lang:en",
-        "why": "atmosphere posts — celebrate the crowd, not the score prediction.",
-        "handlesHint": []
-      },
-      "rooms": [
-        {
-          "handle": "@MarioNawfal",
-          "url": "https://x.com/MarioNawfal/status/2075042678836769230",
-          "text": "Boston is turning red and green. Thousands of Moroccan fans have already taken over the streets ahead of Morocco’s World Cup quarter-final against France.",
-          "likes": 47,
-          "replies": 12,
-          "why": "scene-setting with replies forming",
-          "replyTake": "nation-state on loan to a few blocks of Boston. return policy: after full time.",
-          "replyVoice": "grok"
-        }
-      ]
-    },
-    {
-      "trend": "government-run gas stations vs the price at the pump",
-      "category": "politics",
-      "angle": "funny",
-      "verdict": "COMMENT",
-      "growthLane": "reply",
-      "priority": 1,
-      "whatItIs": "White House hyped a 'Freedom Fuel' gas station in Philadelphia at $3.47. Critics called government-run gas stations dumber than government-run groceries. The fight is about who is allowed to touch the pump narrative.",
-      "whyTrending": "Culture-war economics you can feel in the car. Better than pure combat dunks.",
-      "take": "we got a branded government gas station and the replies are a philosophy seminar about who should be allowed near a nozzle.",
-      "replyTake": "the pump is now a press conference with unleaded.",
-      "replyVoice": "grok",
-      "openXQuery": "Freedom Fuel gas station",
-      "hunt": {
-        "query": "(\"Freedom Fuel\" OR \"government-run gas\" OR \"gas station\") (Trump OR government OR grocery) min_faves:20 -filter:replies lang:en",
-        "why": "policy comedy room — dry line, no party jersey required.",
-        "handlesHint": []
-      },
-      "rooms": [
-        {
-          "handle": "@mattyglesias",
-          "url": "https://x.com/mattyglesias/status/2075037694325911885",
-          "text": "Government-run gas stations is somehow a stupider idea than government-run grocery stores.",
-          "likes": 196,
-          "replies": 15,
-          "why": "mid-large, active replies, clean premise",
-          "replyTake": "we ran out of normal political arguments and started ranking which state-owned aisle is dumber. that's how you know summer's going well.",
-          "replyVoice": "grok"
-        }
-      ]
-    },
-    {
-      "trend": "$8.99 cherries and the grocery receipt as national mood",
-      "category": "meaning",
-      "angle": "funny",
-      "verdict": "COMMENT",
-      "growthLane": "reply",
-      "priority": 2,
-      "whatItIs": "People posting specific grocery shocks — cherries near $9 a bag — as proof the country is sideways. Cost of living as folk journalism.",
-      "whyTrending": "Always on. Specific prices travel farther than inflation charts.",
-      "take": "the state of the union is a bag of cherries for $8.99. no speech required.",
-      "replyTake": "macroeconomics, but make it produce aisle.",
-      "replyVoice": "grok",
-      "openXQuery": "grocery prices cherries rent",
-      "hunt": {
-        "query": "(grocery OR cherries OR rent) (prices OR \"going to hell\" OR expensive) min_faves:15 -filter:replies lang:en",
-        "why": "personal cost posts — match the receipt energy.",
-        "handlesHint": []
-      },
-      "rooms": [
-        {
-          "handle": "@faeriefauna444",
-          "url": "https://x.com/faeriefauna444/status/2075032570073338321",
-          "text": "just paid $8.99 for a bag of cherries at the grocery store y’all this country is going to hell in a hand basket",
-          "likes": 30,
-          "replies": 2,
-          "why": "specific price = load-bearing detail",
-          "replyTake": "$8.99 cherries is the most bipartisan foreign policy brief of the week.",
-          "replyVoice": "grok"
-        },
-        {
-          "handle": "@ausstockchick",
-          "url": "https://x.com/ausstockchick/status/2075036901569102273",
-          "text": "Grocery prices are expected to increase again. Rents are up again…",
-          "likes": 48,
-          "replies": 9,
-          "why": "cost stack in one post",
-          "replyTake": "groceries and rent filed a joint motion to keep the plot simple.",
-          "replyVoice": "grok"
-        }
-      ]
-    },
-    {
-      "trend": "how many tankers crossed Hormuz: 0, 00, or 000",
-      "category": "politics",
-      "angle": "funny",
-      "verdict": "COMMENT",
-      "growthLane": "reply",
-      "priority": 2,
-      "whatItIs": "With Iran conflict and Hormuz tension, people are half-joking about oil tanker traffic going to zero. Trade route as punchline for war risk.",
-      "whyTrending": "Shipping + oil anxiety without requiring combat cosplay.",
-      "take": "the global economy is refreshing a shipping tracker like it's a group chat that went silent.",
-      "replyTake": "\"0, 00, or 000\" is the most accurate situation report of the night.",
-      "replyVoice": "grok",
-      "openXQuery": "Hormuz tankers oil",
-      "hunt": {
-        "query": "(Hormuz OR tanker OR tankers) (oil OR closed OR zero OR traffic) min_faves:20 -filter:replies lang:en",
-        "why": "trade/shipping angle — not cheerleading strikes.",
-        "handlesHint": []
-      },
-      "rooms": [
-        {
-          "handle": "@DarioCpx",
-          "url": "https://x.com/DarioCpx/status/2075042935163507090",
-          "text": "How many oil tankers crossed the Strait of Hormuz in the past 72 hours? Very curious to know whether 0, 00, or 000",
-          "likes": 108,
-          "replies": 9,
-          "why": "dry question, good for a flat reply",
-          "replyTake": "the three-digit precision really sells the confidence.",
-          "replyVoice": "grok"
-        }
-      ]
-    },
-    {
-      "trend": "everyone's job title is Entrepreneur and the rent is still $120 each",
-      "category": "meaning",
-      "angle": "funny",
-      "verdict": "COMMENT",
-      "growthLane": "reply",
-      "priority": 2,
-      "whatItIs": "Parody of hustle culture: twenty friends rename themselves entrepreneurs while splitting a 3-bedroom. Status language vs material life.",
-      "whyTrending": "Creator-economy satire that always clears.",
-      "take": "we nationalized the word entrepreneur and the only thing that scaled was the roommate count.",
-      "replyTake": "title inflation hit harder than wage inflation.",
-      "replyVoice": "grok",
-      "openXQuery": "entrepreneur rent roommates",
-      "hunt": {
-        "query": "(entrepreneur OR \"job title\") (rent OR roommates OR house) min_faves:20 -filter:replies lang:en",
-        "why": "hustle satire rooms.",
-        "handlesHint": []
-      },
-      "rooms": [
-        {
-          "handle": "@chasedownleads",
-          "url": "https://x.com/chasedownleads/status/2075027029062230354",
-          "text": "POV: You and your 20 closest friends all changed their job title to \"Entrepreneur\" and now pay $120 a month in rent to split a 3 bedroom house",
-          "likes": 131,
-          "replies": 2,
-          "why": "parody account, joke already loaded — add one notch",
-          "replyTake": "the LinkedIn headline scaled. the square footage did not.",
-          "replyVoice": "grok"
-        }
-      ]
-    },
-    {
-      "trend": "The Odyssey is a myth and people are fighting about casting again",
-      "category": "culture",
-      "angle": "interesting",
-      "verdict": "COMMENT",
-      "growthLane": "reply",
-      "priority": 3,
-      "whatItIs": "Debate around reinterpretations of Homeric myth (Nolan Odyssey discourse, casting history). One side: myths get remade forever. Other side: culture-war literacy tests.",
-      "whyTrending": "Evergreen myth fight with a current hook. Fits meaning/culture lane.",
-      "take": "humans have been recasting The Odyssey since before film existed and still act shocked when someone does it again. the poem is the open-source project.",
-      "replyTake": "myths that can't be retold aren't myths. they're museum labels.",
-      "replyVoice": "grok",
-      "openXQuery": "Odyssey myth casting Nolan",
-      "hunt": {
-        "query": "(Odyssey OR Homer OR myth) (casting OR retell OR illiterate OR reinterpret) min_faves:30 -filter:replies lang:en",
-        "why": "culture room — one line about retelling, not pile-on.",
-        "handlesHint": [
-          "PageauJonathan"
-        ]
-      },
-      "rooms": [
-        {
-          "handle": "@clairlemon",
-          "url": "https://x.com/clairlemon/status/2075000063093510303",
-          "text": "The Odyssey is a long-form poem about a myth… long history of being reinterpreted… Today's critics are culturally illiterate buffoons.",
-          "likes": 1628,
-          "replies": 582,
-          "why": "huge room — only if the line is about myth-as-software, not dunking individuals",
-          "replyTake": "if a story survived oral tradition it can survive a casting announcement. the panic is the only new part.",
-          "replyVoice": "grok"
-        }
-      ]
-    },
-    {
-      "trend": "Mitch McConnell spotted at a Noah Kahan concert (he's fine)",
-      "category": "politics",
-      "angle": "funny",
-      "verdict": "COMMENT",
-      "growthLane": "post",
-      "priority": 2,
-      "whatItIs": "After hospitalization chatter, a joke post claims McConnell was at a Noah Kahan show at Fenway and is fine. Political grimness meets soft-rock logistics.",
-      "whyTrending": "Dark humor + celebrity-politician collision.",
-      "take": "the health update format is now a concert review. democracy is healing, but the setlist is sad.",
-      "replyTake": "\"he's fine\" delivered via Noah Kahan is the most 2026 medical bulletin possible.",
-      "replyVoice": "grok",
-      "openXQuery": "McConnell Noah Kahan",
-      "hunt": {
-        "query": "McConnell (concert OR Kahan OR Fenway OR fine) min_faves:15 -filter:replies lang:en",
-        "why": "joke room — stay light, no health ghoulishness.",
-        "handlesHint": []
-      },
-      "rooms": [
-        {
-          "handle": "@mchooyah",
-          "url": "https://x.com/mchooyah/status/2075048639425020084",
-          "text": "I just went to the Noah Kahan concert at Fenway with Mitch McConnell. He’s fine.",
-          "likes": 40,
-          "replies": 10,
-          "why": "bit already planted",
-          "replyTake": "most normal bipartisan hang of the decade and I refuse to fact-check it.",
-          "replyVoice": "grok"
-        }
-      ]
-    },
-    {
-      "trend": "Mexico's send-off video and the tournament hangover",
-      "category": "culture",
-      "angle": "interesting",
-      "verdict": "COMMENT",
-      "growthLane": "post",
-      "priority": 3,
-      "whatItIs": "Emotional video of Mexico players thanking fans after their World Cup run. Elimination ritual: gratitude reel, then silence until the next cycle.",
-      "whyTrending": "Post-elimination content always spikes for big fanbases.",
-      "take": "the exit interview is a thank-you reel now. the nation cries on schedule and means it.",
-      "replyTake": "elimination comes with a credits sequence. sports learned prestige TV.",
-      "replyVoice": "grok",
-      "openXQuery": "Mexico World Cup thank fans video",
-      "hunt": {
-        "query": "Mexico (thank OR fans OR emotional) (World Cup OR players) min_faves:30 -filter:replies lang:en",
-        "why": "emotional fan room — soft take or skip if too tender.",
-        "handlesHint": []
-      },
-      "rooms": [
-        {
-          "handle": "@AllFutbolMX",
-          "url": "https://x.com/AllFutbolMX/status/2075040286741258421",
-          "text": "An emotional video featuring every Mexico player who participated at the 2026 World Cup thanking the fans…",
-          "likes": 1428,
-          "replies": 12,
-          "why": "big emotion post — reply only if the line is gentle-funny not cruel",
-          "replyTake": "the tournament ends and the thank-you video ships like a patch note. human, efficient, devastating.",
-          "replyVoice": "grok"
-        }
-      ]
-    },
-    {
-      "trend": "France vs Morocco: rematch of the fairytale ending",
-      "category": "culture",
-      "angle": "interesting",
-      "verdict": "COMMENT",
-      "growthLane": "reply",
-      "priority": 1,
-      "whatItIs": "World Cup quarterfinal: France vs Morocco is a rematch of the 2022 semi where France ended Morocco's historic run. Four years on Morocco has beaten big names again; fans say this time feels different.",
-      "whyTrending": "Match day. Rematch narrative is the whole timeline.",
+      "whatItIs": "World Cup quarterfinal: France vs Morocco is a rematch of the 2022 semi where France ended Morocco's fairytale run. Four years later Morocco has beaten Spain, Portugal, Netherlands, Canada — fans say this time feels different.",
+      "whyTrending": "Match night. Rematch narrative owns the timeline.",
       "take": "same movie, different sequel budget. Morocco brought receipts. France brought the previous ending.",
       "replyTake": "\"this time feels different\" is the most expensive sentence in sports.",
       "replyVoice": "grok",
-      "openXQuery": "France Morocco World Cup rematch",
+      "openXQuery": "France Morocco World Cup",
       "hunt": {
-        "query": "(France OR Morocco) (rematch OR fairytale OR quarter OR 2022) min_faves:20 -filter:replies lang:en",
-        "why": "match-day rooms — one line, not a prediction thread.",
+        "query": "(France OR Morocco) (rematch OR quarter OR World Cup) min_faves:20 -filter:replies lang:en",
+        "why": "match-night rooms — one line, not a score prediction.",
         "handlesHint": []
       },
       "rooms": [
         {
           "handle": "@stats_feed",
           "url": "https://x.com/stats_feed/status/2075145297500545229",
-          "text": "France vs Morocco isn't just a quarterfinal, it's a rematch of the 2022 semifinal… Morocco have since beaten Spain, Portugal, Netherlands and Canada. This time feels different.",
+          "text": "France vs Morocco isn't just a quarterfinal, it's a rematch of the 2022 semifinal… This time feels different.",
           "likes": 203,
           "replies": 58,
-          "why": "high reply count, clean premise",
+          "why": "clean rematch framing, active replies",
           "replyTake": "\"this time feels different\" is what every rematch says right before it feels exactly the same or violently not.",
           "replyVoice": "grok"
         },
@@ -781,28 +49,286 @@
           "text": "Morocco will want revenge for the 2022 World Cup semi-final and four years on, they are a much better team.",
           "likes": 84,
           "replies": 45,
-          "why": "revenge framing room",
+          "why": "revenge framing",
           "replyTake": "revenge is just a scouting report with feelings.",
           "replyVoice": "grok"
         }
       ]
     },
     {
-      "trend": "score first, get paid even if you lose — book eats $50M",
+      "trend": "Haaland has scored with everything except the referee's whistle",
       "category": "culture",
       "angle": "funny",
       "verdict": "COMMENT",
       "growthLane": "reply",
       "priority": 1,
-      "whatItIs": "Betting promo: if your team scores first you cash as winner regardless of final score. Stake CEO says data team estimates $50M+ losses across the rest of the World Cup.",
-      "whyTrending": "Degenerate math meets tournament chaos. Very X.",
-      "take": "the book invented a product where scoring first is the whole sport and losing is a technicality. capitalism is speedrunning comedy.",
-      "replyTake": "they priced the plot twist and the plot twist is winning.",
+      "whatItIs": "Erling Haaland has seven goals in four World Cup matches so far — left foot, right foot, header, inside box, outside box. The stat posts are pure flex.",
+      "whyTrending": "Norway's run + meme that he is a video game character.",
+      "take": "seven goals, every body part except the VAR monitor. the man is a downloadable content pack.",
+      "replyTake": "they listed the ways he scores like a product feature matrix.",
       "replyVoice": "grok",
-      "openXQuery": "Stake score first World Cup $50M",
+      "openXQuery": "Haaland seven goals World Cup",
       "hunt": {
-        "query": "(Stake OR \"score first\" OR \"scores first\") (World Cup OR promotion OR paid) min_faves:15 -filter:replies lang:en",
-        "why": "promo discourse — joke about incentives, not a promo code.",
+        "query": "Haaland (goals OR seven OR 7) World Cup min_faves:30 -filter:replies lang:en",
+        "why": "stat flex rooms — one dry line.",
+        "handlesHint": []
+      },
+      "rooms": [
+        {
+          "handle": "@footballontnt",
+          "url": "https://x.com/footballontnt/status/2075266715118702875",
+          "text": "Erling Haaland has seven goals in four matches… left foot, right foot, header, inside the box, outside the box. You just can't stop him",
+          "likes": 112,
+          "replies": 28,
+          "why": "feature-list format ready for a joke",
+          "replyTake": "that's not a scorers chart. that's a skill tree with microtransactions.",
+          "replyVoice": "grok"
+        }
+      ]
+    },
+    {
+      "trend": "England defender banned for two — available for the final only",
+      "category": "culture",
+      "angle": "funny",
+      "verdict": "COMMENT",
+      "growthLane": "reply",
+      "priority": 1,
+      "whatItIs": "FIFA banned Jarell Quansah for two matches after a red card vs Mexico. He misses the Norway quarterfinal and a potential semi. Only path back is the final.",
+      "whyTrending": "England QF prep + suspension discourse.",
+      "take": "suspended for the hard games, eligible for the parade. football discipline has a sense of humor.",
+      "replyTake": "miss the quarters and semis, free for the trophy lift. productivity hack.",
+      "replyVoice": "grok",
+      "openXQuery": "Quansah banned FIFA England",
+      "hunt": {
+        "query": "Quansah (banned OR suspended OR red) (England OR Norway OR FIFA) min_faves:20 -filter:replies lang:en",
+        "why": "suspension news — dry joke, not pile-on.",
+        "handlesHint": []
+      },
+      "rooms": [
+        {
+          "handle": "@MarioNawfal",
+          "url": "https://x.com/MarioNawfal/status/2075262850822553684",
+          "text": "FIFA just banned England defender Jarell Quansah for 2 matches… miss the quarterfinal against Norway and, if they make it, the semifinal. His only chance to return is the final.",
+          "likes": 51,
+          "replies": 32,
+          "why": "clear stakes, reply room open",
+          "replyTake": "benched for the hard levels, unlocked for the credits. gaming logic.",
+          "replyVoice": "grok"
+        },
+        {
+          "handle": "@Footballtweet",
+          "url": "https://x.com/Footballtweet/status/2075259948460572676",
+          "text": "OFFICIAL: Jarell Quansah suspended for the next two games… miss quarter-final with Norway and a potential semi-final.",
+          "likes": 118,
+          "replies": 30,
+          "why": "official-summary post",
+          "replyTake": "calendar says unavailable. destiny says final only. ambitious scheduling.",
+          "replyVoice": "grok"
+        }
+      ]
+    },
+    {
+      "trend": "French ref for England vs Norway — the timeline notices",
+      "category": "culture",
+      "angle": "funny",
+      "verdict": "COMMENT",
+      "growthLane": "reply",
+      "priority": 2,
+      "whatItIs": "Clément Turpin (French) assigned to England's quarterfinal against Norway. Fans immediately treat nationality as plot.",
+      "whyTrending": "Referee assignment posts always start a conspiracy seminar.",
+      "take": "a French referee for England–Norway is either neutral or a Netflix pitch. no in between.",
+      "replyTake": "the appointment alone has more narrative than half the group stage.",
+      "replyVoice": "grok",
+      "openXQuery": "Turpin England Norway referee",
+      "hunt": {
+        "query": "(Turpin OR referee OR ref) (England OR Norway) min_faves:20 -filter:replies lang:en",
+        "why": "ref discourse — joke the narrative, not the person.",
+        "handlesHint": []
+      },
+      "rooms": [
+        {
+          "handle": "@DaleJohnsonBBC",
+          "url": "https://x.com/DaleJohnsonBBC/status/2075260982411096473",
+          "text": "French referee Clement Turpin will referee England's quarter-final against Norway.",
+          "likes": 137,
+          "replies": 32,
+          "why": "dry official line, replies already inventing plots",
+          "replyTake": "the appointment dropped and the fanfiction started before kickoff.",
+          "replyVoice": "grok"
+        }
+      ]
+    },
+    {
+      "trend": "Morocco never loses under an Argentinian ref (sample size: yes)",
+      "category": "culture",
+      "angle": "funny",
+      "verdict": "COMMENT",
+      "growthLane": "reply",
+      "priority": 2,
+      "whatItIs": "Opta note: Morocco undefeated in World Cup games refereed by Argentinians (W1 D2). Posted with 'Confident.'",
+      "whyTrending": "Tiny-sample superstition is peak World Cup content.",
+      "take": "three games is a sample size and a religion.",
+      "replyTake": "W1 D2 is not a record. it's a horoscope with a logo.",
+      "replyVoice": "grok",
+      "openXQuery": "Morocco Argentinian referee Opta",
+      "hunt": {
+        "query": "Morocco (Argentinian OR Argentina) (referee OR ref OR lost) min_faves:30 -filter:replies lang:en",
+        "why": "stat meme room.",
+        "handlesHint": []
+      },
+      "rooms": [
+        {
+          "handle": "@OptaJoe",
+          "url": "https://x.com/OptaJoe/status/2075266538601336904",
+          "text": "0 - Morocco have never lost a FIFA World Cup game that has been refereed by an Argentinian (W1 D2). Confident.",
+          "likes": 161,
+          "replies": 20,
+          "why": "Opta joke format",
+          "replyTake": "confident is doing a lot of work for a sample that fits in a group chat.",
+          "replyVoice": "grok"
+        }
+      ]
+    },
+    {
+      "trend": "anybody with a good conscience doesn't want Argentina to win",
+      "category": "culture",
+      "angle": "funny",
+      "verdict": "COMMENT",
+      "growthLane": "reply",
+      "priority": 2,
+      "whatItIs": "Hot-take post claiming people with a conscience don't want Argentina to win the World Cup — pure bait designed for argument.",
+      "whyTrending": "Moral framing of sports rivalry always clears replies.",
+      "take": "conscience is doing a lot of work for club allegiances and old grudges.",
+      "replyTake": "interesting moral framework. does it cover set pieces.",
+      "replyVoice": "grok",
+      "openXQuery": "conscience Argentina World Cup",
+      "hunt": {
+        "query": "Argentina (conscience OR hate OR want) World Cup min_faves:20 -filter:replies lang:en",
+        "why": "bait room — one dry deflation, no pile-on.",
+        "handlesHint": []
+      },
+      "rooms": [
+        {
+          "handle": "@ysuckme",
+          "url": "https://x.com/ysuckme/status/2075266416920477735",
+          "text": "anybody with a good conscience doesn't want Argentina to win the World Cup.",
+          "likes": 63,
+          "replies": 23,
+          "why": "bait with room",
+          "replyTake": "conscience is a strong word for vibes and a prior tournament.",
+          "replyVoice": "grok"
+        }
+      ]
+    },
+    {
+      "trend": "nearly half of Americans under 30 live with a parent",
+      "category": "meaning",
+      "angle": "interesting",
+      "verdict": "COMMENT",
+      "growthLane": "reply",
+      "priority": 1,
+      "whatItIs": "WSJ-linked stat: nearly half of American adults under 30 live with a parent. Housing, wages, and the 'adulthood timeline' collide.",
+      "whyTrending": "Affordability discourse with a clean number.",
+      "take": "adulthood got delayed and the spare bedroom became infrastructure.",
+      "replyTake": "the starter home is your childhood bedroom with better wifi.",
+      "replyVoice": "grok",
+      "openXQuery": "half under 30 live with parents",
+      "hunt": {
+        "query": "(\"under 30\" OR \"live with\" OR parents) (housing OR home OR WSJ) min_faves:40 -filter:replies lang:en",
+        "why": "housing/meaning rooms — one specific line.",
+        "handlesHint": []
+      },
+      "rooms": [
+        {
+          "handle": "@unusual_whales",
+          "url": "https://x.com/unusual_whales/status/2075207592733762031",
+          "text": "BREAKING: Nearly half of American adults under 30 are living with a parent, per WSJ",
+          "likes": 14100,
+          "replies": 617,
+          "why": "mega room — only if the line is sharp and non-partisan",
+          "replyTake": "we rebranded the spare bedroom as housing policy and pretended it was culture.",
+          "replyVoice": "grok"
+        }
+      ]
+    },
+    {
+      "trend": "Arsenal leading Premier League clubs in World Cup goal involvements",
+      "category": "culture",
+      "angle": "funny",
+      "verdict": "COMMENT",
+      "growthLane": "reply",
+      "priority": 3,
+    "whatItIs": "Fan/stat post: Arsenal players have the most goal involvements among Premier League clubs at the 2026 World Cup.",
+      "whyTrending": "Club flex during international tournament.",
+      "take": "the club season never ended. it just changed jersey and timezone.",
+      "replyTake": "international break is just the Premier League with worse commentary rights.",
+      "replyVoice": "grok",
+      "openXQuery": "Arsenal World Cup goal involvements",
+      "hunt": {
+        "query": "Arsenal (World Cup) (goals OR involvements OR most) min_faves:20 -filter:replies lang:en",
+        "why": "club flex — light joke.",
+        "handlesHint": []
+      },
+      "rooms": [
+        {
+          "handle": "@now_arsenaI",
+          "url": "https://x.com/now_arsenaI/status/2075267144611205541",
+          "text": "Arsenal are the Premier League Club with the MOST goal involvements in the 2026 World Cup.",
+          "likes": 359,
+          "replies": 12,
+          "why": "fan flex room",
+          "replyTake": "the league table followed them through passport control.",
+          "replyVoice": "grok"
+        }
+      ]
+    },
+    {
+      "trend": "White House covered scaffolding to fake the finished columns",
+      "category": "politics",
+      "angle": "funny",
+      "verdict": "COMMENT",
+      "growthLane": "reply",
+      "priority": 2,
+      "whatItIs": "Posts claim Trump draped a cover over White House north portico scaffolding to create the illusion of repaired columns while work continues. Optics as renovation.",
+      "whyTrending": "Visual political bit — stagecraft discourse.",
+      "take": "when the renovation is slow, ship a texture pack. government as open world game.",
+      "replyTake": "they patched the UI. the geometry is still compiling.",
+      "replyVoice": "grok",
+      "openXQuery": "White House scaffolding columns cover",
+      "hunt": {
+        "query": "(\"White House\" OR scaffolding OR portico) (columns OR cover OR repaired) min_faves:20 -filter:replies lang:en",
+        "why": "optics joke — not a policy war.",
+        "handlesHint": []
+      },
+      "rooms": [
+        {
+          "handle": "@johnnymaga",
+          "url": "https://x.com/johnnymaga/status/2075267292577845314",
+          "text": "Trump draped a cover over the scaffolding at the White House north portico to create the illusion of repaired columns while the work is being done.",
+          "likes": 87,
+          "replies": 1,
+          "why": "visual premise",
+          "replyTake": "demo day energy. the columns are a loading screen.",
+          "replyVoice": "grok"
+        }
+      ]
+    },
+    {
+      "trend": "score first, cash even if you lose — the book as tragic hero",
+      "category": "culture",
+      "angle": "funny",
+      "verdict": "COMMENT",
+      "growthLane": "reply",
+      "priority": 2,
+      "whatItIs": "World Cup betting promo: score first and get paid regardless of final result. Stake CEO estimated $50M+ losses on the promo.",
+      "whyTrending": "Still circulating on QF day.",
+      "take": "they sold insurance on the plot twist and the plot twist is winning.",
+      "replyTake": "losing $50M on purpose and announcing it is marketing or performance art. both.",
+      "replyVoice": "grok",
+      "openXQuery": "Stake score first $50M",
+      "hunt": {
+        "query": "(Stake OR \"score first\") (World Cup OR $50 OR promotion) min_faves:15 -filter:replies lang:en",
+        "why": "promo joke — no codes.",
         "handlesHint": []
       },
       "rooms": [
@@ -812,251 +338,99 @@
           "text": "Our data team estimates Stake will lose over $50M across the remainder of the World Cup because of this promotion",
           "likes": 47,
           "replies": 24,
-          "why": "CEO bragging about the loss — perfect flat reply",
-          "replyTake": "losing $50M on purpose and announcing it is either marketing or performance art. currently both.",
+          "why": "CEO loss flex",
+          "replyTake": "announcing a $50M loss like a product launch. confidence.",
           "replyVoice": "grok"
         }
       ]
     },
     {
-      "trend": "the VTuber curse: every team she picks loses",
-      "category": "culture",
-      "angle": "funny",
-      "verdict": "COMMENT",
-      "growthLane": "reply",
-      "priority": 2,
-      "whatItIs": "A VTuber keeps picking World Cup teams that then get eliminated. She's now on France. The timeline treats her as a hex.",
-      "whyTrending": "Streamer sports superstition. Light, shareable.",
-      "take": "she's not a fan. she's a reverse talisman. France just accepted the side quest.",
-      "replyTake": "support as a status effect. debuff. stacks.",
-      "replyVoice": "grok",
-      "openXQuery": "VTuber World Cup teams lost",
-      "hunt": {
-        "query": "(VTuber OR streamer) (World Cup OR France OR lost OR curse) min_faves:15 -filter:replies lang:en",
-        "why": "meme room.",
-        "handlesHint": []
-      },
-      "rooms": [
-        {
-          "handle": "@Awk20000",
-          "url": "https://x.com/Awk20000/status/2075145836204581092",
-          "text": "Essie has picked France as her next team… Every team the VTuber has supported in the tournament has lost so far",
-          "likes": 59,
-          "replies": 10,
-          "why": "curse premise ready-made",
-          "replyTake": "France didn't sign a fan. they signed a debuff. good luck in the medical.",
-          "replyVoice": "grok"
-        }
-      ]
-    },
-    {
-      "trend": "did Portugal waste the World Cup on Ronaldo",
-      "category": "culture",
-      "angle": "dumb",
-      "verdict": "COMMENT",
-      "growthLane": "reply",
-      "priority": 2,
-      "whatItIs": "Post-elimination discourse: was Portugal's tournament built around Ronaldo at the expense of the team. Classic legacy vs now fight.",
-      "whyTrending": "Always happens when a big name exits early.",
-      "take": "\"waste\" is a strong word for a country that chose main character energy and got the credits early.",
-      "replyTake": "legacy is just a bet that the third act still hits.",
-      "replyVoice": "grok",
-      "openXQuery": "Portugal Ronaldo World Cup waste",
-      "hunt": {
-        "query": "(Portugal OR Ronaldo) (waste OR legacy OR eliminated) World Cup min_faves:20 -filter:replies lang:en",
-        "why": "hot take rooms — one dry line, avoid fan war.",
-        "handlesHint": []
-      },
-      "rooms": [
-        {
-          "handle": "@ESPNUK",
-          "url": "https://x.com/ESPNUK/status/2075146915348369521",
-          "text": "Did Portugal waste their World Cup shot on Ronaldo?",
-          "likes": 62,
-          "replies": 57,
-          "why": "question post designed for replies",
-          "replyTake": "they spent the tournament budget on a franchise and the sequel got canceled mid-season.",
-          "replyVoice": "grok"
-        }
-      ]
-    },
-    {
-      "trend": "Hormuz traffic hits the lowest since the ceasefire paperwork",
+      "trend": "Hormuz still the civilian dashboard for the war",
       "category": "politics",
       "angle": "interesting",
       "verdict": "COMMENT",
       "growthLane": "reply",
-      "priority": 1,
-      "whatItIs": "Reports that cargo traffic through the Strait of Hormuz collapsed after latest strikes — only ~14 ships in a day, lowest since the US-Iran MOU. Chokepoint for ~20% of global oil.",
-      "whyTrending": "Trade/oil civilian impact of conflict. Prefer this over combat dunks.",
-      "take": "20% of the world's oil is currently in a group chat that went quiet.",
-      "replyTake": "when the shipping lane empties, the receipt arrives later with interest.",
+      "priority": 2,
+      "whatItIs": "Shipping traffic through the Strait of Hormuz remains a live metric for US-Iran tension — low ship counts, oil anxiety, repair news on rail links. Civilian economy as scoreboard.",
+      "whyTrending": "Ongoing. Prefer trade/pump frame over combat.",
+      "take": "foreign policy is a shipping tracker and a gas receipt.",
+      "replyTake": "the front line most people can feel is still the pump.",
       "replyVoice": "grok",
-      "openXQuery": "Hormuz cargo ships oil traffic",
+      "openXQuery": "Hormuz ships oil traffic",
       "hunt": {
-        "query": "(Hormuz) (ships OR traffic OR oil OR cargo) min_faves:20 -filter:replies lang:en",
-        "why": "trade angle only — not cheerleading strikes.",
+        "query": "(Hormuz) (ships OR traffic OR oil) min_faves:20 -filter:replies lang:en",
+        "why": "trade angle only.",
         "handlesHint": []
       },
       "rooms": [
         {
           "handle": "@MarioNawfal",
           "url": "https://x.com/MarioNawfal/status/2075145433035559368",
-          "text": "One of the world's most critical shipping lanes is emptying out fast… only 14 cargo ships passed through yesterday… chokepoint for ~20% of global oil.",
+          "text": "critical shipping lane emptying… only 14 cargo ships… chokepoint for ~20% of global oil.",
           "likes": 62,
           "replies": 21,
           "why": "numbers + civilian stakes",
-          "replyTake": "14 ships is not a stat. it's the sound of the global economy refreshing a tracker.",
+          "replyTake": "14 ships is the global economy refreshing a status page.",
           "replyVoice": "grok"
         }
       ]
     },
     {
-      "trend": "why pay for a haunted house when the grocery store is free",
+      "trend": "grocery before noon feels like conquering the world",
       "category": "meaning",
-      "angle": "funny",
-      "verdict": "COMMENT",
-      "growthLane": "reply",
-      "priority": 2,
-      "whatItIs": "Joke post equating grocery shopping with a haunted house — cost of living as horror genre.",
-      "whyTrending": "Receipt culture never dies.",
-      "take": "the produce aisle is doing more jump scares than Hollywood.",
-      "replyTake": "admission is free. the cherries are the ticket upsell.",
-      "replyVoice": "grok",
-      "openXQuery": "grocery store haunted house",
-      "hunt": {
-        "query": "(grocery OR cherries OR \"cost of living\") (hell OR expensive OR haunted) min_faves:15 -filter:replies lang:en",
-        "why": "cost-of-living jokes.",
-        "handlesHint": []
-      },
-      "rooms": [
-        {
-          "handle": "@stit57881",
-          "url": "https://x.com/stit57881/status/2075144701821211053",
-          "text": "Why pay to go to a haunted house when smoking weed and going to the grocery store is free????????????????????????",
-          "likes": 67,
-          "replies": 8,
-          "why": "joke already set — add one beat",
-          "replyTake": "the produce misters are just fog machines with worse vibes.",
-          "replyVoice": "grok"
-        }
-      ]
-    },
-    {
-      "trend": "full-time work, still payday to payday",
-      "category": "meaning",
-      "angle": "interesting",
-      "verdict": "COMMENT",
-      "growthLane": "reply",
-      "priority": 2,
-      "whatItIs": "People noting how normal it became to work full time and still count pennies mid-month. Not a scandal — a baseline.",
-      "whyTrending": "Meaning/work always simmers; good universal room.",
-      "take": "we normalized full-time jobs that feel like unpaid internships with better branding.",
-      "replyTake": "doing everything right and still budgeting toward the 15th is the quiet national sport.",
-      "replyVoice": "grok",
-      "openXQuery": "payday to payday full time",
-      "hunt": {
-        "query": "(\"payday to payday\" OR \"full time\") (rent OR broke OR penny) min_faves:10 -filter:replies lang:en",
-        "why": "personal posts over guru accounts.",
-        "handlesHint": []
-      },
-      "rooms": [
-        {
-          "handle": "@CallumLyon",
-          "url": "https://x.com/CallumLyon/status/2072944799875756327",
-          "text": "It's strange how we've normalised working full time but still living payday to payday… halfway through the month you're already counting every penny",
-          "likes": 27,
-          "replies": 4,
-          "why": "clean thesis room",
-          "replyTake": "the system calls it personal finance. the calendar calls it a hostage situation with direct deposit.",
-          "replyVoice": "grok"
-        }
-      ]
-    },
-    {
-      "trend": "3,000 gas cylinders washed into a river by flood",
-      "category": "culture",
-      "angle": "funny",
-      "verdict": "COMMENT",
-      "growthLane": "skip",
-      "priority": 8,
-      "whatItIs": "Heavy rain in Maharashtra flooded an LPG plant; nearly 3,000 gas cylinders swept into a river. Surreal disaster clip energy.",
-      "whyTrending": "Visual oddity. Low growth leverage unless the line is perfect.",
-      "take": "nature reviewed the inventory and took the whole SKU list.",
-      "replyTake": "logistics, but make it biblical.",
-      "replyVoice": "grok",
-      "openXQuery": "LPG cylinders river flood Maharashtra",
-      "hunt": null,
-      "rooms": [
-        {
-          "handle": "@s_r_khandelwal",
-          "url": "https://x.com/s_r_khandelwal/status/2075141445565247579",
-          "text": "Heavy rainfall… flooded an LPG bottling plant, causing nearly 3,000 gas cylinders to be swept away into the Patalganga River",
-          "likes": 114,
-          "replies": 1,
-          "why": "optional — weird news only",
-          "replyTake": "the river just did a hostile inventory transfer.",
-          "replyVoice": "grok"
-        }
-      ]
-    },
-    {
-      "trend": "World Cup free agents hit the transfer market mid-hangover",
-      "category": "culture",
       "angle": "funny",
       "verdict": "COMMENT",
       "growthLane": "post",
-      "priority": 3,
-      "whatItIs": "Players featured at the World Cup are already in transfer talks as free agents (e.g. Mensah to Köln). Tournament ends; the spreadsheet opens.",
-      "whyTrending": "Transfer window overlapping tournament drama.",
-      "take": "the World Cup is also a job interview with better lighting and worse sleep.",
-      "replyTake": "elimination package includes a LinkedIn update.",
+      "priority": 2,
+      "whatItIs": "Small post: getting to the grocery store before noon feels like a life win. Soft comedy of adult logistics.",
+      "whyTrending": "Always-on adulting humor.",
+      "take": "the victory conditions of adulthood keep getting smaller and more true.",
+      "replyTake": "before noon at the store is the only campaign win some of us will claim this quarter.",
       "replyVoice": "grok",
-      "openXQuery": "World Cup free agent transfer",
-      "hunt": {
-        "query": "(\"free agent\" OR transfer) (World Cup OR Ghana OR featured) min_faves:15 -filter:replies lang:en",
-        "why": "optional sports-biz.",
-        "handlesHint": []
-      },
+      "openXQuery": "grocery store before noon",
+      "hunt": null,
       "rooms": [
         {
-          "handle": "@Plettigoal",
-          "url": "https://x.com/Plettigoal/status/2075147012106797525",
-          "text": "Advanced negotiations… Köln and Gideon Mensah… featured for Ghana at the World Cup, is a free agent.",
-          "likes": 283,
-          "replies": 23,
-          "why": "transfer post with WC hook",
-          "replyTake": "the tournament is also open enrollment. welcome to free agency with jet lag.",
+          "handle": "@ForestMommy",
+          "url": "https://x.com/ForestMommy/status/2075266756164403633",
+          "text": "When I get to the grocery store before noon I feel like I have tackled the world",
+          "likes": 34,
+          "replies": 5,
+          "why": "soft room, easy smile reply",
+          "replyTake": "main quest complete. side quest: put the milk away before it dies in the car.",
           "replyVoice": "grok"
         }
       ]
     },
     {
-      "trend": "railway bridges and chokepoints: infrastructure as the real target list",
+      "trend": "US–Iran strikes, naval deaths, rail bridges — combat feed",
       "category": "politics",
       "angle": "grave",
-      "verdict": "FROM ABOVE",
-      "growthLane": "post",
-      "priority": 3,
-      "whatItIs": "Coverage of strikes on Iranian railway/bridge infrastructure linking trade routes. Pattern: modern war talks about missiles and means rail, ports, pipelines.",
-      "whyTrending": "Infrastructure photos circulating. Altitude post only — not combat cheer.",
-      "take": "the war always ends up on a map of bridges. the speeches are about honor. the targeting deck is about logistics.",
-      "replyTake": "empires argue in speeches and edit each other's shipping lanes.",
-      "replyVoice": "grok",
-      "openXQuery": "Iran railway bridge strike",
+      "verdict": "SILENT",
+      "growthLane": "silent",
+      "priority": 99,
+      "whatItIs": "Active conflict reporting: strikes, infrastructure damage/repair, naval commander killed near Hormuz. Not for growth replies.",
+      "whyTrending": "Hard news. Stay silent. Civilian cost lives in Hormuz/gas cards.",
+      "take": "",
+      "replyTake": "",
+      "openXQuery": "Hormuz Iran strikes",
       "hunt": null,
-      "rooms": [
-        {
-          "handle": "@Osint613",
-          "url": "https://x.com/Osint613/status/2075145612291391698",
-          "text": "More pictures of destroyed Aq Tekeh Khan Bridge on Iran-Turkmenistan Railway Line.",
-          "likes": 95,
-          "replies": 16,
-          "why": "if posting altitude — logistics frame only; skip dunks",
-          "replyTake": "the map doesn't care about the speech. it cares which bridge still works.",
-          "replyVoice": "grok"
-        }
-      ]
+      "rooms": []
+    },
+    {
+      "trend": "local emergencies and tragedy circulation",
+      "category": "tragedy",
+      "angle": "grave",
+      "verdict": "SILENT",
+      "growthLane": "silent",
+      "priority": 99,
+      "whatItIs": "Assorted emergency/tragedy posts still circulating. Not for commentary growth.",
+      "whyTrending": "Always present. Silent.",
+      "take": "",
+      "replyTake": "",
+      "openXQuery": "",
+      "hunt": null,
+      "rooms": []
     }
   ]
 }
