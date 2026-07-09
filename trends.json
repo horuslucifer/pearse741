@@ -1,10 +1,10 @@
 {
   "meta": {
     "owner": "LUCIFER / INVICTA",
-    "edition": "live · Thu July 9 · +10 current events",
-    "count": 23,
-    "updated": "2026-07-09T02:49:12Z",
-    "note": "Ten new current-events cards added. Comedy craft + real rooms. Combat still silent; civilian angles preferred.",
+    "edition": "live · Thu July 9 morning · +10 QF day",
+    "count": 33,
+    "updated": "2026-07-09T09:30:49Z",
+    "note": "Ten more: France/Morocco QF, betting promo, VTuber curse, Ronaldo discourse, Hormuz traffic, grocery horror, payday-to-payday, transfer window, infra altitude.",
     "comedyRules": [
       "1-2 sentences max; punchline last",
       "under-react; bathetic drop; plain-english deflation",
@@ -742,6 +742,318 @@
           "replies": 12,
           "why": "big emotion post — reply only if the line is gentle-funny not cruel",
           "replyTake": "the tournament ends and the thank-you video ships like a patch note. human, efficient, devastating.",
+          "replyVoice": "grok"
+        }
+      ]
+    },
+    {
+      "trend": "France vs Morocco: rematch of the fairytale ending",
+      "category": "culture",
+      "angle": "interesting",
+      "verdict": "COMMENT",
+      "growthLane": "reply",
+      "priority": 1,
+      "whatItIs": "World Cup quarterfinal: France vs Morocco is a rematch of the 2022 semi where France ended Morocco's historic run. Four years on Morocco has beaten big names again; fans say this time feels different.",
+      "whyTrending": "Match day. Rematch narrative is the whole timeline.",
+      "take": "same movie, different sequel budget. Morocco brought receipts. France brought the previous ending.",
+      "replyTake": "\"this time feels different\" is the most expensive sentence in sports.",
+      "replyVoice": "grok",
+      "openXQuery": "France Morocco World Cup rematch",
+      "hunt": {
+        "query": "(France OR Morocco) (rematch OR fairytale OR quarter OR 2022) min_faves:20 -filter:replies lang:en",
+        "why": "match-day rooms — one line, not a prediction thread.",
+        "handlesHint": []
+      },
+      "rooms": [
+        {
+          "handle": "@stats_feed",
+          "url": "https://x.com/stats_feed/status/2075145297500545229",
+          "text": "France vs Morocco isn't just a quarterfinal, it's a rematch of the 2022 semifinal… Morocco have since beaten Spain, Portugal, Netherlands and Canada. This time feels different.",
+          "likes": 203,
+          "replies": 58,
+          "why": "high reply count, clean premise",
+          "replyTake": "\"this time feels different\" is what every rematch says right before it feels exactly the same or violently not.",
+          "replyVoice": "grok"
+        },
+        {
+          "handle": "@DeadlineDayLive",
+          "url": "https://x.com/DeadlineDayLive/status/2075146631842767254",
+          "text": "Morocco will want revenge for the 2022 World Cup semi-final and four years on, they are a much better team.",
+          "likes": 84,
+          "replies": 45,
+          "why": "revenge framing room",
+          "replyTake": "revenge is just a scouting report with feelings.",
+          "replyVoice": "grok"
+        }
+      ]
+    },
+    {
+      "trend": "score first, get paid even if you lose — book eats $50M",
+      "category": "culture",
+      "angle": "funny",
+      "verdict": "COMMENT",
+      "growthLane": "reply",
+      "priority": 1,
+      "whatItIs": "Betting promo: if your team scores first you cash as winner regardless of final score. Stake CEO says data team estimates $50M+ losses across the rest of the World Cup.",
+      "whyTrending": "Degenerate math meets tournament chaos. Very X.",
+      "take": "the book invented a product where scoring first is the whole sport and losing is a technicality. capitalism is speedrunning comedy.",
+      "replyTake": "they priced the plot twist and the plot twist is winning.",
+      "replyVoice": "grok",
+      "openXQuery": "Stake score first World Cup $50M",
+      "hunt": {
+        "query": "(Stake OR \"score first\" OR \"scores first\") (World Cup OR promotion OR paid) min_faves:15 -filter:replies lang:en",
+        "why": "promo discourse — joke about incentives, not a promo code.",
+        "handlesHint": []
+      },
+      "rooms": [
+        {
+          "handle": "@StakeEddie",
+          "url": "https://x.com/StakeEddie/status/2075148249057644963",
+          "text": "Our data team estimates Stake will lose over $50M across the remainder of the World Cup because of this promotion",
+          "likes": 47,
+          "replies": 24,
+          "why": "CEO bragging about the loss — perfect flat reply",
+          "replyTake": "losing $50M on purpose and announcing it is either marketing or performance art. currently both.",
+          "replyVoice": "grok"
+        }
+      ]
+    },
+    {
+      "trend": "the VTuber curse: every team she picks loses",
+      "category": "culture",
+      "angle": "funny",
+      "verdict": "COMMENT",
+      "growthLane": "reply",
+      "priority": 2,
+      "whatItIs": "A VTuber keeps picking World Cup teams that then get eliminated. She's now on France. The timeline treats her as a hex.",
+      "whyTrending": "Streamer sports superstition. Light, shareable.",
+      "take": "she's not a fan. she's a reverse talisman. France just accepted the side quest.",
+      "replyTake": "support as a status effect. debuff. stacks.",
+      "replyVoice": "grok",
+      "openXQuery": "VTuber World Cup teams lost",
+      "hunt": {
+        "query": "(VTuber OR streamer) (World Cup OR France OR lost OR curse) min_faves:15 -filter:replies lang:en",
+        "why": "meme room.",
+        "handlesHint": []
+      },
+      "rooms": [
+        {
+          "handle": "@Awk20000",
+          "url": "https://x.com/Awk20000/status/2075145836204581092",
+          "text": "Essie has picked France as her next team… Every team the VTuber has supported in the tournament has lost so far",
+          "likes": 59,
+          "replies": 10,
+          "why": "curse premise ready-made",
+          "replyTake": "France didn't sign a fan. they signed a debuff. good luck in the medical.",
+          "replyVoice": "grok"
+        }
+      ]
+    },
+    {
+      "trend": "did Portugal waste the World Cup on Ronaldo",
+      "category": "culture",
+      "angle": "dumb",
+      "verdict": "COMMENT",
+      "growthLane": "reply",
+      "priority": 2,
+      "whatItIs": "Post-elimination discourse: was Portugal's tournament built around Ronaldo at the expense of the team. Classic legacy vs now fight.",
+      "whyTrending": "Always happens when a big name exits early.",
+      "take": "\"waste\" is a strong word for a country that chose main character energy and got the credits early.",
+      "replyTake": "legacy is just a bet that the third act still hits.",
+      "replyVoice": "grok",
+      "openXQuery": "Portugal Ronaldo World Cup waste",
+      "hunt": {
+        "query": "(Portugal OR Ronaldo) (waste OR legacy OR eliminated) World Cup min_faves:20 -filter:replies lang:en",
+        "why": "hot take rooms — one dry line, avoid fan war.",
+        "handlesHint": []
+      },
+      "rooms": [
+        {
+          "handle": "@ESPNUK",
+          "url": "https://x.com/ESPNUK/status/2075146915348369521",
+          "text": "Did Portugal waste their World Cup shot on Ronaldo?",
+          "likes": 62,
+          "replies": 57,
+          "why": "question post designed for replies",
+          "replyTake": "they spent the tournament budget on a franchise and the sequel got canceled mid-season.",
+          "replyVoice": "grok"
+        }
+      ]
+    },
+    {
+      "trend": "Hormuz traffic hits the lowest since the ceasefire paperwork",
+      "category": "politics",
+      "angle": "interesting",
+      "verdict": "COMMENT",
+      "growthLane": "reply",
+      "priority": 1,
+      "whatItIs": "Reports that cargo traffic through the Strait of Hormuz collapsed after latest strikes — only ~14 ships in a day, lowest since the US-Iran MOU. Chokepoint for ~20% of global oil.",
+      "whyTrending": "Trade/oil civilian impact of conflict. Prefer this over combat dunks.",
+      "take": "20% of the world's oil is currently in a group chat that went quiet.",
+      "replyTake": "when the shipping lane empties, the receipt arrives later with interest.",
+      "replyVoice": "grok",
+      "openXQuery": "Hormuz cargo ships oil traffic",
+      "hunt": {
+        "query": "(Hormuz) (ships OR traffic OR oil OR cargo) min_faves:20 -filter:replies lang:en",
+        "why": "trade angle only — not cheerleading strikes.",
+        "handlesHint": []
+      },
+      "rooms": [
+        {
+          "handle": "@MarioNawfal",
+          "url": "https://x.com/MarioNawfal/status/2075145433035559368",
+          "text": "One of the world's most critical shipping lanes is emptying out fast… only 14 cargo ships passed through yesterday… chokepoint for ~20% of global oil.",
+          "likes": 62,
+          "replies": 21,
+          "why": "numbers + civilian stakes",
+          "replyTake": "14 ships is not a stat. it's the sound of the global economy refreshing a tracker.",
+          "replyVoice": "grok"
+        }
+      ]
+    },
+    {
+      "trend": "why pay for a haunted house when the grocery store is free",
+      "category": "meaning",
+      "angle": "funny",
+      "verdict": "COMMENT",
+      "growthLane": "reply",
+      "priority": 2,
+      "whatItIs": "Joke post equating grocery shopping with a haunted house — cost of living as horror genre.",
+      "whyTrending": "Receipt culture never dies.",
+      "take": "the produce aisle is doing more jump scares than Hollywood.",
+      "replyTake": "admission is free. the cherries are the ticket upsell.",
+      "replyVoice": "grok",
+      "openXQuery": "grocery store haunted house",
+      "hunt": {
+        "query": "(grocery OR cherries OR \"cost of living\") (hell OR expensive OR haunted) min_faves:15 -filter:replies lang:en",
+        "why": "cost-of-living jokes.",
+        "handlesHint": []
+      },
+      "rooms": [
+        {
+          "handle": "@stit57881",
+          "url": "https://x.com/stit57881/status/2075144701821211053",
+          "text": "Why pay to go to a haunted house when smoking weed and going to the grocery store is free????????????????????????",
+          "likes": 67,
+          "replies": 8,
+          "why": "joke already set — add one beat",
+          "replyTake": "the produce misters are just fog machines with worse vibes.",
+          "replyVoice": "grok"
+        }
+      ]
+    },
+    {
+      "trend": "full-time work, still payday to payday",
+      "category": "meaning",
+      "angle": "interesting",
+      "verdict": "COMMENT",
+      "growthLane": "reply",
+      "priority": 2,
+      "whatItIs": "People noting how normal it became to work full time and still count pennies mid-month. Not a scandal — a baseline.",
+      "whyTrending": "Meaning/work always simmers; good universal room.",
+      "take": "we normalized full-time jobs that feel like unpaid internships with better branding.",
+      "replyTake": "doing everything right and still budgeting toward the 15th is the quiet national sport.",
+      "replyVoice": "grok",
+      "openXQuery": "payday to payday full time",
+      "hunt": {
+        "query": "(\"payday to payday\" OR \"full time\") (rent OR broke OR penny) min_faves:10 -filter:replies lang:en",
+        "why": "personal posts over guru accounts.",
+        "handlesHint": []
+      },
+      "rooms": [
+        {
+          "handle": "@CallumLyon",
+          "url": "https://x.com/CallumLyon/status/2072944799875756327",
+          "text": "It's strange how we've normalised working full time but still living payday to payday… halfway through the month you're already counting every penny",
+          "likes": 27,
+          "replies": 4,
+          "why": "clean thesis room",
+          "replyTake": "the system calls it personal finance. the calendar calls it a hostage situation with direct deposit.",
+          "replyVoice": "grok"
+        }
+      ]
+    },
+    {
+      "trend": "3,000 gas cylinders washed into a river by flood",
+      "category": "culture",
+      "angle": "funny",
+      "verdict": "COMMENT",
+      "growthLane": "skip",
+      "priority": 8,
+      "whatItIs": "Heavy rain in Maharashtra flooded an LPG plant; nearly 3,000 gas cylinders swept into a river. Surreal disaster clip energy.",
+      "whyTrending": "Visual oddity. Low growth leverage unless the line is perfect.",
+      "take": "nature reviewed the inventory and took the whole SKU list.",
+      "replyTake": "logistics, but make it biblical.",
+      "replyVoice": "grok",
+      "openXQuery": "LPG cylinders river flood Maharashtra",
+      "hunt": null,
+      "rooms": [
+        {
+          "handle": "@s_r_khandelwal",
+          "url": "https://x.com/s_r_khandelwal/status/2075141445565247579",
+          "text": "Heavy rainfall… flooded an LPG bottling plant, causing nearly 3,000 gas cylinders to be swept away into the Patalganga River",
+          "likes": 114,
+          "replies": 1,
+          "why": "optional — weird news only",
+          "replyTake": "the river just did a hostile inventory transfer.",
+          "replyVoice": "grok"
+        }
+      ]
+    },
+    {
+      "trend": "World Cup free agents hit the transfer market mid-hangover",
+      "category": "culture",
+      "angle": "funny",
+      "verdict": "COMMENT",
+      "growthLane": "post",
+      "priority": 3,
+      "whatItIs": "Players featured at the World Cup are already in transfer talks as free agents (e.g. Mensah to Köln). Tournament ends; the spreadsheet opens.",
+      "whyTrending": "Transfer window overlapping tournament drama.",
+      "take": "the World Cup is also a job interview with better lighting and worse sleep.",
+      "replyTake": "elimination package includes a LinkedIn update.",
+      "replyVoice": "grok",
+      "openXQuery": "World Cup free agent transfer",
+      "hunt": {
+        "query": "(\"free agent\" OR transfer) (World Cup OR Ghana OR featured) min_faves:15 -filter:replies lang:en",
+        "why": "optional sports-biz.",
+        "handlesHint": []
+      },
+      "rooms": [
+        {
+          "handle": "@Plettigoal",
+          "url": "https://x.com/Plettigoal/status/2075147012106797525",
+          "text": "Advanced negotiations… Köln and Gideon Mensah… featured for Ghana at the World Cup, is a free agent.",
+          "likes": 283,
+          "replies": 23,
+          "why": "transfer post with WC hook",
+          "replyTake": "the tournament is also open enrollment. welcome to free agency with jet lag.",
+          "replyVoice": "grok"
+        }
+      ]
+    },
+    {
+      "trend": "railway bridges and chokepoints: infrastructure as the real target list",
+      "category": "politics",
+      "angle": "grave",
+      "verdict": "FROM ABOVE",
+      "growthLane": "post",
+      "priority": 3,
+      "whatItIs": "Coverage of strikes on Iranian railway/bridge infrastructure linking trade routes. Pattern: modern war talks about missiles and means rail, ports, pipelines.",
+      "whyTrending": "Infrastructure photos circulating. Altitude post only — not combat cheer.",
+      "take": "the war always ends up on a map of bridges. the speeches are about honor. the targeting deck is about logistics.",
+      "replyTake": "empires argue in speeches and edit each other's shipping lanes.",
+      "replyVoice": "grok",
+      "openXQuery": "Iran railway bridge strike",
+      "hunt": null,
+      "rooms": [
+        {
+          "handle": "@Osint613",
+          "url": "https://x.com/Osint613/status/2075145612291391698",
+          "text": "More pictures of destroyed Aq Tekeh Khan Bridge on Iran-Turkmenistan Railway Line.",
+          "likes": 95,
+          "replies": 16,
+          "why": "if posting altitude — logistics frame only; skip dunks",
+          "replyTake": "the map doesn't care about the speech. it cares which bridge still works.",
           "replyVoice": "grok"
         }
       ]
