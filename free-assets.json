@@ -2,8 +2,74 @@
   "meta": {
     "owner": "LUCIFER / INVICTA",
     "updated": "2026-07-10",
-    "note": "Free-only assets for X growth. Every URL verified as free tier or free forever at time of add. No engagement automation. No paid-only tools as required."
+    "note": "Reusable visual files plus no-cost operating links. Rights were checked on the linked item pages. Nothing here authorizes automated X activity."
   },
+  "visualLibrary": [
+    {
+      "id": "morning-star",
+      "name": "Morning Star: Venus above Saturn's rings",
+      "localFile": "assets/x-growth/morning-star.jpg",
+      "sourcePage": "https://commons.wikimedia.org/wiki/File:Morning_Star.jpg",
+      "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/2/29/Morning_Star.jpg",
+      "creator": "NASA/JPL-Caltech/Space Science Institute",
+      "date": "2013",
+      "license": "Public domain in the United States (PD-NASA)",
+      "licenseUrl": "https://commons.wikimedia.org/wiki/File:Morning_Star.jpg#Licensing",
+      "credit": "NASA/JPL-Caltech/Space Science Institute",
+      "creditRequired": false,
+      "creditRecommended": true,
+      "altText": "Venus appears as a bright point above the thin rings of Saturn against black space.",
+      "use": "First in sequence: a recurring Morning Star visual for arrival, recurrence, Venus, or first light."
+    },
+    {
+      "id": "john-dee-chart",
+      "name": "John Dee spirit chart",
+      "localFile": "assets/x-growth/john-dee-chart.png",
+      "sourcePage": "https://commons.wikimedia.org/wiki/File:John_Dee_and_Some_Spirits_chart_2.png",
+      "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/1/1b/John_Dee_and_Some_Spirits_chart_2.png",
+      "creator": "John Dee",
+      "date": "1659 publication",
+      "license": "Public domain in the United States and source country",
+      "licenseUrl": "https://commons.wikimedia.org/wiki/File:John_Dee_and_Some_Spirits_chart_2.png#Licensing",
+      "credit": "John Dee, chart reproduced in A True and Faithful Relation…, 1659. Public domain.",
+      "creditRequired": false,
+      "creditRecommended": true,
+      "altText": "A seventeenth-century engraved chart of nested circles, letters, numbers, names, and directional lines.",
+      "use": "Second in sequence: an artifact note about diagrams, interface, memory, ritual, or systems."
+    },
+    {
+      "id": "trifid-nebula",
+      "name": "Infrared Trifid Nebula",
+      "localFile": "assets/x-growth/trifid-nebula.jpg",
+      "sourcePage": "https://commons.wikimedia.org/wiki/File:Trifid_Nebula.jpg",
+      "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/3/38/Trifid_Nebula.jpg",
+      "creator": "NASA/JPL-Caltech/J. Rho (SSC/Caltech)",
+      "date": "2007",
+      "license": "Public domain in the United States (PD-NASA)",
+      "licenseUrl": "https://commons.wikimedia.org/wiki/File:Trifid_Nebula.jpg#Licensing",
+      "credit": "NASA/JPL-Caltech/J. Rho (SSC/Caltech)",
+      "creditRequired": false,
+      "creditRecommended": true,
+      "altText": "An infrared view of the Trifid Nebula, with bright pink and white stellar clouds cut by dark lanes against a field of stars.",
+      "use": "Third in sequence: emergence, hidden structure, scale, birth, or instrumental perception."
+    },
+    {
+      "id": "dore-lucifer",
+      "name": "Lucifer, Gustave Doré",
+      "localFile": "assets/x-growth/dore-lucifer.jpg",
+      "sourcePage": "https://commons.wikimedia.org/wiki/File:Dore_Lucifer.jpg",
+      "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/2/26/Dore_Lucifer.jpg",
+      "creator": "Gustave Doré",
+      "date": "1861",
+      "license": "Public domain; Public Domain Mark 1.0",
+      "licenseUrl": "https://commons.wikimedia.org/wiki/File:Dore_Lucifer.jpg#Licensing",
+      "credit": "Gustave Doré, Lucifer, 1861. Public domain.",
+      "creditRequired": false,
+      "creditRecommended": true,
+      "altText": "A black-and-white engraving of a vast winged Lucifer crouched in a frozen abyss among smaller figures.",
+      "use": "Reserve for a major statement or thread opener so the image retains force."
+    }
+  ],
   "categories": [
     {
       "id": "hunt",
@@ -12,92 +78,26 @@
         {
           "name": "X Advanced Search",
           "url": "https://x.com/search-advanced",
-          "use": "Live posts with from:, min_faves:, since:, -filter:replies",
-          "cost": "free"
+          "use": "Find recent public conversations with from:, since:, min_faves:, and reply filters.",
+          "cost": "account-native"
         },
         {
           "name": "X Lists",
           "url": "https://x.com/i/lists",
-          "use": "One list per scene from patrol.json watchHandles",
-          "cost": "free"
+          "use": "Maintain small scene feeds from the verified patrol roster.",
+          "cost": "account-native"
         },
         {
           "name": "Morning Dossier",
           "url": "https://horuslucifer.github.io/pearse741/",
-          "use": "Daily REPLY NOW targets + Grok takes",
-          "cost": "free"
+          "use": "Verified live targets and audience-fit-first angles.",
+          "cost": "local/public"
         },
         {
-          "name": "Cockpit",
+          "name": "Daily Cockpit",
           "url": "https://horuslucifer.github.io/pearse741/cockpit.html",
-          "use": "Big rooms / your people / topic sweep + scorecard",
-          "cost": "free"
-        }
-      ]
-    },
-    {
-      "id": "draft",
-      "title": "Draft & structure",
-      "items": [
-        {
-          "name": "OpenTweet free templates",
-          "url": "https://opentweet.io/templates",
-          "use": "Steal STRUCTURE only; rewrite fully in voice.md",
-          "cost": "free"
-        },
-        {
-          "name": "Typefully free tier",
-          "url": "https://typefully.com",
-          "use": "Offline thread drafting; paste to X by hand",
-          "cost": "free tier"
-        },
-        {
-          "name": "Buffer free tools",
-          "url": "https://buffer.com/free-tools",
-          "use": "Planning helpers / calendar ideas",
-          "cost": "free tools"
-        },
-        {
-          "name": "Social media calendar template (Buffer)",
-          "url": "https://buffer.com/resources/social-media-calendar-template/",
-          "use": "Weekly planning sheet if you want offline",
-          "cost": "free"
-        }
-      ]
-    },
-    {
-      "id": "visual",
-      "title": "Visuals (profile + artifacts)",
-      "items": [
-        {
-          "name": "Unsplash",
-          "url": "https://unsplash.com",
-          "use": "Free photos for headers if needed (prefer custom sigil)",
-          "cost": "free"
-        },
-        {
-          "name": "Pexels",
-          "url": "https://www.pexels.com",
-          "use": "Free photos/video B-roll for artifact posts",
-          "cost": "free"
-        },
-        {
-          "name": "Remove.bg",
-          "url": "https://www.remove.bg",
-          "use": "Free avatar cutouts",
-          "cost": "free tier"
-        },
-        {
-          "name": "Google Fonts",
-          "url": "https://fonts.google.com",
-          "use": "Typography for tools and graphics",
-          "cost": "free"
-        },
-        {
-          "name": "CapCut",
-          "url": "https://www.capcut.com",
-          "use": "Free short clips of tools/sigils",
-          "cost": "free tier"
+          "use": "Original queue, universal rooms, watchlist, and weekly output.",
+          "cost": "local/public"
         }
       ]
     },
@@ -106,48 +106,49 @@
       "title": "Measure",
       "items": [
         {
-          "name": "X Analytics",
+          "name": "X account analytics",
           "url": "https://x.com/i/account_analytics",
-          "use": "Profile visits, follows, impressions — paste into performance.md",
-          "cost": "free with account"
+          "use": "Record available profile visits, follows, impressions, profile clicks, and direct follows after data settles.",
+          "cost": "account-native; availability varies"
         },
         {
-          "name": "performance.md",
-          "url": "https://github.com/horuslucifer/pearse741",
-          "use": "Weekly scorecard in private repo (social-agent/performance.md)",
+          "name": "Private weekly scorecard",
+          "path": "performance.md",
+          "use": "Paste the weekly numbers and experiment decision into social-agent/performance.md.",
           "cost": "local"
         }
       ]
     },
     {
-      "id": "learn",
-      "title": "Learn (perishable — re-check every 60 days)",
+      "id": "source",
+      "title": "Find more reusable material",
       "items": [
         {
-          "name": "How to use X 2026 (Buffer)",
-          "url": "https://buffer.com/resources/how-to-use-twitter/",
-          "use": "Platform basics refresh",
-          "cost": "free"
+          "name": "Wikimedia Commons",
+          "url": "https://commons.wikimedia.org/",
+          "use": "Search, then verify the exact license on each file page before downloading.",
+          "cost": "free repository"
         },
         {
-          "name": "X open algorithm repo",
-          "url": "https://github.com/xai-org/x-algorithm",
-          "use": "Directional ranking signals; do not treat as fixed weights",
-          "cost": "free"
+          "name": "NASA Image and Media Guidelines",
+          "url": "https://www.nasa.gov/nasa-brand-center/images-and-media/",
+          "use": "Check attribution, endorsement, logo, and third-party-content restrictions before reuse.",
+          "cost": "guidance"
         },
         {
-          "name": "voice.md comedy engine",
-          "url": "../voice.md",
-          "use": "How replies land funny on X",
+          "name": "House voice specification",
+          "path": "voice.md",
+          "use": "Local-only source for rewriting every hook and caption in the entity register.",
           "cost": "local"
         }
       ]
     }
   ],
   "banned": [
-    "Auto-follow / auto-like / auto-DM tools",
+    "Auto-follow, auto-like, auto-reply, or auto-DM tools",
     "Engagement pods and follow-for-follow loops",
-    "Bought followers or bought engagement",
-    "Mass reply spam / unsolicited mentions"
+    "Bought followers, views, or engagement",
+    "Mass reply spam and unsolicited mentions",
+    "Images without a verified reuse license"
   ]
 }

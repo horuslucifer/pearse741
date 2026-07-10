@@ -1,30 +1,43 @@
 {
   "meta": {
     "owner": "LUCIFER / INVICTA",
+    "updated": "2026-07-10",
     "sprint": "2026-07-09 → 2026-08-07",
+    "sprintId": "2026-07-09_2026-08-07",
     "baselineFollowers": 25,
     "milestone100": "late September 2026"
   },
   "daily": [
-    { "id": "d1", "text": "Open dossier or cockpit (3 min)" },
-    { "id": "d2", "text": "Ship 3 substantive replies (copy → open post → paste)" },
-    { "id": "d3", "text": "Optional: 1 original post (universal or artifact)" },
-    { "id": "d4", "text": "Answer people who replied to you" },
-    { "id": "d5", "text": "Tell Claude shipped so scorecard updates" }
+    { "id": "d1", "text": "Open the daily cockpit and review the queued original." },
+    { "id": "d2", "text": "Ship one original by hand: universal by default, artifact twice a week." },
+    { "id": "d3", "text": "Ship three substantive manual replies: two relationship rooms, one universal room." },
+    { "id": "d4", "text": "Answer people who replied to the account while the exchange is live." },
+    { "id": "d5", "text": "Tell the active agent “shipped” with the URLs so the scorecard updates." }
   ],
   "weekly": [
-    { "id": "w1", "text": "15 substantive replies (stretch 25 only if quality holds)", "target": 15 },
-    { "id": "w2", "text": "4 original X posts (2 artifact + 2 universal)", "target": 4 },
-    { "id": "w3", "text": "Reply to engagers while conversation is live" },
-    { "id": "w4", "text": "20-min review: rooms, best reply, profile visits, follows" },
-    { "id": "w5", "text": "Paste numbers into performance.md" }
+    { "id": "w1", "text": "15 substantive replies; stretch toward 25 only if specificity holds.", "target": 15 },
+    { "id": "w2", "text": "5 original X posts: 3 universal observations and 2 artifacts/demos.", "target": 5 },
+    { "id": "w3", "text": "Record every root-author response separately from likes." },
+    { "id": "w4", "text": "Run the 20-minute review: rooms, best reply, best original, profile visits, follows." },
+    { "id": "w5", "text": "Paste settled numbers and one decision into performance.md." }
   ],
   "profile": [
-    { "id": "p1", "text": "Bio states wedge in one line" },
-    { "id": "p2", "text": "Pinned post is mission or best artifact" },
-    { "id": "p3", "text": "Link to Substack start-here" },
-    { "id": "p4", "text": "Avatar readable at 32px" }
+    { "id": "p1", "text": "Bio says what the account makes and covers in one legible promise." },
+    { "id": "p2", "text": "Pinned post is an accessible start-here artifact or mission compression." },
+    { "id": "p3", "text": "Substack link resolves to the intended start page." },
+    { "id": "p4", "text": "Avatar remains recognizable at 32px; header shows one visual system." },
+    { "id": "p5", "text": "First six originals demonstrate universal range and at least two artifacts." }
   ],
+  "activeExperiment": {
+    "id": "room-mix-01",
+    "status": "collecting",
+    "hypothesis": "Mid-size relationship rooms will earn a higher root-author response rate than universal amplifier rooms while amplifiers may produce more reply views.",
+    "control": "10 substantive replies in mid-size relationship rooms",
+    "treatment": "10 substantive replies in universal amplifier rooms",
+    "primaryMetric": "root-author responses / replies shipped",
+    "secondaryMetric": "median reply views and visible profile-visit movement",
+    "reviewGate": "Review after 20 total logged replies; change no other major targeting variable during the block."
+  },
   "hooks": [
     {
       "id": "h1",
@@ -39,7 +52,7 @@
     {
       "id": "h3",
       "name": "Plain deflation",
-      "structure": "what they called X is just [flat translation]."
+      "structure": "translate the inflated claim into one flat, concrete sentence."
     },
     {
       "id": "h4",
@@ -47,5 +60,5 @@
       "structure": "[cosmic setup]. [petty landing]. stop."
     }
   ],
-  "note": "Hooks are STRUCTURE only. Rewrite in voice.md. Never paste AI-tell templates as-is."
+  "note": "Hooks are structures only. Rewrite in voice.md and for the actual post. No template is ready to paste."
 }

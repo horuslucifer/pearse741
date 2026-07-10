@@ -3,176 +3,441 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="color-scheme" content="dark">
 <title>X GROWTH — LUCIFER / INVICTA</title>
 <style>
   :root{
-    --bg:#0b0b0d; --panel:#141417; --panel2:#101013; --line:#26262b;
-    --txt:#e8e6e1; --dim:#8a8894; --red:#b3202a; --gold:#c9a86a; --green:#3f9d6b; --blue:#8fb0c8;
-    --mono:"SF Mono",ui-monospace,Menlo,monospace;
+    --bg:#0b0b0d; --panel:#151518; --panel2:#101013; --line:#303037;
+    --txt:#eeece6; --dim:#aaa7b2; --accent:#e06b73; --gold:#d8b878;
+    --green:#68bd8c; --blue:#9dc1dc;
+    --mono:"SF Mono",ui-monospace,Menlo,Consolas,monospace;
     --serif:"Iowan Old Style","Palatino Linotype",Palatino,Georgia,serif;
   }
-  *{box-sizing:border-box; margin:0; padding:0;}
+  *{box-sizing:border-box;}
+  html{background:var(--bg);}
   body{background:var(--bg); color:var(--txt); font-family:var(--mono);
-       max-width:720px; margin:0 auto; padding:28px 18px 70px;}
-  .kick{font-size:10px; letter-spacing:.35em; color:var(--red);}
-  h1{font-family:var(--serif); font-size:28px; font-weight:600; margin:8px 0 10px; color:#f2efe8;}
-  .sub{color:var(--dim); font-size:12px; line-height:1.7; margin-bottom:18px;}
-  .nav{display:flex; flex-wrap:wrap; gap:8px; margin-bottom:22px;}
-  .btn{display:inline-block; background:#1d1d22; border:1px solid #34343b; color:var(--txt);
-       text-decoration:none; font-size:11px; letter-spacing:.08em; padding:9px 12px;
-       border-radius:8px; cursor:pointer; font-family:inherit;}
+       max-width:880px; margin:0 auto; padding:28px 18px 72px; font-size:14px;}
+  a{color:var(--gold);}
+  a:hover{color:#f0d49d;}
+  a:focus-visible,button:focus-visible,input:focus-visible,summary:focus-visible{
+    outline:3px solid var(--gold); outline-offset:3px;
+  }
+  .kick{font-size:12px; letter-spacing:.32em; color:var(--accent); font-weight:700;}
+  h1{font-family:var(--serif); font-size:clamp(32px,7vw,52px); line-height:1;
+     font-weight:600; margin:10px 0 12px; color:#f5f1e8;}
+  .sub{color:var(--dim); font-size:14px; line-height:1.7; max-width:690px; margin:0 0 20px;}
+  .nav{display:flex; flex-wrap:wrap; gap:9px; margin-bottom:24px;}
+  .btn{display:inline-flex; align-items:center; justify-content:center; min-height:44px;
+       background:#1d1d22; border:1px solid #3b3b43; color:var(--txt);
+       text-decoration:none; font:600 13px/1.3 var(--mono); letter-spacing:.04em;
+       padding:10px 14px; border-radius:8px; cursor:pointer;}
   .btn:hover{border-color:var(--gold); color:var(--gold);}
-  .btn.big{border-color:var(--red);}
-  .btn.big:hover{background:var(--red); color:#fff;}
+  .btn.primary{border-color:var(--accent); background:#26171a; color:#fff;}
+  .btn.primary:hover{background:#a8434b; border-color:#f39aa1; color:#fff;}
+  main{display:block;}
   .card{background:var(--panel); border:1px solid var(--line); border-radius:12px;
-        padding:16px 18px; margin-top:14px;}
-  .card h2{font-size:11px; letter-spacing:.16em; color:var(--gold); margin-bottom:10px;}
-  .card p,.card li{font-size:12.5px; line-height:1.7; color:#dcd8d0;}
-  .card ul{margin:0 0 0 18px;}
-  .card li{margin-bottom:6px;}
+        padding:18px 20px; margin-top:16px;}
+  .card h2{font-size:12px; letter-spacing:.16em; color:var(--gold); margin:0 0 12px;}
+  .card h3{font-size:14px; line-height:1.5; color:var(--txt); margin:0 0 8px;}
+  .card p,.card li{font-size:14px; line-height:1.7; color:#dfdcd5;}
+  .card p{margin:0 0 10px;}
+  .card p:last-child{margin-bottom:0;}
   .check{list-style:none; margin:0; padding:0;}
-  .check li{display:flex; gap:10px; align-items:flex-start; margin-bottom:8px;
-            font-size:12.5px; line-height:1.55; color:#dcd8d0;}
-  .check input{margin-top:3px; accent-color:var(--green);}
-  .asset{border-top:1px solid var(--line); padding:10px 0;}
-  .asset:first-of-type{border-top:none; padding-top:0;}
-  .asset a{color:var(--gold); text-decoration:none;}
-  .asset a:hover{text-decoration:underline;}
-  .asset .use{color:var(--dim); font-size:11.5px; margin-top:3px;}
-  .tag{font-size:9px; letter-spacing:.14em; color:var(--green); border:1px solid #2a4a38;
-       border-radius:999px; padding:2px 7px; margin-left:6px;}
+  .check li{margin:0 0 8px;}
+  .check-row{display:flex; gap:12px; align-items:flex-start; min-height:48px;
+             border:1px solid #29292f; background:var(--panel2); border-radius:9px;
+             padding:11px 12px; cursor:pointer; color:#dfdcd5; line-height:1.55;}
+  .check-row:hover{border-color:#4c4c55;}
+  .check-row:has(input:checked){border-color:#315b44; color:#b7dbc6;}
+  .check-row input{width:20px; height:20px; flex:0 0 20px; margin:1px 0 0; accent-color:var(--green);}
+  .period{font-size:12px; color:var(--dim); margin:-4px 0 12px;}
+  .actions{display:flex; flex-wrap:wrap; gap:8px; margin-top:14px;}
+  .experiment{display:grid; grid-template-columns:1fr 1fr; gap:10px; margin-top:12px;}
+  .arm{background:var(--panel2); border:1px solid var(--line); border-radius:9px; padding:13px;}
+  .arm b{display:block; color:var(--blue); font-size:11px; letter-spacing:.12em; margin-bottom:6px;}
+  .arm span{display:block; font-size:13px; line-height:1.6; color:#dfdcd5;}
+  .gate{border-left:3px solid var(--green); background:#101713; padding:11px 13px;
+        border-radius:0 8px 8px 0; margin-top:12px; color:#c8ddd1; line-height:1.6;}
+  .asset-grid{display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:14px; margin-top:12px;}
+  .asset{overflow:hidden; background:var(--panel2); border:1px solid var(--line); border-radius:10px;}
+  .asset-image{display:block; aspect-ratio:16/10; background:#09090b; overflow:hidden;}
+  .asset-image img{width:100%; height:100%; object-fit:cover; display:block; transition:transform .25s ease;}
+  .asset-image:hover img{transform:scale(1.02);}
+  .asset-body{padding:13px;}
+  .asset-body h3{font-family:var(--serif); font-size:19px; margin:0 0 7px;}
+  .asset-meta{font-size:12px; line-height:1.55; color:var(--dim); margin-bottom:8px;}
+  .asset-use{font-size:13px; line-height:1.6; color:#dfdcd5; margin-bottom:10px;}
+  .asset-actions{display:flex; flex-wrap:wrap; gap:7px;}
+  .asset-actions .btn{font-size:12px; min-height:44px; padding:8px 11px;}
+  .license{display:inline-block; color:var(--green); border:1px solid #315b44;
+           border-radius:999px; padding:3px 8px; font-size:11px; line-height:1.4; margin-bottom:8px;}
+  details{background:var(--panel); border:1px solid var(--line); border-radius:12px; margin-top:16px;}
+  summary{min-height:50px; display:flex; align-items:center; cursor:pointer;
+          padding:14px 20px; color:var(--gold); font-size:12px; font-weight:700;
+          letter-spacing:.14em; list-style:none;}
+  summary::-webkit-details-marker{display:none;}
+  summary::after{content:"+"; color:var(--dim); margin-left:auto; font-size:20px;}
+  details[open] summary::after{content:"−";}
+  .details-body{border-top:1px solid var(--line); padding:16px 20px 18px;}
+  .resource-group + .resource-group{margin-top:18px;}
+  .resource-group h3{font-size:12px; color:var(--blue); letter-spacing:.1em; margin:0 0 8px;}
+  .resource{border-top:1px solid #28282d; padding:10px 0;}
+  .resource:first-of-type{border-top:0; padding-top:0;}
+  .resource-name{font-weight:700; color:var(--txt);}
+  .resource-use{font-size:13px; color:var(--dim); line-height:1.6; margin-top:4px;}
   .hook{background:var(--panel2); border-left:2px solid var(--gold); border-radius:0 8px 8px 0;
-        padding:10px 12px; margin-top:8px; font-size:12px; line-height:1.6; color:#dcd8d0;}
-  .hook b{color:var(--gold); font-weight:500;}
-  .warn{color:#d98a86; font-size:11.5px; line-height:1.6; margin-top:8px;}
-  .foot{margin-top:28px; font-size:10.5px; color:var(--dim); line-height:1.8; text-align:center;}
-  .foot a{color:var(--gold);}
-  #toast{position:fixed; bottom:18px; left:50%; transform:translateX(-50%);
-         background:var(--gold); color:#111; padding:8px 16px; border-radius:8px;
-         font-size:12px; display:none;}
+        padding:11px 13px; margin-top:9px; font-size:13px; line-height:1.6; color:#dfdcd5;}
+  .hook b{color:var(--gold); font-weight:600;}
+  .rules{margin:0 0 0 20px; padding:0;}
+  .rules li{margin:0 0 7px;}
+  .warn{color:#e7a2a6 !important;}
+  .foot{margin-top:30px; font-size:12px; color:var(--dim); line-height:1.8; text-align:center;}
+  #toast{position:fixed; z-index:20; bottom:18px; left:50%; transform:translateX(-50%);
+         background:var(--gold); color:#111; padding:10px 16px; border-radius:8px;
+         font-size:13px; font-weight:700; display:none; box-shadow:0 8px 28px #0008;}
+  @media(max-width:640px){
+    body{padding:22px 13px 58px;}
+    .card{padding:16px;}
+    .asset-grid,.experiment{grid-template-columns:1fr;}
+    .nav .btn{flex:1 1 140px;}
+    .asset-image{aspect-ratio:16/9;}
+  }
+  @media(max-width:360px){
+    body{padding-left:10px; padding-right:10px;}
+    .nav .btn{flex-basis:100%;}
+    .asset-actions .btn{width:100%;}
+  }
+  @media(prefers-reduced-motion:reduce){
+    .asset-image img{transition:none;}
+  }
 </style>
 </head>
 <body>
-  <div class="kick">G R O W T H</div>
-  <h1>X growth desk</h1>
-  <p class="sub" id="sub">cold-start playbook · free assets · daily checklist · no bots</p>
+  <header>
+    <div class="kick">G R O W T H</div>
+    <h1>X growth desk</h1>
+    <p class="sub">The operating loop for a cold account: publish one thing worth
+      visiting for, enter three real conversations, measure what produces curiosity.</p>
+    <nav class="nav" aria-label="Primary">
+      <a class="btn primary" id="cockpit-link" href="today.html">open today's cockpit →</a>
+      <a class="btn" id="dossier-link" href="trends-mockup.html">morning dossier →</a>
+      <a class="btn" href="dashboard.html">engine room →</a>
+      <a class="btn" href="https://x.com/LuciferInvicta" target="_blank" rel="noopener">@LuciferInvicta →</a>
+      <a class="btn" href="growth.html" aria-current="page">growth desk</a>
+    </nav>
+  </header>
 
-  <div class="nav">
-    <a class="btn big" href="index.html">morning dossier →</a>
-    <a class="btn" href="cockpit.html">cockpit →</a>
-    <a class="btn" href="https://x.com/LuciferInvicta" target="_blank" rel="noopener">@LuciferInvicta →</a>
-  </div>
+  <main>
+    <section class="card" aria-labelledby="north-title">
+      <h2 id="north-title">NORTH STAR</h2>
+      <p id="north">Loading the sprint…</p>
+    </section>
 
-  <div class="card">
-    <h2>NORTH STAR</h2>
-    <p id="north">loading…</p>
-  </div>
+    <section class="card" aria-labelledby="daily-title">
+      <h2 id="daily-title">TODAY · ABOUT 25 MINUTES</h2>
+      <div class="period" id="daily-period"></div>
+      <ul class="check" id="daily"></ul>
+      <div class="actions">
+        <a class="btn primary" id="daily-cockpit-link" href="today.html">start in the cockpit →</a>
+      </div>
+    </section>
 
-  <div class="card">
-    <h2>TODAY (20 MIN)</h2>
-    <ul class="check" id="daily"></ul>
-  </div>
+    <section class="card" aria-labelledby="weekly-title">
+      <h2 id="weekly-title">THIS WEEK</h2>
+      <div class="period" id="weekly-period"></div>
+      <ul class="check" id="weekly"></ul>
+    </section>
 
-  <div class="card">
-    <h2>THIS WEEK</h2>
-    <ul class="check" id="weekly"></ul>
-  </div>
+    <section class="card" aria-labelledby="experiment-title">
+      <h2 id="experiment-title">ACTIVE EXPERIMENT</h2>
+      <h3 id="experiment-hypothesis">Loading…</h3>
+      <div class="experiment">
+        <div class="arm"><b>CONTROL</b><span id="experiment-control"></span></div>
+        <div class="arm"><b>TREATMENT</b><span id="experiment-treatment"></span></div>
+      </div>
+      <p style="margin-top:12px"><strong>Primary:</strong> <span id="experiment-primary"></span></p>
+      <p><strong>Secondary:</strong> <span id="experiment-secondary"></span></p>
+      <div class="gate" id="experiment-gate"></div>
+    </section>
 
-  <div class="card">
-    <h2>PROFILE</h2>
-    <ul class="check" id="profile"></ul>
-  </div>
+    <section class="card" aria-labelledby="profile-title">
+      <h2 id="profile-title">PROFILE CONVERSION</h2>
+      <p>The reply earns the visit. This surface earns the follow.</p>
+      <ul class="check" id="profile"></ul>
+    </section>
 
-  <div class="card">
-    <h2>HOOK STRUCTURES (REWRITE IN VOICE)</h2>
-    <div id="hooks"></div>
-    <p class="warn">Structure only. Never paste generic AI templates. Run voice.md comedy engine + anti-tell.</p>
-  </div>
+    <section class="card" aria-labelledby="visual-title">
+      <h2 id="visual-title">FREE VISUAL LIBRARY · VERIFIED REUSE</h2>
+      <p>Downloaded web-ready files with item-level provenance. Use the image as
+        evidence or story, add alt text, and keep the credit with every crop.</p>
+      <div class="asset-grid" id="visual-assets" aria-live="polite">Loading assets…</div>
+      <p class="warn" style="margin-top:14px">Public domain does not mean anonymous.
+        NASA asks for acknowledgment; never imply endorsement or use agency insignia.</p>
+    </section>
 
-  <div class="card">
-    <h2>FREE ASSETS</h2>
-    <div id="assets">loading…</div>
-    <p class="warn" id="banned"></p>
-  </div>
+    <details>
+      <summary>FREE OPERATING LINKS</summary>
+      <div class="details-body" id="resources">Loading…</div>
+    </details>
 
-  <div class="card">
-    <h2>RULES</h2>
-    <ul>
-      <li>~80% replies into mid-size live rooms · ~20% originals</li>
-      <li>Never auto-post · no engagement bots · no bought anything</li>
-      <li>Reply earns author reply = gold · never “great post”</li>
-      <li>Link in first reply only · not in original post body</li>
-      <li>Every 20 replies: check earned-author-reply rate (≥10% before raising volume)</li>
-    </ul>
-  </div>
+    <details>
+      <summary>HOOK STRUCTURES · REFERENCE ONLY</summary>
+      <div class="details-body">
+        <p style="margin:0 0 10px;color:var(--dim);line-height:1.7">
+          Rewrite for the actual post and run the result through <code>voice.md</code>.
+          A structure is not copy.</p>
+        <div id="hooks"></div>
+      </div>
+    </details>
 
-  <div class="foot">
-    full doc in repo: social-agent/x-growth.md · board: todo.md ·
-    <a href="index.html">dossier</a> · <a href="cockpit.html">cockpit</a>
-  </div>
-  <div id="toast">saved</div>
+    <section class="card" aria-labelledby="rules-title">
+      <h2 id="rules-title">BOUNDARIES</h2>
+      <ul class="rules">
+        <li>The owner reviews and posts every original and reply by hand.</li>
+        <li>No auto-posting, auto-likes, auto-follows, auto-DMs, pods, or bought metrics.</li>
+        <li>No fixed algorithm folklore: run one written experiment at a time.</li>
+        <li>Review after 20 replies and 8–10 originals; compare medians after data settles.</li>
+        <li>Never use a web image without a verified item-level reuse license.</li>
+      </ul>
+      <p class="warn" id="banned" style="margin-top:12px"></p>
+    </section>
+  </main>
+
+  <footer class="foot">
+    Strategy: <code>social-agent/x-growth.md</code> · build loop: <code>social-agent/todo.md</code><br>
+    This page drafts, opens, and measures. It never posts.
+  </footer>
+
+  <div id="toast" role="status" aria-live="polite" aria-atomic="true"></div>
 
 <script>
+"use strict";
 const $ = id => document.getElementById(id);
-function toast(m){ const t=$("toast"); t.textContent=m; t.style.display="block";
-  setTimeout(()=>t.style.display="none",1200); }
 
-function loadChecks(key, items, el){
-  const saved = JSON.parse(localStorage.getItem(key) || "{}");
-  el.innerHTML = items.map((it,i)=>{
-    const id = it.id || (key+"-"+i);
-    const on = !!saved[id];
-    return '<li><input type="checkbox" data-k="'+key+'" data-id="'+id+'" '+(on?"checked":"")+'>'+
-      '<span>'+esc(it.text)+'</span></li>';
-  }).join("");
-  el.querySelectorAll("input").forEach(inp=>{
-    inp.onchange = ()=>{
-      const s = JSON.parse(localStorage.getItem(inp.dataset.k) || "{}");
-      s[inp.dataset.id] = inp.checked;
-      localStorage.setItem(inp.dataset.k, JSON.stringify(s));
-      toast(inp.checked ? "checked" : "unchecked");
-    };
+function toast(message){
+  const node = $("toast");
+  node.textContent = message;
+  node.style.display = "block";
+  clearTimeout(toast.timer);
+  toast.timer = setTimeout(() => { node.style.display = "none"; }, 1600);
+}
+
+function safeObject(key){
+  try{
+    const value = JSON.parse(localStorage.getItem(key) || "{}");
+    return value && typeof value === "object" && !Array.isArray(value) ? value : {};
+  }catch(error){
+    localStorage.removeItem(key);
+    return {};
+  }
+}
+
+function localDateKey(date = new Date()){
+  const year = date.getFullYear();
+  const month = String(date.getMonth() + 1).padStart(2, "0");
+  const day = String(date.getDate()).padStart(2, "0");
+  return `${year}-${month}-${day}`;
+}
+
+function isoWeekKey(date = new Date()){
+  const d = new Date(Date.UTC(date.getFullYear(), date.getMonth(), date.getDate()));
+  const weekday = d.getUTCDay() || 7;
+  d.setUTCDate(d.getUTCDate() + 4 - weekday);
+  const yearStart = new Date(Date.UTC(d.getUTCFullYear(), 0, 1));
+  const week = Math.ceil((((d - yearStart) / 86400000) + 1) / 7);
+  return `${d.getUTCFullYear()}-W${String(week).padStart(2, "0")}`;
+}
+
+function isPublished(){
+  return location.hostname === "horuslucifer.github.io" || /\/pearse741\//.test(location.pathname);
+}
+
+function routeLinks(){
+  const published = isPublished();
+  const cockpit = published ? "cockpit.html" : "today.html";
+  const dossier = published ? "index.html" : "trends-mockup.html";
+  $("cockpit-link").href = cockpit;
+  $("daily-cockpit-link").href = cockpit;
+  $("dossier-link").href = dossier;
+}
+
+function element(tag, className, text){
+  const node = document.createElement(tag);
+  if (className) node.className = className;
+  if (text !== undefined) node.textContent = text;
+  return node;
+}
+
+function loadChecks(storageKey, items, list){
+  const saved = safeObject(storageKey);
+  list.replaceChildren();
+  (items || []).forEach((item, index) => {
+    const id = item.id || `${storageKey}-${index}`;
+    const li = element("li");
+    const label = element("label", "check-row");
+    const input = element("input");
+    input.type = "checkbox";
+    input.checked = Boolean(saved[id]);
+    input.setAttribute("aria-label", item.text);
+    const copy = element("span", "", item.text);
+    input.addEventListener("change", () => {
+      const current = safeObject(storageKey);
+      current[id] = input.checked;
+      localStorage.setItem(storageKey, JSON.stringify(current));
+      toast(input.checked ? "checked for this period" : "unchecked");
+    });
+    label.append(input, copy);
+    li.append(label);
+    list.append(li);
   });
 }
-function esc(s){
-  return String(s||"").replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;");
+
+async function copyText(value, message){
+  const text = String(value || "");
+  try{
+    await navigator.clipboard.writeText(text);
+    toast(message);
+  }catch(error){
+    const area = element("textarea");
+    area.value = text;
+    area.setAttribute("readonly", "");
+    area.style.position = "fixed";
+    area.style.opacity = "0";
+    document.body.append(area);
+    area.select();
+    let copied = false;
+    try{ copied = document.execCommand("copy"); }catch(copyError){}
+    area.remove();
+    toast(copied ? message : "copy blocked — select it manually");
+  }
 }
 
-(async function(){
-  let cl=null, as=null;
-  try{ cl = await (await fetch("growth-checklist.json",{cache:"no-store"})).json(); }catch(e){}
-  try{ as = await (await fetch("free-assets.json",{cache:"no-store"})).json(); }catch(e){}
-
-  if (cl){
-    $("north").textContent =
-      "Sprint "+(cl.meta.sprint||"")+" · baseline "+(cl.meta.baselineFollowers||"?")+
-      " followers · milestone 100 by "+(cl.meta.milestone100||"late September")+
-      ". Predictor: substantive replies/week + profile conversion.";
-    loadChecks("growth-daily", cl.daily||[], $("daily"));
-    loadChecks("growth-weekly", cl.weekly||[], $("weekly"));
-    loadChecks("growth-profile", cl.profile||[], $("profile"));
-    $("hooks").innerHTML = (cl.hooks||[]).map(h=>
-      '<div class="hook"><b>'+esc(h.name)+'</b> — '+esc(h.structure)+'</div>'
-    ).join("");
-  } else {
-    $("north").textContent = "checklist failed to load — open over http, not file://";
+function renderExperiment(experiment){
+  if (!experiment){
+    $("experiment-hypothesis").textContent = "No active experiment. Set one before changing cadence.";
+    return;
   }
+  $("experiment-hypothesis").textContent = experiment.hypothesis || "";
+  $("experiment-control").textContent = experiment.control || "";
+  $("experiment-treatment").textContent = experiment.treatment || "";
+  $("experiment-primary").textContent = experiment.primaryMetric || "";
+  $("experiment-secondary").textContent = experiment.secondaryMetric || "";
+  $("experiment-gate").textContent = experiment.reviewGate || "";
+}
 
-  if (as){
-    $("assets").innerHTML = (as.categories||[]).map(cat=>{
-      const rows = (cat.items||[]).map(it=>
-        '<div class="asset"><a href="'+esc(it.url)+'" target="_blank" rel="noopener">'+esc(it.name)+'</a>'+
-        '<span class="tag">'+esc(it.cost||"free")+'</span>'+
-        '<div class="use">'+esc(it.use)+'</div></div>'
-      ).join("");
-      return '<p style="color:var(--blue);font-size:11px;letter-spacing:.12em;margin:14px 0 8px">'+esc(cat.title).toUpperCase()+'</p>'+rows;
-    }).join("");
-    if ((as.banned||[]).length)
-      $("banned").textContent = "Banned: "+as.banned.join(" · ");
-  } else {
-    $("assets").textContent = "assets failed to load";
+function renderVisuals(assets){
+  const grid = $("visual-assets");
+  grid.replaceChildren();
+  (assets || []).forEach(asset => {
+    const card = element("article", "asset");
+    const imageLink = element("a", "asset-image");
+    imageLink.href = asset.localFile;
+    imageLink.target = "_blank";
+    imageLink.rel = "noopener";
+    imageLink.setAttribute("aria-label", `Open ${asset.name}`);
+    const image = element("img");
+    image.src = asset.localFile;
+    image.alt = asset.altText || "";
+    image.loading = "lazy";
+    image.decoding = "async";
+    imageLink.append(image);
+
+    const body = element("div", "asset-body");
+    body.append(element("h3", "", asset.name));
+    body.append(element("div", "license", asset.license));
+    body.append(element("div", "asset-meta", `${asset.creator} · ${asset.date}`));
+    body.append(element("div", "asset-use", asset.use));
+
+    const actions = element("div", "asset-actions");
+    const source = element("a", "btn", "source + license");
+    source.href = asset.sourcePage;
+    source.target = "_blank";
+    source.rel = "noopener";
+    const credit = element("button", "btn", "copy credit");
+    credit.type = "button";
+    credit.addEventListener("click", () => copyText(asset.credit, "credit copied"));
+    const alt = element("button", "btn", "copy alt text");
+    alt.type = "button";
+    alt.addEventListener("click", () => copyText(asset.altText, "alt text copied"));
+    actions.append(source, credit, alt);
+    body.append(actions);
+    card.append(imageLink, body);
+    grid.append(card);
+  });
+  if (!grid.children.length) grid.textContent = "No visual assets found.";
+}
+
+function renderResources(categories){
+  const root = $("resources");
+  root.replaceChildren();
+  (categories || []).forEach(category => {
+    const group = element("section", "resource-group");
+    group.append(element("h3", "", String(category.title || "resources").toUpperCase()));
+    (category.items || []).forEach(item => {
+      const row = element("div", "resource");
+      if (item.url){
+        const link = element("a", "resource-name", item.name);
+        link.href = item.url;
+        link.target = "_blank";
+        link.rel = "noopener";
+        row.append(link);
+      }else{
+        row.append(element("span", "resource-name", `${item.name} · local: ${item.path || "workspace"}`));
+      }
+      row.append(element("div", "resource-use", `${item.use} · ${item.cost}`));
+      group.append(row);
+    });
+    root.append(group);
+  });
+}
+
+function renderHooks(hooks){
+  const root = $("hooks");
+  root.replaceChildren();
+  (hooks || []).forEach(hook => {
+    const row = element("div", "hook");
+    const name = element("b", "", hook.name);
+    row.append(name, document.createTextNode(` — ${hook.structure}`));
+    root.append(row);
+  });
+}
+
+async function getJson(path){
+  const response = await fetch(path, {cache:"no-store"});
+  if (!response.ok) throw new Error(`${path}: ${response.status}`);
+  return response.json();
+}
+
+async function init(){
+  routeLinks();
+  const today = localDateKey();
+  const week = isoWeekKey();
+  $("daily-period").textContent = `resets daily · ${today}`;
+  $("weekly-period").textContent = `resets weekly · ${week}`;
+
+  try{
+    const [checklist, assets] = await Promise.all([
+      getJson("growth-checklist.json"),
+      getJson("free-assets.json")
+    ]);
+    const meta = checklist.meta || {};
+    $("north").textContent = `Sprint ${meta.sprint || ""}. Baseline ${meta.baselineFollowers ?? "?"} followers. Milestone: 100 by ${meta.milestone100 || "late September"}. Discovery comes from specific replies; conversion comes from a profile and body of work worth visiting.`;
+    loadChecks(`growth-daily:${today}`, checklist.daily, $("daily"));
+    loadChecks(`growth-weekly:${week}`, checklist.weekly, $("weekly"));
+    loadChecks(`growth-profile:${meta.sprintId || "current"}`, checklist.profile, $("profile"));
+    renderExperiment(checklist.activeExperiment);
+    renderHooks(checklist.hooks);
+    renderVisuals(assets.visualLibrary);
+    renderResources(assets.categories);
+    if ((assets.banned || []).length) $("banned").textContent = `Never use: ${assets.banned.join(" · ")}`;
+  }catch(error){
+    $("north").textContent = "Growth data failed to load. Serve social-agent over HTTP and check the console.";
+    $("visual-assets").textContent = "Assets failed to load.";
+    console.error(error);
   }
-})();
+}
+
+init();
 </script>
 </body>
 </html>
