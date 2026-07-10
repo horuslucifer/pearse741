@@ -1,8 +1,8 @@
 {
   "meta": {
     "owner": "LUCIFER / INVICTA",
-    "updated": "2026-07-06",
-    "note": "Patrol board config: WHERE to look each day. The dashboard turns these into one-click X search + List deep-links you open in your OWN logged-in browser — no API, $0, zero ban risk. Tune keywords + traction bands per scene as you learn what fires (occult posts run quieter than tpot bangers, so the bands differ). favFloor/favCeiling are a proxy for 'accounts ~2-10x my size' because X has no follower-count search operator. listId = the numeric id from an X List you build by hand (leave \"\" until set). watchHandles = a few known accounts -> a 'from:a OR from:b' patrol link. 2026-07-03: four UNIVERSAL RINGS added (ai-eschatology, myth-religion, meaning-bigideas, culture-art) — the voice is universal; the original four scenes are the reply-back beachhead, the rings are where it travels."
+    "updated": "2026-07-09",
+    "note": "Patrol board config: WHERE to look each day. The dashboard turns these into one-click X search + List deep-links you open in your OWN logged-in browser — no API, $0, zero ban risk. bigRooms is the curated universal amplifier roster; every handle already has evidence in scene.json. Tune keywords + traction bands per scene as you learn. listId = the numeric id from an X List you build by hand. watchHandles = known accounts for relationship patrol."
   },
   "defaults": {
     "lang": "en",
@@ -10,6 +10,56 @@
     "favFloor": 20,
     "favCeiling": 4000,
     "minReplies": 1
+  },
+  "bigRooms": {
+    "label": "universal rooms, latest posts",
+    "dailyCount": 6,
+    "perTheme": 1,
+    "note": "One verified amplifier from each durable human theme per day. Use only when the individual post is broadly legible; skip niche, partisan, promotional, or technical posts.",
+    "themes": [
+      {
+        "id": "human-nature-power",
+        "handles": [
+          "RobertGreene",
+          "Aella_Girl"
+        ]
+      },
+      {
+        "id": "culture-history",
+        "handles": [
+          "culturaltutor",
+          "holland_tom"
+        ]
+      },
+      {
+        "id": "art-music",
+        "handles": [
+          "tedgioia",
+          "jerrysaltz"
+        ]
+      },
+      {
+        "id": "meaning-philosophy",
+        "handles": [
+          "waitbutwhy",
+          "TOEwithCurt"
+        ]
+      },
+      {
+        "id": "religion-myth",
+        "handles": [
+          "PageauJonathan",
+          "BishopBarron"
+        ]
+      },
+      {
+        "id": "work-economics",
+        "handles": [
+          "tylercowen",
+          "david_perell"
+        ]
+      }
+    ]
   },
   "scenes": [
     {

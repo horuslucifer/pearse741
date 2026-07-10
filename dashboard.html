@@ -438,7 +438,7 @@ function normScene(d){
 function saveScene(){ localStorage.setItem(LS_SCN, JSON.stringify(scnState)); render(); }
 
 /* ---------- patrol ---------- */
-function patBlank(){ return { meta:{owner:"",updated:""}, defaults:Object.assign({},PAT_DEFAULTS), scenes:[] }; }
+function patBlank(){ return { meta:{owner:"",updated:""}, defaults:Object.assign({},PAT_DEFAULTS), bigRooms:null, scenes:[] }; }
 function loadPat(){ try{ const raw=localStorage.getItem(LS_PAT); if(raw) return normPat(JSON.parse(raw)); }catch(e){} return patBlank(); }
 function normPat(d){
   d = d || patBlank();
@@ -1130,7 +1130,8 @@ function doImport(){
 function exportJson(){
   let out, name;
   if(activeTab==="patrol"){
-    out={ meta:{...(patState.meta||{}),updated:today()}, defaults:patState.defaults, scenes:patState.scenes }; name="patrol.json";
+    out={ meta:{...(patState.meta||{}),updated:today()}, defaults:patState.defaults,
+          bigRooms:patState.bigRooms||null, scenes:patState.scenes }; name="patrol.json";
   } else if(activeTab==="replies"){
     out={ meta:{...(repState.meta||{}),updated:today()}, replies:repState.replies }; name="replies.json";
   } else if(activeTab==="scene"){

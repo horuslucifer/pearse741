@@ -111,12 +111,12 @@
     <h2><b>2B</b> GO LOOK — click one, scroll until a post makes you think</h2>
     <p>These open X in your own logged-in session. You are hunting for ONE or TWO
        posts where you have something real to say. That's the entire job.</p>
-    <a class="btn big" id="bigrooms-link" target="_blank" rel="noopener">big rooms right now →</a>
+    <a class="btn big" id="bigrooms-link" target="_blank" rel="noopener">universal rooms, latest posts →</a>
     <a class="btn" id="watchlist-link" target="_blank" rel="noopener">your people, latest posts →</a>
     <a class="btn" id="topic-link" target="_blank" rel="noopener">today's topic sweep →</a>
-    <p style="margin-top:10px;font-size:11px">big rooms = the amplifier accounts (50k–1M).
-       Reply while the post is active and only with a real angle. Your people = mid-size, where
-       replies build relationships. Aim ~2 big, ~3 mid per week.</p>
+    <p style="margin-top:10px;font-size:11px">universal rooms rotate across human nature,
+       culture, art, meaning, religion, and work. Open one broadly legible conversation;
+       skip niche or partisan posts. Your people = mid-size rooms where relationships compound.</p>
   </div>
 
   <div class="step">
@@ -351,24 +351,42 @@ function candidateText(c){
   }
 
   const dayIdx = now.getDay();
-  const fromSearch = hs => "https://x.com/search?q=" +
-    encodeURIComponent("(" + hs.map(h=>"from:"+h.replace(/^@/,"")).join(" OR ") + ")") + "&f=live";
+  const dayOrdinal = Math.floor(Date.UTC(now.getFullYear(),now.getMonth(),now.getDate())/86400000);
+  const fromSearch = (hs, originalOnly=false) => "https://x.com/search?q=" +
+    encodeURIComponent("(" + hs.map(h=>"from:"+h.replace(/^@/,"")).join(" OR ") + ")"+
+      (originalOnly ? " -filter:replies -filter:retweets" : "")) + "&f=live";
 
-  /* BIG ROOMS: amplifier-tier accounts (tier:"amplifier" in scene.json), freshest first.
-     Rotate a ~12-handle slice by day so the link stays short and varies. */
+  /* UNIVERSAL BIG ROOMS: curated themes from patrol.json, validated against the
+     evidence-backed amplifier records in scene.json. Size alone is not universality. */
   let amps = scn ? (scn.accounts||[]).filter(a => a.tier==="amplifier").map(a => a.handle) : [];
-  if (amps.length){
-    const start = (dayIdx * 6) % amps.length;
-    const slice = []; for (let i=0;i<12 && i<amps.length;i++) slice.push(amps[(start+i)%amps.length]);
-    $("bigrooms-link").href = fromSearch(slice);
+  const ampSet = new Set(amps.map(h=>h.toLowerCase().replace(/^@/,"")));
+  const bigCfg = pat && pat.bigRooms;
+  const bigThemes = bigCfg && Array.isArray(bigCfg.themes) ? bigCfg.themes.map(t=>({
+    id:t.id||"theme",
+    handles:(t.handles||[]).map(h=>String(h).replace(/^@/,""))
+      .filter((h,i,a)=>h && ampSet.has(h.toLowerCase()) && a.findIndex(x=>x.toLowerCase()===h.toLowerCase())===i)
+  })).filter(t=>t.handles.length) : [];
+  const bigPicks=[];
+  const dailyCount=Math.max(1,Math.min(Number(bigCfg&&bigCfg.dailyCount)||6,12));
+  const perTheme=Math.max(1,Math.min(Number(bigCfg&&bigCfg.perTheme)||1,2));
+  for(let round=0; round<perTheme && bigPicks.length<dailyCount; round++){
+    for(let offset=0; offset<bigThemes.length && bigPicks.length<dailyCount; offset++){
+      const ti=(dayOrdinal+offset)%bigThemes.length;
+      const group=bigThemes[ti].handles;
+      const h=group[(dayOrdinal+round+ti)%group.length];
+      if(h && !bigPicks.some(x=>x.toLowerCase()===h.toLowerCase())) bigPicks.push(h);
+    }
+  }
+  if (bigPicks.length){
+    $("bigrooms-link").href = fromSearch(bigPicks,true);
+    $("bigrooms-link").textContent = (bigCfg.label||"universal rooms, latest posts") + " →";
   } else {
-    $("bigrooms-link").href = fromSearch(["tszzl","Plinz","BasedBeffJezos","RobertGreene","Grimezsz","PageauJonathan"]);
+    $("bigrooms-link").style.display = "none";
   }
 
   /* YOUR PEOPLE: mid-size watchHandles spread across scenes, freshest first */
   let handles = [];
   if (pat){
-    const ampSet = new Set(amps.map(a=>a.toLowerCase().replace(/^@/,"")));
     const groups = (pat.scenes||[]).map(s=>(s.watchHandles||[]).filter(h=>!ampSet.has(h.toLowerCase())));
     const sceneStart = dayIdx % Math.max(groups.length,1);
     for(let round=0; handles.length<12 && round<12; round++){
