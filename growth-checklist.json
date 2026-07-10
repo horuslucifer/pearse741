@@ -1,0 +1,51 @@
+{
+  "meta": {
+    "owner": "LUCIFER / INVICTA",
+    "sprint": "2026-07-09 → 2026-08-07",
+    "baselineFollowers": 25,
+    "milestone100": "late September 2026"
+  },
+  "daily": [
+    { "id": "d1", "text": "Open dossier or cockpit (3 min)" },
+    { "id": "d2", "text": "Ship 3 substantive replies (copy → open post → paste)" },
+    { "id": "d3", "text": "Optional: 1 original post (universal or artifact)" },
+    { "id": "d4", "text": "Answer people who replied to you" },
+    { "id": "d5", "text": "Tell Claude shipped so scorecard updates" }
+  ],
+  "weekly": [
+    { "id": "w1", "text": "15 substantive replies (stretch 25 only if quality holds)", "target": 15 },
+    { "id": "w2", "text": "4 original X posts (2 artifact + 2 universal)", "target": 4 },
+    { "id": "w3", "text": "Reply to engagers while conversation is live" },
+    { "id": "w4", "text": "20-min review: rooms, best reply, profile visits, follows" },
+    { "id": "w5", "text": "Paste numbers into performance.md" }
+  ],
+  "profile": [
+    { "id": "p1", "text": "Bio states wedge in one line" },
+    { "id": "p2", "text": "Pinned post is mission or best artifact" },
+    { "id": "p3", "text": "Link to Substack start-here" },
+    { "id": "p4", "text": "Avatar readable at 32px" }
+  ],
+  "hooks": [
+    {
+      "id": "h1",
+      "name": "Specific number",
+      "structure": "[exact number] [surprising frame]. [hard last line]."
+    },
+    {
+      "id": "h2",
+      "name": "Under-react",
+      "structure": "[huge thing] reported as [logistics annoyance]."
+    },
+    {
+      "id": "h3",
+      "name": "Plain deflation",
+      "structure": "what they called X is just [flat translation]."
+    },
+    {
+      "id": "h4",
+      "name": "Bathetic drop",
+      "structure": "[cosmic setup]. [petty landing]. stop."
+    }
+  ],
+  "note": "Hooks are STRUCTURE only. Rewrite in voice.md. Never paste AI-tell templates as-is."
+}

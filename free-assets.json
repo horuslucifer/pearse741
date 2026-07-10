@@ -1,0 +1,153 @@
+{
+  "meta": {
+    "owner": "LUCIFER / INVICTA",
+    "updated": "2026-07-10",
+    "note": "Free-only assets for X growth. Every URL verified as free tier or free forever at time of add. No engagement automation. No paid-only tools as required."
+  },
+  "categories": [
+    {
+      "id": "hunt",
+      "title": "Hunt rooms",
+      "items": [
+        {
+          "name": "X Advanced Search",
+          "url": "https://x.com/search-advanced",
+          "use": "Live posts with from:, min_faves:, since:, -filter:replies",
+          "cost": "free"
+        },
+        {
+          "name": "X Lists",
+          "url": "https://x.com/i/lists",
+          "use": "One list per scene from patrol.json watchHandles",
+          "cost": "free"
+        },
+        {
+          "name": "Morning Dossier",
+          "url": "https://horuslucifer.github.io/pearse741/",
+          "use": "Daily REPLY NOW targets + Grok takes",
+          "cost": "free"
+        },
+        {
+          "name": "Cockpit",
+          "url": "https://horuslucifer.github.io/pearse741/cockpit.html",
+          "use": "Big rooms / your people / topic sweep + scorecard",
+          "cost": "free"
+        }
+      ]
+    },
+    {
+      "id": "draft",
+      "title": "Draft & structure",
+      "items": [
+        {
+          "name": "OpenTweet free templates",
+          "url": "https://opentweet.io/templates",
+          "use": "Steal STRUCTURE only; rewrite fully in voice.md",
+          "cost": "free"
+        },
+        {
+          "name": "Typefully free tier",
+          "url": "https://typefully.com",
+          "use": "Offline thread drafting; paste to X by hand",
+          "cost": "free tier"
+        },
+        {
+          "name": "Buffer free tools",
+          "url": "https://buffer.com/free-tools",
+          "use": "Planning helpers / calendar ideas",
+          "cost": "free tools"
+        },
+        {
+          "name": "Social media calendar template (Buffer)",
+          "url": "https://buffer.com/resources/social-media-calendar-template/",
+          "use": "Weekly planning sheet if you want offline",
+          "cost": "free"
+        }
+      ]
+    },
+    {
+      "id": "visual",
+      "title": "Visuals (profile + artifacts)",
+      "items": [
+        {
+          "name": "Unsplash",
+          "url": "https://unsplash.com",
+          "use": "Free photos for headers if needed (prefer custom sigil)",
+          "cost": "free"
+        },
+        {
+          "name": "Pexels",
+          "url": "https://www.pexels.com",
+          "use": "Free photos/video B-roll for artifact posts",
+          "cost": "free"
+        },
+        {
+          "name": "Remove.bg",
+          "url": "https://www.remove.bg",
+          "use": "Free avatar cutouts",
+          "cost": "free tier"
+        },
+        {
+          "name": "Google Fonts",
+          "url": "https://fonts.google.com",
+          "use": "Typography for tools and graphics",
+          "cost": "free"
+        },
+        {
+          "name": "CapCut",
+          "url": "https://www.capcut.com",
+          "use": "Free short clips of tools/sigils",
+          "cost": "free tier"
+        }
+      ]
+    },
+    {
+      "id": "measure",
+      "title": "Measure",
+      "items": [
+        {
+          "name": "X Analytics",
+          "url": "https://x.com/i/account_analytics",
+          "use": "Profile visits, follows, impressions — paste into performance.md",
+          "cost": "free with account"
+        },
+        {
+          "name": "performance.md",
+          "url": "https://github.com/horuslucifer/pearse741",
+          "use": "Weekly scorecard in private repo (social-agent/performance.md)",
+          "cost": "local"
+        }
+      ]
+    },
+    {
+      "id": "learn",
+      "title": "Learn (perishable — re-check every 60 days)",
+      "items": [
+        {
+          "name": "How to use X 2026 (Buffer)",
+          "url": "https://buffer.com/resources/how-to-use-twitter/",
+          "use": "Platform basics refresh",
+          "cost": "free"
+        },
+        {
+          "name": "X open algorithm repo",
+          "url": "https://github.com/xai-org/x-algorithm",
+          "use": "Directional ranking signals; do not treat as fixed weights",
+          "cost": "free"
+        },
+        {
+          "name": "voice.md comedy engine",
+          "url": "../voice.md",
+          "use": "How replies land funny on X",
+          "cost": "local"
+        }
+      ]
+    }
+  ],
+  "banned": [
+    "Auto-follow / auto-like / auto-DM tools",
+    "Engagement pods and follow-for-follow loops",
+    "Bought followers or bought engagement",
+    "Mass reply spam / unsolicited mentions"
+  ]
+}
