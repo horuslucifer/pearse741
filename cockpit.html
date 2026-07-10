@@ -16,6 +16,16 @@
   h1{font-size:15px; letter-spacing:.35em; font-weight:700;}
   h1 span{color:var(--red);}
   .sub{color:var(--dim); font-size:11px; margin-top:6px; line-height:1.6;}
+  .mission{background:linear-gradient(135deg,#171316,#101013); border:1px solid #4a262b;
+           border-radius:12px; padding:18px; margin-top:18px;}
+  .mission-kicker{color:var(--red); font-size:10px; letter-spacing:.18em; font-weight:700;}
+  .mission-title{font-size:15px; line-height:1.45; margin-top:7px;}
+  .mission-grid{display:grid; grid-template-columns:repeat(3,1fr); gap:8px; margin-top:14px;}
+  .mission-metric{background:#0e0e11; border:1px solid var(--line); border-radius:8px; padding:10px;}
+  .mission-metric b{display:block; color:var(--gold); font-size:16px;}
+  .mission-metric span{display:block; color:var(--dim); font-size:9.5px; line-height:1.4; margin-top:4px;}
+  .mission-next{border-top:1px solid var(--line); margin-top:12px; padding-top:11px;
+                color:var(--txt); font-size:11.5px; line-height:1.6;}
   .step{background:var(--panel); border:1px solid var(--line); border-radius:10px;
         padding:18px; margin-top:18px;}
   .step h2{font-size:12px; letter-spacing:.12em; margin-bottom:6px;}
@@ -23,8 +33,10 @@
   .step p{color:var(--dim); font-size:11.5px; line-height:1.7; margin-bottom:12px;}
   .btn{display:inline-block; background:#1d1d22; border:1px solid #34343b;
        color:var(--txt); text-decoration:none; font-size:12px; padding:10px 14px;
-       border-radius:8px; margin:0 8px 8px 0; cursor:pointer; font-family:inherit;}
+       border-radius:8px; margin:0 8px 8px 0; cursor:pointer; font-family:inherit;
+       min-height:44px; line-height:22px;}
   .btn:hover{border-color:var(--gold); color:var(--gold);}
+  .btn:focus-visible,a:focus-visible{outline:2px solid var(--gold); outline-offset:3px;}
   .btn.big{font-size:13px; padding:12px 18px; border-color:var(--red);}
   .btn.big:hover{color:#fff; background:var(--red);}
   .note-box{background:#101013; border:1px dashed #34343b; border-radius:8px;
@@ -41,53 +53,96 @@
   .target .t-title{font-size:12px; color:var(--txt); line-height:1.5; margin-bottom:6px;}
   .target .t-take{font-size:12.5px; line-height:1.65; color:#dcd8d0; font-style:italic; margin-bottom:10px;}
   .target .t-why{font-size:11px; color:var(--dim); line-height:1.55; margin-bottom:10px;}
+  .state{font-size:10px; letter-spacing:.08em; color:var(--dim); text-transform:uppercase;
+         margin-bottom:8px;}
+  .state.fresh{color:var(--green);}
+  .state.stale{color:var(--gold);}
+  .muted-box{border:1px dashed var(--line); border-radius:8px; padding:12px;
+             color:var(--dim); font-size:11px; line-height:1.6; overflow-wrap:anywhere;}
+  .history{margin-top:14px; border-top:1px solid var(--line); padding-top:12px;}
+  .history-title{font-size:10px; letter-spacing:.1em; color:var(--dim); margin-bottom:8px;}
+  .history-row{display:flex; justify-content:space-between; gap:10px; padding:7px 0;
+               border-bottom:1px solid #202025; font-size:10.5px; line-height:1.45;}
+  .history-row span:last-child{color:var(--dim); white-space:nowrap;}
   .foot{margin-top:26px; color:var(--dim); font-size:10.5px; line-height:1.8;}
   .foot a{color:var(--dim);}
   #toast{position:fixed; bottom:18px; left:50%; transform:translateX(-50%);
          background:var(--gold); color:#111; padding:8px 16px; border-radius:8px;
          font-size:12px; display:none;}
+  @media(max-width:480px){
+    body{padding:20px 12px 44px;}
+    .mission-grid{grid-template-columns:1fr;}
+    .btn{display:block; width:100%; margin-right:0; text-align:center;}
+  }
 </style>
 </head>
 <body>
   <h1>TODAY <span>·</span> LUCIFER / INVICTA</h1>
   <div class="sub" id="date-line">the whole day is three steps. twenty minutes.</div>
 
+  <section class="mission" aria-labelledby="mission-title">
+    <div class="mission-kicker">30-DAY X SPRINT</div>
+    <div class="mission-title" id="mission-title">be recognizable before trying to be large.</div>
+    <div class="mission-grid" aria-label="daily progress">
+      <div class="mission-metric"><b id="today-originals">0/1</b><span>original today</span></div>
+      <div class="mission-metric"><b id="today-replies">0/3</b><span>real replies today</span></div>
+      <div class="mission-metric"><b id="week-earned">0</b><span>author replies this week</span></div>
+    </div>
+    <div class="mission-next" id="mission-next" role="status" aria-live="polite">loading the next move…</div>
+  </section>
+
+  <div class="step" id="original-step">
+    <h2><b>1</b> SHIP ONE ORIGINAL — give profile visitors a reason to stay</h2>
+    <p id="original-status">today's closest queued X post:</p>
+    <div class="note-box" id="original-body">loading…</div>
+    <button class="btn" id="copy-original">review + copy</button>
+    <a class="btn big" href="https://x.com/compose/post" target="_blank" rel="noopener">open X composer →</a>
+  </div>
+
   <div class="step" id="dossier-step" style="display:none">
-    <h2><b>0</b> FROM THE DOSSIER — reply targets, already ranked</h2>
-    <p>Copy the reply line, open the room, paste under a <b style="color:var(--txt);font-weight:500">mid-size</b> post
-       that already has conversation. Skip the mega-accounts.</p>
+    <h2><b>2A</b> FRESH TARGETS — leads from today's dossier</h2>
+    <p>These are leads, not ready-to-post copy. Open only when the audience overlaps
+       with INVICTA; rewrite the angle in the entity register. One amplifier is enough.</p>
     <div id="dossier-targets"></div>
     <a class="btn" href="index.html" id="dossier-link">full morning dossier →</a>
   </div>
 
   <div class="step">
-    <h2><b>1</b> GO LOOK — click one, scroll until a post makes you think</h2>
+    <h2><b>2B</b> GO LOOK — click one, scroll until a post makes you think</h2>
     <p>These open X in your own logged-in session. You are hunting for ONE or TWO
        posts where you have something real to say. That's the entire job.</p>
     <a class="btn big" id="bigrooms-link" target="_blank" rel="noopener">big rooms right now →</a>
     <a class="btn" id="watchlist-link" target="_blank" rel="noopener">your people, latest posts →</a>
     <a class="btn" id="topic-link" target="_blank" rel="noopener">today's topic sweep →</a>
     <p style="margin-top:10px;font-size:11px">big rooms = the amplifier accounts (50k–1M).
-       Reply EARLY (first ~30 min) and sharp, or skip. Your people = mid-size, where
+       Reply while the post is active and only with a real angle. Your people = mid-size, where
        replies build relationships. Aim ~2 big, ~3 mid per week.</p>
   </div>
 
   <div class="step">
-    <h2><b>2</b> FOUND ONE? — hand it to Claude</h2>
-    <p>Copy the post's link (share icon → copy link), paste it into Claude Code and say
+    <h2><b>2C</b> FOUND ONE? — hand it to Codex or Claude</h2>
+    <p>Copy the post's link (share icon → copy link), paste it into your active agent and say
        <span class="say">"draft replies to this."</span> You'll get three options in your
-       voice. Post your favorite by hand, then tell Claude
+       voice. Post your favorite by hand, then tell the agent
        <span class="say">"shipped"</span> so it gets logged.</p>
   </div>
 
   <div class="step" id="drafts-step" style="display:none">
-    <h2><b>★</b> DRAFTS WAITING — Claude wrote these; pick one, copy, post</h2>
+    <h2><b>★</b> REPLY DRAFT — fresh candidates only</h2>
     <p id="drafts-target"></p>
     <div id="drafts-list"></div>
   </div>
 
   <div class="step">
-    <h2><b>3</b> POST TODAY'S NOTE — copy, paste into Substack, done</h2>
+    <h2><b>3</b> CLOSE THE LOOP — answer people and log what shipped</h2>
+    <p>Check notifications for anyone who answered you. Respond like a person, then tell
+       the active agent <span class="say">"shipped"</span> with the post link. The page only
+       counts entries recorded in the JSON memory.</p>
+    <a class="btn" href="dashboard.html">open reply log →</a>
+  </div>
+
+  <div class="step">
+    <h2>OWNED AUDIENCE — optional after the X mission</h2>
     <p id="note-status">next note from your queue:</p>
     <div class="note-box" id="note-body">loading…</div>
     <button class="btn" id="copy-note">copy the note</button>
@@ -97,32 +152,76 @@
   <div class="step">
     <h2>THIS WEEK</h2>
     <div class="score" id="score">loading…</div>
-    <p style="margin-top:10px">Goal: 5 real replies + 3 notes a week gets you to 100
-       followers around late September. That's the whole plan.</p>
+    <div class="history" id="shipped-history"></div>
+    <p style="margin-top:10px">Operating floor: 15 real replies + 4 original X posts.
+       Two originals should show an artifact, tool, or demo. Raise volume only after
+       the replies start earning answers.</p>
   </div>
 
   <div class="foot">
-    stuck? just tell Claude <span class="say">"daily"</span> and it hands you everything
+    stuck? tell the active agent <span class="say">"daily"</span> and it hands you everything
     from this page in chat. · engine room:
     <a href="dashboard.html">dashboard.html</a>
   </div>
 
-  <div id="toast">copied</div>
+  <div id="toast" role="status" aria-live="polite">copied</div>
 
 <script>
 const $ = id => document.getElementById(id);
 function toast(msg){ const t=$("toast"); t.textContent=msg; t.style.display="block";
   setTimeout(()=>t.style.display="none", 1600); }
+async function copyText(value, success){
+  const text=String(value||"");
+  try{
+    await Promise.race([
+      navigator.clipboard.writeText(text),
+      new Promise((_,reject)=>setTimeout(()=>reject(new Error("clipboard timeout")),500))
+    ]);
+    toast(success); return true;
+  }catch(e){}
+  const ta=document.createElement("textarea");
+  ta.value=text; ta.setAttribute("readonly",""); ta.style.position="fixed"; ta.style.opacity="0";
+  document.body.appendChild(ta); ta.select();
+  let ok=false; try{ ok=document.execCommand("copy"); }catch(e){}
+  ta.remove(); toast(ok?success:"copy blocked — select the text and copy by hand"); return ok;
+}
 
 /* Monday of the current week, local time */
 function weekStart(){
   const d = new Date(); const day = (d.getDay()+6)%7;
   d.setDate(d.getDate()-day); d.setHours(0,0,0,0); return d;
 }
+function nextWeekStart(){ const d=weekStart(); d.setDate(d.getDate()+7); return d; }
 function inThisWeek(iso){
   if(!iso) return false;
   const d = new Date(String(iso).includes("T") ? iso : iso + "T12:00:00");
-  return d >= weekStart();
+  return d >= weekStart() && d < nextWeekStart();
+}
+function localISO(d){
+  const y=d.getFullYear(), m=String(d.getMonth()+1).padStart(2,"0"), day=String(d.getDate()).padStart(2,"0");
+  return `${y}-${m}-${day}`;
+}
+function isToday(iso, now){
+  if(!iso) return false;
+  const d = new Date(String(iso).includes("T") ? iso : iso + "T12:00:00");
+  return localISO(d)===localISO(now);
+}
+function ageHours(iso, now){
+  if(!iso) return Infinity;
+  const ms = now - new Date(iso); return Number.isFinite(ms) ? ms/36e5 : Infinity;
+}
+function isStatusUrl(url){
+  return /^https:\/\/(?:www\.)?(?:x|twitter)\.com\/[^/]+\/status\/\d+(?:[/?#].*)?$/i.test(String(url||""));
+}
+function closestQueued(items, today){
+  return [...items].sort((a,b)=>{
+    const approved = (a.status==="approved"?0:1)-(b.status==="approved"?0:1);
+    if(approved) return approved;
+    const ad=a.scheduledFor||"", bd=b.scheduledFor||"";
+    const ap=ad<today, bp=bd<today;
+    if(ap!==bp) return ap?1:-1;
+    return ap ? bd.localeCompare(ad) : ad.localeCompare(bd);
+  })[0] || null;
 }
 function esc(s){
   return String(s || "").replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;").replace(/"/g,"&quot;");
@@ -133,9 +232,10 @@ function candidateText(c){
 
 (async function init(){
   const now = new Date();
+  const todayISO = localISO(now);
   $("date-line").textContent = now.toLocaleDateString("en-US",
     {weekday:"long", month:"long", day:"numeric"}).toLowerCase()
-    + " · the whole day is three steps. twenty minutes.";
+    + " · publish, converse, close the loop.";
 
   let cal=null, rep=null, pat=null, scn=null, tr=null;
   try{ cal = await (await fetch("calendar.json", {cache:"no-store"})).json(); }catch(e){}
@@ -144,20 +244,52 @@ function candidateText(c){
   try{ scn = await (await fetch("scene.json",    {cache:"no-store"})).json(); }catch(e){}
   try{ tr  = await (await fetch("trends.json",   {cache:"no-store"})).json(); }catch(e){}
 
+  const postedReplies = rep ? (rep.replies||[]).filter(r=>r.status==="posted" && r.postedAt) : [];
+  const postedOriginals = cal ? (cal.queue||[]).filter(i=>i.platform==="x" &&
+    (i.type==="post" || i.type==="thread") && i.status==="posted" && i.postedAt) : [];
+  const repliesToday = postedReplies.filter(r=>isToday(r.postedAt,now)).length;
+  const originalsToday = postedOriginals.filter(i=>isToday(i.postedAt,now)).length;
+  const earnedThisWeek = postedReplies.filter(r=>inThisWeek(r.postedAt) && r.earnedReply===true).length;
+  $("today-originals").textContent = Math.min(originalsToday,1)+"/1";
+  $("today-replies").textContent = Math.min(repliesToday,3)+"/3";
+  $("week-earned").textContent = String(earnedThisWeek);
+  $("mission-next").textContent = originalsToday<1
+    ? "next move: review and ship one original. then enter three conversations."
+    : repliesToday<3
+      ? `next move: ${3-repliesToday} more specific repl${3-repliesToday===1?"y":"ies"}. choose audience fit over room size.`
+      : "daily floor reached. answer anyone who engaged, log the outcomes, then stop.";
+
+  /* STEP 1: closest due X original — never backfill the oldest item blindly */
+  const xDrafts = cal ? (cal.queue||[]).filter(i=>i.platform==="x" && i.type==="post" &&
+    (i.status==="draft" || i.status==="approved")) : [];
+  const original = closestQueued(xDrafts,todayISO);
+  if(original){
+    const when = original.scheduledFor===todayISO ? "due today" :
+      (original.scheduledFor<todayISO ? "overdue — use only if it still fits" : `queued for ${original.scheduledFor}`);
+    $("original-status").innerHTML = `<span class="state ${original.scheduledFor===todayISO?"fresh":"stale"}">${esc(original.status)} · ${esc(when)}</span>`;
+    $("original-body").textContent = original.body || "";
+    $("copy-original").onclick = () => copyText(original.body,"copied — review it once more before posting");
+  } else {
+    $("original-body").textContent = "no X original is queued — ask the active agent for one universal post.";
+    $("copy-original").style.display = "none";
+  }
+
   /* path-aware dossier link (local: trends-mockup / public: index or dossier) */
   const onPublic = /cockpit\.html$/i.test(location.pathname);
   $("dossier-link").href = onPublic ? "index.html" : "trends-mockup.html";
 
   /* STEP 0: top reply targets from the morning dossier */
-  if (tr && Array.isArray(tr.signals)){
+  const dossierFresh = tr && tr.meta && tr.meta.updated ? ageHours(tr.meta.updated,now)<=24 : false;
+  if (tr && Array.isArray(tr.signals) && dossierFresh){
     const replies = tr.signals
       .filter(s => (s.growthLane||"").toLowerCase()==="reply" && (s.replyTake || s.codexTake))
       .sort((a,b)=>(a.priority||50)-(b.priority||50))
       .slice(0,3);
     if (replies.length){
+      const replyRooms = replies.map(s=>(s.rooms||[]).filter(r=>r && isStatusUrl(r.url)));
       $("dossier-step").style.display = "block";
       $("dossier-targets").innerHTML = replies.map((s,i)=>{
-        const rooms = (s.rooms||[]).filter(r=>r && r.url);
+        const rooms = replyRooms[i];
         const q = (s.hunt && s.hunt.query) || s.openXQuery || s.trend || "";
         const fallback = "https://x.com/search?q="+encodeURIComponent(q)+"&f=live";
         const roomHtml = rooms.length
@@ -170,13 +302,13 @@ function candidateText(c){
                 (meta?' · '+esc(meta):'')+'</div>'+
                 (r.text ? '<div class="t-why">'+esc(r.text)+'</div>' : '')+
                 (grokLine ? '<div class="t-take" style="margin-top:6px"><span class="say">grok:</span> '+esc(grokLine)+'</div>' : '')+
-                (grokLine ? '<button class="btn" data-rcopy="'+i+'-'+ri+'">copy grok take</button>' : '')+
+                (grokLine ? '<button class="btn" data-rcopy="'+i+'-'+ri+'">copy grok angle</button>' : '')+
                 (codexLine ? '<div class="t-take" style="margin-top:6px"><span class="say">codex:</span> '+esc(codexLine)+'</div>' : '')+
                 (codexLine ? '<button class="btn" data-rccopy="'+i+'-'+ri+'">copy codex take</button>' : '')+
                 '<a class="btn big" target="_blank" rel="noopener" href="'+esc(r.url)+'">open @'+esc(h)+' →</a>';
             }).join("")
           : (s.replyTake ? '<div class="t-take"><span class="say">grok:</span> '+esc(s.replyTake)+'</div>' : '')+
-            (s.replyTake ? '<button class="btn" data-dcopy="'+i+'">copy grok take</button>' : '')+
+            (s.replyTake ? '<button class="btn" data-dcopy="'+i+'">copy grok angle</button>' : '')+
             (s.codexTake ? '<div class="t-take"><span class="say">codex:</span> '+esc(s.codexTake)+'</div>' : '')+
             (s.codexTake ? '<button class="btn" data-dccopy="'+i+'">copy codex take</button>' : '')+
             '<a class="btn big" target="_blank" rel="noopener" href="'+esc(fallback)+'">open hunt →</a>';
@@ -186,37 +318,33 @@ function candidateText(c){
         '</div>';
       }).join("");
       $("dossier-targets").querySelectorAll("[data-dcopy]").forEach(btn=>{
-        btn.onclick = async () => {
+        btn.onclick = () => {
           const s = replies[+btn.dataset.dcopy];
-          try{ await navigator.clipboard.writeText(s.replyTake||""); toast("grok take copied — paste under a mid-size post"); }
-          catch(e){ toast("select the text and copy by hand"); }
+          copyText(s.replyTake,"angle copied — rewrite it for the actual post");
         };
       });
       $("dossier-targets").querySelectorAll("[data-dccopy]").forEach(btn=>{
-        btn.onclick = async () => {
+        btn.onclick = () => {
           const s = replies[+btn.dataset.dccopy];
-          try{ await navigator.clipboard.writeText(s.codexTake||""); toast("codex take copied — paste under a mid-size post"); }
-          catch(e){ toast("select the text and copy by hand"); }
+          copyText(s.codexTake,"codex take copied — review it for the actual post");
         };
       });
       $("dossier-targets").querySelectorAll("[data-rcopy]").forEach(btn=>{
-        btn.onclick = async () => {
+        btn.onclick = () => {
           const [si, ri] = btn.dataset.rcopy.split("-").map(Number);
           const s = replies[si];
-          const r = (s.rooms||[])[ri] || {};
+          const r = (replyRooms[si]||[])[ri] || {};
           const line = r.replyTake || s.replyTake || "";
-          try{ await navigator.clipboard.writeText(line); toast("grok take copied — open the post and paste"); }
-          catch(e){ toast("select the text and copy by hand"); }
+          copyText(line,"angle copied — rewrite it in your voice");
         };
       });
       $("dossier-targets").querySelectorAll("[data-rccopy]").forEach(btn=>{
-        btn.onclick = async () => {
+        btn.onclick = () => {
           const [si, ri] = btn.dataset.rccopy.split("-").map(Number);
           const s = replies[si];
-          const r = (s.rooms||[])[ri] || {};
+          const r = (replyRooms[si]||[])[ri] || {};
           const line = r.codexTake || s.codexTake || "";
-          try{ await navigator.clipboard.writeText(line); toast("codex take copied — open the post and paste"); }
-          catch(e){ toast("select the text and copy by hand"); }
+          copyText(line,"codex take copied — review it for the actual post");
         };
       });
     }
@@ -239,10 +367,19 @@ function candidateText(c){
 
   /* YOUR PEOPLE: mid-size watchHandles spread across scenes, freshest first */
   let handles = [];
-  if (pat) for (const s of (pat.scenes||[]))
-    for (const h of (s.watchHandles||[]))
-      if (handles.length < 12 && !handles.includes(h) && !amps.map(a=>a.toLowerCase().replace(/^@/,"")).includes(h.toLowerCase()))
-        handles.push(h);
+  if (pat){
+    const ampSet = new Set(amps.map(a=>a.toLowerCase().replace(/^@/,"")));
+    const groups = (pat.scenes||[]).map(s=>(s.watchHandles||[]).filter(h=>!ampSet.has(h.toLowerCase())));
+    const sceneStart = dayIdx % Math.max(groups.length,1);
+    for(let round=0; handles.length<12 && round<12; round++){
+      for(let offset=0; offset<groups.length && handles.length<12; offset++){
+        const group=groups[(sceneStart+offset)%groups.length];
+        if(!group.length) continue;
+        const h=group[(round+dayIdx)%group.length];
+        if(h && !handles.includes(h)) handles.push(h);
+      }
+    }
+  }
   if (!handles.length) handles = ["repligate","deepfates","mythsbaby","weirdstudies","VividVoid_"];
   $("watchlist-link").href = fromSearch(handles);
 
@@ -259,25 +396,28 @@ function candidateText(c){
 
   /* step 3: next queued substack note */
   let note = null;
-  if (cal) note = (cal.queue||[])
+  if (cal) note = closestQueued((cal.queue||[])
     .filter(i => i.platform==="substack" && i.type==="note" &&
-                 (i.status==="draft" || i.status==="approved"))
-    .sort((a,b) => (a.scheduledFor||"").localeCompare(b.scheduledFor||""))[0] || null;
+                 (i.status==="draft" || i.status==="approved")), todayISO);
   if (note){
+    const when = note.scheduledFor===todayISO ? "due today" :
+      (note.scheduledFor<todayISO ? "overdue — optional" : `queued for ${note.scheduledFor}`);
+    $("note-status").textContent = `${note.status} · ${when}`;
     $("note-body").textContent = note.body;
-    $("copy-note").onclick = async () => {
-      try{ await navigator.clipboard.writeText(note.body); toast("copied — paste it into Substack Notes"); }
-      catch(e){ toast("select the text and copy it by hand"); }
-    };
+    $("copy-note").onclick = () => copyText(note.body,"copied — paste it into Substack Notes");
   } else {
     $("note-body").textContent = "queue is empty — tell Claude \"gimme a note\" and it drafts one.";
     $("copy-note").style.display = "none";
   }
 
-  /* drafts waiting to ship (latest target with candidates needing approval) */
-  const drafted = rep ? (rep.replies||[]).filter(r => r.status==="needs-approval" || r.status==="drafted") : [];
+  /* fresh reply drafts only; stale or invalid targets never become the primary CTA */
+  const allDrafted = rep ? (rep.replies||[]).filter(r => r.status==="needs-approval" || r.status==="drafted") : [];
+  const drafted = allDrafted.filter(r=>isStatusUrl(r.targetUrl||r.url) &&
+    ageHours(r.targetCapturedAt||r.capturedAt||r.createdAt,now)>=0 &&
+    ageHours(r.targetCapturedAt||r.capturedAt||r.createdAt,now)<=24)
+    .sort((a,b)=>String(b.targetCapturedAt||b.capturedAt||"").localeCompare(String(a.targetCapturedAt||a.capturedAt||"")));
   if (drafted.length){
-    const t = drafted[drafted.length-1];
+    const t = drafted[0];
     const handle = t.targetHandle || t.handle || "";
     const url = t.targetUrl || t.url || "";
     $("drafts-step").style.display = "block";
@@ -289,28 +429,47 @@ function candidateText(c){
       '<button class="btn" data-copy="' + i + '">copy option ' + (i+1) + '</button>'
     ).join("");
     $("drafts-list").querySelectorAll("[data-copy]").forEach(btn => {
-      btn.onclick = async () => {
+      btn.onclick = () => {
         const c = candidateText((t.candidates||[])[+btn.dataset.copy]);
-        try{ await navigator.clipboard.writeText(c); toast("copied — paste it into the reply box"); }
-        catch(e){ toast("select the text and copy by hand"); }
+        copyText(c,"copied — review, then paste it into the reply box");
       };
     });
+  } else if(allDrafted.length){
+    $("drafts-step").style.display = "block";
+    $("drafts-target").innerHTML = `<span class="state stale">${allDrafted.length} stale draft${allDrafted.length===1?"":"s"} hidden</span>`;
+    $("drafts-list").innerHTML = '<div class="muted-box">Do not paste an old reply into a dead conversation. Capture a fresh post; the old drafts remain in the engine room as idea material.</div>';
   }
 
   /* week scorecard */
-  const replies = rep ? (rep.replies||[]).filter(r => r.status==="posted" &&
-    inThisWeek(r.postedAt || r.targetCapturedAt || r.capturedAt)).length : 0;
+  const replies = postedReplies.filter(r=>inThisWeek(r.postedAt)).length;
+  const originals = postedOriginals.filter(i=>inThisWeek(i.postedAt)).length;
   const notes = cal ? (cal.queue||[]).filter(i => i.platform==="substack" &&
     i.type==="note" && i.status==="posted" && inThisWeek(i.postedAt)).length : 0;
   const threads = cal ? (cal.queue||[]).filter(i => i.type==="thread" &&
     i.status==="posted" && inThisWeek(i.postedAt)).length : 0;
   const pills = [
-    ["replies", replies, 5],
+    ["replies", replies, 15],
+    ["X originals", originals, 4],
     ["notes", notes, 3],
     ["threads", threads, 1],
   ].map(([name,have,want]) =>
     `<span class="pill ${have>=want?"done":""}"><b>${have}</b>/${want} ${name}</span>`);
+  pills.push(`<span class="pill"><b>${earnedThisWeek}</b> author replies</span>`);
   $("score").innerHTML = pills.join("");
+
+  const shipped = [
+    ...postedReplies.filter(r=>inThisWeek(r.postedAt)).map(r=>({
+      at:r.postedAt, label:`reply ${r.targetHandle||r.handle||""}`.trim()
+    })),
+    ...postedOriginals.filter(i=>inThisWeek(i.postedAt)).map(i=>({
+      at:i.postedAt, label:`X ${i.type||"post"}: ${(i.body||"").slice(0,72)}`
+    })),
+    ...(cal ? (cal.queue||[]).filter(i=>i.platform==="substack" && i.status==="posted" &&
+      inThisWeek(i.postedAt)).map(i=>({at:i.postedAt,label:`Substack ${i.type||"item"}`})) : [])
+  ].sort((a,b)=>String(b.at).localeCompare(String(a.at))).slice(0,6);
+  $("shipped-history").innerHTML = '<div class="history-title">SHIPPED THIS WEEK</div>'+
+    (shipped.length ? shipped.map(x=>`<div class="history-row"><span>${esc(x.label)}</span><span>${esc(x.at)}</span></div>`).join("")
+      : '<div class="muted-box">nothing logged this week yet. the first shipment changes the board.</div>');
 })();
 </script>
 </body>

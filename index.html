@@ -111,11 +111,11 @@
     <h1>The Morning Dossier</h1>
     <div class="meta" id="meta">loading…</div>
     <div class="plan" id="plan"></div>
-    <div class="hint" id="hint">growth order: <b>reply under someone else's post</b> first · one original take max · skip the rest</div>
+    <div class="hint" id="hint">growth order: <b>choose audience fit</b> · rewrite the angle for the actual post · one original max</div>
   </div>
   <div id="list"></div>
   <div class="foot">
-    cold-start math: replies into mid-size rooms beat broadcasting into the void ·
+    cold-start discipline: specific conversation first · profile-fit beats raw room size ·
     <a href="cockpit.html">the cockpit →</a>
   </div>
   <div id="toast">copied</div>
@@ -127,6 +127,21 @@ function toast(m){
   t.textContent=m; t.style.display="block";
   setTimeout(()=>t.style.display="none",1600);
 }
+async function copyText(value,message){
+  const text=String(value||"");
+  try{
+    await Promise.race([
+      navigator.clipboard.writeText(text),
+      new Promise((_,reject)=>setTimeout(()=>reject(new Error("clipboard timeout")),500))
+    ]);
+    toast(message); return;
+  }catch(e){}
+  const ta=document.createElement("textarea");
+  ta.value=text; ta.setAttribute("readonly",""); ta.style.position="fixed"; ta.style.opacity="0";
+  document.body.appendChild(ta); ta.select();
+  let ok=false; try{ ok=document.execCommand("copy"); }catch(e){}
+  ta.remove(); toast(ok?message:"copy blocked — select the text and copy by hand");
+}
 function laneOf(s){
   const g = (s.growthLane||"").toLowerCase();
   if (g) return g;
@@ -137,12 +152,16 @@ function laneOf(s){
 function laneRank(l){
   return ({reply:0, post:1, skip:2, silent:3})[l] ?? 9;
 }
+function isStatusUrl(url){
+  return /^https:\/\/(?:www\.)?(?:x|twitter)\.com\/[^/]+\/status\/\d+(?:[/?#].*)?$/i.test(String(url||""));
+}
 function huntUrl(s){
   const q = (s.hunt && s.hunt.query) || s.openXQuery || s.trend || "";
   return "https://x.com/search?q="+encodeURIComponent(q)+"&f=live";
 }
 function roomUrl(s){
-  if (s.rooms && s.rooms[0] && s.rooms[0].url) return s.rooms[0].url;
+  const room=(s.rooms||[]).find(r=>r && isStatusUrl(r.url));
+  if(room) return room.url;
   return huntUrl(s);
 }
 
@@ -153,6 +172,7 @@ function roomUrl(s){
   const sig = raw
     .map((s,i)=>({...s, _i:i, _lane:laneOf(s), _pri: Number(s.priority||50)}))
     .sort((a,b)=> laneRank(a._lane)-laneRank(b._lane) || a._pri-b._pri || a._i-b._i);
+  const roomMap = sig.map(s=>Array.isArray(s.rooms) ? s.rooms.filter(r=>r && isStatusUrl(r.url)) : []);
 
   const nReply = sig.filter(s=>s._lane==="reply").length;
   const nPost  = sig.filter(s=>s._lane==="post").length;
@@ -180,7 +200,7 @@ function roomUrl(s){
   let html = "";
   let lastSec = "";
   const secLabel = {
-    reply: 'REPLY NOW · <b>do these first</b> — copy reply, open room, post under someone mid-size',
+    reply: 'REPLY NOW · <b>do these first</b> — open a fit room, rewrite the angle, reply manually',
     post:  'ORIGINAL POST · <b>one max today</b> — the universal spine, not a dump',
     skip:  'SKIP · funny or hot, low growth leverage for a cold account',
     silent:'SILENT · do not touch'
@@ -207,7 +227,7 @@ function roomUrl(s){
         '<div class="lbl">WHAT IT IS</div><div class="read">'+paras(s.whatItIs)+'</div>'+
         '<div class="lbl">WHY IT\'S TRENDING</div><div class="read">'+paras(s.whyTrending)+'</div>';
 
-      const rooms = Array.isArray(s.rooms) ? s.rooms.filter(r=>r && r.url) : [];
+      const rooms = roomMap[i];
       if (rooms.length){
         body +=
           '<div class="rooms"><div class="lbl">REPLY UNDER THESE POSTS</div>'+
@@ -228,7 +248,7 @@ function roomUrl(s){
                 ? '<div class="groke codex"><div class="gl">CODEX TAKE · '+(codexLine.length)+' / 280</div><q>'+esc(codexLine)+'</q></div>'
                 : '')+
               '<div class="row">'+
-                (grokLine ? '<button class="btn primary" data-copy-room="'+i+'-'+ri+'">COPY GROK</button>' : '')+
+                (grokLine ? '<button class="btn primary" data-copy-room="'+i+'-'+ri+'">COPY GROK ANGLE</button>' : '')+
                 (codexLine ? '<button class="btn" data-copy-room-codex="'+i+'-'+ri+'">COPY CODEX</button>' : '')+
                 '<a class="btn x" target="_blank" rel="noopener" href="'+esc(r.url)+'">OPEN POST →</a>'+
               '</div></div>';
@@ -258,7 +278,7 @@ function roomUrl(s){
           '<button class="btn" data-copy-codex="'+i+'">COPY CODEX</button>'+
           '<a class="btn x" target="_blank" rel="noopener" href="'+esc(roomUrl(s))+'">OPEN ROOM →</a></div></div>';
       }
-      if (s.take){
+      if (s.take && lane==="post"){
         body +=
           '<div class="take"><div class="lbl">ORIGINAL POST</div><q>'+esc(s.take)+'</q>'+
           '<div class="row"><span class="charc">'+s.take.length+' / 280</span>'+
@@ -298,14 +318,14 @@ function roomUrl(s){
     b.addEventListener("click",e=>{
       e.stopPropagation();
       const s = sig[+b.dataset.copyReply];
-      navigator.clipboard.writeText(s.replyTake||"").then(()=>toast("grok take copied — paste under a mid-size post"));
+      copyText(s.replyTake,"angle copied — rewrite it for the actual post");
     });
   });
   list.querySelectorAll("[data-copy-codex]").forEach(b=>{
     b.addEventListener("click",e=>{
       e.stopPropagation();
       const s = sig[+b.dataset.copyCodex];
-      navigator.clipboard.writeText(s.codexTake||"").then(()=>toast("codex take copied — paste under a mid-size post"));
+      copyText(s.codexTake,"codex take copied — review it for the actual post");
     });
   });
   list.querySelectorAll("[data-copy-room]").forEach(b=>{
@@ -313,9 +333,9 @@ function roomUrl(s){
       e.stopPropagation();
       const [si, ri] = b.dataset.copyRoom.split("-").map(Number);
       const s = sig[si];
-      const r = (s.rooms||[])[ri] || {};
+      const r = (roomMap[si]||[])[ri] || {};
       const line = r.replyTake || s.replyTake || "";
-      navigator.clipboard.writeText(line).then(()=>toast("grok take copied — open the post and paste"));
+      copyText(line,"angle copied — rewrite it in your voice");
     });
   });
   list.querySelectorAll("[data-copy-room-codex]").forEach(b=>{
@@ -323,16 +343,16 @@ function roomUrl(s){
       e.stopPropagation();
       const [si, ri] = b.dataset.copyRoomCodex.split("-").map(Number);
       const s = sig[si];
-      const r = (s.rooms||[])[ri] || {};
+      const r = (roomMap[si]||[])[ri] || {};
       const line = r.codexTake || s.codexTake || "";
-      navigator.clipboard.writeText(line).then(()=>toast("codex take copied — open the post and paste"));
+      copyText(line,"codex take copied — review it for the actual post");
     });
   });
   list.querySelectorAll("[data-copy-post]").forEach(b=>{
     b.addEventListener("click",e=>{
       e.stopPropagation();
       const s = sig[+b.dataset.copyPost];
-      navigator.clipboard.writeText(s.take||"").then(()=>toast("post copied — one original max today"));
+      copyText(s.take,"post copied — one original max today");
     });
   });
   list.querySelectorAll("a.btn.x").forEach(a=>a.addEventListener("click",e=>e.stopPropagation()));
